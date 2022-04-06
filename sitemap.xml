@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jlan.darkflow.top/2022/04/06/CTFshowXSS/</loc>
+    
+    <lastmod>2022-04-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://jlan.darkflow.top/2022/04/05/CTFshowPHP%E7%89%B9%E6%80%A7/</loc>
     
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +22,7 @@
   <url>
     <loc>http://jlan.darkflow.top/2022/03/22/CTFshow%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/</loc>
     
-    <lastmod>2022-04-04</lastmod>
+    <lastmod>2022-04-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -238,64 +247,64 @@
 
   <url>
     <loc>http://jlan.darkflow.top/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/Note/</loc>
-    <lastmod>2022-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jlan.darkflow.top/tags/CTF/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/web/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/tags/Note/</loc>
+    <lastmod>2022-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/Python/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/RCE/</loc>
-    <lastmod>2022-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jlan.darkflow.top/tags/C/</loc>
-    <lastmod>2022-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/CTF-web-python/</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2022-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
+    <lastmod>2022-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/tags/C/</loc>
+    <lastmod>2022-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
