@@ -4,7 +4,16 @@
   <url>
     <loc>http://jlan.darkflow.top/2022/04/07/CTFshowSQL%E6%B3%A8%E5%85%A5/</loc>
     
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/2022/04/12/CTFshow-%E8%A7%82%E6%98%9F/</loc>
+    
+    <lastmod>2022-04-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -247,7 +256,7 @@
 
   <url>
     <loc>http://jlan.darkflow.top/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -255,56 +264,56 @@
   
   <url>
     <loc>http://jlan.darkflow.top/tags/CTF/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/web/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/Note/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/Python/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/RCE/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/SQL/</loc>
-    <lastmod>2022-04-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jlan.darkflow.top/tags/CTF-web-python/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://jlan.darkflow.top/tags/C/</loc>
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/tags/CTF-web-python/</loc>
+    <lastmod>2022-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
