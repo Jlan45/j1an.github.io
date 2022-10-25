@@ -1,0 +1,469 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/images/icons/stun-logo.svg?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/images/icons/favicon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><meta name="baidu-site-verification" content="code-15zD58SrOe"><meta name="description" content="碎碎念：学Java真的好折磨人呜呜呜呜，好多好多好多包，名字也不认识，方法也不会用，只能慢慢一步步往前走，哭哭😭，这篇文章主要是总结一些关于Java的有趣小点，看个乐呵涨点冷知识就好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="有关Java的小点">
+<meta property="og:url" content="http://jlan.darkflow.top/posts/b36bc80c.html">
+<meta property="og:site_name" content="Jlan&#39;s Little World">
+<meta property="og:description" content="碎碎念：学Java真的好折磨人呜呜呜呜，好多好多好多包，名字也不认识，方法也不会用，只能慢慢一步步往前走，哭哭😭，这篇文章主要是总结一些关于Java的有趣小点，看个乐呵涨点冷知识就好">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210241949464.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210242001054.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232150702.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232300218.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232305532.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232310998.png">
+<meta property="article:published_time" content="2022-10-24T11:39:48.000Z">
+<meta property="article:modified_time" content="2022-10-25T16:41:49.919Z">
+<meta property="article:author" content="Jlan">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210241949464.png"><title>有关Java的小点 | Jlan's Little World</title><link ref="canonical" href="http://jlan.darkflow.top/posts/b36bc80c.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Jlan's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">有关Java的小点</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-10-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-10-26</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/b36bc80c.html" data-flag-title="有关Java的小点"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>碎碎念：学Java真的好折磨人呜呜呜呜，好多好多好多包，名字也不认识，方法也不会用，只能慢慢一步步往前走，哭哭😭，这篇文章主要是总结一些关于Java的有趣小点，看个乐呵涨点冷知识就好</p>
+<span id="more"></span>
+
+
+        <h2 id="关于数字的类型转换"   >
+          <a href="#关于数字的类型转换" class="heading-link"><i class="fas fa-link"></i></a><a href="#关于数字的类型转换" class="headerlink" title="关于数字的类型转换"></a>关于数字的类型转换</h2>
+      <p>看到这个是因为2022中科大的CTF有一道猜数字的题目，关键代码如下</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> XMLStreamException </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> rand = 随机数一个;</span><br><span class="line">        <span class="keyword">var</span> guess=Double.parseDouble(<span class="string">&quot;用户输入的数据&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> isLess = rand &lt; guess - <span class="number">1e-6</span> / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">var</span> isMore = rand &gt; guess + <span class="number">1e-6</span> / <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">if</span>(!isLess&amp;&amp;!isMore&amp;&amp;一次猜对)&#123;</span><br><span class="line">          giveFlag();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>这里会随机生成一个0-1之间的double类型的随机数，用户需要猜其中的随机数是什么，并且只要一次猜对就会给flag，当然除非你运气已经好到一定地步了不然绝对不可能猜出来的，所以我们需要另辟蹊径了</p>
+<p>可以看到用户输入的数据类型是以字符串输入然后交给<code>parseDouble</code>函数转换成小数再进行判断的，那我们跟入<code>parseDouble</code>中看一下解析流程，逐层调用到<code>FloatingDecimal.readJavaFormatString</code>函数中，看到对特殊内容的解析部分</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210241949464.png"></p>
+<p>可以看到有三种特殊的解析类型，分别是NaN，Infinity和16进制，那我们分别用这几种试试看看最终效果</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210242001054.png"></p>
+<p>可以看到输入是NaN就能拿到flag，是因为NaN就像一个黑洞，任何数字和他进行运算结果都是NaN，Infinity也类似，不过在*0的时候会变成NaN，判断中Infinity大于任何数，而NaN表示非数值，所以不管进行什么运算结果都为NaN，布尔值为False</p>
+
+        <h2 id="关于Java代码调用的问题"   >
+          <a href="#关于Java代码调用的问题" class="heading-link"><i class="fas fa-link"></i></a><a href="#关于Java代码调用的问题" class="headerlink" title="关于Java代码调用的问题"></a>关于Java代码调用的问题</h2>
+      <p>Java这个烂玩意让人困惑不是一天两天了，今天索性把Java中的代码调用问题一次性看完（调试完）</p>
+<p>首先是static关键字定义的类，我们在使用的时候需要直接定义，如下：</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">className.staticInnerClass xxx=<span class="keyword">new</span> className.staticInnerClass()<span class="comment">//静态内部类只能访问外部静态属性或方法</span></span><br></pre></td></tr></table></div></figure>
+
+<p>如果是一个非静态子类，就需要先实例化一个父类，再实例化子类</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">className xxx = <span class="keyword">new</span> className();</span><br><span class="line">className.InnerClass inner  = xxx.<span class="function">new <span class="title">InnerClass</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//或者一步到位</span></span><br><span class="line">className.InnerClass innerObject = <span class="keyword">new</span> className().n<span class="function">ew <span class="title">InnerClass</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></div></figure>
+
+<p><code>synchronized</code></p>
+
+        <h2 id="关于TemplatesImpl利用链RCE的问题"   >
+          <a href="#关于TemplatesImpl利用链RCE的问题" class="heading-link"><i class="fas fa-link"></i></a><a href="#关于TemplatesImpl利用链RCE的问题" class="headerlink" title="关于TemplatesImpl利用链RCE的问题"></a>关于TemplatesImpl利用链RCE的问题</h2>
+      <p>困惑很久了，主要是链子跟到最后一步不知道怎么最后RCE了</p>
+<p>要想知道这个类为什么可以触发RCE，首先我们要知道默认情况下Java执行系统命令需要使用的是什么，代码应当如下</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TouchFile</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TouchFile</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Runtime.getRuntime().exec(<span class="string">&quot;calc&quot;</span>);</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+<p>直接使用Runtime包中的函数执行即可，将这个类编译成字节码后再进行base64，然后交给defineClass来加载字节码，再执行其中</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Method defineClass = ClassLoader.class.getDeclaredMethod(<span class="string">&quot;defineClass&quot;</span>, String.class, <span class="keyword">byte</span>[].class, <span class="keyword">int</span>.class, <span class="keyword">int</span>.class);</span><br><span class="line">defineClass.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="keyword">byte</span>[] code =Base64.getDecoder().decode(<span class="string">&quot;yv66vgAAADQAHgoABgARCgASABMIABQKABIAFQcAFgcAFwEABjxpbml0PgEAAygpVgEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAApFeGNlcHRpb25zBwAYAQAEbWFpbgEAFihbTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VGaWxlAQAOVG91Y2hGaWxlLmphdmEMAAcACAcAGQwAGgAbAQAEY2FsYwwAHAAdAQAJVG91Y2hGaWxlAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvbGFuZy9FeGNlcHRpb24BABFqYXZhL2xhbmcvUnVudGltZQEACmdldFJ1bnRpbWUBABUoKUxqYXZhL2xhbmcvUnVudGltZTsBAARleGVjAQAnKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL1Byb2Nlc3M7ACEABQAGAAAAAAACAAEABwAIAAIACQAAAC4AAgABAAAADiq3AAG4AAISA7YABFexAAAAAQAKAAAADgADAAAAEAAEABEADQASAAsAAAAEAAEADAAJAA0ADgACAAkAAAAmAAIAAQAAAAq4AAISA7YABFexAAAAAQAKAAAACgACAAAAFgAJABcACwAAAAQAAQAMAAEADwAAAAIAEA==&quot;</span>);</span><br><span class="line">Class yyds= (Class) defineClass.invoke(ClassLoader.getSystemClassLoader(), <span class="string">&quot;TouchFile&quot;</span>, code, <span class="number">0</span>, code.length);</span><br><span class="line">yyds.newInstance();</span><br></pre></td></tr></table></div></figure>
+
+<p>我们都知道 Java 的 ClassLoader 是用来加载字节码文件最基础的方法，ClassLoader 是什么呢？它就是一个“加载器”，告诉Java虚拟机如何加载这个类，用一句话概括它的作用就是将传入的字节码处理成真正的 Java 类然后返回。</p>
+<p><code>ClassLoader</code> 处理字节码的流程为 <code>loadClass</code> -&gt; <code>findClass</code> -&gt; <code>defineClass</code></p>
+<p><code>loadClass</code>:：从已加载的类缓存、父加载器等位置寻找类（这里实际上是双亲委派机制），在前面没有找到的情况下，执行 <code>findClass</code> </p>
+<p> <code>findClass</code>： 根据基础URL指定的方式来加载类的字节码</p>
+<p> <code>defineClass</code>：处理前面传入的字节码，将其处理成真正的Java类</p>
+<p>所以将字节码转为 java 类的其实是 defineClass 方法，翻看源码 ClassLoader#defineClass 是一个protected属性，无法直接在外部访问，只能通过反射的形式来调用，所以在实际场景中很难利用到它。</p>
+<p>这也就是<code>TemplatesImpl</code>存在的意义，我们直接去看这个类的定义</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232150702.png"></p>
+<p>可以看到TransletClassLoader定义了defineClass方法，对其进行调用</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232300218.png"></p>
+<p>再向前查找发现defineTransletClasses中生成了TransletClassLoader并调用了其中的defineClass方法，不过到这一步依然是private子类无法被外界直接调用，所以我们继续向上</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232305532.png"></p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232310998.png"></p>
+<p>最终找到newTransformer为public，可以直接被调用了，最终利用链如下</p>
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TemplatesImpl#newTransformer() -&gt;</span><br><span class="line">TemplatesImpl#getTransletInstance() -&gt;</span><br><span class="line">TemplatesImpl#defineTransletClasses() -&gt;</span><br><span class="line">TransletClassLoader#defineClass()</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//未成功触发</span></span><br><span class="line">TemplatesImpl#getTransletIndex() -&gt; </span><br><span class="line">TemplatesImpl#defineTransletClasses() -&gt;</span><br><span class="line">TransletClassLoader#defineClass()</span><br></pre></td></tr></table></div></figure>
+
+<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TemplatesImpl#getOutputProperties() -&gt;</span><br><span class="line">TemplatesImpl#newTransformer() -&gt; </span><br><span class="line">TemplatesImpl#getTransletInstance() -&gt; </span><br><span class="line">TemplatesImpl#defineTransletClasses() -&gt;</span><br><span class="line">TransletClassLoader#defineClass() </span><br></pre></td></tr></table></div></figure>
+
+<p>看完这个我们可以看看ysoserial最后是怎么通过他构造出来一个可供命令执行的字节码的</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://jlan.darkflow.top">Jlan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://jlan.darkflow.top/posts/b36bc80c.html">http://jlan.darkflow.top/posts/b36bc80c.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/posts/7ecbecc0.html"><span class="paginator-prev__text">ysoserial反序列化</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%95%B0%E5%AD%97%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.</span> <span class="toc-text">
+          关于数字的类型转换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8EJava%E4%BB%A3%E7%A0%81%E8%B0%83%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">
+          关于Java代码调用的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8ETemplatesImpl%E5%88%A9%E7%94%A8%E9%93%BERCE%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">
+          关于TemplatesImpl利用链RCE的问题</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">56</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">10</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Jlan</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>已经是Dest0g3的菜狗了</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.json';
+
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
+
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
+        };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
+
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
+
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
+
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
+
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
+
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
+
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
+
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
+
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
+
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
+
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (false) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'PRycUaQbxE5mebmnKTjtaRJg-gzGzoHsz',
+    appKey: 'jGyP9zr05MTuqHpWaIkgYW4h',
+    notify: true,
+    verify: true,
+    placeholder: '写点什么吧',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: 'zh-cn,en' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (true) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
