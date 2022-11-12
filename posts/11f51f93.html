@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="URL和HTTP协议, Jlan&#39;s Little World">
+    <meta name="keywords" content="URL和HTTP协议, J1an&#39;s Little World">
     <meta name="description" content="URL遇事不决先百度
 
 因特网上的可用资源可以用简单字符串来表示，该文档就是描述了这种字符串的语法和语义。而这些字符串则被称为：“统一资源定位器”（URL）。这篇说明源于万维网全球信息主动组织（World Wide Web global i">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>URL和HTTP协议 | Jlan&#39;s Little World</title>
+    <title>URL和HTTP协议 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -47,8 +47,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -66,7 +64,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -87,55 +85,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -170,7 +124,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -193,55 +147,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -393,6 +303,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -403,13 +316,13 @@
 <p>因特网上的可用资源可以用简单字符串来表示，该文档就是描述了这种字符串的语法和语义。而这些字符串则被称为：“<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E5%99%A8/7682460?fromModule=lemma_inlink">统一资源定位器</a>”（URL）。这篇说明源于万维网全球信息主动组织（World Wide Web global informationinitiative）介绍的概念。RFC1630《通用资源标志符》描述了一些对象数据，他们自1990年起就开始使用这些对象数据。这篇URL说明符合《因特网资源定位符的功能需求（Functional Requirements for Internet Resource Locators）》中说明的需求。这篇文档是由工程任务组织（IETF）的URI工作小组写的 </p>
 </blockquote>
 <p>肯定看不懂对吧，没关系，你只需要知道这个东西是用来寻找互联网上的资源就可以了，下面我们来看看一个URL的完整格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">scheme:[&#x2F;&#x2F;[user[:password]@]host[:port]][&#x2F;path][?query][#fragment]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>贴心的中文翻译</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">协议:[//[用户[:密码]@]主机[:端口]][/路径][?队列][#片段]</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">协议:[&#x2F;&#x2F;[用户[:密码]@]主机[:端口]][&#x2F;路径][?队列][#片段]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>下面我们以一个http协议的url来对上面的内容做一个解释</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://jlan.darkflow.top/posts/58958.html</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">http:&#x2F;&#x2F;jlan.darkflow.top&#x2F;posts&#x2F;58958.html<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>我们来按照上面的语法来分析一下这个是什么内容</p>
 <p>首先我们使用的是http协议来对jlan.darkflow.top这个服务主机进行访问，访问的是/posts/58958.html这个网页资源，这时候应该就会有人问了，为什么这个http的URL里面没有用户啊密码啊端口之类的东西呢，很简单，因为这些内容都是可选项，而http协议内容基本都是公开访问的，所以我们不需要指明我们用户的身份，并且http协议的默认端口是80端口，所以我们在访问这个URL的时候会自动的去80端口寻找资源</p>
@@ -423,7 +336,7 @@
 <p>可以看到访问成功，并且在地址栏也出现了我们输入的自定义端口号</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209262251416.png"></p>
 <p>那下一个我们可以来看一个ftp协议的URL</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp://jlan@127.0.0.1/xxx/flag</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">ftp:&#x2F;&#x2F;jlan@127.0.0.1&#x2F;xxx&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个就很明显了，我们以Jlan的身份在127.0.0.1服务器上面拿一份flag，可以看到我们也没有指定端口，因为ftp协议也是有默认端口的，其实几乎所有协议都会有一个默认的端口号，在一些使用这些协议的程序中大部分情况我们都不需要再额外添加端口</p>
 <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>说完了URL我们来说另一个web的基础知识就是HTTP协议，同样先百度</p>
@@ -458,7 +371,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -481,7 +394,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -524,39 +437,6 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -608,7 +488,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -645,7 +525,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -664,6 +544,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -772,69 +655,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -869,7 +698,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -877,10 +706,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -889,9 +716,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1051,6 +876,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1077,8 +910,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

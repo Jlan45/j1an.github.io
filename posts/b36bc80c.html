@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="有关Java的小点, Jlan&#39;s Little World">
+    <meta name="keywords" content="有关Java的小点, J1an&#39;s Little World">
     <meta name="description" content="碎碎念：学Java真的好折磨人呜呜呜呜，好多好多好多包，名字也不认识，方法也不会用，只能慢慢一步步往前走，哭哭😭，这篇文章主要是总结一些关于Java的有趣小点，看个乐呵涨点冷知识就好
 
 
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>有关Java的小点 | Jlan&#39;s Little World</title>
+    <title>有关Java的小点 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -48,8 +48,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -67,7 +65,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -88,55 +86,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -171,7 +125,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -194,55 +148,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -394,6 +304,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -403,7 +316,17 @@
 <span id="more"></span>
 
 <h2 id="关于数字的类型转换"><a href="#关于数字的类型转换" class="headerlink" title="关于数字的类型转换"></a>关于数字的类型转换</h2><p>看到这个是因为2022中科大的CTF有一道猜数字的题目，关键代码如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> XMLStreamException </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> rand = 随机数一个;</span><br><span class="line">        <span class="keyword">var</span> guess=Double.parseDouble(<span class="string">&quot;用户输入的数据&quot;</span>);</span><br><span class="line">        <span class="keyword">var</span> isLess = rand &lt; guess - <span class="number">1e-6</span> / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">var</span> isMore = rand &gt; guess + <span class="number">1e-6</span> / <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">if</span>(!isLess&amp;&amp;!isMore&amp;&amp;一次猜对)&#123;</span><br><span class="line">          giveFlag();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> test <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">XMLStreamException</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">double</span> rand <span class="token operator">=</span> 随机数一个<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> guess<span class="token operator">=</span><span class="token class-name">Double</span><span class="token punctuation">.</span><span class="token function">parseDouble</span><span class="token punctuation">(</span><span class="token string">"用户输入的数据"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> isLess <span class="token operator">=</span> rand <span class="token operator">&lt;</span> guess <span class="token operator">-</span> <span class="token number">1e-6</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> isMore <span class="token operator">=</span> rand <span class="token operator">></span> guess <span class="token operator">+</span> <span class="token number">1e-6</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+				<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>isLess<span class="token operator">&amp;&amp;</span><span class="token operator">!</span>isMore<span class="token operator">&amp;&amp;</span>一次猜对<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+          <span class="token function">giveFlag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里会随机生成一个0-1之间的double类型的随机数，用户需要猜其中的随机数是什么，并且只要一次猜对就会给flag，当然除非你运气已经好到一定地步了不然绝对不可能猜出来的，所以我们需要另辟蹊径了</p>
 <p>可以看到用户输入的数据类型是以字符串输入然后交给<code>parseDouble</code>函数转换成小数再进行判断的，那我们跟入<code>parseDouble</code>中看一下解析流程，逐层调用到<code>FloatingDecimal.readJavaFormatString</code>函数中，看到对特殊内容的解析部分</p>
@@ -413,17 +336,29 @@
 <p>可以看到输入是NaN就能拿到flag，是因为NaN就像一个黑洞，任何数字和他进行运算结果都是NaN，Infinity也类似，不过在*0的时候会变成NaN，判断中Infinity大于任何数，而NaN表示非数值，所以不管进行什么运算结果都为NaN，布尔值为False</p>
 <h2 id="关于Java代码调用的问题"><a href="#关于Java代码调用的问题" class="headerlink" title="关于Java代码调用的问题"></a>关于Java代码调用的问题</h2><p>Java这个烂玩意让人困惑不是一天两天了，今天索性把Java中的代码调用问题一次性看完（调试完）</p>
 <p>首先是static关键字定义的类，我们在使用的时候需要直接定义，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">className.staticInnerClass xxx=<span class="keyword">new</span> className.staticInnerClass()<span class="comment">//静态内部类只能访问外部静态属性或方法</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">className.staticInnerClass xxx&#x3D;new className.staticInnerClass()&#x2F;&#x2F;静态内部类只能访问外部静态属性或方法<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果是一个非静态子类，就需要先实例化一个父类，再实例化子类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">className xxx = <span class="keyword">new</span> className();</span><br><span class="line">className.InnerClass inner  = xxx.<span class="function">new <span class="title">InnerClass</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//或者一步到位</span></span><br><span class="line">className.InnerClass innerObject = <span class="keyword">new</span> className().n<span class="function">ew <span class="title">InnerClass</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">className xxx &#x3D; new className();
+className.InnerClass inner  &#x3D; xxx.new InnerClass();
+&#x2F;&#x2F;或者一步到位
+className.InnerClass innerObject &#x3D; new className().new InnerClass();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><code>synchronized</code></p>
 <h2 id="关于反射"><a href="#关于反射" class="headerlink" title="关于反射"></a>关于反射</h2><p>正常情况下，如果我们要调用一个对象的方法，或者访问一个对象的字段，通常会传入对象实例：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Main.java</span></span><br><span class="line"><span class="keyword">import</span> com.itranswarp.learnjava.Person;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function">String <span class="title">getFullName</span><span class="params">(Person p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> p.getFirstName() + <span class="string">&quot; &quot;</span> + p.getLastName();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// Main.java</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>itranswarp<span class="token punctuation">.</span>learnjava<span class="token punctuation">.</span></span><span class="token class-name">Person</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> <span class="token function">getFullName</span><span class="token punctuation">(</span><span class="token class-name">Person</span> p<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> p<span class="token punctuation">.</span><span class="token function">getFirstName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">" "</span> <span class="token operator">+</span> p<span class="token punctuation">.</span><span class="token function">getLastName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>但是，如果不能获得<code>Person</code>类，只有一个<code>Object</code>实例，比如这样：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">String <span class="title">getFullName</span><span class="params">(Object obj)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ???</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> <span class="token function">getFullName</span><span class="token punctuation">(</span><span class="token class-name">Object</span> obj<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token operator">?</span><span class="token operator">?</span><span class="token operator">?</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>但是如果我们尝试强制转型，将其转换为Person对象，我们就发现这时还是需要引入原始的类定义才能转换，而反射就是为了避免这种情况的出现</p>
 <h3 id="关于Java类型"><a href="#关于Java类型" class="headerlink" title="关于Java类型"></a>关于Java类型</h3><blockquote>
@@ -431,19 +366,49 @@
 <p>那对于不同的数据类型之间，由于中间没有继承关系，所以互相无法进行赋值</p>
 <p>而<code>class</code>是由JVM在执行过程中动态加载的。JVM在第一次读取到一种<code>class</code>类型时，将其加载进内存。</p>
 <p>每加载一种<code>class</code>，JVM就为其创建一个<code>Class</code>类型的实例，并关联起来。注意：这里的<code>Class</code>类型是一个名叫<code>Class</code>的<code>class</code>。它长这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public final class Class &#123;</span><br><span class="line">    private Class() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">public final class Class &#123;
+    private Class() &#123;&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p>以<code>String</code>类为例，当JVM加载<code>String</code>类时，它首先读取<code>String.class</code>文件到内存，然后，为<code>String</code>类创建一个<code>Class</code>实例并关联起来：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = new Class(String);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Class cls &#x3D; new Class(String);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个<code>Class</code>实例是JVM内部创建的，如果我们查看JDK源码，可以发现<code>Class</code>类的构造方法是<code>private</code>，只有JVM能创建<code>Class</code>实例，我们自己的Java程序是无法创建<code>Class</code>实例的。</p>
 <p>所以，JVM持有的每个<code>Class</code>实例都指向一个数据类型（<code>class</code>或<code>interface</code>）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────────────────┐</span><br><span class="line">│      Class Instance       │──────&gt; String</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│name = &quot;java.lang.String&quot;  │</span><br><span class="line">└───────────────────────────┘</span><br><span class="line">┌───────────────────────────┐</span><br><span class="line">│      Class Instance       │──────&gt; Random</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│name = &quot;java.util.Random&quot;  │</span><br><span class="line">└───────────────────────────┘</span><br><span class="line">┌───────────────────────────┐</span><br><span class="line">│      Class Instance       │──────&gt; Runnable</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│name = &quot;java.lang.Runnable&quot;│</span><br><span class="line">└───────────────────────────┘</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-ascii" data-language="ascii"><code class="language-ascii">┌───────────────────────────┐
+│      Class Instance       │──────&gt; String
+├───────────────────────────┤
+│name &#x3D; &quot;java.lang.String&quot;  │
+└───────────────────────────┘
+┌───────────────────────────┐
+│      Class Instance       │──────&gt; Random
+├───────────────────────────┤
+│name &#x3D; &quot;java.util.Random&quot;  │
+└───────────────────────────┘
+┌───────────────────────────┐
+│      Class Instance       │──────&gt; Runnable
+├───────────────────────────┤
+│name &#x3D; &quot;java.lang.Runnable&quot;│
+└───────────────────────────┘<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>一个<code>Class</code>实例包含了该<code>class</code>的所有完整信息：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────────────────┐</span><br><span class="line">│      Class Instance       │──────&gt; String</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│name = &quot;java.lang.String&quot;  │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│package = &quot;java.lang&quot;      │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│super = &quot;java.lang.Object&quot; │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│interface = CharSequence...│</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│field = value[],hash,...   │</span><br><span class="line">├───────────────────────────┤</span><br><span class="line">│method = indexOf()...      │</span><br><span class="line">└───────────────────────────┘</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">┌───────────────────────────┐
+│      Class Instance       │──────&gt; String
+├───────────────────────────┤
+│name &#x3D; &quot;java.lang.String&quot;  │
+├───────────────────────────┤
+│package &#x3D; &quot;java.lang&quot;      │
+├───────────────────────────┤
+│super &#x3D; &quot;java.lang.Object&quot; │
+├───────────────────────────┤
+│interface &#x3D; CharSequence...│
+├───────────────────────────┤
+│field &#x3D; value[],hash,...   │
+├───────────────────────────┤
+│method &#x3D; indexOf()...      │
+└───────────────────────────┘<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>由于JVM为每个加载的<code>class</code>创建了对应的<code>Class</code>实例，并在实例中保存了该<code>class</code>的所有信息，包括类名、包名、父类、实现的接口、所有方法、字段等，因此，如果获取了某个<code>Class</code>实例，我们就可以通过这个<code>Class</code>实例获取到该实例对应的<code>class</code>的所有信息。</p>
 <p>这种通过<code>Class</code>实例获取<code>class</code>信息的方法称为反射（Reflection）。</p>
@@ -453,19 +418,31 @@
 <blockquote>
 <p>如何获取一个<code>class</code>的<code>Class</code>实例？有三个方法：</p>
 <p>方法一：直接通过一个<code>class</code>的静态变量<code>class</code>获取：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = String.class;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Class</span> cls <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>方法二：如果我们有一个实例变量，可以通过该实例变量提供的<code>getClass()</code>方法获取：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String s = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">Class cls = s.getClass();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token class-name">Class</span> cls <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>方法三：如果知道一个<code>class</code>的完整类名，可以通过静态方法<code>Class.forName()</code>获取：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class cls = Class.forName(&quot;java.lang.String&quot;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Class cls &#x3D; Class.forName(&quot;java.lang.String&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>因为<code>Class</code>实例在JVM中是唯一的，所以，上述方法获取的<code>Class</code>实例是同一个实例。可以用<code>==</code>比较两个<code>Class</code>实例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Class cls1 = String.class;</span><br><span class="line"></span><br><span class="line">String s = &quot;Hello&quot;;</span><br><span class="line">Class cls2 = s.getClass();</span><br><span class="line"></span><br><span class="line">boolean sameClass = cls1 == cls2; // true</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Class cls1 &#x3D; String.class;
+
+String s &#x3D; &quot;Hello&quot;;
+Class cls2 &#x3D; s.getClass();
+
+boolean sameClass &#x3D; cls1 &#x3D;&#x3D; cls2; &#x2F;&#x2F; true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意一下<code>Class</code>实例比较和<code>instanceof</code>的差别：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Integer n = new Integer(123);</span><br><span class="line"></span><br><span class="line">boolean b1 = n instanceof Integer; // true，因为n是Integer类型</span><br><span class="line">boolean b2 = n instanceof Number; // true，因为n是Number类型的子类</span><br><span class="line"></span><br><span class="line">boolean b3 = n.getClass() == Integer.class; // true，因为n.getClass()返回Integer.class</span><br><span class="line">boolean b4 = n.getClass() == Number.class; // false，因为Integer.class!=Number.class</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Integer n &#x3D; new Integer(123);
+
+boolean b1 &#x3D; n instanceof Integer; &#x2F;&#x2F; true，因为n是Integer类型
+boolean b2 &#x3D; n instanceof Number; &#x2F;&#x2F; true，因为n是Number类型的子类
+
+boolean b3 &#x3D; n.getClass() &#x3D;&#x3D; Integer.class; &#x2F;&#x2F; true，因为n.getClass()返回Integer.class
+boolean b4 &#x3D; n.getClass() &#x3D;&#x3D; Number.class; &#x2F;&#x2F; false，因为Integer.class!&#x3D;Number.class<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>用<code>instanceof</code>不但匹配指定类型，还匹配指定类型的子类。而用<code>==</code>判断<code>class</code>实例可以精确地判断数据类型，但不能作子类型比较。</p>
 <p>通常情况下，我们应该用<code>instanceof</code>判断数据类型，因为面向抽象编程的时候，我们不关心具体的子类型。只有在需要精确判断一个类型是不是某个<code>class</code>的时候，我们才使用<code>==</code>判断<code>class</code>实例。</p>
@@ -478,13 +455,20 @@
 <p>下面我们来看一下对于同样的功能我们传统的接口实现和使用代理有什么区别</p>
 <blockquote>
 <p>定义接口：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public interface Hello &#123;</span><br><span class="line">    void morning(String name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">public interface Hello &#123;
+    void morning(String name);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>编写实现类：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class HelloWorld implements Hello &#123;</span><br><span class="line">    public void morning(String name) &#123;</span><br><span class="line">        System.out.println(&quot;Good morning, &quot; + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">public class HelloWorld implements Hello &#123;
+    public void morning(String name) &#123;
+        System.out.println(&quot;Good morning, &quot; + name);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>创建实例，转型为接口并调用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello hello = new HelloWorld();</span><br><span class="line">hello.morning(&quot;Bob&quot;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Hello hello &#x3D; new HelloWorld();
+hello.morning(&quot;Bob&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>这种方式就是我们通常编写代码的方式。</p>
 </blockquote>
@@ -492,17 +476,43 @@
 <blockquote>
 <p>还有一种方式是动态代码，我们仍然先定义了接口<code>Hello</code>，但是我们并不去编写实现类，而是直接通过JDK提供的一个<code>Proxy.newProxyInstance()</code>创建了一个<code>Hello</code>接口对象。这种没有实现类但是在运行期动态创建了一个接口对象的方式，我们称为动态代码。JDK提供的动态创建接口对象的方式，就叫动态代理。</p>
 <p>一个最简单的动态代理实现如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationHandler;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.Proxy;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InvocationHandler handler = <span class="keyword">new</span> InvocationHandler() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">                System.out.println(method);</span><br><span class="line">                <span class="keyword">if</span> (method.getName().equals(<span class="string">&quot;morning&quot;</span>)) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;Good morning, &quot;</span> + args[<span class="number">0</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        Hello hello = (Hello) Proxy.newProxyInstance(</span><br><span class="line">            Hello.class.getClassLoader(), <span class="comment">// 传入ClassLoader</span></span><br><span class="line">            <span class="keyword">new</span> Class[] &#123; Hello.class &#125;, <span class="comment">// 传入要实现的接口</span></span><br><span class="line">            handler); <span class="comment">// 传入处理调用方法的InvocationHandler</span></span><br><span class="line">        hello.morning(<span class="string">&quot;Bob&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">morning</span><span class="params">(String name)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">InvocationHandler</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Method</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Proxy</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Main</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">InvocationHandler</span> handler <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InvocationHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> <span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span> <span class="token punctuation">&#123;</span>
+                <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>method<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span><span class="token string">"morning"</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Good morning, "</span> <span class="token operator">+</span> args<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token class-name">Hello</span> hello <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Hello</span><span class="token punctuation">)</span> <span class="token class-name">Proxy</span><span class="token punctuation">.</span><span class="token function">newProxyInstance</span><span class="token punctuation">(</span>
+            <span class="token class-name">Hello</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment">// 传入ClassLoader</span>
+            <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span> <span class="token class-name">Hello</span><span class="token punctuation">.</span><span class="token keyword">class</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token comment">// 传入要实现的接口</span>
+            handler<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 传入处理调用方法的InvocationHandler</span>
+        hello<span class="token punctuation">.</span><span class="token function">morning</span><span class="token punctuation">(</span><span class="token string">"Bob"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Hello</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">void</span> <span class="token function">morning</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p> 在运行期动态创建一个<code>interface</code>实例的方法如下：</p>
 <ol>
 <li><p>定义一个<code>InvocationHandler</code>实例，它负责实现接口的方法调用；</p>
 </li>
 <li><p>通过</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Proxy.newProxyInstance()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Proxy.newProxyInstance()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>创建</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">interface</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">interface<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>实例，它需要3个参数：</p>
 <ol>
@@ -518,10 +528,18 @@
 <p>可以看到整个过程中我们根本没有对接口进行传统意义上的实现，</p>
 <h2 id="关于TemplatesImpl利用链RCE的问题"><a href="#关于TemplatesImpl利用链RCE的问题" class="headerlink" title="关于TemplatesImpl利用链RCE的问题"></a>关于TemplatesImpl利用链RCE的问题</h2><p>困惑很久了，主要是链子跟到最后一步不知道怎么最后RCE了</p>
 <p>要想知道这个类为什么可以触发RCE，首先我们要知道默认情况下Java执行系统命令需要使用的是什么，代码应当如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TouchFile</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TouchFile</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Runtime.getRuntime().exec(<span class="string">&quot;calc&quot;</span>);</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TouchFile&#123;
+    public TouchFile() throws Exception &#123;
+        Runtime.getRuntime().exec(&quot;calc&quot;);
+    &#125;   
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>直接使用Runtime包中的函数执行即可，将这个类编译成字节码后再进行base64，然后交给defineClass来加载字节码，再执行其中</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Method defineClass = ClassLoader.class.getDeclaredMethod(<span class="string">&quot;defineClass&quot;</span>, String.class, <span class="keyword">byte</span>[].class, <span class="keyword">int</span>.class, <span class="keyword">int</span>.class);</span><br><span class="line">defineClass.setAccessible(<span class="keyword">true</span>);</span><br><span class="line"><span class="keyword">byte</span>[] code =Base64.getDecoder().decode(<span class="string">&quot;yv66vgAAADQAHgoABgARCgASABMIABQKABIAFQcAFgcAFwEABjxpbml0PgEAAygpVgEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAApFeGNlcHRpb25zBwAYAQAEbWFpbgEAFihbTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VGaWxlAQAOVG91Y2hGaWxlLmphdmEMAAcACAcAGQwAGgAbAQAEY2FsYwwAHAAdAQAJVG91Y2hGaWxlAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvbGFuZy9FeGNlcHRpb24BABFqYXZhL2xhbmcvUnVudGltZQEACmdldFJ1bnRpbWUBABUoKUxqYXZhL2xhbmcvUnVudGltZTsBAARleGVjAQAnKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL1Byb2Nlc3M7ACEABQAGAAAAAAACAAEABwAIAAIACQAAAC4AAgABAAAADiq3AAG4AAISA7YABFexAAAAAQAKAAAADgADAAAAEAAEABEADQASAAsAAAAEAAEADAAJAA0ADgACAAkAAAAmAAIAAQAAAAq4AAISA7YABFexAAAAAQAKAAAACgACAAAAFgAJABcACwAAAAQAAQAMAAEADwAAAAIAEA==&quot;</span>);</span><br><span class="line">Class yyds= (Class) defineClass.invoke(ClassLoader.getSystemClassLoader(), <span class="string">&quot;TouchFile&quot;</span>, code, <span class="number">0</span>, code.length);</span><br><span class="line">yyds.newInstance();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Method defineClass &#x3D; ClassLoader.class.getDeclaredMethod(&quot;defineClass&quot;, String.class, byte[].class, int.class, int.class);
+defineClass.setAccessible(true);
+byte[] code &#x3D;Base64.getDecoder().decode(&quot;yv66vgAAADQAHgoABgARCgASABMIABQKABIAFQcAFgcAFwEABjxpbml0PgEAAygpVgEABENvZGUBAA9MaW5lTnVtYmVyVGFibGUBAApFeGNlcHRpb25zBwAYAQAEbWFpbgEAFihbTGphdmEvbGFuZy9TdHJpbmc7KVYBAApTb3VyY2VGaWxlAQAOVG91Y2hGaWxlLmphdmEMAAcACAcAGQwAGgAbAQAEY2FsYwwAHAAdAQAJVG91Y2hGaWxlAQAQamF2YS9sYW5nL09iamVjdAEAE2phdmEvbGFuZy9FeGNlcHRpb24BABFqYXZhL2xhbmcvUnVudGltZQEACmdldFJ1bnRpbWUBABUoKUxqYXZhL2xhbmcvUnVudGltZTsBAARleGVjAQAnKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL1Byb2Nlc3M7ACEABQAGAAAAAAACAAEABwAIAAIACQAAAC4AAgABAAAADiq3AAG4AAISA7YABFexAAAAAQAKAAAADgADAAAAEAAEABEADQASAAsAAAAEAAEADAAJAA0ADgACAAkAAAAmAAIAAQAAAAq4AAISA7YABFexAAAAAQAKAAAACgACAAAAFgAJABcACwAAAAQAAQAMAAEADwAAAAIAEA&#x3D;&#x3D;&quot;);
+Class yyds&#x3D; (Class) defineClass.invoke(ClassLoader.getSystemClassLoader(), &quot;TouchFile&quot;, code, 0, code.length);
+yyds.newInstance();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我们都知道 Java 的 ClassLoader 是用来加载字节码文件最基础的方法，ClassLoader 是什么呢？它就是一个“加载器”，告诉Java虚拟机如何加载这个类，用一句话概括它的作用就是将传入的字节码处理成真正的 Java 类然后返回。</p>
 <p><code>ClassLoader</code> 处理字节码的流程为 <code>loadClass</code> -&gt; <code>findClass</code> -&gt; <code>defineClass</code></p>
@@ -537,11 +555,21 @@
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232305532.png"></p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210232310998.png"></p>
 <p>最终找到newTransformer为public，可以直接被调用了，最终利用链如下</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TemplatesImpl#newTransformer() -&gt;</span><br><span class="line">TemplatesImpl#getTransletInstance() -&gt;</span><br><span class="line">TemplatesImpl#defineTransletClasses() -&gt;</span><br><span class="line">TransletClassLoader#defineClass()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">TemplatesImpl#newTransformer() -&gt;
+TemplatesImpl#getTransletInstance() -&gt;
+TemplatesImpl#defineTransletClasses() -&gt;
+TransletClassLoader#defineClass()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//未成功触发</span></span><br><span class="line">TemplatesImpl#getTransletIndex() -&gt; </span><br><span class="line">TemplatesImpl#defineTransletClasses() -&gt;</span><br><span class="line">TransletClassLoader#defineClass()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;未成功触发
+TemplatesImpl#getTransletIndex() -&gt; 
+TemplatesImpl#defineTransletClasses() -&gt;
+TransletClassLoader#defineClass()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TemplatesImpl#getOutputProperties() -&gt;</span><br><span class="line">TemplatesImpl#newTransformer() -&gt; </span><br><span class="line">TemplatesImpl#getTransletInstance() -&gt; </span><br><span class="line">TemplatesImpl#defineTransletClasses() -&gt;</span><br><span class="line">TransletClassLoader#defineClass() </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">TemplatesImpl#getOutputProperties() -&gt;
+TemplatesImpl#newTransformer() -&gt; 
+TemplatesImpl#getTransletInstance() -&gt; 
+TemplatesImpl#defineTransletClasses() -&gt;
+TransletClassLoader#defineClass() <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看完这个我们可以看看ysoserial最后是怎么通过他构造出来一个可供命令执行的字节码的</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
@@ -560,7 +588,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -583,7 +611,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -626,39 +654,6 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -710,7 +705,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -747,7 +742,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -766,6 +761,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -874,69 +872,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -971,7 +915,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -979,10 +923,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -991,9 +933,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1153,6 +1093,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1179,8 +1127,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

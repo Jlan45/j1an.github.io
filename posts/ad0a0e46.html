@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="智能合约入门, Jlan&#39;s Little World">
+    <meta name="keywords" content="智能合约入门, J1an&#39;s Little World">
     <meta name="description" content="区块链我来啦
 
 
@@ -23,7 +23,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>智能合约入门 | Jlan&#39;s Little World</title>
+    <title>智能合约入门 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -51,8 +51,6 @@ Solidity也是一种编程语言，不过它针对智能合约">
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -70,7 +68,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -91,55 +89,11 @@ Solidity也是一种编程语言，不过它针对智能合约">
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -174,7 +128,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -197,55 +151,11 @@ Solidity也是一种编程语言，不过它针对智能合约">
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -397,6 +307,9 @@ Solidity也是一种编程语言，不过它针对智能合约">
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -409,7 +322,19 @@ Solidity也是一种编程语言，不过它针对智能合约">
 <p>Solidity中智能合约的含义就是一组代码（它的 <em>功能</em> )和数据（它的 <em>状态</em> ）的集合，并且它们是位于以太坊区块链的一个特定地址上的。</p>
 </blockquote>
 <p>Solidity也是一种编程语言，不过它针对智能合约项目进行了全面的支持，要想了解一门语言当然要从编写程序开始咯，那么我们就来写我们的第一个Solidity合约吧</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//Name.sol</span><br><span class="line">pragma solidity ^0.4.16;//Solidity必须开头，生命合约版本</span><br><span class="line">contract Name&#123;</span><br><span class="line">    string name=&quot;Jlan&quot;;//设定状态</span><br><span class="line">    function getName() public returns(string)//设定功能</span><br><span class="line">    &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    function changeName(string _newName) public</span><br><span class="line">    &#123;</span><br><span class="line">        name=_newName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">//Name.sol</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span><span class="token comment">//Solidity必须开头，生命合约版本</span>
+<span class="token keyword">contract</span> <span class="token class-name">Name</span><span class="token punctuation">&#123;</span>
+    <span class="token builtin">string</span> name<span class="token operator">=</span><span class="token string">"Jlan"</span><span class="token punctuation">;</span><span class="token comment">//设定状态</span>
+    <span class="token keyword">function</span> <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">returns</span><span class="token punctuation">(</span><span class="token builtin">string</span><span class="token punctuation">)</span><span class="token comment">//设定功能</span>
+    <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">changeName</span><span class="token punctuation">(</span><span class="token builtin">string</span> _newName<span class="token punctuation">)</span> <span class="token keyword">public</span>
+    <span class="token punctuation">&#123;</span>
+        name<span class="token operator">=</span>_newName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>以上就是一个非常基础的Solidity合约了，可以看的出合约很像是我们在别的语言中的一个类，确实如此，所以一些面向对象编程的内容也可以套用到Solidity上</p>
 <p>在Solidity中，许多的操作都需要花费资源，又名gas，也就是虚拟货币，这些内容将在后面讲到</p>
@@ -467,19 +392,62 @@ Solidity也是一种编程语言，不过它针对智能合约">
 </ul>
 <h3 id="mapping哈希表"><a href="#mapping哈希表" class="headerlink" title="mapping哈希表"></a>mapping哈希表</h3><p>使用语法</p>
 <p><code>mapping(映射关系) 哈希表名称;</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity^0.4.16;</span><br><span class="line"></span><br><span class="line">contract mappingTest&#123;</span><br><span class="line">    mapping(address =&gt; uint) idmap;</span><br><span class="line">    mapping(uint =&gt; string) namemap;</span><br><span class="line">    uint sum=0;</span><br><span class="line">    function register(string username)&#123;</span><br><span class="line">        address account=msg.sender;</span><br><span class="line">        sum++:</span><br><span class="line">        idmap[account]=sum;</span><br><span class="line">        namemap[sum]=username;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span><span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">mappingTest</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token operator">=></span> <span class="token builtin">uint</span><span class="token punctuation">)</span> idmap<span class="token punctuation">;</span>
+    <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">uint</span> <span class="token operator">=></span> <span class="token builtin">string</span><span class="token punctuation">)</span> namemap<span class="token punctuation">;</span>
+    <span class="token builtin">uint</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token builtin">string</span> username<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token builtin">address</span> account<span class="token operator">=</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+        sum<span class="token operator">++</span><span class="token punctuation">:</span>
+        idmap<span class="token punctuation">[</span>account<span class="token punctuation">]</span><span class="token operator">=</span>sum<span class="token punctuation">;</span>
+        namemap<span class="token punctuation">[</span>sum<span class="token punctuation">]</span><span class="token operator">=</span>username<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>当使用不同的参数（数量，类型）时可以让函数重载，并且如同uint160与address这样的参数类型也是算不同参数类型，可以编译通过，但会有问题</p>
 <p>当使用确定参数调用函数时，如果能同时匹配多个重载的函数，会直接报错，如下例：<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208140247208.png"></p>
 <p>在这里test函数调用fun函数时传入了一个确定的参数1，同时匹配了uint类型和uint8类型，此时导致编译失败</p>
 <p>而在下面这个例子中，传入的是<code>msg.sender</code>，此时编译通过，运行发现结果返回调用了以address为参数类型的fun函数重载，<del>为啥啊我也不知道啊啊啊啊啊啊啊啊啊啊</del>，后面再看吧😭<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208140250890.png"></p>
 <h3 id="函数传参"><a href="#函数传参" class="headerlink" title="函数传参"></a>函数传参</h3><p>类似python的两种方法，一是按照函数定义的顺序直接填入，二是通过花括号指定传入哪个形参，如下例：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.16;</span><br><span class="line"></span><br><span class="line">contract parma&#123;</span><br><span class="line">    uint public num;</span><br><span class="line">    string public name;</span><br><span class="line">    function setParam(uint _num,string _name)&#123;</span><br><span class="line">        num=_num;</span><br><span class="line">        name=_name;</span><br><span class="line">    &#125;</span><br><span class="line">    function T1()&#123;</span><br><span class="line">        setParam(18,&quot;J1an&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    function T2()&#123;</span><br><span class="line">        setParam(&#123;_name:&quot;Ben&quot;,_num:20&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">//    function T3()&#123;</span><br><span class="line">//        setParam(100);</span><br><span class="line">//    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">parma</span><span class="token punctuation">&#123;</span>
+    <span class="token builtin">uint</span> <span class="token keyword">public</span> num<span class="token punctuation">;</span>
+    <span class="token builtin">string</span> <span class="token keyword">public</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">setParam</span><span class="token punctuation">(</span><span class="token builtin">uint</span> _num<span class="token punctuation">,</span><span class="token builtin">string</span> _name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        num<span class="token operator">=</span>_num<span class="token punctuation">;</span>
+        name<span class="token operator">=</span>_name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">T1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">setParam</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">,</span><span class="token string">"J1an"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">T2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token function">setParam</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>_name<span class="token punctuation">:</span><span class="token string">"Ben"</span><span class="token punctuation">,</span>_num<span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token comment">//    function T3()&#123;</span>
+<span class="token comment">//        setParam(100);</span>
+<span class="token comment">//    &#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在上面这个例子中，T1，T2形象的说明了函数传参的方式，并且如果加入T3函数代码会发现编译无法通过，这是因为在合约内部的函数调用其他函数时必须严格按照函数定义的形参传入参数，但我们在尝试让用户直接对<code>setParam(100)</code>进行调用时会发现调用成功了，并且<code>_name</code>被自动赋值为空，如下图所示：<del>tmd这种睿智参数传递多少有点大病</del><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208140302099.png"></p>
 <h3 id="函数返回值"><a href="#函数返回值" class="headerlink" title="函数返回值"></a>函数返回值</h3><p>solidity中的函数可以有多个返回值</p>
 <p>如果给了函数返回值的参数名，那么这个参数会以类似形参的方式传入到函数中，我们可以不通过return而直接给这个形参赋值来达到返回值的效果，而如果形参传递和return同时存在，以return为准，<del>这不废话吗肯定return优先级高啊，return相当于赋值了还把函数给结束了，后面没操作了可不它高吗</del></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.16;</span><br><span class="line"></span><br><span class="line">contract funReturn&#123;</span><br><span class="line">    function T1() returns(uint num)&#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    function T2() returns(uint num)&#123;</span><br><span class="line">        num=2;</span><br><span class="line">    &#125;</span><br><span class="line">    function T3() returns(uint num)&#123;</span><br><span class="line">        num=3;</span><br><span class="line">        return 4;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">funReturn</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">function</span> <span class="token function">T1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">returns</span><span class="token punctuation">(</span><span class="token builtin">uint</span> num<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">T2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">returns</span><span class="token punctuation">(</span><span class="token builtin">uint</span> num<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        num<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">T3</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">returns</span><span class="token punctuation">(</span><span class="token builtin">uint</span> num<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        num<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="变量作用域和值传递"><a href="#变量作用域和值传递" class="headerlink" title="变量作用域和值传递"></a>变量作用域和值传递</h3><p>作用域以小的为准</p>
 <h3 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h3><p><code>private</code>函数只能被合约独立使用，不能被继承</p>
@@ -497,25 +465,78 @@ Solidity也是一种编程语言，不过它针对智能合约">
 <h3 id="函数modifire（函数修改器）"><a href="#函数modifire（函数修改器）" class="headerlink" title="函数modifire（函数修改器）"></a>函数modifire（函数修改器）</h3><p>require判断，如果require中的内容不成立，那么后面的代码都不会被执行并且回滚</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208220048145.png"></p>
 <p>此处例子中，在合约部署时设定了部署者为合约拥有者，在modifier中验证了函数change的身份，首次我们让函数拥有者5B3进行调用发电函数调用成功，a的值被修改，而当我们切换用户Ab8再进行调用时，会发现调用失败并且报错</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.16;</span><br><span class="line">contract modifierTest&#123;</span><br><span class="line">    address public owner;</span><br><span class="line">    uint public a=100;</span><br><span class="line">    function modifierTest()&#123;</span><br><span class="line">        owner=msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">    modifier OnlyOwner&#123;</span><br><span class="line">        require(msg.sender==owner);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">    function change(uint _num)OnlyOwner&#123;</span><br><span class="line">        a=_num;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">modifierTest</span><span class="token punctuation">&#123;</span>
+    <span class="token builtin">address</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+    <span class="token builtin">uint</span> <span class="token keyword">public</span> a<span class="token operator">=</span><span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">modifierTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        owner<span class="token operator">=</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">modifier</span> OnlyOwner<span class="token punctuation">&#123;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token operator">==</span>owner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">_</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">change</span><span class="token punctuation">(</span><span class="token builtin">uint</span> _num<span class="token punctuation">)</span>OnlyOwner<span class="token punctuation">&#123;</span>
+        a<span class="token operator">=</span>_num<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">modifier modifierName&#123;</span><br><span class="line">    require(执行函数要求条件);</span><br><span class="line">    _;//占位函数</span><br><span class="line">&#125;</span><br><span class="line">//函数调用</span><br><span class="line">function funName() modifierName&#123;&#125;</span><br><span class="line">//该函数执行时会先进入modifier进行判断</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">modifier</span> modifierName<span class="token punctuation">&#123;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>执行函数要求条件<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">_</span><span class="token punctuation">;</span><span class="token comment">//占位函数</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//函数调用</span>
+<span class="token keyword">function</span> <span class="token function">funName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> modifierName<span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token comment">//该函数执行时会先进入modifier进行判断</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>第二个应用，判断用户注册</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208220923409.png"></p>
 <p>这个例子中我们在注册前先对其要求该address对应的id为0也就是未注册过才可以进入注册函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.16;</span><br><span class="line">contract modifierTest&#123;</span><br><span class="line">    address public owner;</span><br><span class="line">    uint sum=0;</span><br><span class="line">    mapping(address=&gt;uint) idmap;</span><br><span class="line">    mapping(uint=&gt;string) namemap;</span><br><span class="line">    function modifierTest()&#123;</span><br><span class="line">        owner=msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">    modifier OnlyOwner&#123;</span><br><span class="line">        require(msg.sender==owner);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">    modifier regConfirm&#123;</span><br><span class="line">        require(idmap[msg.sender]==0);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">    function register(string name) regConfirm&#123;</span><br><span class="line">        address account=msg.sender;</span><br><span class="line">        sum++;</span><br><span class="line">        idmap[account]=sum;</span><br><span class="line">        namemap[sum]=name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">modifierTest</span><span class="token punctuation">&#123;</span>
+    <span class="token builtin">address</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+    <span class="token builtin">uint</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token operator">=></span><span class="token builtin">uint</span><span class="token punctuation">)</span> idmap<span class="token punctuation">;</span>
+    <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token operator">=></span><span class="token builtin">string</span><span class="token punctuation">)</span> namemap<span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">modifierTest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        owner<span class="token operator">=</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">modifier</span> OnlyOwner<span class="token punctuation">&#123;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token operator">==</span>owner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">_</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">modifier</span> regConfirm<span class="token punctuation">&#123;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>idmap<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span><span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">_</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token builtin">string</span> name<span class="token punctuation">)</span> regConfirm<span class="token punctuation">&#123;</span>
+        <span class="token builtin">address</span> account<span class="token operator">=</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+        sum<span class="token operator">++</span><span class="token punctuation">;</span>
+        idmap<span class="token punctuation">[</span>account<span class="token punctuation">]</span><span class="token operator">=</span>sum<span class="token punctuation">;</span>
+        namemap<span class="token punctuation">[</span>sum<span class="token punctuation">]</span><span class="token operator">=</span>name<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>第三个应用，权限管理，代码就不放了自己意会吧</p>
 <p>modifier执行顺序，在有多个modifier被使用时，后面的modifier会与函数一起被放入前一个modifier的<code>_;</code>占位符中</p>
 <h3 id="合约继承"><a href="#合约继承" class="headerlink" title="合约继承"></a>合约继承</h3><p>继承语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.16;</span><br><span class="line">contract father&#123;</span><br><span class="line">&#125;</span><br><span class="line">contract son is father&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">father</span><span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">contract</span> <span class="token class-name">son</span> <span class="token keyword">is</span> father<span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可以连续继承，可多重继承，如果有同名属性以最后的合约为准</p>
 <p>对于属性和函数来说private不可被继承</p>
 <h3 id="getter函数"><a href="#getter函数" class="headerlink" title="getter函数"></a>getter函数</h3><p>public属性的变量会自动生成一个同名属性为external的函数，对于mapping类型生成一个有参数的函数，传</p>
 <h3 id="回退函数fallback"><a href="#回退函数fallback" class="headerlink" title="回退函数fallback"></a>回退函数fallback</h3><p>fallback函数，回退函数，是合约里的特殊无名函数，有且仅有一个。它在合约调用没有匹配到函数签名，或者调用没有带任何数据时被自动调用。回退函数是合约里的特殊函数，没有名字，不能有参数，没有返回值。下面来看一个简单的回退函数例子。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.0;</span><br><span class="line"></span><br><span class="line">contract SimpleFallback&#123;</span><br><span class="line">  function()&#123;</span><br><span class="line">    //fallback function</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">SimpleFallback</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token comment">//fallback function</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>当调用的函数找不到时，就会调用默认的fallback函数。由于Solidity中，Solidity提供了编译期检查，所以我们不能直接通过Solidity调用一个不存在的函数。但我们可以使用Solidity的提供的底层函数<code>address.call</code>来模拟这一行为，关于<code>call()</code>函数详见：<a target="_blank" rel="noopener" href="http://me.tryblockchain.org/Solidity-call-callcode-delegatecall.html">http://me.tryblockchain.org/Solidity-call-callcode-delegatecall.html</a> 。我们来看个例子：</p>
 <ul>
@@ -541,7 +562,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -564,7 +585,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -607,39 +628,6 @@ Solidity也是一种编程语言，不过它针对智能合约">
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -691,7 +679,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -728,7 +716,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -755,6 +743,9 @@ Solidity也是一种编程语言，不过它针对智能合约">
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -863,69 +854,15 @@ Solidity也是一种编程语言，不过它针对智能合约">
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -960,7 +897,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -968,10 +905,8 @@ Solidity也是一种编程语言，不过它针对智能合约">
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -980,9 +915,7 @@ Solidity也是一种编程语言，不过它针对智能合约">
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1142,6 +1075,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1168,8 +1109,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

