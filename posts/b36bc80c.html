@@ -86,11 +86,44 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
     </a>
     
   </li>
@@ -148,11 +181,44 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
 		</a>
           
         </li>
@@ -274,9 +340,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -425,24 +495,24 @@ className.InnerClass innerObject &#x3D; new className().new InnerClass();<span a
 <span class="token class-name">Class</span> cls <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>方法三：如果知道一个<code>class</code>的完整类名，可以通过静态方法<code>Class.forName()</code>获取：</p>
-<pre class="line-numbers language-none"><code class="language-none">Class cls &#x3D; Class.forName(&quot;java.lang.String&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Class</span> cls <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"java.lang.String"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>因为<code>Class</code>实例在JVM中是唯一的，所以，上述方法获取的<code>Class</code>实例是同一个实例。可以用<code>==</code>比较两个<code>Class</code>实例：</p>
-<pre class="line-numbers language-none"><code class="language-none">Class cls1 &#x3D; String.class;
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Class</span> cls1 <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>
 
-String s &#x3D; &quot;Hello&quot;;
-Class cls2 &#x3D; s.getClass();
+<span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token class-name">Class</span> cls2 <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-boolean sameClass &#x3D; cls1 &#x3D;&#x3D; cls2; &#x2F;&#x2F; true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">boolean</span> sameClass <span class="token operator">=</span> cls1 <span class="token operator">==</span> cls2<span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>注意一下<code>Class</code>实例比较和<code>instanceof</code>的差别：</p>
-<pre class="line-numbers language-none"><code class="language-none">Integer n &#x3D; new Integer(123);
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Integer</span> n <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">123</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-boolean b1 &#x3D; n instanceof Integer; &#x2F;&#x2F; true，因为n是Integer类型
-boolean b2 &#x3D; n instanceof Number; &#x2F;&#x2F; true，因为n是Number类型的子类
+<span class="token keyword">boolean</span> b1 <span class="token operator">=</span> n <span class="token keyword">instanceof</span> <span class="token class-name">Integer</span><span class="token punctuation">;</span> <span class="token comment">// true，因为n是Integer类型</span>
+<span class="token keyword">boolean</span> b2 <span class="token operator">=</span> n <span class="token keyword">instanceof</span> <span class="token class-name">Number</span><span class="token punctuation">;</span> <span class="token comment">// true，因为n是Number类型的子类</span>
 
-boolean b3 &#x3D; n.getClass() &#x3D;&#x3D; Integer.class; &#x2F;&#x2F; true，因为n.getClass()返回Integer.class
-boolean b4 &#x3D; n.getClass() &#x3D;&#x3D; Number.class; &#x2F;&#x2F; false，因为Integer.class!&#x3D;Number.class<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token keyword">boolean</span> b3 <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span> <span class="token comment">// true，因为n.getClass()返回Integer.class</span>
+<span class="token keyword">boolean</span> b4 <span class="token operator">=</span> n<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token class-name">Number</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span> <span class="token comment">// false，因为Integer.class!=Number.class</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>用<code>instanceof</code>不但匹配指定类型，还匹配指定类型的子类。而用<code>==</code>判断<code>class</code>实例可以精确地判断数据类型，但不能作子类型比较。</p>
 <p>通常情况下，我们应该用<code>instanceof</code>判断数据类型，因为面向抽象编程的时候，我们不关心具体的子类型。只有在需要精确判断一个类型是不是某个<code>class</code>的时候，我们才使用<code>==</code>判断<code>class</code>实例。</p>
@@ -526,6 +596,76 @@ hello.morning(&quot;Bob&quot;);<span aria-hidden="true" class="line-numbers-rows
 </ol>
 </blockquote>
 <p>可以看到整个过程中我们根本没有对接口进行传统意义上的实现，</p>
+<h2 id="关于RMI"><a href="#关于RMI" class="headerlink" title="关于RMI"></a>关于RMI</h2><p>Java的RMI远程调用是指，一个JVM中的代码可以通过网络实现远程调用另一个JVM的某个方法。RMI是Remote Method Invocation#<em><strong>远程方法调用</strong></em>的缩写。</p>
+<p>提供服务的一方我们称之为服务器，而实现远程调用的一方我们称之为客户端。</p>
+<p>我们先来实现一个最简单的RMI：服务器会提供一个<code>WorldClock</code>服务，允许客户端获取指定时区的时间，即允许客户端调用下面的方法：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">LocalDateTime</span> <span class="token function">getLocalDateTime</span><span class="token punctuation">(</span><span class="token class-name">String</span> zoneId<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>要实现RMI，服务器和客户端必须共享同一个接口。我们定义一个<code>WorldClock</code>接口，代码如下：</p>
+<p>现在我们来尝试实现一个最简单的RMI，首先定义一个可使用RMI的接口如下</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">WorldClock</span> <span class="token keyword">extends</span> <span class="token class-name">Remote</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">LocalDateTime</span> <span class="token function">getLocalDateTime</span><span class="token punctuation">(</span><span class="token class-name">String</span> zoneId<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>Java的RMI规定此接口必须派生自<code>java.rmi.Remote</code>，并在每个方法声明抛出<code>RemoteException</code>。</strong></p>
+<p>下面编写服务器的实现类，也就是我们客户端要调用的类</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">WorldClock</span> <span class="token keyword">extends</span> <span class="token class-name">Remote</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">LocalDateTime</span> <span class="token function">getLocalDateTime</span><span class="token punctuation">(</span><span class="token class-name">String</span> zoneId<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>那么对RMI的内容我们就准备完毕，下面我们就要通过RMI提供的接口来吧上面的服务以RMI的形式部署到网络上，才能让客户端进行调用</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Server</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"create World clock remote service..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 实例化一个WorldClock:</span>
+        <span class="token class-name">WorldClock</span> worldClock <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WorldClockService</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 将此服务转换为远程服务接口:</span>
+        <span class="token class-name">WorldClock</span> skeleton <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">WorldClock</span><span class="token punctuation">)</span> <span class="token class-name">UnicastRemoteObject</span><span class="token punctuation">.</span><span class="token function">exportObject</span><span class="token punctuation">(</span>worldClock<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 将RMI服务注册到1099端口:</span>
+        <span class="token class-name">Registry</span> registry <span class="token operator">=</span> <span class="token class-name">LocateRegistry</span><span class="token punctuation">.</span><span class="token function">createRegistry</span><span class="token punctuation">(</span><span class="token number">1099</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 注册此服务，服务名为"WorldClock":</span>
+        registry<span class="token punctuation">.</span><span class="token function">rebind</span><span class="token punctuation">(</span><span class="token string">"WorldClock"</span><span class="token punctuation">,</span> skeleton<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上述代码为服务端相关类，下面我们就要编写客户端代码</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">RemoteException</span><span class="token punctuation">,</span> <span class="token class-name">NotBoundException</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">// 连接到服务器localhost，端口1099:</span>
+        <span class="token class-name">Registry</span> registry <span class="token operator">=</span> <span class="token class-name">LocateRegistry</span><span class="token punctuation">.</span><span class="token function">getRegistry</span><span class="token punctuation">(</span><span class="token string">"localhost"</span><span class="token punctuation">,</span> <span class="token number">1099</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 查找名称为"WorldClock"的服务并强制转型为WorldClock接口:</span>
+        <span class="token class-name">WorldClock</span> worldClock <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">WorldClock</span><span class="token comment">/*共用接口*/</span><span class="token punctuation">)</span> registry<span class="token punctuation">.</span><span class="token function">lookup</span><span class="token punctuation">(</span><span class="token string">"WorldClock"</span><span class="token comment">/*服务名称*/</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 正常调用接口方法:</span>
+        <span class="token class-name">LocalDateTime</span> now <span class="token operator">=</span> worldClock<span class="token punctuation">.</span><span class="token function">getLocalDateTime</span><span class="token punctuation">(</span><span class="token string">"Asia/Shanghai"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// 打印调用结果:</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>now<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211132152945.png"></p>
+<p>运行就会发现我们的方法成功运行，我们打个断点来看看RMI是把对象加载到本地直接运行还是将数据交由远程处理</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211132204576.png"></p>
+<p>首先加载服务的时候服务端运行无报错，此时我们将服务端代码停止并且让客户端继续运行</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211132205937.png"></p>
+<p>发生报错运行失败，从上面的结果可见整个接口并没有将实例化后的对象或者实现好的类加载到本地执行，而是将其中对应的方法和属性由RMI中对应的接口交由服务端运行</p>
+<blockquote>
+<p>从运行结果可知，因为客户端只有接口，并没有实现类，因此，客户端获得的接口方法返回值实际上是通过网络从服务器端获取的。整个过程实际上非常简单，对客户端来说，客户端持有的<code>WorldClock</code>接口实际上对应了一个“实现类”，它是由<code>Registry</code>内部动态生成的，并负责把方法调用通过网络传递到服务器端。而服务器端接收网络调用的服务并不是我们自己编写的<code>WorldClockService</code>，而是<code>Registry</code>自动生成的代码。我们把客户端的“实现类”称为<code>stub</code>，而服务器端的网络服务类称为<code>skeleton</code>，它会真正调用服务器端的<code>WorldClockService</code>，获取结果，然后把结果通过网络传递给客户端。整个过程由RMI底层负责实现序列化和反序列化：</p>
+</blockquote>
+<pre class="line-numbers language-ascii" data-language="ascii"><code class="language-ascii">┌ ─ ─ ─ ─ ─ ─ ─ ─ ┐         ┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐
+  ┌─────────────┐                                 ┌─────────────┐
+│ │   Service   │ │         │                     │   Service   │ │
+  └─────────────┘                                 └─────────────┘
+│        ▲        │         │                            ▲        │
+         │                                               │
+│        │        │         │                            │        │
+  ┌─────────────┐   Network   ┌───────────────┐   ┌─────────────┐
+│ │ Client Stub ├─┼─────────┼&gt;│Server Skeleton│──&gt;│Service Impl │ │
+  └─────────────┘             └───────────────┘   └─────────────┘
+└ ─ ─ ─ ─ ─ ─ ─ ─ ┘         └ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>Java的RMI严重依赖序列化和反序列化，而这种情况下可能会造成严重的安全漏洞，因为Java的序列化和反序列化不但涉及到数据，还涉及到二进制的字节码，即使使用白名单机制也很难保证100%排除恶意构造的字节码。因此，使用RMI时，双方必须是内网互相信任的机器，不要把1099端口暴露在公网上作为对外服务。</p>
+</blockquote>
 <h2 id="关于TemplatesImpl利用链RCE的问题"><a href="#关于TemplatesImpl利用链RCE的问题" class="headerlink" title="关于TemplatesImpl利用链RCE的问题"></a>关于TemplatesImpl利用链RCE的问题</h2><p>困惑很久了，主要是链子跟到最后一步不知道怎么最后RCE了</p>
 <p>要想知道这个类为什么可以触发RCE，首先我们要知道默认情况下Java执行系统命令需要使用的是什么，代码应当如下</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TouchFile&#123;
@@ -635,7 +775,11 @@ TransletClassLoader#defineClass() <span aria-hidden="true" class="line-numbers-r
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>

