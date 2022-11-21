@@ -459,6 +459,9 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 </ol>
 <h2 id="AnnotationInvocationHandler"><a href="#AnnotationInvocationHandler" class="headerlink" title="AnnotationInvocationHandler"></a>AnnotationInvocationHandler</h2><p>使用链：CC1</p>
 <p>首先我们要知道的一点是，对于任意一个代理后的类，在调用类的任意方法时，都会调用其invoke方法，所以这个类有两个使用点，一个是作为readObject反序列化的起点，一个是作为代理中的类进行重写进而对代理的Map类的get方法进行触发</p>
+<p>利用链：</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">AnnotationInvocationHandler</span><span class="token punctuation">.</span><span class="token function">readObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token class-name">Proxy</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">enteySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token class-name">AnnotationInvocationHandler</span><span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span>memberValues<span class="token annotation punctuation">@LazyMap.get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="readObject"><a href="#readObject" class="headerlink" title="readObject"></a>readObject</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private void readObject(ObjectInputStream var1) throws IOException, ClassNotFoundException &#123;
         var1.defaultReadObject();
         AnnotationType var2 &#x3D; null;
@@ -522,6 +525,11 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 <p>可以看到调用了memberValues的get方法这里便是对Map（实际调用LazyMap）的get方法的调用</p>
 <h2 id="LazyMap（Map）"><a href="#LazyMap（Map）" class="headerlink" title="LazyMap（Map）"></a>LazyMap（Map）</h2><p>使用链：CC1</p>
 <p>一个小小的关键点，在调用equals会看到，因为我在看的时候在这个类里一直都没看到equals方法，<code>public class LazyMap extends AbstractMapDecorator implements Map, Serializable</code>继承和实现的类<code>AbstractMapDecorator</code>中是有equals方法的，跟入</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">Map.get()-&gt;factory@chainedTransformer.transform(key)
+
+Hashtable.reconstitutionPut()-&gt;e.key@LazyMap.equals(key@LazyMap)-&gt;AbstractMapDecorator.equals()-&gt;AbstractMap.equals()-&gt;m@LazyMap.get()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="get"><a href="#get" class="headerlink" title="get"></a>get</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public Object get(Object key) &#123;
     if (map.containsKey(key) &#x3D;&#x3D; false) &#123;
         Object value &#x3D; factory.transform(key);
@@ -540,8 +548,7 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处map只要是map类就行，就是本来的LazyMap本人，继续调用<code>AbstractMap</code>中的euqals</p>
-<p>equals（AbstractMap）</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public boolean equals(Object o) &#123;
+<h3 id="equals（AbstractMap）"><a href="#equals（AbstractMap）" class="headerlink" title="equals（AbstractMap）"></a>equals<em>（AbstractMap）</em></h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public boolean equals(Object o) &#123;
     if (o &#x3D;&#x3D; this)
         return true;
 
@@ -576,6 +583,9 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 
 <p>可以看到调用了m.get，LazyMap结束</p>
 <h2 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h2><p>使用链：CC2</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">PriorityQueue.readObject()-&gt;PriorityQueue.heapify()-&gt;PriorityQueue.siftDown()-&gt;PriorityQueue.siftDownUsingComparator()-&gt;comparator@TransformingComparator.compare()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="readObject-1"><a href="#readObject-1" class="headerlink" title="readObject"></a>readObject</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private void readObject(java.io.ObjectInputStream s)
     throws java.io.IOException, ClassNotFoundException &#123;
     &#x2F;&#x2F; Read in size, and any hidden stuff
@@ -615,7 +625,10 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处关键在于调用了comparator.compare，此处的Comparator我们可控，一般定义为TransformingComparator，这样我对PriorityQueue就结束了</p>
-<h2 id="TransformingComparator"><a href="#TransformingComparator" class="headerlink" title="TransformingComparator"></a>TransformingComparator</h2><p>利用链：CC2</p>
+<h2 id="TransformingComparator"><a href="#TransformingComparator" class="headerlink" title="TransformingComparator"></a>TransformingComparator</h2><p>使用链：CC2</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">PriorityQueue.siftDownUsingComparator()-&gt;TransformingComparator.compare()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="compare"><a href="#compare" class="headerlink" title="compare"></a>compare</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public int compare(Object obj1, Object obj2) &#123;
     Object value1 &#x3D; this.transformer.transform(obj1);
     Object value2 &#x3D; this.transformer.transform(obj2);
@@ -623,8 +636,11 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>不用多说了吧，直接调用transform方法了，transformer可控</p>
-<h2 id="TrAXFilter"><a href="#TrAXFilter" class="headerlink" title="TrAXFilter"></a>TrAXFilter</h2><p>利用链：</p>
+<h2 id="TrAXFilter"><a href="#TrAXFilter" class="headerlink" title="TrAXFilter"></a>TrAXFilter</h2><p>使用链：</p>
 <p>该类一般和InstantiateTransformer一起使用进行RCE</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">InstantiateTransformer.transform()-&gt;TrAXFilter()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="TrAXFilter（构造函数）"><a href="#TrAXFilter（构造函数）" class="headerlink" title="TrAXFilter（构造函数）"></a>TrAXFilter（构造函数）</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public TrAXFilter(Templates templates)  throws
     TransformerConfigurationException
 &#123;
@@ -635,7 +651,10 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>这里能看到构造函数调用了templates.newTransformer方法，此处templates可控并且为Templates类，我们传入一个TemplatesImpl类对象，加载恶意字节码即可RCE（见CB1链）</p>
-<h2 id="BadAttributeValueExpException"><a href="#BadAttributeValueExpException" class="headerlink" title="BadAttributeValueExpException"></a>BadAttributeValueExpException</h2><p>利用链：CC5</p>
+<h2 id="BadAttributeValueExpException"><a href="#BadAttributeValueExpException" class="headerlink" title="BadAttributeValueExpException"></a>BadAttributeValueExpException</h2><p>使用链：CC5</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">BadAttributeValueExpException.readObject()-&gt;valObj@TiedMapEntry.toString()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>该链要求极高<code>This only works in JDK 8u76 and WITHOUT a security manager</code></p>
 <p>直接把这段利用关系看了吧</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException &#123;
@@ -662,7 +681,12 @@ runtime<span class="token punctuation">.</span><span class="token function">exec
 
 <p>首先因为我们呢传入的Obj肯定不是字符串，也不会在基础类型中，所以就需要<code>System.getSecurityManager()==null</code>才能进入到valObj.toString方法中</p>
 <p>下一步就是找到可以进行触发的toString方法，这里使用的是TiedMapEntry</p>
-<h2 id="TiedMapEntry"><a href="#TiedMapEntry" class="headerlink" title="TiedMapEntry"></a>TiedMapEntry</h2><h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public String toString() &#123;
+<h2 id="TiedMapEntry"><a href="#TiedMapEntry" class="headerlink" title="TiedMapEntry"></a>TiedMapEntry</h2><p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">BadAttributeValueExpException.readObject()-&gt;TiedMapEntry.toString()-&gt;TiedMapEntry.getValue()-&gt;map@LazyMap.get()
+
+HashMap.hash()-&gt;key@TiedMapEntry.hashCode()-&gt;TiedMapEntry.getValue()-&gt;map@LazyMap.get()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public String toString() &#123;
     return getKey() + &quot;&#x3D;&quot; + getValue();
 &#125;
 
@@ -686,7 +710,10 @@ public class TiedMapEntry implements Map.Entry, KeyValue, Serializable &#123;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>调用了getValue方法</p>
-<h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><p>利用链：CC6</p>
+<h2 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h2><p>使用链：CC6</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">HashSet.readObject()-&gt;map@HashMap.put()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="readObject-2"><a href="#readObject-2" class="headerlink" title="readObject"></a>readObject</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;private transient HashMap&lt;E,Object&gt; map;
 private void readObject(java.io.ObjectInputStream s)
     throws java.io.IOException, ClassNotFoundException &#123;
@@ -708,8 +735,10 @@ private void readObject(java.io.ObjectInputStream s)
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>我们直接跟链子，看到最后调用了map的put方法，并且此处的map被限定为了HashMap类，直接往下跟</p>
-<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>利用链：CC6</p>
-<p>利用方法：</p>
+<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>使用链：CC6</p>
+<p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">HashSet.readObject()-&gt;map@HashMap.put()-&gt;HashMap.hash()-&gt;key@TiedMapEntry.hashCode()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="put"><a href="#put" class="headerlink" title="put"></a>put</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public V put(K key, V value) &#123;
     if (table &#x3D;&#x3D; EMPTY_TABLE) &#123;
         inflateTable(threshold);
@@ -749,7 +778,10 @@ private void readObject(java.io.ObjectInputStream s)
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>传入的key执行它的hashCode方法，此处设置key的类为TiedMapEntry</p>
-<h2 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h2><h3 id="readObject-3"><a href="#readObject-3" class="headerlink" title="readObject"></a>readObject</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private void readObject(java.io.ObjectInputStream s)
+<h2 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h2><p>利用链：</p>
+<pre class="line-numbers language-none"><code class="language-none">Hashtable.readObject()-&gt;Hashtable.reconstitutionPut()-&gt;e.key@LazyMap.equals(key@LazyMap)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="readObject-3"><a href="#readObject-3" class="headerlink" title="readObject"></a>readObject</h3><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private void readObject(java.io.ObjectInputStream s)
      throws IOException, ClassNotFoundException
 &#123;
     &#x2F;&#x2F; Read in the length, threshold, and loadfactor
@@ -807,6 +839,31 @@ private void readObject(java.io.ObjectInputStream s)
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处调用了e.key.equals(key)，两个key都是LazyMap类型，跟入对应类中方法</p>
+<p>最终总结出各个链子利用如下</p>
+<h2 id="CC1"><a href="#CC1" class="headerlink" title="CC1"></a>CC1</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">AnnotationInvocationHandler.readObject()-&gt;Map(Proxy).enteySet()-&gt;AnnotationInvocationHandler.invoke()-&gt;memberValues@LazyMap.get()-&gt;factory@chainedTransformer.transform(key)-&gt;Runtime.exec()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CC2"><a href="#CC2" class="headerlink" title="CC2"></a>CC2</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">PriorityQueue.readObject()-&gt;comparator@TransformingComparator.compare()-&gt;transformer@InvokerTransformer.transform(obj1@TemplatesImpl)-&gt;TemplatesImpl.newTransformer()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CC3"><a href="#CC3" class="headerlink" title="CC3"></a>CC3</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">AnnotationInvocationHandler.readObject()-&gt;Map(Proxy).enteySet()-&gt;AnnotationInvocationHandler.invoke()-&gt;memberValues@LazyMap.get()-&gt;factory@chainedTransformer.transform(key)-&gt;TemplatesImpl.newTransformer()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CC4"><a href="#CC4" class="headerlink" title="CC4"></a>CC4</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">PriorityQueue.readObject()-&gt;comparator@TransformingComparator.compare()-&gt;transformer@InstantiateTransformer.transform(obj1@TrAXFilter.class)-&gt;TrAXFilter(templates@TemplatesImpl)-&gt;templates@TemplatesImpl.newTransformer()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CC5"><a href="#CC5" class="headerlink" title="CC5"></a>CC5</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">BadAttributeValueExpException.readObject()-&gt;valObj@TiedMapEntry.toString()-&gt;map@LazyMap.get()-&gt;ChainedTransformer.transform()-&gt;InvokerTransformer.transform()-&gt;Runtime.exec()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CC6"><a href="#CC6" class="headerlink" title="CC6"></a>CC6</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">HashSet.readObject()-&gt;map@HashMap.put()-&gt;key@TiedMapEntry.hashCode()-&gt;getValue()-&gt;map@LazyMap.get()-&gt;ChainedTransformer.transform()-&gt;InvokerTransformer.transform()-&gt;Runtime.exec()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="CC7"><a href="#CC7" class="headerlink" title="CC7"></a>CC7</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">Hashtable.readObject()-&gt;Hashtable.reconstitutionPut()-&gt;e.key@LazyMap.equals(key@LazyMap)-&gt;AbstractMapDecorator.equals()-&gt;AbstractMap.equals()-&gt;m@LazyMap.get()<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
