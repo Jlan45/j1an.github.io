@@ -53,7 +53,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.0.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="J1an's Little World" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -518,7 +519,7 @@ className.InnerClass innerObject &#x3D; new className().new InnerClass();<span a
 <p>通常情况下，我们应该用<code>instanceof</code>判断数据类型，因为面向抽象编程的时候，我们不关心具体的子类型。只有在需要精确判断一个类型是不是某个<code>class</code>的时候，我们才使用<code>==</code>判断<code>class</code>实例。</p>
 <p>因为反射的目的是为了获得某个实例的信息。因此，当我们拿到某个<code>Object</code>实例时，我们可以通过反射获取该<code>Object</code>的<code>class</code>信息：</p>
 </blockquote>
-<h2 id="关于代理"><a href="#关于代理" class="headerlink" title="关于代理"></a>关于代理</h2><p>代理类是非常有意思的东西</p>
+<h2 id="关于代理"><a href="#关于代理" class="headerlink" title="关于代理"></a>关于代理</h2><p>代理类是非常有意思的东西，之所以放在这里是因为代理的前提就是反射（废话，代理就在反射包下）</p>
 <p><em><strong>动态代理</strong></em></p>
 <p>我们在正常使用接口的时候都是先编写一个对应的实现类，然后再编写对应的方法，但是通过代理，我们就可以在不实现接口的前提下生成一个对象，并为其添加对应的方法</p>
 <p>上面这个过程主要通过<code>handler</code>实现</p>
@@ -595,7 +596,7 @@ hello.morning(&quot;Bob&quot;);<span aria-hidden="true" class="line-numbers-rows
 </li>
 </ol>
 </blockquote>
-<p>可以看到整个过程中我们根本没有对接口进行传统意义上的实现，</p>
+<p>可以看到整个过程中我们根本没有对接口进行传统意义上的实现，而是动态的通过中间的handler处理器来实现类似方法的调用</p>
 <h2 id="关于RMI"><a href="#关于RMI" class="headerlink" title="关于RMI"></a>关于RMI</h2><p>Java的RMI远程调用是指，一个JVM中的代码可以通过网络实现远程调用另一个JVM的某个方法。RMI是Remote Method Invocation#<em><strong>远程方法调用</strong></em>的缩写。</p>
 <p>提供服务的一方我们称之为服务器，而实现远程调用的一方我们称之为客户端。</p>
 <p>我们先来实现一个最简单的RMI：服务器会提供一个<code>WorldClock</code>服务，允许客户端获取指定时区的时间，即允许客户端调用下面的方法：</p>
@@ -666,6 +667,13 @@ hello.morning(&quot;Bob&quot;);<span aria-hidden="true" class="line-numbers-rows
 <blockquote>
 <p>Java的RMI严重依赖序列化和反序列化，而这种情况下可能会造成严重的安全漏洞，因为Java的序列化和反序列化不但涉及到数据，还涉及到二进制的字节码，即使使用白名单机制也很难保证100%排除恶意构造的字节码。因此，使用RMI时，双方必须是内网互相信任的机器，不要把1099端口暴露在公网上作为对外服务。</p>
 </blockquote>
+<p>在使用RMI是需要注意的点</p>
+<ol>
+<li>接口需要集成Remote接口，且方法需要抛出RemoteException错误</li>
+<li>接口的实现类需要继承UnicastRemoteObject，同样的方法需要抛出RemoteException错误</li>
+<li>如果远程方法需要传参，需要保证参数是可序列化的，我这里传参只是传了字符串，字符串是可序列化的，如果传参是自定义的对象，那么这个对象需要实现Serilizable接口</li>
+</ol>
+<h2 id="关于JNDI"><a href="#关于JNDI" class="headerlink" title="关于JNDI"></a>关于JNDI</h2><h2 id="关于JDBC"><a href="#关于JDBC" class="headerlink" title="关于JDBC"></a>关于JDBC</h2><p>JDBC说白了就通过一套统一的API加上不同数据库的驱动，来实现用一套统一的API对不同种类的数据库进行连接</p>
 <h2 id="关于TemplatesImpl利用链RCE的问题"><a href="#关于TemplatesImpl利用链RCE的问题" class="headerlink" title="关于TemplatesImpl利用链RCE的问题"></a>关于TemplatesImpl利用链RCE的问题</h2><p>困惑很久了，主要是链子跟到最后一步不知道怎么最后RCE了</p>
 <p>要想知道这个类为什么可以触发RCE，首先我们要知道默认情况下Java执行系统命令需要使用的是什么，代码应当如下</p>
 <pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class TouchFile&#123;
@@ -712,6 +720,65 @@ TemplatesImpl#defineTransletClasses() -&gt;
 TransletClassLoader#defineClass() <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>看完这个我们可以看看ysoserial最后是怎么通过他构造出来一个可供命令执行的字节码的</p>
+<h3 id="关于注解"><a href="#关于注解" class="headerlink" title="关于注解"></a>关于注解</h3><p>什么是注解（Annotation）？注解是放在Java源码的类、方法、字段、参数前的一种特殊“注释”：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; this is a component:
+@Resource(&quot;hello&quot;)
+public class Hello &#123;
+    @Inject
+    int n;
+
+    @PostConstruct
+    public void hello(@Param String name) &#123;
+        System.out.println(name);
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;Hello&quot;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>注释会被编译器直接忽略，注解则可以被编译器打包进入class文件，因此，注解是一种用作标注的“元数据”。</p>
+<p>从JVM的角度看，注解本身对代码逻辑没有任何影响，如何使用注解完全由工具决定。</p>
+<p>Java的注解可以分为三类：</p>
+<p>第一类是由编译器使用的注解，例如：</p>
+<ul>
+<li><code>@Override</code>：让编译器检查该方法是否正确地实现了覆写；</li>
+<li><code>@SuppressWarnings</code>：告诉编译器忽略此处代码产生的警告。</li>
+</ul>
+<p>这类注解不会被编译进入<code>.class</code>文件，它们在编译后就被编译器扔掉了。</p>
+<p>第二类是由工具处理<code>.class</code>文件使用的注解，比如有些工具会在加载class的时候，对class做动态修改，实现一些特殊的功能。这类注解会被编译进入<code>.class</code>文件，但加载结束后并不会存在于内存中。这类注解只被一些底层库使用，一般我们不必自己处理。</p>
+<p>第三类是在程序运行期能够读取的注解，它们在加载后一直存在于JVM中，这也是最常用的注解。例如，一个配置了<code>@PostConstruct</code>的方法会在调用构造方法后自动被调用（这是Java代码读取该注解实现的功能，JVM并不会识别该注解）。</p>
+<p>定义一个注解时，还可以定义配置参数。配置参数可以包括：</p>
+<ul>
+<li>所有基本类型；</li>
+<li>String；</li>
+<li>枚举类型；</li>
+<li>基本类型、String、Class以及枚举的数组。</li>
+</ul>
+<p>因为配置参数必须是常量，所以，上述限制保证了注解在定义时就已经确定了每个参数的值。</p>
+<p>注解的配置参数可以有默认值，缺少某个配置参数时将使用默认值。</p>
+<p>此外，大部分注解会有一个名为<code>value</code>的配置参数，对此参数赋值，可以只写常量，相当于省略了value参数。</p>
+<p>如果只写注解，相当于全部使用默认值。</p>
+<p>举个栗子，对以下代码：</p>
+<pre class="line-numbers language-none"><code class="language-none">public class Hello &#123;
+    @Check(min&#x3D;0, max&#x3D;100, value&#x3D;55)
+    public int n;
+
+    @Check(value&#x3D;99)
+    public int p;
+
+    @Check(99) &#x2F;&#x2F; @Check(value&#x3D;99)
+    public int x;
+
+    @Check
+    public int y;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><code>@Check</code>就是一个注解。第一个<code>@Check(min=0, max=100, value=55)</code>明确定义了三个参数，第二个<code>@Check(value=99)</code>只定义了一个<code>value</code>参数，它实际上和<code>@Check(99)</code>是完全一样的。最后一个<code>@Check</code>表示所有参数都使用默认值。</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>注解（Annotation）是Java语言用于工具处理的标注：</p>
+<p>注解可以配置参数，没有指定配置的参数使用默认值；</p>
+<p>如果参数名称是<code>value</code>，且只有一个参数，那么可以省略参数名称。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
@@ -827,13 +894,13 @@ TransletClassLoader#defineClass() <span aria-hidden="true" class="line-numbers-r
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/b0a65e80.html">
+                <a href="/posts/4eebb256.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Hack The BOX记录">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Java安全">
                         
-                        <span class="card-title">Hack The BOX记录</span>
+                        <span class="card-title">Java安全</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -844,7 +911,7 @@ TransletClassLoader#defineClass() <span aria-hidden="true" class="line-numbers-r
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-13
                         </span>
                         <span class="publish-author">
                             
@@ -853,6 +920,14 @@ TransletClassLoader#defineClass() <span aria-hidden="true" class="line-numbers-r
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>

