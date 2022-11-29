@@ -4,11 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="RMI攻击, J1an&#39;s Little World">
-    <meta name="description" content="之前在关于Java的小点中介绍了一些Java安全入门所需要掌握的基本知识，那么这里我们就要来看看具体的对RMI进行攻击的方法
-首先要知道什么是RMI
-简介
-RMI（Remote Method Invocation），远程方法调用。跟RPC差">
+    <meta name="keywords" content="Fastjson反序列化分析, J1an&#39;s Little World">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +17,7 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>RMI攻击 | J1an&#39;s Little World</title>
+    <title>Fastjson反序列化分析 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -314,12 +311,12 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">RMI攻击</h1>
+                    <h1 class="description center-align post-title">Fastjson反序列化分析</h1>
                 </div>
             </div>
         </div>
@@ -341,13 +338,9 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -359,7 +352,7 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-13
+                    2022-11-29
                 </div>
                 
 
@@ -383,37 +376,7 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>之前在关于Java的小点中介绍了一些Java安全入门所需要掌握的基本知识，那么这里我们就要来看看具体的对RMI进行攻击的方法</p>
-<p>首先要知道什么是RMI</p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>RMI（Remote Method Invocation），远程方法调用。跟RPC差不多，是java独立实现的一种机制。实际上就是在一个java虚拟机上调用另一个java虚拟机的对象上的方法。</p>
-<p>RMI依赖的通信协议为JRMP(Java Remote Message Protocol ，Java 远程消息交换协议)，该协议为Java定制，要求服务端与客户端都为Java编写。这个协议就像HTTP协议一样，规定了客户端和服务端通信要满足的规范。（我们可以再之后数据包中看到该协议特征）</p>
-<p>在RMI中对象是通过序列化方式进行编码传输的。（我们将在之后证实）</p>
-<p>RMI分为三个主体部分：</p>
-<ul>
-<li>Client-客户端：客户端调用服务端的方法</li>
-<li>Server-服务端：远程调用方法对象的提供者，也是代码真正执行的地方，执行结束会返回给客户端一个方法执行的结果。</li>
-<li>Registry-注册中心：其实本质就是一个map，相当于是字典一样，用于客户端查询要调用的方法的引用。</li>
-</ul>
-<p>总体RMI的调用实现目的就是调用远程机器的类跟调用一个写在自己的本地的类一样。</p>
-<p>唯一区别就是RMI服务端提供的方法，被调用的时候该方法是<strong>执行在服务端</strong>。</p>
-</blockquote>
-<p>RMI关键点在于，所有的方法执行都是在服务端上执行的，这时肯定会有人有疑问，为什么在服务端进行调用还会导致RCE咧？我们暂且按下不表，后面在看具体漏洞就知道为什么了</p>
-<h3 id="RMI调用流程"><a href="#RMI调用流程" class="headerlink" title="RMI调用流程"></a>RMI调用流程</h3><p>Server部署：</p>
-<ol>
-<li>Server向Registry注册远程对象，远程对象绑定在一个<code>//host:port/objectname</code>上，形成一个映射表（Service-Stub）。</li>
-</ol>
-<p>Client调用：</p>
-<ol>
-<li>Client向Registry通过RMI地址查询对应的远程引用（Stub）。这个远程引用包含了一个服务器主机名和端口号。</li>
-<li>Client拿着Registry给它的远程引用，照着上面的服务器主机名、端口去连接提供服务的远程RMI服务器</li>
-<li>Client传送给Server需要调用函数的输入参数，Server执行远程方法，并返回给Client执行结果。</li>
-</ol>
-<p><img src="https://img-blog.csdn.net/20181023090617906"></p>
-<p><img src="https://shs3.b.qianxin.com/attack_forum/2022/09/attach-42615ecabc320b391e4e2d95c7ca4541b392555a.png" alt="image-20220907013338336"></p>
-<p>看到整个调用过程我们发现所有的内容传递都是对象，过程自然是序列化与反序列化，那这是我们就会有疑问，如果在客户端并没有服务端所返回的对象类那不就不能存储我们的对象了吗？</p>
-<p>这时JNDI就生效了，在JNDI远程进行加载的时候，会通过lookup来对类进行本地查找，如果本地找不到对应类的定义，就会去到server端预先定义好的codebase地址中（一般是http）获取对应类的class文件，</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+                <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -439,7 +402,7 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jlan.darkflow.top/posts/70165cdf.html">http://jlan.darkflow.top/posts/70165cdf.html</a>
+                    <a href="http://jlan.darkflow.top/posts/94f1bd4a.html">http://jlan.darkflow.top/posts/94f1bd4a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -476,11 +439,7 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -528,13 +487,13 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/eb326eb3.html">
+                <a href="/posts/6ce81c59.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="CommonsCollections反序列化分析">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="JNDI安全详解">
                         
-                        <span class="card-title">CommonsCollections反序列化分析</span>
+                        <span class="card-title">JNDI安全详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -545,7 +504,7 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-29
                         </span>
                         <span class="publish-author">
                             
@@ -573,24 +532,24 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/b36bc80c.html">
+                <a href="/posts/d8454e42.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="有关Java的小点">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Hibernate链分析">
                         
-                        <span class="card-title">有关Java的小点</span>
+                        <span class="card-title">Hibernate链分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            碎碎念：学Java真的好折磨人呜呜呜呜，好多好多好多包，名字也不认识，方法也不会用，只能慢慢一步步往前走，哭哭😭，这篇文章主要是总结一些关于Java的有趣小点，看个乐呵涨点冷知识就好
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-24
                             </span>
                         <span class="publish-author">
                             
@@ -599,14 +558,6 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                 </div>
                 
             </div>

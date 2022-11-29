@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java反序列化详解, J1an&#39;s Little World">
-    <meta name="description" content="">
+    <meta name="keywords" content="Hibernate链分析, J1an&#39;s Little World">
+    <meta name="description" content="Hibernate简介Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Jav">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java反序列化详解 | J1an&#39;s Little World</title>
+    <title>Hibernate链分析 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java反序列化详解</h1>
+                    <h1 class="description center-align post-title">Hibernate链分析</h1>
                 </div>
             </div>
         </div>
@@ -352,7 +352,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-13
+                    2022-11-24
                 </div>
                 
 
@@ -376,7 +376,134 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+                <h1 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>Hibernate是一个开放源代码的对象关系映射框架，它对JDBC进行了非常轻量级的对象封装，它将POJO与数据库表建立映射关系，是一个全自动的orm框架，hibernate可以自动生成SQL语句，自动执行，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。 Hibernate可以应用在任何使用JDBC的场合，既可以在Java的客户端程序使用，也可以在Servlet/JSP的Web应用中使用，最具革命意义的是，Hibernate可以在应用EJB的JaveEE架构中取代CMP，完成数据持久化的重任。</strong></p>
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>一个奇怪小知识，就是在java中的Class.this和this的区别</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">class Outer&#123;
+    String data &#x3D; &quot;Out!&quot;;
+    public class Inner&#123;
+        String data &#x3D; &quot;In!&quot;;
+        public String getOuterData()&#123;
+            return Outer.this.data; &#x2F;&#x2F; will return &quot;Out!&quot;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>第一次见这么写接口实现的</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;ValueHolder
+public interface DeferredInitializer&lt;T&gt; &#123;
+    T initialize();
+&#125;
+&#x2F;&#x2F;TypedValue
+private void readObject(ObjectInputStream ois) throws ClassNotFoundException, IOException &#123;
+    ois.defaultReadObject();
+    this.initTransients();
+&#125;
+private void initTransients() &#123;
+    this.hashcode &#x3D; new ValueHolder(new ValueHolder.DeferredInitializer&lt;Integer&gt;() &#123;
+        public Integer initialize() &#123;
+            return TypedValue.this.value &#x3D;&#x3D; null ? 0 : TypedValue.this.type.getHashCode(TypedValue.this.value);
+        &#125;
+    &#125;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="链分析"><a href="#链分析" class="headerlink" title="链分析"></a>链分析</h2><pre class="line-numbers language-none"><code class="language-none">&#x2F;**
+ *
+ * org.hibernate.property.access.spi.GetterMethodImpl.get()
+ * org.hibernate.tuple.component.AbstractComponentTuplizer.getPropertyValue()
+ * org.hibernate.type.ComponentType.getPropertyValue(C)
+ * org.hibernate.type.ComponentType.getHashCode()
+ * org.hibernate.engine.spi.TypedValue$1.initialize()
+ * org.hibernate.engine.spi.TypedValue$1.initialize()
+ * org.hibernate.internal.util.ValueHolder.getValue()
+ * org.hibernate.engine.spi.TypedValue.hashCode()
+ *
+ *
+ * Requires:
+ * - Hibernate (&gt;&#x3D; 5 gives arbitrary method invocation, &lt;5 getXYZ only)
+ *
+ * @author mbechler
+ *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>先看序列化返回数据的类型，是HashMap，看一下内容的存储结构</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202211241621753.png"></p>
+<p>两对键值对key和value都是TypedValue类，我们又知道在HashMap反序列化的时候会自动对key执行hashCode操作，所以我们就从TypedValue的hashCode方法开始跟入</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;org.hibernate.engine.spi.TypedValue
+public int hashCode() &#123;
+    return (Integer)this.hashcode.getValue();
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>变量内的hashcode为ValueHolder类，这里的ValueHolder和TypedValue就是对其中的value进行了一定的包装，方便我们获取其类型和属性，我们鸡血跟入ValueHolder.getValue</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;ValueHolder
+public ValueHolder(DeferredInitializer&lt;T&gt; valueInitializer) &#123;
+    this.valueInitializer &#x3D; valueInitializer;
+&#125;
+public T getValue() &#123;
+    if (this.value &#x3D;&#x3D; null) &#123;
+        this.value &#x3D; this.valueInitializer.initialize();
+    &#125;
+    return this.value;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>执行了this.valueInitializer.initialize，这里的valueInitializer是在构造函数中传入的，我们继续跟入</p>
+<pre class="line-numbers language-none"><code class="language-none">private void initTransients() &#123;
+    this.hashcode &#x3D; new ValueHolder(new ValueHolder.DeferredInitializer&lt;Integer&gt;() &#123;
+        public Integer initialize() &#123;
+            return TypedValue.this.value &#x3D;&#x3D; null ? 0 : TypedValue.this.type.getHashCode(TypedValue.this.value);
+        &#125;
+    &#125;);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>进入到了TypedValue的initTransients中对ValueHolder的DeferredInitializer的实现中，调用了TypedValue.type.getHashCode(TypedValue.this.value)，这里value就是构造了恶意字节码的TemplateImpl对象了，跟入</p>
+<pre class="line-numbers language-none"><code class="language-none">public int getHashCode(Object x) &#123;
+    int result &#x3D; 17;
+
+    for(int i &#x3D; 0; i &lt; this.propertySpan; ++i) &#123;
+        Object y &#x3D; this.getPropertyValue(x, i);
+        result *&#x3D; 37;
+        if (y !&#x3D; null) &#123;
+            result +&#x3D; this.propertyTypes[i].getHashCode(y);
+        &#125;
+    &#125;
+
+    return result;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;org.hibernate.type.ComponentType
+public int getHashCode(Object x) &#123;
+    int result &#x3D; 17;
+    for(int i &#x3D; 0; i &lt; this.propertySpan; ++i) &#123;
+        Object y &#x3D; this.getPropertyValue(x, i);
+        result *&#x3D; 37;
+        if (y !&#x3D; null) &#123;
+            result +&#x3D; this.propertyTypes[i].getHashCode(y);
+        &#125;
+    &#125;
+    return result;
+&#125;
+public Object getPropertyValue(Object component, int i) throws HibernateException &#123;
+    return component instanceof Object[] ? ((Object[])((Object[])component))[i] : this.componentTuplizer.getPropertyValue(component, i);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>调用到<code>this.componentTuplizer.getPropertyValue(恶意字节码对象,i)</code></p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">&#x2F;&#x2F;org.hibernate.tuple.component.AbstractComponentTuplizer
+public Object getPropertyValue(Object component, int i) throws HibernateException &#123;
+    return this.getters[i].get(component);
+&#125;
+public Object get(Object owner) &#123;
+    try &#123;
+        return this.getterMethod.invoke(owner);
+    &#125; catch (InvocationTargetException var3) &#123;
+        throw new PropertyAccessException(var3, &quot;Exception occurred inside&quot;, false, this.containerClass, this.propertyName);
+    &#125; catch (IllegalAccessException var4) &#123;
+        throw new PropertyAccessException(var4, &quot;IllegalAccessException occurred while calling&quot;, false, this.containerClass, this.propertyName);
+    &#125; catch (IllegalArgumentException var5) &#123;
+        LOG.illegalPropertyGetterArgument(this.containerClass.getName(), this.propertyName);
+        throw new PropertyAccessException(var5, &quot;IllegalArgumentException occurred calling&quot;, false, this.containerClass, this.propertyName);
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>继续调用<code>this.getters[i].get(恶意字节码对象)</code>，最终调用到<code>this.getterMethod.invoke(owner)</code>这里的getterMethod就是我们先前构造的getOutputProperties方法，传入恶意字节码对象，完成RCE</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -402,7 +529,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jlan.darkflow.top/posts/971b7293.html">http://jlan.darkflow.top/posts/971b7293.html</a>
+                    <a href="http://jlan.darkflow.top/posts/d8454e42.html">http://jlan.darkflow.top/posts/d8454e42.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -487,13 +614,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/eb326eb3.html">
+                <a href="/posts/94f1bd4a.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="CommonsCollections反序列化分析">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Fastjson反序列化分析">
                         
-                        <span class="card-title">CommonsCollections反序列化分析</span>
+                        <span class="card-title">Fastjson反序列化分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -504,7 +631,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-14
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-11-29
                         </span>
                         <span class="publish-author">
                             
@@ -513,14 +640,6 @@
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -532,24 +651,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/70165cdf.html">
+                <a href="/posts/2f60179e.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="RMI攻击">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="CC链碎片">
                         
-                        <span class="card-title">RMI攻击</span>
+                        <span class="card-title">CC链碎片</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            CC链碎片众所周知，CC链本质上就是对不同的反序列化进行拼凑得到的，那么我们只要将其中的碎片进行总结再加以利用就可以构造出所有的CC链，这篇水文就是用来总结CC中的所有碎片的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-11-21
                             </span>
                         <span class="publish-author">
                             
