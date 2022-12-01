@@ -412,7 +412,59 @@ RMI（Remote Method Invocation），远程方法调用。跟RPC差">
 <p><img src="https://img-blog.csdn.net/20181023090617906"></p>
 <p><img src="https://shs3.b.qianxin.com/attack_forum/2022/09/attach-42615ecabc320b391e4e2d95c7ca4541b392555a.png" alt="image-20220907013338336"></p>
 <p>看到整个调用过程我们发现所有的内容传递都是对象，过程自然是序列化与反序列化，那这是我们就会有疑问，如果在客户端并没有服务端所返回的对象类那不就不能存储我们的对象了吗？</p>
-<p>这时JNDI就生效了，在JNDI远程进行加载的时候，会通过lookup来对类进行本地查找，如果本地找不到对应类的定义，就会去到server端预先定义好的codebase地址中（一般是http）获取对应类的class文件，</p>
+<p>这时JNDI就生效了，在JNDI远程进行加载的时候，会通过lookup来对类进行本地查找，如果本地找不到对应类的定义，就会去到server端预先定义好的codebase地址中（一般是http）获取对应类的class文件，并自动执行类的静态方法和getObjectInstance方法，那么我们只要构造恶意类文件，并且通过RMI返回对应类的实例化对象，就可以导致RCE，多说无益，我们上手试试</p>
+<h2 id="RCE示例"><a href="#RCE示例" class="headerlink" title="RCE示例"></a>RCE示例</h2><pre class="line-numbers language-none"><code class="language-none">public interface HelloService extends Remote &#123;
+    String sayHello() throws RemoteException;
+&#125;
+public class HelloServiceImpl extends UnicastRemoteObject implements HelloService &#123;
+    protected HelloServiceImpl() throws RemoteException &#123;
+    &#125;
+
+    @Override
+    public String sayHello() throws RemoteException &#123;
+        System.out.println(&quot;hello!&quot;);
+        return &quot;hello!&quot;;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>

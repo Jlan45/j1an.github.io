@@ -4,9 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JNDI安全详解, J1an&#39;s Little World">
-    <meta name="description" content="JNDI简介
-JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）是一种Java API，类似于一个索引中心，它允许客户端通过name发现和查找数据和对象。这些对象可以存储">
+    <meta name="keywords" content="pickle源码详解, J1an&#39;s Little World">
+    <meta name="description" content="首先很重要的就是字节码，其实pickle经过了多次迭代已经加了很多内容了，我们直接到源码里去看看
+
+# Pickle opcodes.  See pickletools.py for extensive docs.  The listing">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>JNDI安全详解 | J1an&#39;s Little World</title>
+    <title>pickle源码详解 | J1an&#39;s Little World</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -312,12 +313,12 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">JNDI安全详解</h1>
+                    <h1 class="description center-align post-title">pickle源码详解</h1>
                 </div>
             </div>
         </div>
@@ -341,8 +342,12 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
+                            <a href="/tags/pickle/">
+                                <span class="chip bg-color">pickle</span>
+                            </a>
+                        
+                            <a href="/tags/python/">
+                                <span class="chip bg-color">python</span>
                             </a>
                         
                     </div>
@@ -357,7 +362,7 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-11-29
+                    2022-12-02
                 </div>
                 
 
@@ -381,56 +386,103 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="JNDI"><a href="#JNDI" class="headerlink" title="JNDI"></a>JNDI</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）是一种Java API，类似于一个索引中心，它允许客户端通过name发现和查找数据和对象。这些对象可以存储在不同的命名或目录服务中，例如远程方法调用（RMI），通用对象请求代理体系结构（CORBA），轻型目录访问协议（LDAP）或域名服务（DNS）</p>
-<p><strong>Naming Service</strong>：命名服务是将名称与值相关联的实体，称为”绑定”。它提供了一种使用”find”或”search”操作来根据名称查找对象的便捷方式。 就像DNS一样，通过命名服务器提供服务，大部分的J2EE服务器都含有命名服务器 。</p>
-<p><strong>Directory Service</strong>：是一种特殊的Naming Service，它允许存储和搜索”目录对象”，一个目录对象不同于一个通用对象，目录对象可以与属性关联，因此，目录服务提供了对象属性进行操作功能的扩展。一个目录是由相关联的目录对象组成的系统，一个目录类似于数据库，不过它们通常以类似树的分层结构进行组织。可以简单理解成它是一种简化的RDBMS系统，通过目录具有的属性保存一些简单的信息。</p>
-</blockquote>
-<p>关于JNDI和这些服务的关系具体可以看这个图</p>
-<p><img src="https://image.3001.net/images/20220214/1644818999_6209f237022d14165a1e9.png!small?1644818997380"></p>
-<p>我们可以理解为JNDI是一种上层的规范，而下面的服务都是对这个规范的一个具体实现</p>
-<p>个人理解就是Naming Service提供的服务就是将一个对象和一个url进行绑定，而具体如何实现对某个对象的加载是又下层的RMI等具体服务来执行的</p>
-<p>就比如同样获取一个文件，我们既可以选择http服务也可以选择ftp服务，但是他们都是通过TCP/IP协议传输的</p>
-<p>其中JDK默认内置了如下SPI：</p>
-<ul>
-<li>Lightweight Directory Access Protocol (LDAP)</li>
-<li>Common Object Request Broker Architecture (CORBA) Common Object Services (COS) name service</li>
-<li>Java Remote Method Invocation (RMI) Registry</li>
-<li>Domain Name Service (DNS)</li>
-</ul>
-<p>同时JNDI分为了5个包：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/jndi/overview/naming.html">javax.naming</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/jndi/overview/dir.html">javax.naming.directory</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/jndi/overview/dir.html">javax.naming.ldap</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/jndi/overview/event.html">javax.naming.event</a></li>
-<li><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/jndi/overview/event.html">javax.naming.spi</a></li>
-</ul>
-<p>例如上面说到的RMI Registry就是使用的Naming Service。其应用场景比如：动态加载数据库配置文件，从而保持数据库代码不变动等。<br>代码格式如下：</p>
-<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">String</span> jndiName<span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span><span class="token comment">//指定需要查找name名称</span>
-<span class="token class-name">Context</span> context <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">InitialContext</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//初始化默认环境</span>
-<span class="token class-name">DataSource</span> ds <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">DataSourse</span><span class="token punctuation">)</span>context<span class="token punctuation">.</span><span class="token function">lookup</span><span class="token punctuation">(</span>jndiName<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//查找该name的数据</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <p>首先很重要的就是字节码，其实pickle经过了多次迭代已经加了很多内容了，我们直接到源码里去看看</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">
+<span class="token comment"># Pickle opcodes.  See pickletools.py for extensive docs.  The listing</span>
+<span class="token comment"># here is in kind-of alphabetical order of 1-character pickle code.</span>
+<span class="token comment"># pickletools groups them by purpose.</span>
+<span class="token comment"># Pickle的opcodes，可在pickletools.py中查看大范围的文档，在此处列出的内容是按字母顺序排列的单字符pickle code</span>
+<span class="token comment"># 在pickleltools中将这些内容按功能分组了</span>
+<span class="token comment"># 等会再去pickletools里看</span>
 
+MARK           <span class="token operator">=</span> <span class="token string">b'('</span>   <span class="token comment"># push special markobject on stack</span>
+<span class="token comment"># 向栈内压入一个标记对象</span>
+STOP           <span class="token operator">=</span> <span class="token string">b'.'</span>   <span class="token comment"># every pickle ends with STOP</span>
+POP            <span class="token operator">=</span> <span class="token string">b'0'</span>   <span class="token comment"># discard topmost stack item</span>
+POP_MARK       <span class="token operator">=</span> <span class="token string">b'1'</span>   <span class="token comment"># discard stack top through topmost markobject</span>
+DUP            <span class="token operator">=</span> <span class="token string">b'2'</span>   <span class="token comment"># duplicate top stack item</span>
+FLOAT          <span class="token operator">=</span> <span class="token string">b'F'</span>   <span class="token comment"># push float object; decimal string argument</span>
+INT            <span class="token operator">=</span> <span class="token string">b'I'</span>   <span class="token comment"># push integer or bool; decimal string argument</span>
+BININT         <span class="token operator">=</span> <span class="token string">b'J'</span>   <span class="token comment"># push four-byte signed int</span>
+BININT1        <span class="token operator">=</span> <span class="token string">b'K'</span>   <span class="token comment"># push 1-byte unsigned int</span>
+LONG           <span class="token operator">=</span> <span class="token string">b'L'</span>   <span class="token comment"># push long; decimal string argument</span>
+BININT2        <span class="token operator">=</span> <span class="token string">b'M'</span>   <span class="token comment"># push 2-byte unsigned int</span>
+NONE           <span class="token operator">=</span> <span class="token string">b'N'</span>   <span class="token comment"># push None</span>
+PERSID         <span class="token operator">=</span> <span class="token string">b'P'</span>   <span class="token comment"># push persistent object; id is taken from string arg</span>
+BINPERSID      <span class="token operator">=</span> <span class="token string">b'Q'</span>   <span class="token comment">#  "       "         "  ;  "  "   "     "  stack</span>
+REDUCE         <span class="token operator">=</span> <span class="token string">b'R'</span>   <span class="token comment"># apply callable to argtuple, both on stack</span>
+STRING         <span class="token operator">=</span> <span class="token string">b'S'</span>   <span class="token comment"># push string; NL-terminated string argument</span>
+BINSTRING      <span class="token operator">=</span> <span class="token string">b'T'</span>   <span class="token comment"># push string; counted binary string argument</span>
+SHORT_BINSTRING<span class="token operator">=</span> <span class="token string">b'U'</span>   <span class="token comment">#  "     "   ;    "      "       "      " &lt; 256 bytes</span>
+UNICODE        <span class="token operator">=</span> <span class="token string">b'V'</span>   <span class="token comment"># push Unicode string; raw-unicode-escaped'd argument</span>
+BINUNICODE     <span class="token operator">=</span> <span class="token string">b'X'</span>   <span class="token comment">#   "     "       "  ; counted UTF-8 string argument</span>
+APPEND         <span class="token operator">=</span> <span class="token string">b'a'</span>   <span class="token comment"># append stack top to list below it</span>
+BUILD          <span class="token operator">=</span> <span class="token string">b'b'</span>   <span class="token comment"># call __setstate__ or __dict__.update()</span>
+GLOBAL         <span class="token operator">=</span> <span class="token string">b'c'</span>   <span class="token comment"># push self.find_class(modname, name); 2 string args</span>
+DICT           <span class="token operator">=</span> <span class="token string">b'd'</span>   <span class="token comment"># build a dict from stack items</span>
+EMPTY_DICT     <span class="token operator">=</span> <span class="token string">b'&#125;'</span>   <span class="token comment"># push empty dict</span>
+APPENDS        <span class="token operator">=</span> <span class="token string">b'e'</span>   <span class="token comment"># extend list on stack by topmost stack slice</span>
+GET            <span class="token operator">=</span> <span class="token string">b'g'</span>   <span class="token comment"># push item from memo on stack; index is string arg</span>
+BINGET         <span class="token operator">=</span> <span class="token string">b'h'</span>   <span class="token comment">#   "    "    "    "   "   "  ;   "    " 1-byte arg</span>
+INST           <span class="token operator">=</span> <span class="token string">b'i'</span>   <span class="token comment"># build &amp; push class instance</span>
+LONG_BINGET    <span class="token operator">=</span> <span class="token string">b'j'</span>   <span class="token comment"># push item from memo on stack; index is 4-byte arg</span>
+LIST           <span class="token operator">=</span> <span class="token string">b'l'</span>   <span class="token comment"># build list from topmost stack items</span>
+EMPTY_LIST     <span class="token operator">=</span> <span class="token string">b']'</span>   <span class="token comment"># push empty list</span>
+OBJ            <span class="token operator">=</span> <span class="token string">b'o'</span>   <span class="token comment"># build &amp; push class instance</span>
+PUT            <span class="token operator">=</span> <span class="token string">b'p'</span>   <span class="token comment"># store stack top in memo; index is string arg</span>
+BINPUT         <span class="token operator">=</span> <span class="token string">b'q'</span>   <span class="token comment">#   "     "    "   "   " ;   "    " 1-byte arg</span>
+LONG_BINPUT    <span class="token operator">=</span> <span class="token string">b'r'</span>   <span class="token comment">#   "     "    "   "   " ;   "    " 4-byte arg</span>
+SETITEM        <span class="token operator">=</span> <span class="token string">b's'</span>   <span class="token comment"># add key+value pair to dict</span>
+TUPLE          <span class="token operator">=</span> <span class="token string">b't'</span>   <span class="token comment"># build tuple from topmost stack items</span>
+EMPTY_TUPLE    <span class="token operator">=</span> <span class="token string">b')'</span>   <span class="token comment"># push empty tuple</span>
+SETITEMS       <span class="token operator">=</span> <span class="token string">b'u'</span>   <span class="token comment"># modify dict by adding topmost key+value pairs</span>
+BINFLOAT       <span class="token operator">=</span> <span class="token string">b'G'</span>   <span class="token comment"># push float; arg is 8-byte float encoding</span>
 
+TRUE           <span class="token operator">=</span> <span class="token string">b'I01\n'</span>  <span class="token comment"># not an opcode; see INT docs in pickletools.py</span>
+FALSE          <span class="token operator">=</span> <span class="token string">b'I00\n'</span>  <span class="token comment"># not an opcode; see INT docs in pickletools.py</span>
 
+<span class="token comment"># Protocol 2</span>
 
+PROTO          <span class="token operator">=</span> <span class="token string">b'\x80'</span>  <span class="token comment"># identify pickle protocol</span>
+NEWOBJ         <span class="token operator">=</span> <span class="token string">b'\x81'</span>  <span class="token comment"># build object by applying cls.__new__ to argtuple</span>
+EXT1           <span class="token operator">=</span> <span class="token string">b'\x82'</span>  <span class="token comment"># push object from extension registry; 1-byte index</span>
+EXT2           <span class="token operator">=</span> <span class="token string">b'\x83'</span>  <span class="token comment"># ditto, but 2-byte index</span>
+EXT4           <span class="token operator">=</span> <span class="token string">b'\x84'</span>  <span class="token comment"># ditto, but 4-byte index</span>
+TUPLE1         <span class="token operator">=</span> <span class="token string">b'\x85'</span>  <span class="token comment"># build 1-tuple from stack top</span>
+TUPLE2         <span class="token operator">=</span> <span class="token string">b'\x86'</span>  <span class="token comment"># build 2-tuple from two topmost stack items</span>
+TUPLE3         <span class="token operator">=</span> <span class="token string">b'\x87'</span>  <span class="token comment"># build 3-tuple from three topmost stack items</span>
+NEWTRUE        <span class="token operator">=</span> <span class="token string">b'\x88'</span>  <span class="token comment"># push True</span>
+NEWFALSE       <span class="token operator">=</span> <span class="token string">b'\x89'</span>  <span class="token comment"># push False</span>
+LONG1          <span class="token operator">=</span> <span class="token string">b'\x8a'</span>  <span class="token comment"># push long from &lt; 256 bytes</span>
+LONG4          <span class="token operator">=</span> <span class="token string">b'\x8b'</span>  <span class="token comment"># push really big long</span>
 
+_tuplesize2code <span class="token operator">=</span> <span class="token punctuation">[</span>EMPTY_TUPLE<span class="token punctuation">,</span> TUPLE1<span class="token punctuation">,</span> TUPLE2<span class="token punctuation">,</span> TUPLE3<span class="token punctuation">]</span>
 
+<span class="token comment"># Protocol 3 (Python 3.x)</span>
 
+BINBYTES       <span class="token operator">=</span> <span class="token string">b'B'</span>   <span class="token comment"># push bytes; counted binary string argument</span>
+SHORT_BINBYTES <span class="token operator">=</span> <span class="token string">b'C'</span>   <span class="token comment">#  "     "   ;    "      "       "      " &lt; 256 bytes</span>
 
+<span class="token comment"># Protocol 4</span>
 
+SHORT_BINUNICODE <span class="token operator">=</span> <span class="token string">b'\x8c'</span>  <span class="token comment"># push short string; UTF-8 length &lt; 256 bytes</span>
+BINUNICODE8      <span class="token operator">=</span> <span class="token string">b'\x8d'</span>  <span class="token comment"># push very long string</span>
+BINBYTES8        <span class="token operator">=</span> <span class="token string">b'\x8e'</span>  <span class="token comment"># push very long bytes string</span>
+EMPTY_SET        <span class="token operator">=</span> <span class="token string">b'\x8f'</span>  <span class="token comment"># push empty set on the stack</span>
+ADDITEMS         <span class="token operator">=</span> <span class="token string">b'\x90'</span>  <span class="token comment"># modify set by adding topmost stack items</span>
+FROZENSET        <span class="token operator">=</span> <span class="token string">b'\x91'</span>  <span class="token comment"># build frozenset from topmost stack items</span>
+NEWOBJ_EX        <span class="token operator">=</span> <span class="token string">b'\x92'</span>  <span class="token comment"># like NEWOBJ but work with keyword only arguments</span>
+STACK_GLOBAL     <span class="token operator">=</span> <span class="token string">b'\x93'</span>  <span class="token comment"># same as GLOBAL but using names on the stacks</span>
+MEMOIZE          <span class="token operator">=</span> <span class="token string">b'\x94'</span>  <span class="token comment"># store top of the stack in memo</span>
+FRAME            <span class="token operator">=</span> <span class="token string">b'\x95'</span>  <span class="token comment"># indicate the beginning of a new frame</span>
 
+<span class="token comment"># Protocol 5</span>
 
+BYTEARRAY8       <span class="token operator">=</span> <span class="token string">b'\x96'</span>  <span class="token comment"># push bytearray</span>
+NEXT_BUFFER      <span class="token operator">=</span> <span class="token string">b'\x97'</span>  <span class="token comment"># push next out-of-band buffer</span>
+READONLY_BUFFER  <span class="token operator">=</span> <span class="token string">b'\x98'</span>  <span class="token comment"># make top of stack readonly</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-
-
-
-
-
-<p>部分内容引用：</p>
-<p><a target="_blank" rel="noopener" href="https://paper.seebug.org/1091/#jndi">https://paper.seebug.org/1091/#jndi</a></p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
@@ -457,7 +509,7 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://jlan.darkflow.top/posts/6ce81c59.html">http://jlan.darkflow.top/posts/6ce81c59.html</a>
+                    <a href="http://jlan.darkflow.top/posts/edc349ec.html">http://jlan.darkflow.top/posts/edc349ec.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -495,8 +547,12 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
+                                <a href="/tags/pickle/">
+                                    <span class="chip bg-color">pickle</span>
+                                </a>
+                            
+                                <a href="/tags/python/">
+                                    <span class="chip bg-color">python</span>
                                 </a>
                             
                         </div>
@@ -542,9 +598,10 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/edc349ec.html">
                     <div class="card-image">
@@ -562,9 +619,9 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -573,6 +630,7 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -595,13 +653,13 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/94f1bd4a.html">
+                <a href="/posts/6ce81c59.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Fastjson反序列化分析">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="JNDI安全详解">
                         
-                        <span class="card-title">Fastjson反序列化分析</span>
+                        <span class="card-title">JNDI安全详解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -621,6 +679,14 @@ JNDI（ Java Naming and Directory Interface***#Java命名和目录接口***）�
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
                 </div>
                 
             </div>

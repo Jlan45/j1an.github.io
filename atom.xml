@@ -6,7 +6,7 @@
   <link href="http://jlan.darkflow.top/atom.xml" rel="self"/>
   
   <link href="http://jlan.darkflow.top/"/>
-  <updated>2022-11-29T12:27:06.117Z</updated>
+  <updated>2022-12-01T17:27:29.215Z</updated>
   <id>http://jlan.darkflow.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>pickle源码详解</title>
+    <link href="http://jlan.darkflow.top/posts/edc349ec.html"/>
+    <id>http://jlan.darkflow.top/posts/edc349ec.html</id>
+    <published>2022-12-01T17:18:28.000Z</published>
+    <updated>2022-12-01T17:27:29.215Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;首先很重要的就是字节码，其实pickle经过了多次迭代已经加了很多内容了，我们直接到源码里去看看&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-python&quot; data-language=&quot;python&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    
+    <category term="pickle" scheme="http://jlan.darkflow.top/tags/pickle/"/>
+    
+    <category term="python" scheme="http://jlan.darkflow.top/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>JNDI安全详解</title>
@@ -126,7 +152,7 @@
     <link href="http://jlan.darkflow.top/posts/70165cdf.html"/>
     <id>http://jlan.darkflow.top/posts/70165cdf.html</id>
     <published>2022-11-13T15:18:22.000Z</published>
-    <updated>2022-11-29T12:26:42.956Z</updated>
+    <updated>2022-11-29T12:43:45.786Z</updated>
     
     
       
@@ -407,27 +433,6 @@
     
     
     <summary type="html">&lt;p&gt;BUU第三份&lt;/p&gt;</summary>
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Ethernaut记录</title>
-    <link href="http://jlan.darkflow.top/posts/b1d79a49.html"/>
-    <id>http://jlan.darkflow.top/posts/b1d79a49.html</id>
-    <published>2022-08-22T03:36:13.000Z</published>
-    <updated>2022-09-26T15:38:44.901Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Fallback&quot;&gt;&lt;a href=&quot;#Fallback&quot; class=&quot;headerlink&quot;</summary>
-        
-      
     
     
     
