@@ -621,13 +621,6 @@
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/Java/</loc>
-    <lastmod>2022-12-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jlan.darkflow.top/tags/CTF/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -649,7 +642,7 @@
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
+    <loc>http://jlan.darkflow.top/tags/Java/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -663,14 +656,21 @@
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</loc>
+    <loc>http://jlan.darkflow.top/tags/RCE/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/RCE/</loc>
+    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
+    <lastmod>2022-12-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</loc>
     <lastmod>2022-12-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
