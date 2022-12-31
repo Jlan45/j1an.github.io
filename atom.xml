@@ -6,7 +6,7 @@
   <link href="http://jlan.darkflow.top/atom.xml" rel="self"/>
   
   <link href="http://jlan.darkflow.top/"/>
-  <updated>2022-12-04T17:08:56.653Z</updated>
+  <updated>2022-12-31T14:04:38.508Z</updated>
   <id>http://jlan.darkflow.top/</id>
   
   <author>
@@ -15,6 +15,93 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2022年终</title>
+    <link href="http://jlan.darkflow.top/posts/d8189907.html"/>
+    <id>http://jlan.darkflow.top/posts/d8189907.html</id>
+    <published>2022-12-31T14:04:38.000Z</published>
+    <updated>2022-12-31T14:04:38.508Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://unpkg.com/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java-sec-code环境测试指北</title>
+    <link href="http://jlan.darkflow.top/posts/3ce7c20f.html"/>
+    <id>http://jlan.darkflow.top/posts/3ce7c20f.html</id>
+    <published>2022-12-30T10:10:50.000Z</published>
+    <updated>2022-12-30T10:36:02.003Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;好棒的测试环境，几乎涵盖所有类型的java漏洞了，首先要感谢一下JoyChou师傅的环境：&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://jlan.darkflow.top/posts/0.html"/>
+    <id>http://jlan.darkflow.top/posts/0.html</id>
+    <published>2022-12-15T07:14:19.008Z</published>
+    <updated>2022-12-15T07:14:21.465Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://unpkg.com/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://jlan.darkflow.top/posts/0.html"/>
+    <id>http://jlan.darkflow.top/posts/0.html</id>
+    <published>2022-12-15T07:14:14.779Z</published>
+    <updated>2022-12-15T07:15:58.240Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;商用路由器-5&lt;/p&gt;
+&lt;p&gt;存在RCECVE，题目要求破解密码登录成功&lt;/p&gt;
+&lt;p&gt;CVE-2022-32548&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;nmap</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>pickle源码详解</title>
@@ -70,7 +157,7 @@
     <link href="http://jlan.darkflow.top/posts/94f1bd4a.html"/>
     <id>http://jlan.darkflow.top/posts/94f1bd4a.html</id>
     <published>2022-11-29T08:08:33.000Z</published>
-    <updated>2022-12-10T18:54:59.434Z</updated>
+    <updated>2022-12-12T16:13:24.423Z</updated>
     
     
       
@@ -115,7 +202,7 @@
     <link href="http://jlan.darkflow.top/posts/2f60179e.html"/>
     <id>http://jlan.darkflow.top/posts/2f60179e.html</id>
     <published>2022-11-21T14:16:57.000Z</published>
-    <updated>2022-11-21T21:55:15.556Z</updated>
+    <updated>2022-12-30T10:01:15.690Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;CC链碎片&quot;&gt;&lt;a href=&quot;#CC链碎片&quot; class=&quot;headerlink&quot; title=&quot;CC链碎片&quot;&gt;&lt;/a&gt;CC链碎片&lt;/h1&gt;&lt;p&gt;众所周知，CC链本质上就是对不同的反序列化进行拼凑得到的，那么我们只要将其中的碎片进行总结再加以利用就可以构造出所有的CC链，这篇水文就是用来总结CC中的所有碎片的&lt;/p&gt;</summary>
@@ -357,85 +444,6 @@
     <summary type="html">&lt;h1 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot;</summary>
         
       
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>MTCTF 2022</title>
-    <link href="http://jlan.darkflow.top/posts/94d6ea88.html"/>
-    <id>http://jlan.darkflow.top/posts/94d6ea88.html</id>
-    <published>2022-09-17T10:33:19.000Z</published>
-    <updated>2022-09-26T15:38:44.908Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;babyjava&quot;&gt;&lt;a href=&quot;#babyjava&quot; class=&quot;headerlink&quot; title=&quot;babyjava&quot;&gt;&lt;/a&gt;babyjava&lt;/h2&gt;&lt;p&gt;直接搜Xpath注入工具&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>PHP Trick</title>
-    <link href="http://jlan.darkflow.top/posts/95491106.html"/>
-    <id>http://jlan.darkflow.top/posts/95491106.html</id>
-    <published>2022-08-30T01:09:53.000Z</published>
-    <updated>2022-10-25T16:39:01.964Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;PHP-Trick&quot;&gt;&lt;a href=&quot;#PHP-Trick&quot; class=&quot;headerlink&quot; title=&quot;PHP Trick&quot;&gt;&lt;/a&gt;PHP Trick&lt;/h1&gt;&lt;h2 id=&quot;反序列化&quot;&gt;&lt;a href=&quot;#反序列化&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>CTFshowJava</title>
-    <link href="http://jlan.darkflow.top/posts/efe011ec.html"/>
-    <id>http://jlan.darkflow.top/posts/efe011ec.html</id>
-    <published>2022-08-29T11:56:06.000Z</published>
-    <updated>2022-09-26T15:38:44.895Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;CTFshow-Java&quot;&gt;&lt;a href=&quot;#CTFshow-Java&quot; class=&quot;headerlink&quot; title=&quot;CTFshow Java&quot;&gt;&lt;/a&gt;CTFshow Java&lt;/h1&gt;&lt;p&gt;全部题都是struts2&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>BUUCTF记录3</title>
-    <link href="http://jlan.darkflow.top/posts/560a0a51.html"/>
-    <id>http://jlan.darkflow.top/posts/560a0a51.html</id>
-    <published>2022-08-24T13:01:02.000Z</published>
-    <updated>2022-11-23T16:47:10.719Z</updated>
-    
-    
-    <summary type="html">&lt;p&gt;BUU第三份&lt;/p&gt;</summary>
     
     
     
