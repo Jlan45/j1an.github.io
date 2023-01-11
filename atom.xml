@@ -6,7 +6,7 @@
   <link href="http://jlan.darkflow.top/atom.xml" rel="self"/>
   
   <link href="http://jlan.darkflow.top/"/>
-  <updated>2022-12-31T15:51:19.000Z</updated>
+  <updated>2023-01-11T08:28:22.148Z</updated>
   <id>http://jlan.darkflow.top/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>日报 Personal ver.</title>
+    <link href="http://jlan.darkflow.top/posts/f35ad716.html"/>
+    <id>http://jlan.darkflow.top/posts/f35ad716.html</id>
+    <published>2023-01-10T02:14:09.000Z</published>
+    <updated>2023-01-11T08:28:22.148Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;不定期更新日报&lt;/p&gt;
+&lt;p&gt;20220111&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;具体了解完了Java静态代理和动态代理的区别，看到了动态代理的好处&lt;/li&gt;
+&lt;li&gt;FastJson具体执行流程又跟一遍（果然几天不看就会忘掉）&lt;/li&gt;
+&lt;li&gt;看了一些javascript的正则</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>2022年终</title>
@@ -42,7 +68,7 @@
     <link href="http://jlan.darkflow.top/posts/3ce7c20f.html"/>
     <id>http://jlan.darkflow.top/posts/3ce7c20f.html</id>
     <published>2022-12-30T10:10:50.000Z</published>
-    <updated>2023-01-01T16:03:56.352Z</updated>
+    <updated>2023-01-02T14:13:31.532Z</updated>
     
     
       
@@ -123,9 +149,9 @@
     
     
     
-    <category term="python" scheme="http://jlan.darkflow.top/tags/python/"/>
-    
     <category term="pickle" scheme="http://jlan.darkflow.top/tags/pickle/"/>
+    
+    <category term="python" scheme="http://jlan.darkflow.top/tags/python/"/>
     
   </entry>
   
@@ -421,27 +447,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;工具大全&quot;&gt;&lt;a href=&quot;#工具大全&quot; class=&quot;headerlink&quot; title=&quot;工具大全&quot;&gt;&lt;/a&gt;工具大全&lt;/h1&gt;&lt;h2 id=&quot;信息收集&quot;&gt;&lt;a href=&quot;#信息收集&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>URL和HTTP协议</title>
-    <link href="http://jlan.darkflow.top/posts/11f51f93.html"/>
-    <id>http://jlan.darkflow.top/posts/11f51f93.html</id>
-    <published>2022-09-26T14:16:35.000Z</published>
-    <updated>2022-09-26T15:38:44.912Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot;</summary>
         
       
     

