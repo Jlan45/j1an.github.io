@@ -5,11 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="J1an&#39;s Little World">
-    <meta name="description" content="商用路由器-5
-存在RCECVE，题目要求破解密码登录成功
-CVE-2022-32548
-nmap 172.29.217.200 -A -p443
-Starting Nmap 7.93 ( https:&amp;#x2F;&amp;#x2F;nmap.or">
+    <meta name="description" content="                ApplicationFilterConfig filterConfig &amp;#x3D;
+                        new ApplicationFilterConfig(this, en">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -356,7 +353,7 @@ Starting Nmap 7.93 ( https:&amp;#x2F;&amp;#x2F;nmap.or">
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-12-15
+                    2023-01-18
                 </div>
                 
 
@@ -380,31 +377,29 @@ Starting Nmap 7.93 ( https:&amp;#x2F;&amp;#x2F;nmap.or">
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>商用路由器-5</p>
-<p>存在RCECVE，题目要求破解密码登录成功</p>
-<p>CVE-2022-32548</p>
-<pre class="line-numbers language-none"><code class="language-none">nmap 172.29.217.200 -A -p443
-Starting Nmap 7.93 ( https:&#x2F;&#x2F;nmap.org ) at 2022-12-15 15:01 CST
-Nmap scan report for 172.29.217.200
-Host is up (0.047s latency).
+                <pre class="line-numbers language-none"><code class="language-none">                ApplicationFilterConfig filterConfig &#x3D;
+                        new ApplicationFilterConfig(this, entry.getValue());&#x2F;&#x2F;这里的value是一个filterDef，这么看来config是在初始化的时候动态生成的
+                filterConfigs.put(name, filterConfig);&#x2F;&#x2F;将filter放入filterConfigs中
+这两句后面应该用的上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-PORT    STATE SERVICE    VERSION
-443&#x2F;tcp open  ssl&#x2F;https?
-| ssl-cert: Subject: commonName&#x3D;IOS-Self-Signed-Certificate-1450466688
-| Subject Alternative Name: DNS:ChuoLiFenFa-2022.
-| Not valid before: 1993-03-01T00:02:02
-|_Not valid after:  2020-01-01T00:00:00
-|_ssl-date: 1993-03-01T00:02:38+00:00; -29y289d06h58m41s from scanner time.
+<pre class="line-numbers language-none"><code class="language-none">                fireLifecycleEvent(Lifecycle.CONFIGURE_START_EVENT, null);
+        for (FilterMap filterMap : webxml.getFilterMappings()) &#123;
+            context.addFilterMap(filterMap);
+        &#125;
+        通过一个for循环把注解和web.xml里面的数据都拿出来
+从这里开始加的filtermap
+filterMaps.add(filterMap);最后就这一句nnd
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-Host script results:
-|_clock-skew: -10881d06h58m41s
-
-Service detection performed. Please report any incorrect results at https:&#x2F;&#x2F;nmap.org&#x2F;submit&#x2F; .
-Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301181724518.png"></p>
+<p>filtermap要长成这样</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202301181728936.png"></p>
+<pre class="line-numbers language-none"><code class="language-none">public void addFilterMap(FilterMap filterMap) &#123;
+    validateFilterMap(filterMap);
+    &#x2F;&#x2F; Add this filter mapping to our registered set
+    filterMaps.add(filterMap);
+    fireContainerEvent(&quot;addFilterMap&quot;, filterMap);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
                 
             </div>
             <hr/>
@@ -511,9 +506,10 @@ Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/posts/0.html">
                     <div class="card-image">
@@ -531,9 +527,9 @@ Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -542,6 +538,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -552,13 +549,13 @@ Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/edc349ec.html">
+                <a href="/posts/f35ad716.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="pickle源码详解">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="日报 Personal ver.">
                         
-                        <span class="card-title">pickle源码详解</span>
+                        <span class="card-title">日报 Personal ver.</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -569,7 +566,7 @@ Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-10
                             </span>
                         <span class="publish-author">
                             
@@ -578,18 +575,6 @@ Nmap done: 1 IP address (1 host up) scanned in 11.66 seconds
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/pickle/">
-                        <span class="chip bg-color">pickle</span>
-                    </a>
-                    
-                    <a href="/tags/python/">
-                        <span class="chip bg-color">python</span>
-                    </a>
-                    
                 </div>
                 
             </div>

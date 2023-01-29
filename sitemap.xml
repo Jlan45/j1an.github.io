@@ -4,7 +4,7 @@
   <url>
     <loc>http://jlan.darkflow.top/posts/0.html</loc>
     
-    <lastmod>2023-01-18</lastmod>
+    <lastmod>2023-01-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -29,25 +29,7 @@
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/posts/0.html</loc>
-    
-    <lastmod>2022-12-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://jlan.darkflow.top/posts/d8189907.html</loc>
-    
-    <lastmod>2022-12-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://jlan.darkflow.top/posts/0.html</loc>
     
     <lastmod>2022-12-31</lastmod>
     
@@ -668,14 +650,14 @@
 
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/Java/</loc>
+    <loc>http://jlan.darkflow.top/tags/Note/</loc>
     <lastmod>2023-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/Note/</loc>
+    <loc>http://jlan.darkflow.top/tags/Java/</loc>
     <lastmod>2023-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -717,14 +699,14 @@
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
+    <loc>http://jlan.darkflow.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</loc>
     <lastmod>2023-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/</loc>
+    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
     <lastmod>2023-01-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
