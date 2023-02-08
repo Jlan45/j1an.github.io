@@ -6,7 +6,7 @@
   <link href="http://jlan.darkflow.top/atom.xml" rel="self"/>
   
   <link href="http://jlan.darkflow.top/"/>
-  <updated>2023-01-29T09:53:41.044Z</updated>
+  <updated>2023-02-08T06:25:09.243Z</updated>
   <id>http://jlan.darkflow.top/</id>
   
   <author>
@@ -15,6 +15,122 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://jlan.darkflow.top/posts/0.html"/>
+    <id>http://jlan.darkflow.top/posts/0.html</id>
+    <published>2023-02-08T05:28:26.537Z</published>
+    <updated>2023-02-08T06:25:09.243Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+        &lt;h2 id=&quot;针对需要yso序列化数据的&quot;   &gt;
+          &lt;a href=&quot;#针对需要yso序列化数据的&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>TemplatesImpl在反序列化链中的作用</title>
+    <link href="http://jlan.darkflow.top/posts/43ed0f37.html"/>
+    <id>http://jlan.darkflow.top/posts/43ed0f37.html</id>
+    <published>2023-02-06T03:31:54.000Z</published>
+    <updated>2023-02-06T08:56:01.157Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+        &lt;h2 id=&quot;起因&quot;   &gt;
+          &lt;a href=&quot;#起因&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>JDK7u21反序列化分析</title>
+    <link href="http://jlan.darkflow.top/posts/5cd8cac3.html"/>
+    <id>http://jlan.darkflow.top/posts/5cd8cac3.html</id>
+    <published>2023-02-05T06:49:50.000Z</published>
+    <updated>2023-02-06T07:47:59.008Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;其实一开始就应该先跟这个的QAQ&lt;/p&gt;
+
+        &lt;h2 id=&quot;前置知识&quot;   &gt;
+          &lt;a href=&quot;#前置知识&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Java" scheme="http://jlan.darkflow.top/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring反序列化链</title>
+    <link href="http://jlan.darkflow.top/posts/78b72c5e.html"/>
+    <id>http://jlan.darkflow.top/posts/78b72c5e.html</id>
+    <published>2023-02-04T14:30:03.000Z</published>
+    <updated>2023-02-04T14:32:03.141Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://unpkg.com/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Java" scheme="http://jlan.darkflow.top/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安卓逆向入门</title>
+    <link href="http://jlan.darkflow.top/posts/6680e10d.html"/>
+    <id>http://jlan.darkflow.top/posts/6680e10d.html</id>
+    <published>2023-01-31T01:36:22.000Z</published>
+    <updated>2023-01-31T01:36:23.002Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;script type=&quot;text&amp;#x2F;javascript&quot; src=&quot;https://unpkg.com/kity@2.0.4/dist/kity.min.js&quot;&gt;&lt;/script&gt;&lt;script type=&quot;text&amp;#x2F;javascript&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -43,7 +159,7 @@
     <link href="http://jlan.darkflow.top/posts/f35ad716.html"/>
     <id>http://jlan.darkflow.top/posts/f35ad716.html</id>
     <published>2023-01-10T02:14:09.000Z</published>
-    <updated>2023-01-11T10:16:56.522Z</updated>
+    <updated>2023-02-06T07:48:36.782Z</updated>
     
     
       
@@ -51,7 +167,7 @@
         
         
     <summary type="html">&lt;p&gt;不定期更新日报&lt;/p&gt;
-&lt;p&gt;20220111&lt;/p&gt;
+&lt;p&gt;20230111&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;具体了解完了Java静态代理和动态代理的区别，看到了动态代理的好处&lt;/li&gt;
 &lt;li&gt;FastJson具体执行流程又跟一遍（果然几天不看就会忘掉）&lt;/li&gt;
@@ -90,14 +206,14 @@
     <link href="http://jlan.darkflow.top/posts/3ce7c20f.html"/>
     <id>http://jlan.darkflow.top/posts/3ce7c20f.html</id>
     <published>2022-12-30T10:10:50.000Z</published>
-    <updated>2023-01-02T14:13:31.532Z</updated>
+    <updated>2023-01-02T14:13:31.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;好棒的测试环境，几乎涵盖所有类型的java漏洞了，首先要感谢一下JoyChou师傅的环境：&lt;a</summary>
+    <summary type="html">&lt;p&gt;好棒的测试环境，几乎涵盖所有类型的java漏洞了，首先要感谢一下JoyChou师傅的环境：&lt;span class=&quot;exturl&quot;&gt;&lt;a class=&quot;exturl__link&quot;  </summary>
         
       
     
@@ -144,7 +260,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;JNDI&quot;&gt;&lt;a href=&quot;#JNDI&quot; class=&quot;headerlink&quot; title=&quot;JNDI&quot;&gt;&lt;/a&gt;JNDI&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">
+        &lt;h1 id=&quot;JNDI&quot;   &gt;
+          &lt;a href=&quot;#JNDI&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#JNDI&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -191,7 +309,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Hibernate&quot;&gt;&lt;a href=&quot;#Hibernate&quot; class=&quot;headerlink&quot; title=&quot;Hibernate&quot;&gt;&lt;/a&gt;Hibernate&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">
+        &lt;h1 id=&quot;Hibernate&quot;   &gt;
+          &lt;a href=&quot;#Hibernate&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#Hibernate&quot;</summary>
         
       
     
@@ -208,7 +328,9 @@
     <updated>2022-12-30T10:01:15.690Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;CC链碎片&quot;&gt;&lt;a href=&quot;#CC链碎片&quot; class=&quot;headerlink&quot; title=&quot;CC链碎片&quot;&gt;&lt;/a&gt;CC链碎片&lt;/h1&gt;&lt;p&gt;众所周知，CC链本质上就是对不同的反序列化进行拼凑得到的，那么我们只要将其中的碎片进行总结再加以利用就可以构造出所有的CC链，这篇水文就是用来总结CC中的所有碎片的&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;CC链碎片&quot;   &gt;
+          &lt;a href=&quot;#CC链碎片&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#CC链碎片&quot; class=&quot;headerlink&quot; title=&quot;CC链碎片&quot;&gt;&lt;/a&gt;CC链碎片&lt;/h1&gt;
+      &lt;p&gt;众所周知，CC链本质上就是对不同的反序列化进行拼凑得到的，那么我们只要将其中的碎片进行总结再加以利用就可以构造出所有的CC链，这篇水文就是用来总结CC中的所有碎片的&lt;/p&gt;</summary>
     
     
     
@@ -229,7 +351,9 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;CommonsCollections1&quot;&gt;&lt;a href=&quot;#CommonsCollections1&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">
+        &lt;h2 id=&quot;CommonsCollections1&quot;   &gt;
+          &lt;a href=&quot;#CommonsCollections1&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a</summary>
         
       
     
@@ -254,7 +378,9 @@
         
     <summary type="html">&lt;p&gt;之前在关于Java的小点中介绍了一些Java安全入门所需要掌握的基本知识，那么这里我们就要来看看具体的对RMI进行攻击的方法&lt;/p&gt;
 &lt;p&gt;首先要知道什么是RMI&lt;/p&gt;
-&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;</summary>
+
+        &lt;h2 id=&quot;简介&quot;   &gt;
+          &lt;a href=&quot;#简介&quot;</summary>
         
       
     
@@ -294,7 +420,9 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;ROME&quot;&gt;&lt;a href=&quot;#ROME&quot; class=&quot;headerlink&quot; title=&quot;ROME&quot;&gt;&lt;/a&gt;ROME&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-java&quot;</summary>
+    <summary type="html">
+        &lt;h2 id=&quot;ROME&quot;   &gt;
+          &lt;a href=&quot;#ROME&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#ROME&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -315,7 +443,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;低权限寻找提权手段&quot;&gt;&lt;a href=&quot;#低权限寻找提权手段&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">
+        &lt;h1 id=&quot;低权限寻找提权手段&quot;   &gt;
+          &lt;a href=&quot;#低权限寻找提权手段&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#低权限寻找提权手段&quot;</summary>
         
       
     
@@ -336,115 +466,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;低权限搜集本机密码文件&quot;&gt;&lt;a href=&quot;#低权限搜集本机密码文件&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Windows内网域渗透2</title>
-    <link href="http://jlan.darkflow.top/posts/a613eb0e.html"/>
-    <id>http://jlan.darkflow.top/posts/a613eb0e.html</id>
-    <published>2022-10-18T09:08:49.000Z</published>
-    <updated>2022-10-20T17:42:05.228Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;BloodHound使用&quot;&gt;&lt;a href=&quot;#BloodHound使用&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>无公网服务器反弹shell</title>
-    <link href="http://jlan.darkflow.top/posts/23df454a.html"/>
-    <id>http://jlan.darkflow.top/posts/23df454a.html</id>
-    <published>2022-10-17T11:21:52.000Z</published>
-    <updated>2022-10-17T11:53:34.398Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;用SakuraFrp（因为免费），&lt;a</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Windows内网域渗透</title>
-    <link href="http://jlan.darkflow.top/posts/a0d619b1.html"/>
-    <id>http://jlan.darkflow.top/posts/a0d619b1.html</id>
-    <published>2022-10-12T12:41:04.000Z</published>
-    <updated>2022-10-16T19:41:36.919Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Windows内网域渗透&quot;&gt;&lt;a href=&quot;#Windows内网域渗透&quot; class=&quot;headerlink&quot; title=&quot;Windows内网域渗透&quot;&gt;&lt;/a&gt;Windows内网域渗透&lt;/h1&gt;&lt;h2 id=&quot;域森林下的内网信息搜集&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    
-    <category term="内网渗透" scheme="http://jlan.darkflow.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Kali从0到1</title>
-    <link href="http://jlan.darkflow.top/posts/8b8ae737.html"/>
-    <id>http://jlan.darkflow.top/posts/8b8ae737.html</id>
-    <published>2022-09-30T00:13:21.000Z</published>
-    <updated>2022-10-02T13:46:03.280Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;工具大全&quot;&gt;&lt;a href=&quot;#工具大全&quot; class=&quot;headerlink&quot; title=&quot;工具大全&quot;&gt;&lt;/a&gt;工具大全&lt;/h1&gt;&lt;h2 id=&quot;信息收集&quot;&gt;&lt;a href=&quot;#信息收集&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>URL和HTTP协议</title>
-    <link href="http://jlan.darkflow.top/posts/11f51f93.html"/>
-    <id>http://jlan.darkflow.top/posts/11f51f93.html</id>
-    <published>2022-09-26T14:16:35.000Z</published>
-    <updated>2022-09-26T15:38:44.912Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;URL&quot;&gt;&lt;a href=&quot;#URL&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">
+        &lt;h1 id=&quot;低权限搜集本机密码文件&quot;   &gt;
+          &lt;a href=&quot;#低权限搜集本机密码文件&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a</summary>
         
       
     
