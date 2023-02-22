@@ -6,7 +6,7 @@
   <link href="http://jlan.darkflow.top/atom.xml" rel="self"/>
   
   <link href="http://jlan.darkflow.top/"/>
-  <updated>2023-02-08T06:25:09.243Z</updated>
+  <updated>2023-02-12T10:08:04.348Z</updated>
   <id>http://jlan.darkflow.top/</id>
   
   <author>
@@ -20,8 +20,31 @@
     <title></title>
     <link href="http://jlan.darkflow.top/posts/0.html"/>
     <id>http://jlan.darkflow.top/posts/0.html</id>
+    <published>2023-02-12T10:08:04.347Z</published>
+    <updated>2023-02-12T10:08:04.348Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;public V put(K key, V value) &amp;#123;
+    if (key &amp;#x3D;&amp;#x3D; null)
+    </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://jlan.darkflow.top/posts/0.html"/>
+    <id>http://jlan.darkflow.top/posts/0.html</id>
     <published>2023-02-08T05:28:26.537Z</published>
-    <updated>2023-02-08T06:25:09.243Z</updated>
+    <updated>2023-02-08T06:40:29.438Z</updated>
     
     
       
@@ -44,7 +67,7 @@
     <link href="http://jlan.darkflow.top/posts/43ed0f37.html"/>
     <id>http://jlan.darkflow.top/posts/43ed0f37.html</id>
     <published>2023-02-06T03:31:54.000Z</published>
-    <updated>2023-02-06T08:56:01.157Z</updated>
+    <updated>2023-02-08T06:40:29.437Z</updated>
     
     
       
@@ -67,7 +90,7 @@
     <link href="http://jlan.darkflow.top/posts/5cd8cac3.html"/>
     <id>http://jlan.darkflow.top/posts/5cd8cac3.html</id>
     <published>2023-02-05T06:49:50.000Z</published>
-    <updated>2023-02-06T07:47:59.008Z</updated>
+    <updated>2023-02-22T15:38:56.583Z</updated>
     
     
       
@@ -93,7 +116,7 @@
     <link href="http://jlan.darkflow.top/posts/78b72c5e.html"/>
     <id>http://jlan.darkflow.top/posts/78b72c5e.html</id>
     <published>2023-02-04T14:30:03.000Z</published>
-    <updated>2023-02-04T14:32:03.141Z</updated>
+    <updated>2023-02-08T06:40:29.436Z</updated>
     
     
       
@@ -116,7 +139,7 @@
     <link href="http://jlan.darkflow.top/posts/6680e10d.html"/>
     <id>http://jlan.darkflow.top/posts/6680e10d.html</id>
     <published>2023-01-31T01:36:22.000Z</published>
-    <updated>2023-01-31T01:36:23.002Z</updated>
+    <updated>2023-02-08T06:40:29.438Z</updated>
     
     
       
@@ -446,29 +469,6 @@
     <summary type="html">
         &lt;h1 id=&quot;低权限寻找提权手段&quot;   &gt;
           &lt;a href=&quot;#低权限寻找提权手段&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a href=&quot;#低权限寻找提权手段&quot;</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Windows内网域渗透3</title>
-    <link href="http://jlan.darkflow.top/posts/d114db98.html"/>
-    <id>http://jlan.darkflow.top/posts/d114db98.html</id>
-    <published>2022-10-19T11:22:18.000Z</published>
-    <updated>2022-10-20T17:42:05.229Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-        &lt;h1 id=&quot;低权限搜集本机密码文件&quot;   &gt;
-          &lt;a href=&quot;#低权限搜集本机密码文件&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;a</summary>
         
       
     

