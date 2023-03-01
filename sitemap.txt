@@ -1,3 +1,4 @@
+http://jlan.darkflow.top/friends/index.html
 http://jlan.darkflow.top/posts/5cd8cac3.html
 http://jlan.darkflow.top/posts/0.html
 http://jlan.darkflow.top/posts/0.html
@@ -25,7 +26,6 @@ http://jlan.darkflow.top/posts/a3c4d7f5.html
 http://jlan.darkflow.top/categories/index.html
 http://jlan.darkflow.top/about/index.html
 http://jlan.darkflow.top/tags/index.html
-http://jlan.darkflow.top/friends/index.html
 http://jlan.darkflow.top/posts/11612.html
 http://jlan.darkflow.top/posts/210d3ac7.html
 http://jlan.darkflow.top/posts/42117.html
@@ -82,8 +82,8 @@ http://jlan.darkflow.top/tags/CTF/
 http://jlan.darkflow.top/tags/web/
 http://jlan.darkflow.top/tags/SSTI/
 http://jlan.darkflow.top/tags/Python/
-http://jlan.darkflow.top/tags/SQL/
 http://jlan.darkflow.top/tags/RCE/
 http://jlan.darkflow.top/tags/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F/
+http://jlan.darkflow.top/tags/SQL/
 http://jlan.darkflow.top/tags/pickle/
 http://jlan.darkflow.top/tags/python/
