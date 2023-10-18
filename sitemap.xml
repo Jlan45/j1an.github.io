@@ -713,13 +713,6 @@
 
   
   <url>
-    <loc>http://jlan.darkflow.top/tags/Java/</loc>
-    <lastmod>2023-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://jlan.darkflow.top/tags/Note/</loc>
     <lastmod>2023-10-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -741,7 +734,21 @@
   </url>
   
   <url>
+    <loc>http://jlan.darkflow.top/tags/Java/</loc>
+    <lastmod>2023-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://jlan.darkflow.top/tags/SSTI/</loc>
+    <lastmod>2023-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
     <lastmod>2023-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -756,13 +763,6 @@
   
   <url>
     <loc>http://jlan.darkflow.top/tags/RCE/</loc>
-    <lastmod>2023-10-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://jlan.darkflow.top/tags/SQL/</loc>
     <lastmod>2023-10-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
