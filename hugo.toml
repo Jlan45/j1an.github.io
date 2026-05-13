@@ -67,9 +67,9 @@ summaryLength = 120
     image = 'https://s1.ax1x.com/2023/01/04/pSFroYn.jpg'
   [[params.home.friends.items]]
     name = 'GZTime'
-    url = 'https://blog.gztime.cc/'
+    url = 'https://blog.gzti.me/'
     description = 'Walking on the Time Axis'
-    image = 'https://grakep.ch/static/media/gztime_2019.e255b81a.png'
+    image = 'https://cdn.gzti.me/avatar/Icon_2021.png'
 
 [params.home.shell]
   title = 'rainbow@pixel:~'
