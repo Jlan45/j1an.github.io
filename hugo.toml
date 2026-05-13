@@ -69,7 +69,7 @@ summaryLength = 120
     name = 'GZTime'
     url = 'https://blog.gzti.me/'
     description = 'Walking on the Time Axis'
-    image = 'https://cdn.gzti.me/avatar/Icon_2021.png'
+    image = 'https://cdn.gzti.me/avatar/GZTime_2021.png'
 
 [params.home.shell]
   title = 'rainbow@pixel:~'
