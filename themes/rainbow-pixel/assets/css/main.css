@@ -124,16 +124,13 @@ code {
 }
 
 .brand-mark {
-  display: grid;
+  display: block;
   width: 34px;
   height: 34px;
-  place-items: center;
+  object-fit: cover;
   border: 3px solid var(--text);
   border-radius: 0;
-  background: var(--yellow);
   box-shadow: 4px 4px 0 var(--text);
-  color: var(--text);
-  font-family: var(--font-pixel);
 }
 
 .brand-text {
