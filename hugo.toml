@@ -1,0 +1,138 @@
+baseURL = 'https://jlan45.github.io/'
+languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+title = "J1an's Little World"
+theme = 'rainbow-pixel'
+
+enableRobotsTXT = true
+summaryLength = 120
+
+[params]
+  description = '记录技术、阅读与生活里的长期思考。'
+  author = 'Jlan'
+  mainSections = ['posts']
+
+[params.home]
+  eyebrow = 'J1an的赛博自留地'
+  title = "J1an's Little World"
+  description = '记录技术、阅读与生活里的长期思考。'
+  primaryButtonText = '读取文章'
+  secondaryButtonText = '浏览标签'
+  recentTitle = '最近文章'
+  allPostsText = '全部文章'
+  emptyTitle = '还没有文章'
+  emptyText = '运行'
+  emptyCommand = 'hugo new content posts/第一篇文章.md'
+  emptySuffix = '创建第一篇文章。'
+
+[params.home.friends]
+  enabled = true
+  title = '友链'
+  description = '一些值得顺手拜访的赛博邻居。'
+
+  [[params.home.friends.items]]
+    name = '何小洋'
+    url = 'https://www.yuque.com/boyyang'
+    description = '前端大佬'
+    image = 'https://jlan-blog.oss-cn-beijing.aliyuncs.com/hxy.jpg'
+  [[params.home.friends.items]]
+    name = 'BlackSeven'
+    url = 'https://blackseven.top'
+    description = '是很努力很厉害的人'
+    image = 'https://jlan-blog.oss-cn-beijing.aliyuncs.com/BlackSeven.jpg'
+  [[params.home.friends.items]]
+    name = 'Nightu'
+    url = 'https://nightu.darkflow.top'
+    description = 'Pwn,Pwn,Pwn!'
+    image = 'https://blog-1310088624.cos.ap-nanjing.myqcloud.com/blog/QQ%E5%9B%BE%E7%89%8720220919213937.jpg'
+  [[params.home.friends.items]]
+    name = 'h0cksr'
+    url = 'http://h0cksr.xyz'
+    description = '打web的超牛学长'
+    image = 'https://jlan-blog.oss-cn-beijing.aliyuncs.com/IMG_3717.JPG'
+  [[params.home.friends.items]]
+    name = 'Lightu'
+    url = 'https://lu1u.xyz/'
+    description = '永远的头头'
+    image = 'https://blog-1309321804.cos.ap-nanjing.myqcloud.com/blog/lu1u.png'
+  [[params.home.friends.items]]
+    name = 'crazyman_army'
+    url = 'https://crazymanarmy.github.io/'
+    description = '目前只会misc和取证的菜鸡空白,未来打算做做pwn'
+    image = 'https://s2.loli.net/2023/01/27/XA2Yr7TuwcNWhOp.jpg'
+  [[params.home.friends.items]]
+    name = 'Pe4cefulSnow'
+    url = 'http://pe4cefulsnow.top'
+    description = '学习ing'
+    image = 'https://s1.ax1x.com/2023/01/04/pSFroYn.jpg'
+  [[params.home.friends.items]]
+    name = 'GZTime'
+    url = 'https://blog.gztime.cc/'
+    description = 'Walking on the Time Axis'
+    image = 'https://grakep.ch/static/media/gztime_2019.e255b81a.png'
+
+[params.home.shell]
+  title = 'rainbow@pixel:~'
+  prompt = 'visitor@rainbow:~$'
+  welcome = '输入 help 查看可用命令。'
+  placeholder = '输入命令...'
+
+[params.home.about]
+  enabled = true
+  windowTitle = 'about.me'
+  eyebrow = 'About'
+  title = '你好，我是 J1an。'
+  titles = [
+    '你好，我是 J1an。',
+    'Hello, I am J1an.',
+    'こんにちは、J1anです。',
+    '안녕하세요, 저는 J1an입니다.'
+  ]
+  titleInterval = 4000
+  body = '一个致力于在Go和安全的世界里巡逻的赛博保安'
+  motto = '生命不息，折腾不止。'
+  tags = ['Security', 'Backend', 'Agent', 'Web/Reverse', 'CTF', 'Golang']
+
+
+  [[params.home.about.links]]
+    name = 'GitHub'
+    url = 'https://github.com/Jlan45/'
+    icon = 'github'
+  [[params.home.about.links]]
+    name = 'X'
+    url = 'https://x.com/J1an45'
+    icon = 'twitter'
+  [[params.home.about.links]]
+    name = 'Email'
+    url = 'mailto:jlan45@outlook.com'
+    icon = 'mail'
+  [[params.home.about.links]]
+    name = 'Instagram'
+    url = 'https://instagram.com/justjlan'
+    icon = 'instagram'
+  [[params.home.about.links]]
+    name = 'QQ'
+    url = 'https://qm.qq.com/'
+    icon = 'qq'
+
+[taxonomies]
+  tag = 'tags'
+  category = 'categories'
+
+[menu]
+  [[menu.main]]
+    name = '首页'
+    pageRef = '/'
+    weight = 10
+  [[menu.main]]
+    name = '文章'
+    pageRef = '/posts'
+    weight = 20
+  [[menu.main]]
+    name = '标签'
+    pageRef = '/tags'
+    weight = 30
+  [[menu.main]]
+    name = '友链'
+    pageRef = '/friends'
+    weight = 40

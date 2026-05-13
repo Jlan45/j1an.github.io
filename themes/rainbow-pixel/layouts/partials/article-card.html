@@ -1,0 +1,18 @@
+<article class="article-card">
+  <a class="article-card-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+  <div class="article-meta">
+    {{ partial "meta.html" . }}
+  </div>
+  {{ with .Description }}
+    <p>{{ . }}</p>
+  {{ else }}
+    <p>{{ .Summary | plainify }}</p>
+  {{ end }}
+  {{ with .Params.tags }}
+    <div class="term-row" aria-label="标签">
+      {{ range first 4 . }}
+        <a href="{{ (printf "tags/%s" (. | urlize)) | relURL }}">#{{ . }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</article>

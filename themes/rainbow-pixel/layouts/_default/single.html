@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <article class="container article">
+    <header class="article-header">
+      {{ with .Params.categories }}
+        <div class="term-row">
+          {{ range . }}
+            <a href="{{ (printf "categories/%s" (. | urlize)) | relURL }}">{{ . }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+      <h1>{{ .Title }}</h1>
+      <div class="article-meta">{{ partial "meta.html" . }}</div>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{ with .Params.tags }}
+      <footer class="article-tags">
+        <span>标签</span>
+        <div class="term-row">
+          {{ range . }}
+            <a href="{{ (printf "tags/%s" (. | urlize)) | relURL }}">#{{ . }}</a>
+          {{ end }}
+        </div>
+      </footer>
+    {{ end }}
+  </article>
+{{ end }}

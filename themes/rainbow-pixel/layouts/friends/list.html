@@ -1,0 +1,35 @@
+{{ define "main" }}
+  {{ $friends := site.Params.home.friends }}
+  <section class="container page-head">
+    <p class="eyebrow">Links</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </section>
+
+  <section class="container friends-section friends-page">
+    {{ with $friends.items }}
+      <div class="friends-grid">
+        {{ range . }}
+          <a class="friend-card" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span class="friend-avatar">
+              {{ with .image }}
+                <img src="{{ . }}" alt="">
+              {{ else }}
+                {{ .avatar | default (substr .name 0 2) }}
+              {{ end }}
+            </span>
+            <span class="friend-copy">
+              <strong>{{ .name }}</strong>
+              {{ with .description }}<small>{{ . }}</small>{{ end }}
+            </span>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <div class="empty-state">
+        <h2>还没有友链</h2>
+        <p>在 <code>hugo.toml</code> 的 <code>params.home.friends.items</code> 里添加友链。</p>
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

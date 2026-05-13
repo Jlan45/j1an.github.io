@@ -1,0 +1,12 @@
+name = 'Rainbow Pixel'
+license = 'MIT'
+licenselink = 'https://opensource.org/licenses/MIT'
+description = 'A rainbow pixel Hugo theme for expressive personal writing.'
+homepage = 'https://example.org/'
+tags = ['blog', 'minimal', 'responsive']
+features = ['responsive', 'taxonomy', 'rss']
+min_version = '0.120.0'
+
+[author]
+  name = 'Jlan'
+  homepage = 'https://example.org/'

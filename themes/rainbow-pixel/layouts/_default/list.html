@@ -1,0 +1,40 @@
+{{ define "main" }}
+  <section class="container page-head">
+    <p class="eyebrow">{{ .Kind }}</p>
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
+  </section>
+
+  <section class="container content-section">
+    {{ if eq .Kind "term" }}
+      <div class="article-list">
+        {{ range .Pages }}
+          {{ partial "article-card.html" . }}
+        {{ end }}
+      </div>
+    {{ else if eq .Kind "taxonomy" }}
+      <div class="terms-grid">
+        {{ range .Data.Terms.Alphabetical }}
+          <a class="term-card" href="{{ .Page.RelPermalink }}">
+            <span>{{ .Page.Title }}</span>
+            <strong>{{ .Count }}</strong>
+          </a>
+        {{ end }}
+      </div>
+    {{ else }}
+      {{ if .Pages }}
+        <div class="article-list">
+          {{ range .Paginator.Pages }}
+            {{ partial "article-card.html" . }}
+          {{ end }}
+        </div>
+        {{ template "_internal/pagination.html" . }}
+      {{ else }}
+        <div class="empty-state">
+          <h2>这里还没有内容</h2>
+          <p>发布文章后，它们会显示在这里。</p>
+        </div>
+      {{ end }}
+    {{ end }}
+  </section>
+{{ end }}
