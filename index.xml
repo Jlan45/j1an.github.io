@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>J1an's Little World</title><link>https://jlan.darkflow.top/</link><description>Recent content on J1an's Little World</description><generator>Hugo</generator><language>zh-cn</language><atom:link href="https://jlan.darkflow.top/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>J1an's Little World</title><link>https://jlan.darkflow.top/</link><description>Recent content on J1an's Little World</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 02 May 2026 02:52:39 +0800</lastBuildDate><atom:link href="https://jlan.darkflow.top/index.xml" rel="self" type="application/rss+xml"/><item><title>New Start</title><link>https://jlan.darkflow.top/posts/newstart/</link><pubDate>Sat, 02 May 2026 02:52:39 +0800</pubDate><guid>https://jlan.darkflow.top/posts/newstart/</guid><description>&lt;h1 id="hello-world-从像素点开始的赛博巡逻"&gt;Hello World: 从像素点开始的赛博巡逻&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;生命不息，折腾不止。&amp;rdquo; —— 这不仅是 Motto，也是这块新领地的第一行代码。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="0x01-为什么是现在"&gt;0x01 为什么是现在？&lt;/h2&gt;
+&lt;p&gt;其实自大学毕业之后，我的旧博客就已经基本荒废了，直到前几天我回去访问发现所有的静态资源都掉了，而且自从毕业上班以后就很少有精力再写很长的技术分享类型的文章了，所以正好接着放假的契机，把博客完整的重整一下。&lt;/p&gt;
+&lt;h2 id="0x02-这里的像素块里藏着什么"&gt;0x02 这里的像素块里藏着什么？&lt;/h2&gt;
+&lt;p&gt;这个博客未来会涉及的内容板块：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;巡逻日志 (Security &amp;amp; Research)&lt;/strong&gt;：分享关于 Web 安全、逆向工程或 CTF 的实战与思考。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;地基工程 (Golang &amp;amp; Backend)&lt;/strong&gt;：记录在 Go 语言开发、后端架构设计中的坑与填坑指南。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;赛博装备 (Agent &amp;amp; Tools)&lt;/strong&gt;：探索 AI Agent、自动化工具以及提升效率的各种“折腾”心得。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;离线生活 (Daily &amp;amp; Life)&lt;/strong&gt;：偶尔脱离终端，记录阅读、生活与那些非代码的瞬间。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;信号增强 (Networking)&lt;/strong&gt;：分享网络协议、分布式系统以及连接世界的底层逻辑。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;像素实验室 (Experiments)&lt;/strong&gt;：存放各种奇奇怪怪的代码实验与视觉探索。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="0x03-关于这个像素花园"&gt;0x03 关于这个“像素花园”&lt;/h2&gt;
+&lt;p&gt;你可以顺便夸夸这个 &lt;strong&gt;Rainbow Pixel&lt;/strong&gt; 主题，这个主题是我和GPT，Gemini边聊边修补出来的，这两个关键词分别来自于我的取向（LGBT）和爱好（像素风），希望你会喜欢&lt;/p&gt;
+&lt;h2 id="0x04-信号发射完毕"&gt;0x04 信号发射完毕&lt;/h2&gt;
+&lt;p&gt;最后希望大家能在这里学到新东西，也希望未来的自己能继续保持创作的热情。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;EOF&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>
