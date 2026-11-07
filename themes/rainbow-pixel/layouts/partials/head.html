@@ -1,7 +1,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light">
-<link rel="icon" href="/head.png">
+{{ with resources.Get "head.png" }}
+  {{ $icon := .Resize "32x32 png" }}
+  {{ $touch := .Resize "180x180 png" }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ $icon.RelPermalink }}">
+  <link rel="apple-touch-icon" href="{{ $touch.RelPermalink }}">
+{{ end }}
 
 {{ $description := .Description | default site.Params.description | default site.Title }}
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
@@ -19,6 +24,7 @@
 
 {{ $styles := resources.Get "css/main.css" | minify | fingerprint }}
 {{ if .IsHome }}
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/css/xterm.css">
+  {{ $xtermCSS := resources.Get "vendor/xterm/xterm.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $xtermCSS.RelPermalink }}" integrity="{{ $xtermCSS.Data.Integrity }}">
 {{ end }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">

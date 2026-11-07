@@ -110,7 +110,7 @@
       const filename = args[0];
       if (!filename) return ["cat: missing operand"];
       const dir = getDir(cwd);
-      const file = dir[filename];
+      const file = dir && dir[filename];
       if (!file || file.type !== "file") return [`cat: ${filename}: No such file`];
       
       const result = [file.content || "(empty file)"];
@@ -135,6 +135,7 @@
     const parts = buffer.trim().split(/\s+/);
     const last = parts[parts.length - 1] || "";
     const dir = getDir(cwd);
+    if (!dir) return;
     const matches = Object.keys(dir).filter(n => n.startsWith(last));
     
     if (matches.length === 1) {
@@ -173,7 +174,10 @@
   }
 
   function bootTerminal() {
-    if (!window.Terminal) return;
+    if (!window.Terminal) {
+      root.textContent = "终端加载失败，请刷新页面重试。";
+      return;
+    }
 
     term = new window.Terminal({
       cols: 60, rows: 15, cursorBlink: true, convertEol: true,
@@ -187,6 +191,17 @@
     });
 
     term.open(root);
+    if (window.FitAddon) {
+      const fitAddon = new window.FitAddon.FitAddon();
+      term.loadAddon(fitAddon);
+      const fit = () => {
+        // 只按宽度适配列数，行数保持固定
+        const dims = fitAddon.proposeDimensions();
+        if (dims && dims.cols) term.resize(dims.cols, 15);
+      };
+      fit();
+      new ResizeObserver(fit).observe(root);
+    }
     term.writeln("\x1b[38;2;66;215;245mRainbow Pixel Shell v1.2.0 (Stable)\x1b[0m");
     term.writeln(welcome);
     term.write(getPrompt());

@@ -72,12 +72,12 @@
             <span class="blue"></span>
             <span class="violet"></span>
           </div>
-          {{ $fs := dict "about.me" (dict "type" "file" "content" ($about.body | default "") "url" "/about") }}
+          {{ $fs := dict "about.me" (dict "type" "file" "content" ($about.body | default "")) }}
           
           {{/* 构建 posts 目录 */}}
           {{ $postsList := dict }}
           {{ range first 10 $pages }}
-            {{ $postsList = merge $postsList (dict .Title (dict "type" "file" "content" .Summary "url" .RelPermalink)) }}
+            {{ $postsList = merge $postsList (dict .Title (dict "type" "file" "content" (.Summary | plainify | htmlUnescape) "url" .RelPermalink)) }}
           {{ end }}
           {{ $fs = merge $fs (dict "posts" (dict "type" "dir" "children" $postsList)) }}
 
@@ -160,7 +160,8 @@
 {{ end }}
 
 {{ define "scripts" }}
-  <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm@5.5.0/lib/xterm.js" defer></script>
+  {{ $xterm := slice (resources.Get "vendor/xterm/xterm.js") (resources.Get "vendor/xterm/addon-fit.js") | resources.Concat "js/xterm.bundle.js" | fingerprint }}
+  <script src="{{ $xterm.RelPermalink }}" integrity="{{ $xterm.Data.Integrity }}" defer></script>
   {{ $shell := resources.Get "js/shell.js" | minify | fingerprint }}
   <script src="{{ $shell.RelPermalink }}" integrity="{{ $shell.Data.Integrity }}" defer></script>
 {{ end }}
